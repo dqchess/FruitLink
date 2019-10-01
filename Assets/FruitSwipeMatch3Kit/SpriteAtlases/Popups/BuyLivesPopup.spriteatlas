@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BuyLivesPopup
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 01041ade51d8842509d5f944fe0e4e3f, type: 3}
+    totalSpriteSurfaceArea: 889636
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: aba4c0b2c42ce4807a684878e54befc1, type: 3}
+  - {fileID: 21300000, guid: 81f46e553518645289fa664f50be21c5, type: 3}
+  - {fileID: 21300000, guid: 985504377e6684a8d8079df6fe1a7139, type: 3}
+  - {fileID: 21300000, guid: b46137e860f5b4736bc7b886dfdfd1c7, type: 3}
+  - {fileID: 21300000, guid: ef71d249d7fed41ffb17a1029dcfe3b4, type: 3}
+  - {fileID: 21300000, guid: 6edad2bde7db641e2bbc8580bb972a73, type: 3}
+  - {fileID: 21300000, guid: 0216b62f0373547079ca4b655f292840, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Button
+  - Coins
+  - ButtonGrey
+  - Background
+  - ListBackground
+  - CloseButton
+  - LifeIcon
+  m_Tag: BuyLivesPopup
+  m_IsVariant: 0

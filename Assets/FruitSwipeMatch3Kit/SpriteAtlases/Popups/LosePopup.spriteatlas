@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LosePopup
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: cd2a3ad4b309e4ec99f7d16011994b40, type: 3}
+    totalSpriteSurfaceArea: 1700973
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a21c76206a22244e89b4a1b3d7b9ee7d, type: 3}
+  - {fileID: 21300000, guid: 516cb3d1928124c188a48e7adcba7c3e, type: 3}
+  - {fileID: 21300000, guid: e9e9f412468a443918683428dcbbff58, type: 3}
+  - {fileID: 21300000, guid: a633dc138e9bf4075bfa96a840a78cab, type: 3}
+  - {fileID: 21300000, guid: 3a6b4c95d4ecc453697670fc54370cd9, type: 3}
+  - {fileID: 21300000, guid: 5f4091f5d3abc422e89bb0de69f5b607, type: 3}
+  - {fileID: 21300000, guid: e35b8e061e2fd4e91861d485343b9dd8, type: 3}
+  - {fileID: 21300000, guid: 88fe2de6950794ebd9432f53a3def12a, type: 3}
+  - {fileID: 21300000, guid: bbe8cd57a32c54dbbbcae02042c46165, type: 3}
+  - {fileID: 21300000, guid: 71f838e789d724227864b9bd86738378, type: 3}
+  - {fileID: 21300000, guid: 914eb9f75bc7b48c1a39fdae95663327, type: 3}
+  - {fileID: 21300000, guid: 1d2391097be7648b6b9148cadf29eba5, type: 3}
+  - {fileID: 21300000, guid: f0cce149ee86d4665b71075541c6b57d, type: 3}
+  - {fileID: 21300000, guid: 48c446d96662c4d80b8e24597a6b3769, type: 3}
+  - {fileID: 21300000, guid: d166d8ba4f3184d86944c9be617509e0, type: 3}
+  - {fileID: 21300000, guid: 48aa7f7b78e9240b0bb4ddf993fb8b55, type: 3}
+  - {fileID: 21300000, guid: 06bb855c6e4754790b716779c3d0745c, type: 3}
+  - {fileID: 21300000, guid: 2127ce7c3862343ac8d377ca8d0a9552, type: 3}
+  - {fileID: 21300000, guid: 879c5dec181e64ebd8c287f85409136f, type: 3}
+  - {fileID: 21300000, guid: f9aac7fd2744d403cb63cc8d2f80ac95, type: 3}
+  - {fileID: 21300000, guid: 6f7dbb4fa0fee4318b6d28a54347567a, type: 3}
+  - {fileID: 21300000, guid: 2f09eb9f5ca644e13bc579a7359d8fb8, type: 3}
+  - {fileID: 21300000, guid: eb4abcef7ab5342e5b08809d29b72b8d, type: 3}
+  - {fileID: 21300000, guid: 8fdb4cffc65104f309101f0700989eb1, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - FailIcon
+  - BraidRight
+  - HeartBroken
+  - ButtonBlue
+  - Body
+  - CloseButton
+  - Circle
+  - ListBackground
+  - Button
+  - Mouth
+  - ButtonGreen
+  - Shine
+  - Rain
+  - Bubble
+  - MenuIcon
+  - ReplayIcon
+  - BraidLeft
+  - CheeksNose
+  - Background
+  - HandRight
+  - Head
+  - TickIcon
+  - HandLeft
+  - Tear
+  m_Tag: LosePopup
+  m_IsVariant: 0

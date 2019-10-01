@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfdd7c0f464d4dc1af13c143f933dcc, type: 3}
+  m_Name: GameConfiguration
+  m_EditorClassIdentifier: 
+  DefaultTileScore: 10
+  MaxLives: 5
+  TimeToNextLife: 300
+  LivesRefillCost: 100
+  InitialCoins: 1500
+  NumTilesNeededForRegularBooster: 5
+  NumTilesNeededForCrossBooster: 7
+  NumTilesNeededForStarBooster: 9
+  CrusherPowerupAmount: 5
+  CrusherPowerupPrice: 100
+  BombPowerupAmount: 5
+  BombPowerupPrice: 100
+  SwapPowerupAmount: 5
+  SwapPowerupPrice: 100
+  ColorBombPowerupAmount: 5
+  ColorBombPowerupPrice: 100
+  NumExtraMoves: 5
+  ExtraMovesCost: 100
+  DefaultZoomLevel: 1.3
+  DefaultCanvasScalingMatch: 1
+  ResolutionOverrides:
+  - Name: iPhone X
+    Width: 1125
+    Height: 2436
+    ZoomLevel: 1.2
+    CanvasScalingMatch: 0
+  - Name: Samsung Galaxy Note 8
+    Width: 1440
+    Height: 2960
+    ZoomLevel: 1.2
+    CanvasScalingMatch: 0
+  RewardedAdCoins: 100
+  IapItems:
+  - StoreId: com.gamevanilla.fruitswipematch3.coinspack5
+    NumCoins: 3600
+    Discount: 40
+    MostPopular: 0
+    BestValue: 1
+    CoinIcon: 5
+  - StoreId: com.gamevanilla.fruitswipematch3.coinspack4
+    NumCoins: 1200
+    Discount: 20
+    MostPopular: 0
+    BestValue: 0
+    CoinIcon: 4
+  - StoreId: com.gamevanilla.fruitswipematch3.coinspack3
+    NumCoins: 950
+    Discount: 15
+    MostPopular: 1
+    BestValue: 0
+    CoinIcon: 3
+  - StoreId: com.gamevanilla.fruitswipematch3.coinspack2
+    NumCoins: 400
+    Discount: 5
+    MostPopular: 0
+    BestValue: 0
+    CoinIcon: 2
+  - StoreId: com.gamevanilla.fruitswipematch3.coinspack1
+    NumCoins: 150
+    Discount: 0
+    MostPopular: 0
+    BestValue: 0
+    CoinIcon: 1

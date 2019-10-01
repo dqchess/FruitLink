@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Home
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: db04efa1a9d3c4b28b50297e681b0328, type: 3}
+    - {fileID: 102900000, guid: 783a12c8ece214f95b514fa582a3eaea, type: 3}
+    - {fileID: 102900000, guid: 0a83cd60434734cdf9a9388e084014f4, type: 3}
+    - {fileID: 102900000, guid: afe11003982de4df29f279b2d38db949, type: 3}
+    - {fileID: 102900000, guid: 03f116aac5bbc4d59a519b6ffcbbb0e2, type: 3}
+    totalSpriteSurfaceArea: 2741711
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 4d774f107075d415a84b25170b3c37a6, type: 3}
+  - {fileID: 21300000, guid: 89facb608f72a449aa09ebac95d1c368, type: 3}
+  - {fileID: 21300000, guid: 6a366670c176d4f09aaae0e51e9236e4, type: 3}
+  - {fileID: 21300000, guid: e6a2f831a2737420e9a203922fee2de9, type: 3}
+  - {fileID: 21300000, guid: ec1aa07181e3c4ce48bdecc806a47778, type: 3}
+  - {fileID: 21300000, guid: fce7b9e1f9755479abdf58df461a4a52, type: 3}
+  - {fileID: 21300000, guid: d4c132d21af64412f8fc8a1001931f1b, type: 3}
+  - {fileID: 21300000, guid: 538866d26bedc45fe9c74c3e847b0102, type: 3}
+  - {fileID: 21300000, guid: 72b9d694e9a2149189049d5611ce9ebd, type: 3}
+  - {fileID: 21300000, guid: 0aeeeba42700d46f48f2aae4e4db050e, type: 3}
+  - {fileID: 21300000, guid: 1068b4b49536849838ca4f4c97fe4eeb, type: 3}
+  - {fileID: 21300000, guid: 8a2f6dc4a39c34be8b1a50b2f8fee63a, type: 3}
+  - {fileID: 21300000, guid: 633347d4203114ed3bcd4b99fb7ec49a, type: 3}
+  - {fileID: 21300000, guid: 9db77fd456a244a008b84575126149a4, type: 3}
+  - {fileID: 21300000, guid: 4c50f5655ed7c460881c768a23ef87db, type: 3}
+  - {fileID: 21300000, guid: 1abf0a5652e494e70bfa162802b84aca, type: 3}
+  - {fileID: 21300000, guid: 5cb5c096bdeae405bb50a3f8df5898ee, type: 3}
+  - {fileID: 21300000, guid: 641eed379a1a24796addf5cd1cf6e25f, type: 3}
+  - {fileID: 21300000, guid: 02b20cc780bb24d2487c7d93a829a958, type: 3}
+  - {fileID: 21300000, guid: d4553b084c5b14986ba62403874acf4a, type: 3}
+  - {fileID: 21300000, guid: 0a2302181c3ca42adac33766eb121a6a, type: 3}
+  - {fileID: 21300000, guid: 641c4c18062224765b65e1adb88675e3, type: 3}
+  - {fileID: 21300000, guid: d8a5dfa88b532484abd781cfcc2519ad, type: 3}
+  - {fileID: 21300000, guid: 1e6b14f8778b441f5b9e850ea8cac98c, type: 3}
+  - {fileID: 21300000, guid: 8f6956197d34049d5ad1476f5e46c51b, type: 3}
+  - {fileID: 21300000, guid: cefb524a98de14a30b5f78d3f7123c59, type: 3}
+  - {fileID: 21300000, guid: b0991baa1ae9c48738ae3c1722183aac, type: 3}
+  - {fileID: 21300000, guid: 35a45baafc978406487f519fe6897c53, type: 3}
+  - {fileID: 21300000, guid: ba3da4caacdaf44ffb73af224c7c795c, type: 3}
+  - {fileID: 21300000, guid: 538a250b3be5e4308a535602fe14a9ed, type: 3}
+  - {fileID: 21300000, guid: c84fa70b4547b4856b718b19334478f9, type: 3}
+  - {fileID: 21300000, guid: 32243b1c20e304bed980846de9fbf481, type: 3}
+  - {fileID: 21300000, guid: 8390059cd82874dfba6ebe102667cf07, type: 3}
+  - {fileID: 21300000, guid: 71039b9ca2d324d5a995317738fd6fac, type: 3}
+  - {fileID: 21300000, guid: 2d64cbac854ea405a8442dc47c5911d9, type: 3}
+  - {fileID: 21300000, guid: 972cabeccc996496d84d3fbe52e770e0, type: 3}
+  - {fileID: 21300000, guid: ee67e90dcfaa84a45b39d058f42b5a0e, type: 3}
+  - {fileID: 21300000, guid: 2157c34d20a824c639aa9e5be485b492, type: 3}
+  - {fileID: 21300000, guid: b6f4aecd6ec0446f59eb33d643e19377, type: 3}
+  - {fileID: 21300000, guid: 93beb5ddea24c44f7bd87440d54118e7, type: 3}
+  - {fileID: 21300000, guid: 841374ed02a1a4d0e8a50e9bec5f8533, type: 3}
+  - {fileID: 21300000, guid: 039e514eaf48d4fb9bececbc8d887308, type: 3}
+  - {fileID: 21300000, guid: 566d965eade9e494d9ca78a280101d4b, type: 3}
+  - {fileID: 21300000, guid: 20d2d0febf85147abb2e920bf2b7b790, type: 3}
+  - {fileID: 21300000, guid: e8554a0fa57f64820bc8a01564bb3631, type: 3}
+  - {fileID: 21300000, guid: bfb2c02f4305e4b4ea6e062e5e941ba9, type: 3}
+  - {fileID: 21300000, guid: 6b2f962f26b214a72890d5e3df01d2df, type: 3}
+  - {fileID: 21300000, guid: 6c646b3fbabb44122a48ddc90c2c3c18, type: 3}
+  - {fileID: 21300000, guid: 4b546aef25331482189c6ca45711024f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Match3KitText
+  - Paws
+  - ArmLeft
+  - GreenItem
+  - EyesClosed
+  - Head
+  - PurpleItem
+  - Flag
+  - ColorBombShine
+  - ButtonRoundGrey
+  - OrangeShine
+  - BraidRight
+  - BraidLeft
+  - BlueItem
+  - EarRight
+  - Head
+  - ColorBomb
+  - MusicIcon
+  - MouthOpen
+  - EarLeft
+  - GreenShine
+  - EyesOpen
+  - PurpleShine
+  - EyesClosed
+  - RadialShine
+  - Body
+  - GroundGrass
+  - ArmRight
+  - Shadow
+  - YellowItem
+  - HairTop
+  - WhiteStar
+  - BlueShine
+  - OrangeItem
+  - FruitSwipeText
+  - GamevanillaCopyright
+  - MouthClosed
+  - PlayButton
+  - Shine
+  - YellowShine
+  - Sparkle
+  - ButtonRoundGreen
+  - SettingsIcon
+  - Nose
+  - SoundIcon
+  - Fruits
+  - Points
+  - HandRight
+  - EyesOpen
+  m_Tag: Home
+  m_IsVariant: 0

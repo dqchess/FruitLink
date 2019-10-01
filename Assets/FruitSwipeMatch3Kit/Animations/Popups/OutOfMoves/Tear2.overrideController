@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Tear2
+  m_Controller: {fileID: 9100000, guid: f97322e09400d46e5bdcb838e677755c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c23355cdebe724d52882732ad8672c2e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c23355cdebe724d52882732ad8672c2e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 030a092c369974f8aae25e2a38d06074, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6a90f203902cc4a3e91ececdf30e2459, type: 2}
