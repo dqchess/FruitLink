@@ -22,11 +22,21 @@ PrefabInstance:
       propertyPath: BoosterSprite
       value: 
       objectReference: {fileID: 7919763555455353519}
+    - target: {fileID: 8637776762261885619, guid: bc9b6ece06bfc49e598acce97ca2507d,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637776762261885619, guid: bc9b6ece06bfc49e598acce97ca2507d,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.14
+      objectReference: {fileID: 0}
     - target: {fileID: 1405646044779758711, guid: bc9b6ece06bfc49e598acce97ca2507d,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8153c7f4ce9754d559039aa16c598a83,
+      objectReference: {fileID: 21300000, guid: 29bda84d86d578f4085aa01201710d0b,
         type: 3}
     - target: {fileID: 2361606083420574869, guid: bc9b6ece06bfc49e598acce97ca2507d,
         type: 3}

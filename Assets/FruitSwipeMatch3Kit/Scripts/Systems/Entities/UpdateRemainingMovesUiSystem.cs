@@ -45,7 +45,7 @@ namespace FruitSwipeMatch3Kit
         public void Initialize(int moves)
         {
             numRemainingMoves = moves;
-            label = GameObject.Find("MovesCanvas/MovesLeftBanner/AmountLabel").GetComponent<TextMeshProUGUI>();
+            label = GameplayUI.Instance.MoveLeftText;
             label.text = numRemainingMoves.ToString();
         }
     }

@@ -17,16 +17,21 @@ PrefabInstance:
       propertyPath: m_SerializedData.Type
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5453917370327554796, guid: bc9b6ece06bfc49e598acce97ca2507d,
+    - target: {fileID: 8637776762261885619, guid: bc9b6ece06bfc49e598acce97ca2507d,
         type: 3}
-      propertyPath: BoosterSprite
-      value: 
-      objectReference: {fileID: 7473844976582118984}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637776762261885619, guid: bc9b6ece06bfc49e598acce97ca2507d,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1405646044779758711, guid: bc9b6ece06bfc49e598acce97ca2507d,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a8d6fe62815494bb091ab539e7c0a237,
+      objectReference: {fileID: 21300000, guid: 067d2936e16bb5d4c80b8a97cb218c09,
         type: 3}
     - target: {fileID: 2361606083420574869, guid: bc9b6ece06bfc49e598acce97ca2507d,
         type: 3}
@@ -85,9 +90,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc9b6ece06bfc49e598acce97ca2507d, type: 3}
---- !u!212 &7473844976582118984 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3416043385950572350, guid: bc9b6ece06bfc49e598acce97ca2507d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5246789447733461366}
-  m_PrefabAsset: {fileID: 0}

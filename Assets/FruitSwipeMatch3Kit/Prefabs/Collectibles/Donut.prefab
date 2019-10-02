@@ -12,6 +12,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donut
       objectReference: {fileID: 0}
+    - target: {fileID: 1932905682369187486, guid: abc153195662b4ceabd5be658707e378,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 16f43fb8e360ae4418a38040a4b8d5b9,
+        type: 3}
     - target: {fileID: 1567915417869884209, guid: abc153195662b4ceabd5be658707e378,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,12 +73,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1932905682369187486, guid: abc153195662b4ceabd5be658707e378,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f5d21fa7d83ea4a2d8978968761c4464,
-        type: 3}
     - target: {fileID: 4571888376907096783, guid: abc153195662b4ceabd5be658707e378,
         type: 3}
       propertyPath: m_SerializedData.Type

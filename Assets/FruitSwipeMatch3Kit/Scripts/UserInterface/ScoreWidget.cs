@@ -70,7 +70,7 @@ namespace FruitSwipeMatch3Kit
                 girlAnimator.SetTrigger("Happy");
             }
 
-            var offset = 260.0f;
+            var offset = 220.0f;
             var localPosition = progressBarImage.transform.localPosition;
             star1Widget.transform.localPosition = localPosition +
                                                  new Vector3(

@@ -335,7 +335,7 @@ namespace FruitSwipeMatch3Kit
 
         public void ContinueGame()
         {
-            CloseTopCanvas();
+//            CloseTopCanvas();
 
             var numExtraMoves = GameConfig.NumExtraMoves;
             var world = World.Active;
@@ -360,7 +360,7 @@ namespace FruitSwipeMatch3Kit
 
         public void OnGameRestarted()
         {
-            CloseTopCanvas();
+            //CloseTopCanvas();
             RestartGame();
         }
 

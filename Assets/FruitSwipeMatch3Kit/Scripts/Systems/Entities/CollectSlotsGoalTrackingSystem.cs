@@ -34,7 +34,7 @@ namespace FruitSwipeMatch3Kit
         
         public void Initialize()
         {
-            goalsWidget = GameObject.Find("GoalsCanvas/GoalsWidget").GetComponent<GoalsWidget>();
+            goalsWidget = GameplayUI.Instance.GoalsWidget;
         }
 
         protected override void OnUpdate()

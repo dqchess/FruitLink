@@ -18,26 +18,13 @@ namespace FruitSwipeMatch3Kit
 		[SerializeField]
 		private PowerupType powerupType = PowerupType.Crusher;
 
-		[SerializeField]
-		private Sprite lockedSprite;
-
-		[SerializeField]
-		private Image powerupImage;
-
-		[SerializeField]
-		private Sprite moreSprite;
-
-		[SerializeField]
-		private Sprite amountSprite;
-
-		[SerializeField]
-		private GameObject button;
-
-		[SerializeField]
-		private Image buttonImage;
-
-		[SerializeField]
-		private TextMeshProUGUI amountText;
+		[SerializeField] private Image bgImage;
+		[SerializeField] private Sprite bgSprite;
+		[SerializeField] private Sprite lockedSprite;
+		[SerializeField] private Image powerupImage;
+		[SerializeField] private GameObject more;
+		[SerializeField] private GameObject button;
+		[SerializeField] private TextMeshProUGUI amountText;
 #pragma warning restore 649
 
 		private GameScreen gameScreen;
@@ -52,24 +39,26 @@ namespace FruitSwipeMatch3Kit
 
 			if (isAvailable)
 			{
+				bgImage.sprite = bgSprite;
+				powerupImage.gameObject.SetActive(true);
 				powerupImage.sprite = boosterSprite;
 				powerupImage.SetNativeSize();
 				if (amount > 0)
 				{
 					amountText.text = PlayerPrefs.GetInt($"num_boosters_{(int)powerupType}").ToString();
-					buttonImage.sprite = amountSprite;
+					more.SetActive(false);
 					amountText.gameObject.SetActive(true);
 				}
 				else
 				{
-					buttonImage.sprite = moreSprite;
+					more.SetActive(true);
 					amountText.gameObject.SetActive(false);
 				}
 			}
 			else
 			{
-				powerupImage.sprite = lockedSprite;
-				powerupImage.SetNativeSize();
+				bgImage.sprite = lockedSprite;
+				powerupImage.gameObject.SetActive(false);
 				button.SetActive(false);
 			}
 		}
@@ -82,12 +71,12 @@ namespace FruitSwipeMatch3Kit
 			var amount = PlayerPrefs.GetInt($"num_boosters_{(int)powerupType}");
 			if (amount > 0)
 			{
-				buttonImage.sprite = amountSprite;
+				more.SetActive(false);
 				ResolvePowerup(powerupType);
 				amount -= 1;
 				if (amount == 0)
 				{
-					buttonImage.sprite = moreSprite;
+					more.SetActive(true);
 					amountText.gameObject.SetActive(false);
 				}
 
@@ -116,7 +105,7 @@ namespace FruitSwipeMatch3Kit
 			}
 			else
 			{
-				buttonImage.sprite = moreSprite;
+				more.SetActive(true);
 				amountText.gameObject.SetActive(false);
 				gameScreen.OpenPopup<BuyPowerupsPopup>("Popups/BuyPowerupsPopup",
 					popup => { popup.Initialize(powerupType, this); });
@@ -127,13 +116,13 @@ namespace FruitSwipeMatch3Kit
 		{
 			if (newAmount > 0)
 			{
-				buttonImage.sprite = amountSprite;
+				more.SetActive(false);
 				amountText.gameObject.SetActive(true);
 				amountText.text = newAmount.ToString();
 			}
 			else
 			{
-				buttonImage.sprite = moreSprite;
+				more.SetActive(true);
 				amountText.gameObject.SetActive(false);
 			}
 		}

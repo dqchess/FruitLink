@@ -66,7 +66,7 @@ namespace FruitSwipeMatch3Kit
             var numLives = PlayerPrefs.GetInt("num_lives");
             var maxLives = gameConfig.MaxLives;
             numLivesText.text = numLives.ToString();
-            buttonImage.sprite = numLives == maxLives ? disabledButtonSprite : enabledButtonSprite;
+            buttonImage.gameObject.SetActive(numLives < maxLives);
             freeLivesChecker.Subscribe(OnLivesCountdownUpdated, OnLivesCountdownFinished);
         }
 
@@ -94,7 +94,7 @@ namespace FruitSwipeMatch3Kit
             numLivesText.text = lives.ToString();
             lifeImage.sprite = lives == 0 ? disabledLifeSprite : enabledLifeSprite;
             var maxLives = gameConfig.MaxLives;
-            buttonImage.sprite = lives == maxLives ? disabledButtonSprite : enabledButtonSprite;
+            buttonImage.gameObject.SetActive(lives < maxLives);
         }
 
         private void OnLivesCountdownFinished(int lives)
@@ -102,7 +102,7 @@ namespace FruitSwipeMatch3Kit
             timeToNextLifeText.text = "Full";
             numLivesText.text = lives.ToString();
             lifeImage.sprite = lives == 0 ? disabledLifeSprite : enabledLifeSprite;
-            buttonImage.sprite = disabledButtonSprite;
+            buttonImage.gameObject.SetActive(false);
         }
     }
 }

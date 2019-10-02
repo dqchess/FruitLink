@@ -33,7 +33,13 @@ namespace FruitSwipeMatch3Kit
         private ParticleSystem star3Particles;
 
         [SerializeField]
-        private Sprite disabledStarSprite;
+        private Sprite disabledStar1Sprite;
+        
+        [SerializeField]
+        private Sprite disabledStar2Sprite;
+        
+        [SerializeField]
+        private Sprite disabledStar3Sprite;
 #pragma warning restore 649
 
         protected override void Awake()
@@ -45,30 +51,32 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(star1Particles);
             Assert.IsNotNull(star2Particles);
             Assert.IsNotNull(star3Particles);
-            Assert.IsNotNull(disabledStarSprite);
+            Assert.IsNotNull(disabledStar1Sprite);
+            Assert.IsNotNull(disabledStar2Sprite);
+            Assert.IsNotNull(disabledStar3Sprite);
         }
 
         public void SetStars(int stars)
         {
             if (stars == 0)
             {
-                star1.sprite = disabledStarSprite;
-                star2.sprite = disabledStarSprite;
-                star3.sprite = disabledStarSprite;
+                star1.sprite = disabledStar1Sprite;
+                star2.sprite = disabledStar2Sprite;
+                star3.sprite = disabledStar3Sprite;
                 star1Particles.gameObject.SetActive(false);
                 star2Particles.gameObject.SetActive(false);
                 star3Particles.gameObject.SetActive(false);
             }
             else if (stars == 1)
             {
-                star2.sprite = disabledStarSprite;
-                star3.sprite = disabledStarSprite;
+                star2.sprite = disabledStar2Sprite;
+                star3.sprite = disabledStar3Sprite;
                 star2Particles.gameObject.SetActive(false);
                 star3Particles.gameObject.SetActive(false);
             }
             else if (stars == 2)
             {
-                star3.sprite = disabledStarSprite;
+                star3.sprite = disabledStar3Sprite;
                 star3Particles.gameObject.SetActive(false);
             }
         }

@@ -33,7 +33,13 @@ namespace FruitSwipeMatch3Kit
         private TextMeshProUGUI levelText;
         
         [SerializeField]
-        private Sprite enabledStarSprite;
+        private Sprite enabledStar1Sprite;
+        
+        [SerializeField]
+        private Sprite enabledStar2Sprite;
+        
+        [SerializeField]
+        private Sprite enabledStar3Sprite;
 
         [SerializeField]
         private Image star1Image;
@@ -60,7 +66,9 @@ namespace FruitSwipeMatch3Kit
         {
             base.Awake();
             Assert.IsNotNull(levelText);
-            Assert.IsNotNull(enabledStarSprite);
+            Assert.IsNotNull(enabledStar1Sprite);
+            Assert.IsNotNull(enabledStar2Sprite);
+            Assert.IsNotNull(enabledStar3Sprite);
             Assert.IsNotNull(star1Image);
             Assert.IsNotNull(star2Image);
             Assert.IsNotNull(star3Image);
@@ -78,18 +86,18 @@ namespace FruitSwipeMatch3Kit
             var stars = PlayerPrefs.GetInt("level_stars_" + numLevel);
             if (stars == 1)
             {
-                star1Image.sprite = enabledStarSprite;
+                star1Image.sprite = enabledStar1Sprite;
             }
             else if (stars == 2)
             {
-                star1Image.sprite = enabledStarSprite;
-                star2Image.sprite = enabledStarSprite;
+                star1Image.sprite = enabledStar1Sprite;
+                star2Image.sprite = enabledStar2Sprite;
             }
             else if (stars == 3)
             {
-                star1Image.sprite = enabledStarSprite;
-                star2Image.sprite = enabledStarSprite;
-                star3Image.sprite = enabledStarSprite;
+                star1Image.sprite = enabledStar1Sprite;
+                star2Image.sprite = enabledStar2Sprite;
+                star3Image.sprite = enabledStar3Sprite;
             }
 
             var randomColors = new List<ColorTileType>();

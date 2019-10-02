@@ -27,8 +27,8 @@ namespace FruitSwipeMatch3Kit
         public void Initialize()
         {
             score = 0;
-            
-            scoreWidget = GameObject.Find("ScoreCanvas/ScoreWidget").GetComponent<ScoreWidget>();
+
+            scoreWidget = GameplayUI.Instance.ScoreWidget;
             scoreWidget.UpdateScore(score);
 
             var gameScreen = Object.FindObjectOfType<GameScreen>();
