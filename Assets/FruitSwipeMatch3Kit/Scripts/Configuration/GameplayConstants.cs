@@ -20,8 +20,8 @@ namespace FruitSwipeMatch3Kit
         public const float OutOfMovesPopupDelay = 0.5f;
         public const float EndGameAwardPopupDelay = 0.5f;
 
-        public const float EndGameSequenceSpawnFrequency = 1.0f;
-        public const float EndGameSequenceExplosionFrequency = 2.0f;
+        public const float EndGameSequenceSpawnFrequency = 0.5f;
+        public const float EndGameSequenceExplosionFrequency = 1f;
 
         public const string LastSelectedLevelPrefKey = "last_selected_level";
         public const string NextLevelPrefKey = "next_level";

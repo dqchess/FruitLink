@@ -5993,11 +5993,12 @@ MonoBehaviour:
   priceText: {fileID: 5785941354994992633}
   coinsImage: {fileID: 5785941354616068183}
   coinIcons:
-  - {fileID: 21300000, guid: 3de9a584cea9f824283b8b8968f539c3, type: 3}
-  - {fileID: 21300000, guid: 859f9ed610e70964b8b0500ad63cf493, type: 3}
-  - {fileID: 21300000, guid: c4d8fba684906484480c738e5690fa03, type: 3}
-  - {fileID: 21300000, guid: bfb74097832edbf448a5d0c63a847248, type: 3}
   - {fileID: 21300000, guid: 027128ac40a3f5045be3b31cf030b775, type: 3}
+  - {fileID: 21300000, guid: 474e3253af53a7347bcef045cdad238d, type: 3}
+  - {fileID: 21300000, guid: bfb74097832edbf448a5d0c63a847248, type: 3}
+  - {fileID: 21300000, guid: c4d8fba684906484480c738e5690fa03, type: 3}
+  - {fileID: 21300000, guid: 859f9ed610e70964b8b0500ad63cf493, type: 3}
+  - {fileID: 21300000, guid: 3de9a584cea9f824283b8b8968f539c3, type: 3}
   coinsParticles: {fileID: 2801920116339697941}
 --- !u!1 &5785941355143711651
 GameObject:

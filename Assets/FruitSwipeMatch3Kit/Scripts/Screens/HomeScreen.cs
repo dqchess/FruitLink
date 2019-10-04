@@ -28,7 +28,7 @@ namespace FruitSwipeMatch3Kit
         protected override void Start()
         {
             base.Start();
-			
+			UpdateButtons();
             var bgMusic = FindObjectOfType<BackgroundMusic>();
             if (bgMusic == null)
                 Instantiate(bgMusicPrefab);
@@ -63,9 +63,9 @@ namespace FruitSwipeMatch3Kit
 
         public void UpdateButtons()
         {
-	        var music = PlayerPrefs.GetInt("music_enabled");
+	        var music = PlayerPrefs.GetInt("music_enabled", 1);
 	        musicButton.GetComponent<SpriteSwapper>().SetEnabled(music == 1);
-	        var sound = PlayerPrefs.GetInt("sound_enabled");
+	        var sound = PlayerPrefs.GetInt("sound_enabled", 1);
 	        soundButton.GetComponent<SpriteSwapper>().SetEnabled(sound == 1);
         }
     }

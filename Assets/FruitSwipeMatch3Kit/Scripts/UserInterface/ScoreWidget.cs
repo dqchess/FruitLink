@@ -2,6 +2,7 @@
 // This code can only be used under the standard Unity Asset Store EULA,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
+using Spine.Unity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +28,7 @@ namespace FruitSwipeMatch3Kit
         private TextMeshProUGUI scoreText;
 
         [SerializeField]
-        private Animator girlAnimator;
+        private SkeletonGraphic girlAnimator;
 #pragma warning restore 649
 
         private bool star1Achieved;
@@ -55,19 +56,19 @@ namespace FruitSwipeMatch3Kit
             {
                 star1Achieved = true;
                 star1Widget.SetAsCompleted(true);
-                girlAnimator.SetTrigger("Happy");
+                girlAnimator.AnimationState.SetAnimation(1, "hit", false);
             }
             if (score >= star2 && !star2Achieved)
             {
                 star2Achieved = true;
                 star2Widget.SetAsCompleted(true);
-                girlAnimator.SetTrigger("Happy");
+                girlAnimator.AnimationState.SetAnimation(1, "hit", false);
             }
             if (score >= star3 && !star3Achieved)
             {
                 star3Achieved = true;
                 star3Widget.SetAsCompleted(true);
-                girlAnimator.SetTrigger("Happy");
+                girlAnimator.AnimationState.SetAnimation(1, "hit", false);
             }
 
             var offset = 220.0f;

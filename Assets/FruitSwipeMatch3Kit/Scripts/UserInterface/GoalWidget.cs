@@ -16,17 +16,8 @@ namespace FruitSwipeMatch3Kit
     {
 #pragma warning disable 649
         [SerializeField]
-        private List<Sprite> colorTileSprites;
-       
-        [SerializeField]
-        private List<Sprite> slotSprites;
+        private TileSpriteList tileSprites;
         
-        [SerializeField]
-        private List<Sprite> blockerTileSprites;
-        
-        [SerializeField]
-        private List<Sprite> collectibleTileSprites;
-
         [SerializeField]
         private Image image;
 
@@ -62,20 +53,20 @@ namespace FruitSwipeMatch3Kit
 
             Sprite sprite = null;
             if (goal.Type == GoalType.CollectTiles)
-                sprite = colorTileSprites[(int)goal.Data.ColorTileType];
+                sprite = tileSprites.colorTileSprites[(int)goal.Data.ColorTileType];
             else if (goal.Type == GoalType.CollectRandomTiles)
             {
                 var randomPool = tilePools.RandomizedColorTilePools[(int)goal.Data.RandomColorTileType];
                 var tileType = randomPool.Prefab.GetComponent<TileDataProxy>().Value.Type;
-                sprite = colorTileSprites[(int)tileType];
+                sprite = tileSprites.colorTileSprites[(int)tileType];
                 colorTileType = tileType;
             }
             else if (goal.Type == GoalType.CollectSlots)
-                sprite = slotSprites[(int)goal.Data.SlotType];
+                sprite = tileSprites.slotSprites[(int)goal.Data.SlotType];
             else if (goal.Type == GoalType.CollectBlockers)
-                sprite = blockerTileSprites[(int) goal.Data.BlockerType];
+                sprite = tileSprites.blockerTileSprites[(int) goal.Data.BlockerType];
             else if (goal.Type == GoalType.CollectCollectibles)
-                sprite = collectibleTileSprites[(int) goal.Data.CollectibleType];
+                sprite = tileSprites.collectibleTileSprites[(int) goal.Data.CollectibleType];
             image.sprite = sprite;
             
             SetAmountText(goal.Amount);

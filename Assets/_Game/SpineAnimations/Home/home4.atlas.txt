@@ -1,0 +1,314 @@
+
+home4.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: false
+  xy: 635, 483
+  size: 240, 221
+  orig: 240, 221
+  offset: 0, 0
+  index: -1
+Layer 2
+  rotate: false
+  xy: 635, 706
+  size: 261, 319
+  orig: 261, 319
+  offset: 0, 0
+  index: -1
+Layer 3
+  rotate: false
+  xy: 1297, 1278
+  size: 183, 229
+  orig: 183, 229
+  offset: 0, 0
+  index: -1
+Layer 4
+  rotate: false
+  xy: 1297, 1085
+  size: 222, 191
+  orig: 222, 191
+  offset: 0, 0
+  index: -1
+Layer 5
+  rotate: false
+  xy: 635, 79
+  size: 227, 193
+  orig: 227, 193
+  offset: 0, 0
+  index: -1
+backgroaud
+  rotate: false
+  xy: 2, 1027
+  size: 780, 1019
+  orig: 780, 1019
+  offset: 0, 0
+  index: -1
+bongech
+  rotate: false
+  xy: 1435, 1535
+  size: 127, 67
+  orig: 127, 67
+  offset: 0, 0
+  index: -1
+cay1
+  rotate: false
+  xy: 784, 1098
+  size: 511, 409
+  orig: 511, 409
+  offset: 0, 0
+  index: -1
+cay2
+  rotate: true
+  xy: 1692, 1618
+  size: 428, 265
+  orig: 428, 265
+  offset: 0, 0
+  index: -1
+cay3
+  rotate: false
+  xy: 635, 274
+  size: 236, 207
+  orig: 236, 207
+  offset: 0, 0
+  index: -1
+cay4
+  rotate: false
+  xy: 1435, 1604
+  size: 255, 442
+  orig: 255, 442
+  offset: 0, 0
+  index: -1
+chan_P
+  rotate: false
+  xy: 857, 1051
+  size: 33, 45
+  orig: 33, 45
+  offset: 0, 0
+  index: -1
+chan_P_M
+  rotate: true
+  xy: 1959, 1826
+  size: 105, 63
+  orig: 105, 63
+  offset: 0, 0
+  index: -1
+chan_T
+  rotate: true
+  xy: 2, 4
+  size: 58, 80
+  orig: 58, 80
+  offset: 0, 0
+  index: -1
+chan_T_M
+  rotate: true
+  xy: 1638, 1540
+  size: 62, 48
+  orig: 62, 48
+  offset: 0, 0
+  index: -1
+dau_M
+  rotate: false
+  xy: 1081, 966
+  size: 119, 130
+  orig: 119, 130
+  offset: 0, 0
+  index: -1
+duoi
+  rotate: false
+  xy: 84, 11
+  size: 74, 51
+  orig: 74, 51
+  offset: 0, 0
+  index: -1
+ech
+  rotate: false
+  xy: 1054, 748
+  size: 118, 117
+  orig: 118, 117
+  offset: 0, 0
+  index: -1
+eye_closed
+  rotate: false
+  xy: 898, 709
+  size: 92, 32
+  orig: 92, 32
+  offset: 0, 0
+  index: -1
+eye_open
+  rotate: true
+  xy: 1582, 1444
+  size: 89, 40
+  orig: 89, 40
+  offset: 0, 0
+  index: -1
+fsce
+  rotate: true
+  xy: 1482, 1386
+  size: 147, 98
+  orig: 147, 98
+  offset: 0, 0
+  index: -1
+kem
+  rotate: true
+  xy: 784, 1027
+  size: 69, 71
+  orig: 69, 71
+  offset: 0, 0
+  index: -1
+longmay_phai_M
+  rotate: false
+  xy: 1280, 1083
+  size: 15, 13
+  orig: 15, 13
+  offset: 0, 0
+  index: -1
+longmay_trai_M
+  rotate: false
+  xy: 635, 64
+  size: 18, 13
+  orig: 18, 13
+  offset: 0, 0
+  index: -1
+mat_P_mo
+  rotate: false
+  xy: 1202, 972
+  size: 33, 41
+  orig: 33, 41
+  offset: 0, 0
+  index: -1
+mat_P_nham_M
+  rotate: false
+  xy: 1692, 1604
+  size: 32, 12
+  orig: 32, 12
+  offset: 0, 0
+  index: -1
+mat_T
+  rotate: false
+  xy: 1435, 1516
+  size: 31, 17
+  orig: 31, 17
+  offset: 0, 0
+  index: -1
+mieng
+  rotate: true
+  xy: 877, 660
+  size: 44, 18
+  orig: 44, 18
+  offset: 0, 0
+  index: -1
+mui
+  rotate: false
+  xy: 84, 2
+  size: 14, 7
+  orig: 14, 7
+  offset: 0, 0
+  index: -1
+mui_M
+  rotate: false
+  xy: 1521, 1190
+  size: 26, 18
+  orig: 26, 18
+  offset: 0, 0
+  index: -1
+nang1
+  rotate: false
+  xy: 2, 64
+  size: 631, 961
+  orig: 631, 961
+  offset: 0, 0
+  index: -1
+nang2
+  rotate: false
+  xy: 784, 1509
+  size: 649, 537
+  orig: 649, 537
+  offset: 0, 0
+  index: -1
+quacam
+  rotate: true
+  xy: 1564, 1535
+  size: 67, 72
+  orig: 67, 72
+  offset: 0, 0
+  index: -1
+quatim
+  rotate: false
+  xy: 1202, 1015
+  size: 76, 81
+  orig: 76, 81
+  offset: 0, 0
+  index: -1
+quavang
+  rotate: false
+  xy: 1081, 867
+  size: 123, 97
+  orig: 123, 97
+  offset: 0, 0
+  index: -1
+quaxanh
+  rotate: false
+  xy: 1482, 1280
+  size: 103, 104
+  orig: 103, 104
+  offset: 0, 0
+  index: -1
+tai_phai
+  rotate: false
+  xy: 1959, 1710
+  size: 32, 42
+  orig: 32, 42
+  offset: 0, 0
+  index: -1
+tay_T
+  rotate: true
+  xy: 1959, 1754
+  size: 70, 62
+  orig: 70, 62
+  offset: 0, 0
+  index: -1
+tayphai_M
+  rotate: true
+  xy: 1174, 825
+  size: 40, 29
+  orig: 40, 29
+  offset: 0, 0
+  index: -1
+taytrai_M
+  rotate: false
+  xy: 1582, 1386
+  size: 43, 56
+  orig: 43, 56
+  offset: 0, 0
+  index: -1
+than
+  rotate: false
+  xy: 898, 889
+  size: 181, 207
+  orig: 181, 207
+  offset: 0, 0
+  index: -1
+toc
+  rotate: false
+  xy: 898, 743
+  size: 154, 144
+  orig: 154, 144
+  offset: 0, 0
+  index: -1
+toc_P
+  rotate: false
+  xy: 1521, 1210
+  size: 65, 68
+  orig: 65, 68
+  offset: 0, 0
+  index: -1
+toc_T
+  rotate: false
+  xy: 1959, 1933
+  size: 82, 113
+  orig: 82, 113
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0423ad84aebd2e47ad73eb45c089096, type: 3}
+  m_Name: Tile Sprites
+  m_EditorClassIdentifier: 
+  colorTileSprites:
+  - {fileID: 21300000, guid: 8e2e1115a54cad14192db751701eefe6, type: 3}
+  - {fileID: 21300000, guid: 007adb28a3ba622499e1916317a7731e, type: 3}
+  - {fileID: 21300000, guid: cdf228783b727b3408d00bd71d66d73a, type: 3}
+  - {fileID: 21300000, guid: c8651076f05d13f428c8ec891d78b33f, type: 3}
+  - {fileID: 21300000, guid: 17bed762d1f977846abc85c3f1d9f142, type: 3}
+  - {fileID: 21300000, guid: f19d0a2827e79044ab9d7f4ab82a91c3, type: 3}
+  slotSprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: deb92b79d88884649b1a9cdbcf662432, type: 3}
+  - {fileID: 21300000, guid: bb36b2070b6c04d7a98551ecd2c34c9f, type: 3}
+  blockerTileSprites:
+  - {fileID: 21300000, guid: 5a24529cca272c140be0cd5b92b253c7, type: 3}
+  - {fileID: 21300000, guid: b70cea8f5620a4b43a3f2871c8a3dd0f, type: 3}
+  - {fileID: 21300000, guid: a9735bbc8994cf94f93701accad3b684, type: 3}
+  collectibleTileSprites:
+  - {fileID: 21300000, guid: a2ba399c3620fa846a38514a32b00a35, type: 3}
+  - {fileID: 21300000, guid: dc70c009ac31b5d46a1cc451ac7b6977, type: 3}
+  - {fileID: 21300000, guid: 738528f326f70c0458d3392212815b0c, type: 3}

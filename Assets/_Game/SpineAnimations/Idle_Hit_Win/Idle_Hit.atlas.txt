@@ -1,0 +1,69 @@
+
+Idle_Hit.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ArmLeft
+  rotate: false
+  xy: 245, 77
+  size: 165, 74
+  orig: 165, 74
+  offset: 0, 0
+  index: -1
+Body
+  rotate: true
+  xy: 276, 295
+  size: 209, 218
+  orig: 209, 218
+  offset: 0, 0
+  index: -1
+BraidLeft
+  rotate: false
+  xy: 124, 37
+  size: 119, 165
+  orig: 119, 165
+  offset: 0, 0
+  index: -1
+BraidRight
+  rotate: false
+  xy: 2, 37
+  size: 120, 165
+  orig: 120, 165
+  offset: 0, 0
+  index: -1
+EyesClosed
+  rotate: true
+  xy: 412, 13
+  size: 184, 62
+  orig: 184, 62
+  offset: 0, 0
+  index: -1
+EyesOpen
+  rotate: false
+  xy: 276, 199
+  size: 221, 94
+  orig: 221, 94
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 2, 204
+  size: 272, 300
+  orig: 272, 300
+  offset: 0, 0
+  index: -1
+MouthClosed
+  rotate: true
+  xy: 245, 153
+  size: 49, 16
+  orig: 49, 16
+  offset: 0, 0
+  index: -1
+Mouth_c
+  rotate: false
+  xy: 2, 2
+  size: 68, 33
+  orig: 68, 33
+  offset: 0, 0
+  index: -1

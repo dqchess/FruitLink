@@ -1074,25 +1074,7 @@ MonoBehaviour:
           m_StringArgument: PopupClose
           m_BoolArgument: 0
         m_CallState: 2
-  colorTileSprites:
-  - {fileID: 21300000, guid: adbfa27ae86615b44823a8fd793bc852, type: 3}
-  - {fileID: 21300000, guid: 067d2936e16bb5d4c80b8a97cb218c09, type: 3}
-  - {fileID: 21300000, guid: 09a1cbba55af6be4d9a9c15f291cb9e5, type: 3}
-  - {fileID: 21300000, guid: 29bda84d86d578f4085aa01201710d0b, type: 3}
-  - {fileID: 21300000, guid: a54d831fde901fa45a9589394de4db38, type: 3}
-  - {fileID: 21300000, guid: 00583eff14f8efd40a956c959440d5fd, type: 3}
-  slotSprites:
-  - {fileID: 0}
-  - {fileID: 21300000, guid: a795314b91f5746c69a13ec724e90a6e, type: 3}
-  - {fileID: 21300000, guid: 13443c4110c6b4a72a02ccb49b4bf8db, type: 3}
-  blockerTileSprites:
-  - {fileID: 21300000, guid: 2ef3dbd064fbae845ba7021b4892fbe8, type: 3}
-  - {fileID: 21300000, guid: 5d1c3130213a2d64ea08a39577d3c15a, type: 3}
-  - {fileID: 21300000, guid: 4cb3cbbc93055db4d84581d3468b82d2, type: 3}
-  collectibleTileSprites:
-  - {fileID: 21300000, guid: bbe2b87c1c33d504d9dc949dccabc7fd, type: 3}
-  - {fileID: 21300000, guid: 9f7115337f9a42f4c8f4ee25ace16fda, type: 3}
-  - {fileID: 21300000, guid: 16f43fb8e360ae4418a38040a4b8d5b9, type: 3}
+  tileSprites: {fileID: 11400000, guid: 585005ffc5e85274aae3bd47a3b36956, type: 2}
   levelText: {fileID: 8295659627654641684}
   enabledStar1Sprite: {fileID: 21300000, guid: 913140220571a144eb7bf7c5dc0ba195, type: 3}
   enabledStar2Sprite: {fileID: 21300000, guid: a676f42e13be533418acc27075f84443, type: 3}

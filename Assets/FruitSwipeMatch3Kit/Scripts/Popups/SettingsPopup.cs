@@ -16,10 +16,10 @@ namespace FruitSwipeMatch3Kit
 	{
 #pragma warning disable 649
         [SerializeField]
-        private Slider soundSlider;
+        private SpriteSwapper soundSlider;
 
         [SerializeField]
-        private Slider musicSlider;
+        private SpriteSwapper musicSlider;
 
         [SerializeField]
         private AnimatedButton resetProgressButton;
@@ -47,8 +47,8 @@ namespace FruitSwipeMatch3Kit
         protected override void Start()
         {
             base.Start();
-            soundSlider.value = PlayerPrefs.GetInt("sound_enabled");
-            musicSlider.value = PlayerPrefs.GetInt("music_enabled");
+            musicSlider.SetEnabled(PlayerPrefs.GetInt("music_enabled") == 1);
+            soundSlider.SetEnabled(PlayerPrefs.GetInt("sound_enabled") == 1);
         }
 
         public void OnResetProgressButtonPressed()
@@ -65,19 +65,15 @@ namespace FruitSwipeMatch3Kit
 
         public void OnSoundSliderValueChanged()
         {
-            currentSound = (int)soundSlider.value;
-            SoundPlayer.SetSoundEnabled(currentSound == 1);
-            PlayerPrefs.SetInt("sound_enabled", currentSound);
             var homeScreen = ParentScreen as HomeScreen;
+            homeScreen.OnSoundButtonPressed();
             homeScreen.UpdateButtons();
         }
 
         public void OnMusicSliderValueChanged()
         {
-            currentMusic = (int)musicSlider.value;
-            SoundPlayer.SetMusicEnabled(currentMusic == 1);
-            PlayerPrefs.SetInt("music_enabled", currentMusic);
             var homeScreen = ParentScreen as HomeScreen;
+            homeScreen.OnMusicButtonPressed();
             homeScreen.UpdateButtons();
         }
 	}

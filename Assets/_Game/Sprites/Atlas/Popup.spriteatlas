@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Popup
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: de2abdff9bf11c84289369e8a2a86cd6, type: 3}
+    totalSpriteSurfaceArea: 3886520
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 90d3715078352254aa2c797777e4be7a, type: 3}
+  - {fileID: 21300000, guid: 2d40b631f08ff874c89e9e41c675cf09, type: 3}
+  - {fileID: 21300000, guid: 913140220571a144eb7bf7c5dc0ba195, type: 3}
+  - {fileID: 21300000, guid: 95fb653241d5ee542a03eea5f23b7b54, type: 3}
+  - {fileID: 21300000, guid: 36ee22d2fc8bb2148a70508df5f4fb34, type: 3}
+  - {fileID: 21300000, guid: 6c82b4e2b2bde144f9e7be614a12e749, type: 3}
+  - {fileID: 21300000, guid: 89a04df2af932f94aa2f499483dc09cd, type: 3}
+  - {fileID: 21300000, guid: 474e3253af53a7347bcef045cdad238d, type: 3}
+  - {fileID: 21300000, guid: 8bcf1783fe62bc345b4faa46be1241d0, type: 3}
+  - {fileID: 21300000, guid: f32f5e043f307ae47867efe8b2076f22, type: 3}
+  - {fileID: 21300000, guid: 7d42d124e8795cb4d8ce9c57c8f6053a, type: 3}
+  - {fileID: 21300000, guid: 55e985448aa35774c86ca35b96e73d54, type: 3}
+  - {fileID: 21300000, guid: 3de9a584cea9f824283b8b8968f539c3, type: 3}
+  - {fileID: 21300000, guid: 01661355bbddb8c478a0fef97ff13718, type: 3}
+  - {fileID: 21300000, guid: c4d8fba684906484480c738e5690fa03, type: 3}
+  - {fileID: 21300000, guid: 859f9ed610e70964b8b0500ad63cf493, type: 3}
+  - {fileID: 21300000, guid: 3c6dfb4744caf1c4d9655b41ff0dd4ce, type: 3}
+  - {fileID: 21300000, guid: eb144a876df65a94f9830f5b3245cbec, type: 3}
+  - {fileID: 21300000, guid: bfb74097832edbf448a5d0c63a847248, type: 3}
+  - {fileID: 21300000, guid: eb1175a70a0053647a162f7e2b689f7f, type: 3}
+  - {fileID: 21300000, guid: 80abbec7a9e6ef648a4f06ca925deadb, type: 3}
+  - {fileID: 21300000, guid: e806dc38180218c44a8847f2e82bfc86, type: 3}
+  - {fileID: 21300000, guid: 6346a398c36ffc542a77400f940c75c3, type: 3}
+  - {fileID: 21300000, guid: 833743491a381454a954309b69c4e13b, type: 3}
+  - {fileID: 21300000, guid: fdff9889399695c4b80f919a04959146, type: 3}
+  - {fileID: 21300000, guid: 7228f0c9d8807a04c81505573e909bb9, type: 3}
+  - {fileID: 21300000, guid: 5358937a08491ec438f294bea9c245cf, type: 3}
+  - {fileID: 21300000, guid: 51a3c4ba0520654449ee8efe2472ea89, type: 3}
+  - {fileID: 21300000, guid: fe5cbcfa0b4431d428bda4027a672769, type: 3}
+  - {fileID: 21300000, guid: 467c3b9b9e3c10a489d3e74841bfef8a, type: 3}
+  - {fileID: 21300000, guid: 7bcba9abd3933a044bb7d3bac3138e8b, type: 3}
+  - {fileID: 21300000, guid: 97427f6cfab21fb43b281463dcb1ea9e, type: 3}
+  - {fileID: 21300000, guid: 027128ac40a3f5045be3b31cf030b775, type: 3}
+  - {fileID: 21300000, guid: 8aefc2cd33f85d84f9b13bff98359deb, type: 3}
+  - {fileID: 21300000, guid: 59c1b1ddf900dbb48a1f1e3b6d882aae, type: 3}
+  - {fileID: 21300000, guid: f391b7fda17793c43b7bed947dc59a87, type: 3}
+  - {fileID: 21300000, guid: a676f42e13be533418acc27075f84443, type: 3}
+  - {fileID: 21300000, guid: 005980fef323bdb48b8d759b9bd151f8, type: 3}
+  - {fileID: 21300000, guid: 4e5c4afe956b9a1418dfea638f408e74, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - item_star_3_off
+  - btn_close
+  - item_star_1
+  - box_price
+  - box_fruit_number
+  - tag_Userschoice
+  - item_fail
+  - item_coin_2
+  - tag_bestvalue
+  - box_booster_number
+  - item_banner
+  - item_discount
+  - item_coin_1
+  - item_check
+  - item_coin_4
+  - item_coin_5
+  - item_star_1_off
+  - box_fruit
+  - item_coin_3
+  - item_star_3
+  - item_star_2_off
+  - item_buy_more
+  - dialog_small
+  - btn_nextlevel
+  - box_booster_shop
+  - item_hand
+  - btn_menu
+  - btn_red_big
+  - btn_replay
+  - box_heart
+  - btn_orange_big
+  - dialog_medium
+  - item_coin
+  - btn_green_big
+  - btn_green_price
+  - box_coin
+  - item_star_2
+  - dialog_big
+  - item_heart_fill
+  m_Tag: Popup
+  m_IsVariant: 0

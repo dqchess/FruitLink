@@ -1,0 +1,97 @@
+
+About_to_lose_Lose.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: false
+  xy: 550, 270
+  size: 209, 218
+  orig: 209, 218
+  offset: 0, 0
+  index: -1
+BraidLeft
+  rotate: true
+  xy: 225, 67
+  size: 119, 165
+  orig: 119, 165
+  offset: 0, 0
+  index: -1
+BraidRight
+  rotate: true
+  xy: 761, 275
+  size: 120, 165
+  orig: 120, 165
+  offset: 0, 0
+  index: -1
+CheeksNose
+  rotate: false
+  xy: 761, 397
+  size: 215, 91
+  orig: 215, 91
+  offset: 0, 0
+  index: -1
+EyesClosed
+  rotate: false
+  xy: 550, 198
+  size: 188, 70
+  orig: 188, 70
+  offset: 0, 0
+  index: -1
+EyesOpen
+  rotate: false
+  xy: 2, 90
+  size: 221, 96
+  orig: 221, 96
+  offset: 0, 0
+  index: -1
+HandLeft
+  rotate: false
+  xy: 978, 368
+  size: 44, 120
+  orig: 44, 120
+  offset: 0, 0
+  index: -1
+HandRight
+  rotate: true
+  xy: 2, 43
+  size: 45, 120
+  orig: 45, 120
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 2, 188
+  size: 272, 300
+  orig: 272, 300
+  offset: 0, 0
+  index: -1
+Head_c
+  rotate: false
+  xy: 276, 188
+  size: 272, 300
+  orig: 272, 300
+  offset: 0, 0
+  index: -1
+Mouth
+  rotate: false
+  xy: 928, 373
+  size: 42, 22
+  orig: 42, 22
+  offset: 0, 0
+  index: -1
+Mouth_c
+  rotate: false
+  xy: 392, 152
+  size: 69, 34
+  orig: 69, 34
+  offset: 0, 0
+  index: -1
+Tear
+  rotate: false
+  xy: 2, 2
+  size: 25, 39
+  orig: 25, 39
+  offset: 0, 0
+  index: -1

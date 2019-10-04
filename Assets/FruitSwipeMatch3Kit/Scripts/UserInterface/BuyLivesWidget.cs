@@ -26,9 +26,6 @@ namespace FruitSwipeMatch3Kit
         private Sprite disabledLifeSprite;
 
         [SerializeField]
-        private Image lifeImage;
-
-        [SerializeField]
         private TextMeshProUGUI numLivesText;
 
         [SerializeField]
@@ -51,7 +48,6 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(gameConfig);
             Assert.IsNotNull(enabledLifeSprite);
             Assert.IsNotNull(disabledLifeSprite);
-            Assert.IsNotNull(lifeImage);
             Assert.IsNotNull(numLivesText);
             Assert.IsNotNull(timeToNextLifeText);
             Assert.IsNotNull(buttonImage);
@@ -92,7 +88,7 @@ namespace FruitSwipeMatch3Kit
         {
             timeToNextLifeText.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
             numLivesText.text = lives.ToString();
-            lifeImage.sprite = lives == 0 ? disabledLifeSprite : enabledLifeSprite;
+//            lifeImage.sprite = lives == 0 ? disabledLifeSprite : enabledLifeSprite;
             var maxLives = gameConfig.MaxLives;
             buttonImage.gameObject.SetActive(lives < maxLives);
         }
@@ -101,7 +97,7 @@ namespace FruitSwipeMatch3Kit
         {
             timeToNextLifeText.text = "Full";
             numLivesText.text = lives.ToString();
-            lifeImage.sprite = lives == 0 ? disabledLifeSprite : enabledLifeSprite;
+//            lifeImage.sprite = lives == 0 ? disabledLifeSprite : enabledLifeSprite;
             buttonImage.gameObject.SetActive(false);
         }
     }
