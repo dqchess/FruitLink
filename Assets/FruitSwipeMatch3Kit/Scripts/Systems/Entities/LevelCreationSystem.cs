@@ -98,6 +98,7 @@ namespace FruitSwipeMatch3Kit
             CreateTiles();
             CenterTilesOnScreen();
             CreateBackground();
+            CreateBorderBackground();
             CreateSlots();
             ZoomMainCamera();
         }
@@ -237,6 +238,54 @@ namespace FruitSwipeMatch3Kit
             }
         }
 
+        private void CreateBorderBackground()
+        {
+            for (var height = 0; height < Height; ++height)
+            {
+                for (var width = 0; width < Width; ++width)
+                {
+                    var idx = width + (height * Width);
+                    if (width == 0 && height == 0) // top left
+                    {
+                        SetPosition(tilePools.GetTopLeftBorder(), TilePositions[idx]);   
+                    }
+                    else if (width == Width - 1 && height == 0) // top right
+                    {
+                        SetPosition(tilePools.GetTopRightBorder(), TilePositions[idx]);
+                    }
+                    else if (width == Width - 1 && height == Height - 1) // bot right
+                    {
+                        SetPosition(tilePools.GetBotRightBorder(), TilePositions[idx]);
+                    }
+                    else if (width == 0 && height == Height - 1)
+                    {
+                        SetPosition(tilePools.GetBotLeftBorder(), TilePositions[idx]);
+                    }
+                    else if (height == 0) // top
+                    {
+                        SetPosition(tilePools.GetTopBorder(), TilePositions[idx]);
+                    }
+                    else if (height == Height - 1) // bot
+                    {
+                        SetPosition(tilePools.GetBotBorder(), TilePositions[idx]);
+                    }
+                    else if (width == 0) // left
+                    {
+                        SetPosition(tilePools.GetLeftBorder(), TilePositions[idx]);
+                    }
+                    else if (width == Width - 1) // right
+                    {
+                        SetPosition(tilePools.GetRightBorder(), TilePositions[idx]);
+                    }
+                }
+            }
+        }
+
+        private void SetPosition(GameObject go, Vector3 pos)
+        {
+            go.transform.position = pos;
+        }
+
         private void CreateSlots()
         {
             for (var j = 0; j < Height; ++j)
@@ -260,7 +309,15 @@ namespace FruitSwipeMatch3Kit
             var zoomLevel = gameScreen.GameConfig.GetZoomLevel();
             if (levelData.Width < 7)
                 zoomLevel *= 1.5f;
-            mainCamera.orthographicSize = totalWidth * zoomLevel * (Screen.height / (float)Screen.width) * 0.5f;
+            float total = totalHeight > totalWidth ? totalHeight : totalWidth;
+            mainCamera.orthographicSize = total * zoomLevel * (Screen.height / (float)Screen.width) * 0.5f;
+            float sizeY = Screen.height - Screen.height * 0.4375f;
+            Debug.Log("X: " + Screen.width + " " + "Y: " + sizeY);
+            if (Screen.width > sizeY)
+            {
+                if (levelData.Width >= 7)
+                    mainCamera.orthographicSize /= 0.755f;
+            }
         }
 
         public float GetSpriteHeight()

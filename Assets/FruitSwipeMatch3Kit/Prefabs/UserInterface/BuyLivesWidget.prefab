@@ -440,7 +440,6 @@ MonoBehaviour:
   gameConfig: {fileID: 11400000, guid: 6b47954202b9549b6a59ab55ca91f82a, type: 2}
   enabledLifeSprite: {fileID: 21300000, guid: 5cfa91e893d7d43768b6bdcea50e62ac, type: 3}
   disabledLifeSprite: {fileID: 21300000, guid: a8f14ad1d10e740c588b77f16322a460, type: 3}
-  lifeImage: {fileID: 0}
   numLivesText: {fileID: 3133344925040975403}
   timeToNextLifeText: {fileID: 3133344924313447174}
   buttonImage: {fileID: 3133344926354247242}
@@ -510,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

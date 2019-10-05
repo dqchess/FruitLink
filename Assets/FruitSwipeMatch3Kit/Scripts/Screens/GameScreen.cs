@@ -50,7 +50,7 @@ namespace FruitSwipeMatch3Kit
 
         public LevelData LevelData => levelData;
         public GameState GameState => gameState;
-       
+        
         private LevelData levelData;
         private GameState gameState;
 

@@ -29,9 +29,6 @@ namespace FruitSwipeMatch3Kit
 
         [SerializeField]
         private Sprite refillButtonDisabledSprite;
-
-        [SerializeField]
-        private ParticleSystem livesParticles;
 #pragma warning restore 649
 
         protected override void Awake()
@@ -41,7 +38,6 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(refillButton);
             Assert.IsNotNull(refillButtonImage);
             Assert.IsNotNull(refillButtonDisabledSprite);
-            Assert.IsNotNull(livesParticles);
         }
 
         protected override void Start()
@@ -63,7 +59,6 @@ namespace FruitSwipeMatch3Kit
                 if (freeLivesChecker != null)
                 {
                     freeLivesChecker.RefillLives();
-                    livesParticles.Play();
                     DisableRefillButton();
                 }
             }

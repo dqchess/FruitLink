@@ -30,7 +30,7 @@ MonoBehaviour:
   ColorBombPowerupPrice: 100
   NumExtraMoves: 5
   ExtraMovesCost: 100
-  DefaultZoomLevel: 1.3
+  DefaultZoomLevel: 1.2
   DefaultCanvasScalingMatch: 1
   ResolutionOverrides:
   - Name: iPhone X

@@ -34,12 +34,12 @@ namespace FruitSwipeMatch3Kit
 
         [SerializeField]
         private TextMeshProUGUI numLevelText;
-        
-        [SerializeField]
-        private TextMeshProUGUI numLevelTextBlue;
-
-        [SerializeField]
-        private TextMeshProUGUI numLevelTextPink;
+//        
+//        [SerializeField]
+//        private TextMeshProUGUI numLevelTextBlue;
+//
+//        [SerializeField]
+//        private TextMeshProUGUI numLevelTextPink;
 
         [SerializeField]
         private GameObject star1;
@@ -62,8 +62,8 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(yellowStarSprite);
             Assert.IsNotNull(buttonImage);
             Assert.IsNotNull(numLevelText);
-            Assert.IsNotNull(numLevelTextBlue);
-            Assert.IsNotNull(numLevelTextPink);
+//            Assert.IsNotNull(numLevelTextBlue);
+//            Assert.IsNotNull(numLevelTextPink);
             Assert.IsNotNull(star1);
             Assert.IsNotNull(star2);
             Assert.IsNotNull(star3);
@@ -76,8 +76,8 @@ namespace FruitSwipeMatch3Kit
         {
             var numLevelStr = NumLevel.ToString();
             numLevelText.text = numLevelStr;
-            numLevelTextBlue.text = numLevelStr;
-            numLevelTextPink.text = numLevelStr;
+//            numLevelTextBlue.text = numLevelStr;
+//            numLevelTextPink.text = numLevelStr;
             var nextLevel = PlayerPrefs.GetInt("next_level");
             if (nextLevel == 0)
                 nextLevel = 1;
@@ -88,12 +88,12 @@ namespace FruitSwipeMatch3Kit
                 star1.SetActive(false);
                 star2.SetActive(false);
                 star3.SetActive(false);
-                numLevelTextBlue.gameObject.SetActive(false);
+//                numLevelTextBlue.gameObject.SetActive(false);
             }
             else if (NumLevel < nextLevel)
             {
                 buttonImage.sprite = playedButtonSprite;
-                numLevelTextPink.gameObject.SetActive(false);
+//                numLevelTextPink.gameObject.SetActive(false);
                 var stars = PlayerPrefs.GetInt("level_stars_" + NumLevel);
                 switch (stars)
                 {
@@ -118,8 +118,8 @@ namespace FruitSwipeMatch3Kit
                 transform.GetComponentInChildren<AnimatedButton>().Interactable = false;
                 buttonImage.sprite = lockedButtonSprite;
                 numLevelText.gameObject.SetActive(false);
-                numLevelTextBlue.gameObject.SetActive(false);
-                numLevelTextPink.gameObject.SetActive(false);
+//                numLevelTextBlue.gameObject.SetActive(false);
+//                numLevelTextPink.gameObject.SetActive(false);
                 star1.SetActive(false);
                 star2.SetActive(false);
                 star3.SetActive(false);
