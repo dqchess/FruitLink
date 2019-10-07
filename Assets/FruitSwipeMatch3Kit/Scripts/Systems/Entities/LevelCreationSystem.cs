@@ -2,12 +2,16 @@
 // This code can only be used under the standard Unity Asset Store EULA,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using Ferr;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace FruitSwipeMatch3Kit
 {
@@ -98,6 +102,7 @@ namespace FruitSwipeMatch3Kit
             CreateTiles();
             CenterTilesOnScreen();
             CreateBackground();
+//            CreateBorderTerrain();
             CreateBorderBackground();
             CreateSlots();
             ZoomMainCamera();
@@ -238,8 +243,147 @@ namespace FruitSwipeMatch3Kit
             }
         }
 
-        private void CreateBorderBackground()
+        private void CreateBorderTerrain()
         {
+            float spriteHalfWidth = spriteWidth / 2;
+            float spriteHalfHeight = spriteHeight / 2;
+            List<Vector2> listTopPoint = new List<Vector2>();
+            List<Vector2> listRightPoint = new List<Vector2>();
+            List<Vector2> listBotPoint = new List<Vector2>();
+            List<Vector2> listLeftPoint = new List<Vector2>();
+            for (var y = 0; y < Height; ++y)
+            {
+                for (var x = 0; x < Width; ++x)
+                {
+                    var idx = x + (y * Width);
+                    // bỏ qua hole
+                    if (levelData.Tiles[idx].TileType == TileType.Hole)
+                        continue;
+                    
+                    // nếu ô bên trái ngoài viền hoặc trống
+                    if (!IsXInside(x - 1) || IsHole(x - 1, y))
+                    {
+                        // nếu ô bên trên ngoài viền hoặc trống
+                        if (!IsYInside(y - 1) || IsHole(x, y - 1))
+                        {
+                            // add node top left
+                            listTopPoint.Add(new Vector2(TilePositions[idx].x - spriteHalfWidth, TilePositions[idx].y + spriteHalfHeight) * 10);
+                            // nếu ô bên phải của ô bên trên không ngoài viền và không trống
+                            if (IsXInside(x + 1) && IsYInside(y - 1) && !IsHole(x + 1, y - 1))
+                            {
+                                // add node top right
+                                listTopPoint.Add(new Vector2(TilePositions[idx].x + spriteHalfWidth, TilePositions[idx].y + spriteHalfHeight) * 10);
+                            }
+                        }
+                        // nếu ô bên dưới ngoài viền hoặc trống
+                        if (!IsYInside(y + 1) || IsHole(x, y + 1))
+                        {
+                            // add node bot left
+                            listBotPoint.Add(new Vector2(TilePositions[idx].x - spriteHalfWidth, TilePositions[idx].y - spriteHalfHeight) * 10);
+                            // nếu ô bên phải của ô bên dưới không ngoài viền và không trống
+                            if (IsXInside(x + 1) && IsYInside(y + 1) && !IsHole(x + 1, y + 1))
+                            {
+                                // add node bot right
+                                listBotPoint.Add(new Vector2(TilePositions[idx].x + spriteHalfWidth, TilePositions[idx].y - spriteHalfHeight) * 10);
+                            }
+                        }
+                    }
+                    
+                    // nếu ô bên phải ngoài viền hoặc trống
+                    if (!IsXInside(x + 1) || IsHole(x + 1, y))
+                    {
+                        // nếu ô bên trên ngoài viền hoặc trống
+                        if (!IsYInside(y - 1) || IsHole(x, y - 1))
+                        {
+                            // add node top right
+                            listTopPoint.Add(new Vector2(TilePositions[idx].x + spriteHalfWidth, TilePositions[idx].y + spriteHalfHeight) * 10);
+                            // nếu ô bên trái của ô bên trên không ngoài viền và không trống
+                            if (IsXInside(x - 1) && IsYInside(y - 1) && !IsHole(x - 1, y - 1))
+                            {
+                                // add node top left
+                                listTopPoint.Add(new Vector2(TilePositions[idx].x - spriteHalfWidth, TilePositions[idx].y + spriteHalfHeight) * 10);
+                            }
+                        }
+                        // nếu ô bên dưới ngoài viền hoặc trống
+                        if (!IsYInside(y + 1) || IsHole(x, y + 1))
+                        {
+                            // bot right
+                            listBotPoint.Add(new Vector2(TilePositions[idx].x + spriteHalfWidth, TilePositions[idx].y - spriteHalfHeight) * 10);
+                            // nếu ô bên trái của ô bên dưới không ngoài viền và không trống
+                            if (IsXInside(x - 1) && IsYInside(y + 1) && !IsHole(x - 1, y + 1))
+                            {
+                                // add node bot right
+                                listBotPoint.Add(new Vector2(TilePositions[idx].x - spriteHalfWidth, TilePositions[idx].y - spriteHalfHeight) * 10);
+                            }
+                        }
+                    }
+                }
+            }
+            listTopPoint.Sort(((a, b) => a.x.CompareTo(b.x)));
+            for (int i = 0; i < listTopPoint.Count; i++)
+            {
+                if(i == listTopPoint.Count - 1) continue;
+                if (Math.Abs(listTopPoint[i].x - listTopPoint[i + 1].x) < 0.1f)
+                {
+                    if(i - 1 < 0) continue;
+                    if (Math.Abs(listTopPoint[i - 1].y - listTopPoint[i].y) > 0.1f)
+                    {
+                        Vector2 cache = listTopPoint[i];
+                        listTopPoint[i]= listTopPoint[i + 1];
+                        listTopPoint[i + 1] = cache;
+                    } 
+                }
+            }
+            listTopPoint.Reverse();
+            listBotPoint.Sort(((a, b) => a.x.CompareTo(b.x)));
+            for (int i = 0; i < listBotPoint.Count; i++)
+            {
+                if(i == listBotPoint.Count - 1) continue;
+                if (Math.Abs(listBotPoint[i].x - listBotPoint[i + 1].x) < 0.1f)
+                {
+                    if(i - 1 < 0) continue;
+                    if (Math.Abs(listBotPoint[i - 1].y - listBotPoint[i].y) > 0.1f)
+                    {
+                        Vector2 cache = listBotPoint[i];
+                        listBotPoint[i]= listBotPoint[i + 1];
+                        listBotPoint[i + 1] = cache;
+                    } 
+                }
+            }
+            
+            Ferr2DT_PathTerrain terrain = tilePools.BorderTerrain;
+            terrain.ClearPoints();
+            
+            for (int i = 0; i < listTopPoint.Count; i++)
+            {
+                Debug.Log(listTopPoint[i]);
+                terrain.AddPoint(listTopPoint[i]);
+            }
+
+            for (int i = 0; i < listBotPoint.Count; i++)
+            {
+                terrain.AddPoint(listBotPoint[i]);
+            }
+            terrain.Build();
+        }
+
+        private bool IsHole(int x, int y)
+        {
+            return levelData.Tiles[x + y * Width].TileType == TileType.Hole;
+        }
+
+        private bool IsXInside(int x)
+        {
+            return x >= 0 && x < Width;
+        }
+
+        private bool IsYInside(int y)
+        {
+            return y >= 0 && y < Height;
+        }
+        
+        private void CreateBorderBackground()
+        {   
             for (var height = 0; height < Height; ++height)
             {
                 for (var width = 0; width < Width; ++width)
@@ -257,7 +401,7 @@ namespace FruitSwipeMatch3Kit
                     {
                         SetPosition(tilePools.GetBotRightBorder(), TilePositions[idx]);
                     }
-                    else if (width == 0 && height == Height - 1)
+                    else if (width == 0 && height == Height - 1) // bot left
                     {
                         SetPosition(tilePools.GetBotLeftBorder(), TilePositions[idx]);
                     }

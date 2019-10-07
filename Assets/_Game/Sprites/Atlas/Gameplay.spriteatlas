@@ -34,7 +34,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 2c07c2e505fe51546b44298b07abdccb, type: 3}
     - {fileID: 102900000, guid: 08ecab68d228b37498a3dc7c8c2c4e17, type: 3}
     - {fileID: 102900000, guid: a433e5e86a338d3429969cc958f4be07, type: 3}
-    totalSpriteSurfaceArea: 1671928
+    totalSpriteSurfaceArea: 1700202
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -57,6 +57,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5d496c15f5ecf4547a43ecc1d24b2f24, type: 3}
   - {fileID: 21300000, guid: bda3d925ae5a6684d8c697757123ca4f, type: 3}
   - {fileID: 21300000, guid: 65f9997594dbe32408d3aea4f81d9a0e, type: 3}
+  - {fileID: 21300000, guid: f7c35b751b56422489945776dabd09e8, type: 3}
   - {fileID: 21300000, guid: efa5790661568294bb9cc36e16af5b3f, type: 3}
   - {fileID: 21300000, guid: c8651076f05d13f428c8ec891d78b33f, type: 3}
   - {fileID: 21300000, guid: 6bff2e967df30e1468c0178b4bfe35fd, type: 3}
@@ -69,6 +70,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: cdf228783b727b3408d00bd71d66d73a, type: 3}
   - {fileID: 21300000, guid: dc70c009ac31b5d46a1cc451ac7b6977, type: 3}
   - {fileID: 21300000, guid: 5179186ab4799274e9eb4f48baf0641b, type: 3}
+  - {fileID: 21300000, guid: 056ef07a245f00f4597939880e1323dc, type: 3}
   - {fileID: 21300000, guid: ce12249abf333d448a8a8b5a5cf95799, type: 3}
   - {fileID: 21300000, guid: 22ae884b507911442b55f0a4fc7bc3c2, type: 3}
   - {fileID: 21300000, guid: c4e7197b025740647bfea9e29ff7212c, type: 3}
@@ -101,6 +103,7 @@ SpriteAtlas:
   - btn_level_2
   - btn_back
   - bg_loading_ingame2
+  - item_jelly
   - item_booster_crusher
   - Purple
   - box_booster
@@ -113,6 +116,7 @@ SpriteAtlas:
   - Orange
   - ingame_item_special_3
   - bg_ingame_top
+  - item_ice
   - item_board_number
   - btn_setting
   - bg_loading_ingame1

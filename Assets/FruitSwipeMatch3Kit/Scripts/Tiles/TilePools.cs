@@ -32,7 +32,11 @@ namespace FruitSwipeMatch3Kit
         [SerializeField] private ObjectPool rightBorder;
         [SerializeField] private ObjectPool botBorder;
         [SerializeField] private ObjectPool leftBorder;
+
+        [SerializeField] private Ferr2DT_PathTerrain _borderTerrain;
 #pragma warning restore 649
+
+        public Ferr2DT_PathTerrain BorderTerrain => _borderTerrain;
 
         public List<ObjectPool> RandomizedColorTilePools => randomizedColorTilePools;
         private readonly List<ObjectPool> randomizedColorTilePools = new List<ObjectPool>();
