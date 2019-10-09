@@ -7,6 +7,7 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Unity.Entities;
+using Unity.Mathematics;
 
 namespace FruitSwipeMatch3Kit
 {
@@ -32,8 +33,11 @@ namespace FruitSwipeMatch3Kit
 
         private readonly List<GameObject> lineSegments = new List<GameObject>(8);
         private Vector3 lastSegmentPos;
+        
+        private readonly List<GameObject> selectSegments = new List<GameObject>(8);
 
         private GameObject linePrefab;
+        private GameObject selectPrefab;
 
         private MoveDirection lastMoveDirection;
 
@@ -64,7 +68,8 @@ namespace FruitSwipeMatch3Kit
 
             particlePools = Object.FindObjectOfType<ParticlePools>();
 
-            linePrefab = Resources.Load("SelectionLine/SelectionLine") as GameObject;
+            linePrefab = particlePools.SelectionLine;
+            selectPrefab = particlePools.SelectionParticle;
 
             gameScreen = Object.FindObjectOfType<GameScreen>();
 
@@ -123,7 +128,9 @@ namespace FruitSwipeMatch3Kit
                         lastSegmentPos = tile.gameObject.transform.localPosition;
 
                         tile.GetComponent<Animator>().SetTrigger(Pressed);
-
+                        
+                        CreateSelectSegment(lastSegmentPos, selectedType);
+                        
                         SoundPlayer.PlaySoundFx("Connect");
                     }
                 }
@@ -197,6 +204,8 @@ namespace FruitSwipeMatch3Kit
             selectedTiles.Clear();
 
             DestroySelectionLine();
+
+            DestroySelectionEffect();
         }
 
         private void OnMouseDrag()
@@ -221,7 +230,8 @@ namespace FruitSwipeMatch3Kit
                             tile.GetComponent<Animator>().SetTrigger(Pressed);
 
                             var localPosition = tile.gameObject.transform.localPosition;
-                            CreateLineSegment(lastSegmentPos, localPosition);
+                            CreateLineSegment(lastSegmentPos, localPosition, selectedType);
+                            CreateSelectSegment(localPosition, selectedType);
                             lastSegmentPos = localPosition;
 
                             if (selectedTiles.Count >= 2)
@@ -258,6 +268,10 @@ namespace FruitSwipeMatch3Kit
                                     lineSegments.RemoveAtSwapBack(lineSegments.Count - 1);
                                     Object.Destroy(lastSegment);
 
+                                    lastSegment = selectSegments[selectSegments.Count - 1];
+                                    selectSegments.RemoveAtSwapBack(selectSegments.Count - 1);
+                                    Object.Destroy(lastSegment);
+                                    
                                     lastSegmentPos = selectedTiles[selectedTiles.Count - 1].transform.localPosition;
                                 }
                             }
@@ -298,14 +312,23 @@ namespace FruitSwipeMatch3Kit
             return tilePos.Y;
         }
 
-        private void CreateLineSegment(Vector3 start, Vector3 end)
+        private void CreateLineSegment(Vector3 start, Vector3 end, ColorTileType color)
         {
             var dir = end - start;
             var dist = Vector3.Distance(start, end);
-            var segment = Object.Instantiate(linePrefab, start, Quaternion.Euler(0, 0, 0));
+            var segment = Object.Instantiate(linePrefab, start, quaternion.identity);
             segment.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
             segment.transform.localScale = new Vector3(2, dist * 2, 1);
+            segment.GetComponent<SelectionLine>().SetColor(particlePools.GetColorTile(color));
             lineSegments.Add(segment);
+        }
+
+        private void CreateSelectSegment(Vector3 start, ColorTileType color)
+        {
+            var segment = Object.Instantiate(selectPrefab, start, quaternion.identity);
+            var mainModule = segment.GetComponent<ParticleSystem>().main;
+            mainModule.startColor = new ParticleSystem.MinMaxGradient(particlePools.GetColorTile(color));
+            selectSegments.Add(segment);
         }
 
         private void DestroySelectionLine()
@@ -314,6 +337,14 @@ namespace FruitSwipeMatch3Kit
                 Object.Destroy(segment);
 
             lineSegments.Clear();
+        }
+
+        private void DestroySelectionEffect()
+        {
+            foreach (var segment in selectSegments)
+                Object.Destroy(segment);
+
+            selectSegments.Clear();
         }
 
         public bool IsBoosterExploding()

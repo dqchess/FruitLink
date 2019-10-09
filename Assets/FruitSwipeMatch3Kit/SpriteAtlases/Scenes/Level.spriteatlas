@@ -34,7 +34,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: ff5695582b96845afb36e81a47d75f21, type: 3}
     - {fileID: 102900000, guid: 2fb563e3352da41b7adffa0c4ca4bfe8, type: 3}
     - {fileID: 102900000, guid: 435c4a0f6465740d09a4f274f06b5d20, type: 3}
-    totalSpriteSurfaceArea: 3313261
+    totalSpriteSurfaceArea: 2740489
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -45,9 +45,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f71735801eadb4f1894dc4e750ce8215, type: 3}
   - {fileID: 21300000, guid: 703c6d903e2094f4abe680531de4f345, type: 3}
   - {fileID: 21300000, guid: 21c350b030889433b96a3ce9555c4ff6, type: 3}
-  - {fileID: 21300000, guid: 3bfd3fc0d2a4f4f61b0602f0e857dad7, type: 3}
   - {fileID: 21300000, guid: cb9db8e0a2d6d4f04b674ce19cd58426, type: 3}
-  - {fileID: 21300000, guid: e14b2c1149d3c49d5926ae673877b82b, type: 3}
   - {fileID: 21300000, guid: 9c8c5821f1c894cc1b412b89bed79865, type: 3}
   - {fileID: 21300000, guid: 2b273231ea79f4d9f92e7246d46080ba, type: 3}
   - {fileID: 21300000, guid: e47f94319b1f54adea4145542a2586a0, type: 3}
@@ -79,7 +77,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5cfa91e893d7d43768b6bdcea50e62ac, type: 3}
   - {fileID: 21300000, guid: 8c5318a95219c404da079def2403d9d3, type: 3}
   - {fileID: 21300000, guid: 255b2ce9d0cd3407eae5a9b6ae259230, type: 3}
-  - {fileID: 21300000, guid: 8ffe8d7a287ec4bfebe32cf8b44f3178, type: 3}
   - {fileID: 21300000, guid: 0b1f5d9b8bc2845569bafbf6bb8194a4, type: 3}
   - {fileID: 21300000, guid: b30da80cadaa0426995d1be5ed5e966d, type: 3}
   - {fileID: 21300000, guid: c427fa2c2c74b4b79a70844c0ca25804, type: 3}
@@ -88,7 +85,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3c382f2de65434c688a2d0f4750bbedc, type: 3}
   - {fileID: 21300000, guid: 71063d4db430a4c3285c801a4ba3a9db, type: 3}
   - {fileID: 21300000, guid: 0e4a505db376a4b2b8fd64bde7f2731b, type: 3}
-  - {fileID: 21300000, guid: 7523cd5dfc39640b8b69122f6e678da8, type: 3}
   - {fileID: 21300000, guid: cf44019d9009f430e809dec8466c1fbf, type: 3}
   - {fileID: 21300000, guid: bf3372ed59875427fa9a5395c8521859, type: 3}
   - {fileID: 21300000, guid: 871c405e87d8943c58f2386ef5462644, type: 3}
@@ -102,9 +98,7 @@ SpriteAtlas:
   - ButtonBlue
   - EarRight
   - CowTale
-  - PointParticle
   - Banana
-  - Cloud3
   - EyesClosed
   - Star
   - EarLeft
@@ -136,7 +130,6 @@ SpriteAtlas:
   - LifeIcon
   - ButtonBack
   - BalloonShadow
-  - Cloud2
   - WindmillPole
   - Head
   - MoreButton
@@ -145,7 +138,6 @@ SpriteAtlas:
   - Chicken1
   - Snowman
   - MoreButtonGrey
-  - Cloud1
   - Cow3
   - Shadow
   - Balloon

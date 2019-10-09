@@ -2,11 +2,7 @@
 // This code can only be used under the standard Unity Asset Store EULA,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Ferr;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -108,8 +104,6 @@ namespace FruitSwipeMatch3Kit
             CenterTilesOnScreen();
             CreateBackground();
             CreateMainBorderTerrain();
-//            CreateBorderTerrain();
-//            CreateBorderBackground();
             CreateSlots();
             ZoomMainCamera();
         }
@@ -338,7 +332,6 @@ namespace FruitSwipeMatch3Kit
             // xử lý cột bên phải
             for (int y = Height - 1; y >= 0; y--)
             {
-                Debug.Log(y);
                 for (int x = Width - 1; x >= 0; x--)
                 {
                     var idx = x + (y * Width);
@@ -386,8 +379,6 @@ namespace FruitSwipeMatch3Kit
                 }
             }
 
-            // remove mid points
-                    
             terrain.Build();
         }
 

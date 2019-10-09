@@ -18,7 +18,18 @@ namespace FruitSwipeMatch3Kit
         private List<ObjectPool> blockerPools;
         [SerializeField]
         private List<ObjectPool> collectiblePools;
+
+        [SerializeField] private Color[] colors;
+        [SerializeField] private GameObject selectionLine;
+        [SerializeField] private GameObject selectionParticle;
 #pragma warning restore 649
+        public GameObject SelectionLine => selectionLine;
+        public GameObject SelectionParticle => selectionParticle;
+
+        public Color GetColorTile(ColorTileType color)
+        {
+            return colors[(int) color];
+        }
         
         public void Initialize()
         {
