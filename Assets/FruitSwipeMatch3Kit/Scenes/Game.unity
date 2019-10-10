@@ -2786,7 +2786,7 @@ MonoBehaviour:
   fillZ: 0.05
   invertFillBorder: {x: 0, y: 0}
   splitCorners: 1
-  pixelsPerUnit: 10
+  pixelsPerUnit: 5
   vertexColorType: 0
   vertexColor: {r: 1, g: 1, b: 1, a: 1}
   vertexGradient:
