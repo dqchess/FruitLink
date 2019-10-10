@@ -24,15 +24,6 @@ namespace FruitSwipeMatch3Kit
         [SerializeField]
         private ObjectPool darkBackgroundTilePool;
 
-        [SerializeField] private GameObject topLeftBorder;
-        [SerializeField] private GameObject topRightBorder;
-        [SerializeField] private GameObject botRightBorder;
-        [SerializeField] private GameObject botLeftBorder;
-        [SerializeField] private ObjectPool topBorder;
-        [SerializeField] private ObjectPool rightBorder;
-        [SerializeField] private ObjectPool botBorder;
-        [SerializeField] private ObjectPool leftBorder;
-
         [SerializeField] private Ferr2DT_PathTerrain _borderTerrain;
 #pragma warning restore 649
 
@@ -59,12 +50,7 @@ namespace FruitSwipeMatch3Kit
             
             lightBackgroundTilePool.Initialize();
             darkBackgroundTilePool.Initialize();
-            
-            topBorder.Initialize();
-            rightBorder.Initialize();
-            botBorder.Initialize();
-            leftBorder.Initialize();
-            
+
             if (!PlayerPrefs.HasKey("num_available_colors"))
             {
                 var randomColors = levelData.AvailableColors;
@@ -121,46 +107,6 @@ namespace FruitSwipeMatch3Kit
         public GameObject GetDarkBackgroundTile()
         {
             return darkBackgroundTilePool.GetObject();
-        }
-
-        public GameObject GetTopLeftBorder()
-        {
-            return Instantiate(topLeftBorder, transform);
-        }
-
-        public GameObject GetTopRightBorder()
-        {
-            return Instantiate(topRightBorder, transform);
-        }
-
-        public GameObject GetBotRightBorder()
-        {
-            return Instantiate(botRightBorder, transform);
-        }
-
-        public GameObject GetBotLeftBorder()
-        {
-            return Instantiate(botLeftBorder, transform);
-        }
-
-        public GameObject GetTopBorder()
-        {
-            return topBorder.GetObject();
-        }
-
-        public GameObject GetRightBorder()
-        {
-            return rightBorder.GetObject();
-        }
-
-        public GameObject GetBotBorder()
-        {
-            return botBorder.GetObject();
-        }
-
-        public GameObject GetLeftBorder()
-        {
-            return leftBorder.GetObject();
         }
     }
 }

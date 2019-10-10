@@ -318,7 +318,7 @@ namespace FruitSwipeMatch3Kit
             var dist = Vector3.Distance(start, end);
             var segment = Object.Instantiate(linePrefab, start, quaternion.identity);
             segment.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
-            segment.transform.localScale = new Vector3(2, dist * 2, 1);
+            segment.transform.localScale = new Vector3(2, dist / 1.5f, 1);
             segment.GetComponent<SelectionLine>().SetColor(particlePools.GetColorTile(color));
             lineSegments.Add(segment);
         }

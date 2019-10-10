@@ -28,6 +28,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b70cea8f5620a4b43a3f2871c8a3dd0f, type: 3}
   - {fileID: 21300000, guid: 5a24529cca272c140be0cd5b92b253c7, type: 3}
   collectibleTileSprites:
-  - {fileID: 21300000, guid: 738528f326f70c0458d3392212815b0c, type: 3}
-  - {fileID: 21300000, guid: dc70c009ac31b5d46a1cc451ac7b6977, type: 3}
-  - {fileID: 21300000, guid: a2ba399c3620fa846a38514a32b00a35, type: 3}
+  - {fileID: 21300000, guid: 867b47ba95894de48949ba03472e43f9, type: 3}
+  - {fileID: 21300000, guid: db841b1ad78aebc449f88e807eb1436e, type: 3}
+  - {fileID: 21300000, guid: 3be21610fd81c8f4bab82f2e4e3c51cb, type: 3}

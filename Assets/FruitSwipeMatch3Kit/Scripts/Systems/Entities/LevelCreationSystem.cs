@@ -197,7 +197,8 @@ namespace FruitSwipeMatch3Kit
 
         private void CenterTilesOnScreen()
         {
-            var levelLocation = Vector3.zero - new Vector3(0.0f, levelData.Width * 0.13f, 0.0f);
+            int size = levelData.Width > levelData.Height ? levelData.Width : levelData.Height; 
+            var levelLocation = Vector3.zero - new Vector3(0.0f, size * 0.26f, 0.0f);
 
             var i = 0;
             foreach (var tile in TileGos)

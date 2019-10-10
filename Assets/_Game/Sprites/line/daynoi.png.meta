@@ -126,9 +126,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 50
-        width: 30.25
-        height: 50
+        y: 134
+        width: 75
+        height: 134
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,7 +136,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 390e3031347419544917b74d8fc0a703
+      spriteID: 3dad71a53f773f7439860193ea47de13
       internalID: 3206996609032029650
       vertices: []
       indices: 
@@ -146,10 +146,10 @@ TextureImporter:
       name: daynoi_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 50
-        width: 30.25
-        height: 50
+        x: 75
+        y: 134
+        width: 75
+        height: 134
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,7 +157,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d31d81c909dc1334296e2c937e900cb3
+      spriteID: f1dbaa4735935c647a3b37f479b31b41
       internalID: 2173324547938911904
       vertices: []
       indices: 
@@ -167,10 +167,10 @@ TextureImporter:
       name: daynoi_2
       rect:
         serializedVersion: 2
-        x: 60
-        y: 50
-        width: 30.25
-        height: 50
+        x: 150
+        y: 134
+        width: 75
+        height: 134
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,7 +178,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25d643b1c0f4fa948ae9b5c93b1d1cc7
+      spriteID: 633b6b2ea63a3584bb7592a68d1469a2
       internalID: -1221848907936599466
       vertices: []
       indices: 
@@ -188,10 +188,10 @@ TextureImporter:
       name: daynoi_3
       rect:
         serializedVersion: 2
-        x: 90
-        y: 50
-        width: 30
-        height: 50
+        x: 225
+        y: 134
+        width: 75
+        height: 134
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,7 +199,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09b30aa4797315a4ca58feb6bb80c6c3
+      spriteID: cf9ca0d6520185a4a9b2cb4294241dbe
       internalID: -2035879073606352131
       vertices: []
       indices: 
@@ -211,8 +211,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 30.25
-        height: 50
+        width: 75
+        height: 134
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,7 +220,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffcabf7148d266a4587eb4aad802673b
+      spriteID: 0dbdc385d63f8f44db60a067100bda8e
       internalID: 8382043885600597448
       vertices: []
       indices: 
@@ -230,10 +230,10 @@ TextureImporter:
       name: daynoi_5
       rect:
         serializedVersion: 2
-        x: 30
+        x: 75
         y: 0
-        width: 30
-        height: 50
+        width: 75
+        height: 134
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,7 +241,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fe298660e1e17a46ac6062be0baed53
+      spriteID: ac0928bb73c769d48b05dfc65d7fa4d2
       internalID: 909122166725783850
       vertices: []
       indices: 
@@ -251,10 +251,10 @@ TextureImporter:
       name: daynoi_6
       rect:
         serializedVersion: 2
-        x: 60
+        x: 150
         y: 0
-        width: 30.25
-        height: 50
+        width: 75
+        height: 134
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,7 +262,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f3230b8a44d04147a4ed3cacbf064cf
+      spriteID: a126f596f92ef4542b1de574845fe52e
       internalID: 195481095900878985
       vertices: []
       indices: 
@@ -272,10 +272,10 @@ TextureImporter:
       name: daynoi_7
       rect:
         serializedVersion: 2
-        x: 90
+        x: 225
         y: 0
-        width: 30.25
-        height: 50
+        width: 75
+        height: 134
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,7 +283,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6fa0ad25c77d0c4499e823aa3e5d6e9
+      spriteID: 18c646c59c9cfeb4c829f85c6a67fa14
       internalID: 8938530967431826730
       vertices: []
       indices: 
