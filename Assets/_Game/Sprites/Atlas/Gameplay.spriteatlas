@@ -35,7 +35,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 08ecab68d228b37498a3dc7c8c2c4e17, type: 3}
     - {fileID: 102900000, guid: a433e5e86a338d3429969cc958f4be07, type: 3}
     - {fileID: 102900000, guid: ba57f0c57c47a4411a08e34d5a2092b3, type: 3}
-    totalSpriteSurfaceArea: 1831872
+    totalSpriteSurfaceArea: 1567392
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -76,7 +76,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: dc70c009ac31b5d46a1cc451ac7b6977, type: 3}
   - {fileID: 21300000, guid: d98ce8a9c72424e5ea0448bd191654fa, type: 3}
   - {fileID: 21300000, guid: 7a93353abfc764f2a9c18221dbbc9a05, type: 3}
-  - {fileID: 21300000, guid: 5179186ab4799274e9eb4f48baf0641b, type: 3}
   - {fileID: 21300000, guid: 056ef07a245f00f4597939880e1323dc, type: 3}
   - {fileID: 21300000, guid: ce12249abf333d448a8a8b5a5cf95799, type: 3}
   - {fileID: 21300000, guid: b3c620caf0a2a4927a594cd1b3661893, type: 3}
@@ -106,7 +105,7 @@ SpriteAtlas:
   - btn_play
   - item_star_loading_off
   - btn_music_off
-  - ingame_item_special_1
+  - special_1
   - Pink
   - btn_booster_more
   - btn_level_lock
@@ -128,10 +127,9 @@ SpriteAtlas:
   - Yellow
   - Green
   - Orange
-  - ingame_item_special_3
+  - special_3
   - VerticalBomb
   - Shine
-  - bg_ingame_top
   - item_ice
   - item_board_number
   - DiagonalRightBomb
@@ -141,7 +139,7 @@ SpriteAtlas:
   - Arrow
   - CrossBomb
   - ingame_wood
-  - ingame_item_special_2
+  - special_2
   - ingame_plastic
   - btn_sound_on
   - ingame_stone
