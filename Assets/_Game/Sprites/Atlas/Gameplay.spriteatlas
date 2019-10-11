@@ -45,7 +45,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: a433e5e86a338d3429969cc958f4be07, type: 3}
     - {fileID: 102900000, guid: 2c07c2e505fe51546b44298b07abdccb, type: 3}
     - {fileID: 102900000, guid: 08ecab68d228b37498a3dc7c8c2c4e17, type: 3}
-    totalSpriteSurfaceArea: 4186474
+    totalSpriteSurfaceArea: 1552746
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -74,9 +74,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ce12249abf333d448a8a8b5a5cf95799, type: 3}
   - {fileID: 21300000, guid: 22ae884b507911442b55f0a4fc7bc3c2, type: 3}
   - {fileID: 21300000, guid: c4e7197b025740647bfea9e29ff7212c, type: 3}
+  - {fileID: 21300000, guid: 9b3ea1ab02a3c574bbe754158ff33b88, type: 3}
   - {fileID: 21300000, guid: c5d8bf8e955b6264dababf08b2133aa5, type: 3}
   - {fileID: 21300000, guid: 7fa7a9af2e13d4d4fb07bbff2f288e9b, type: 3}
   - {fileID: 21300000, guid: 9719f8bf4c2cbec46819689145e654e3, type: 3}
+  - {fileID: 21300000, guid: 39bbcdff68fdd5d4dbf46872d9025c23, type: 3}
   m_PackedSpriteNamesToIndex:
   - Edge
   - item_star_loading
@@ -103,8 +105,10 @@ SpriteAtlas:
   - item_board_number
   - btn_setting
   - bg_loading_ingame1
+  - tile_1
   - btn_sound_on
   - btn_level_1
   - btn_sound_off
+  - tile_2
   m_Tag: Gameplay
   m_IsVariant: 0

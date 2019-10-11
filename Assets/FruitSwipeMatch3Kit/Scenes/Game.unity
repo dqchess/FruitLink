@@ -3978,11 +3978,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: powerupType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3870509477624507739, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -4022,6 +4017,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_useMaxVisibleDescender
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: powerupType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3870509477460797962, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}
@@ -9688,11 +9688,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: powerupType
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3870509477624507739, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}
       propertyPath: m_isRichText
@@ -9712,6 +9707,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_useMaxVisibleDescender
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: powerupType
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7, type: 3}
@@ -20274,11 +20274,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: powerupType
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3870509477624507739, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -20318,6 +20313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_useMaxVisibleDescender
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: powerupType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3870509477460797962, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}

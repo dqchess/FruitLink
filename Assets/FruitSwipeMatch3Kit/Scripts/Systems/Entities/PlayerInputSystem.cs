@@ -163,13 +163,16 @@ namespace FruitSwipeMatch3Kit
                     var entityManager = goe.EntityManager;
                     if (entityManager.HasComponent<BoosterData>(entity))
                     {
+                        
                         if (selectedBooster == Entity.Null)
                         {
+                            Debug.Log("Pending booster");
                             selectedBooster = entity;
                             entityManager.AddComponentData(entity, new PendingBoosterData());
                         }
                         else
                         {
+                            Debug.Log("Add Pending booster");
                             PendingBoosterTiles.Add(entity);
                         }
                     }
@@ -181,9 +184,16 @@ namespace FruitSwipeMatch3Kit
                 }
 
                 var levelData = GameObject.Find("GameScreen").GetComponent<GameScreen>().LevelData;
-                TileUtils.DestroyTiles(
-                    tilesToDestroy, tiles, tileGos, levelCreationSystem.Slots, particlePools,
-                    levelData.Width, levelData.Height);
+                if (tilesToDestroy.Count == 0)
+                {
+                    EntityManager.CreateEntity(typeof(ResolveBoostersData));
+                }
+                else
+                {
+                    TileUtils.DestroyTiles(
+                        tilesToDestroy, tiles, tileGos, levelCreationSystem.Slots, particlePools,
+                        levelData.Width, levelData.Height);   
+                }
 
                 isBoosterExploding = selectedTiles.Find(x =>
                     EntityManager.HasComponent<BoosterData>(x.GetComponent<GameObjectEntity>().Entity));

@@ -95,18 +95,24 @@ namespace FruitSwipeMatch3Kit
                 foreach (var entity in entities)
                     PostUpdateCommands.DestroyEntity(entity);
                 entities.Dispose();
-
+                
                 var boosterData = pendingBoosterQuery.ToComponentDataArray<BoosterData>(Allocator.TempJob);
                 ResolveBooster(entities2[0], boosterData[0]);
                 boosterData.Dispose();
                 entities2.Dispose();
+                
+                if (inputSystem.PendingBoosterTiles.Count > 0)
+                {
+                    EntityManager.AddComponentData(inputSystem.PendingBoosterTiles[0], new PendingBoosterData());
+                    inputSystem.PendingBoosterTiles.RemoveAt(0);
+                }
             }
         }
 
         private void ResolveBooster(Entity entity, BoosterData boosterData)
         {
             indexes.Clear();
-
+            
             switch (boosterData.Type)
             {
                 case BoosterType.Horizontal:
@@ -176,7 +182,7 @@ namespace FruitSwipeMatch3Kit
             if (selectedBooster == Entity.Null)
                 inputSystem.SetBoosterExploding(false);
             inputSystem.SetBoosterChainResolving(chainingBoosters);
-
+    
             applyingGravity = true;
         }
 
