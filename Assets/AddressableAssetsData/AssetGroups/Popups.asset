@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Popups
+  m_EditorClassIdentifier: 
+  m_GroupName: Popups
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2e1f45752c563984e9374c73a4e11712
+  m_SerializeEntries:
+  - m_GUID: 03a68e3dc1e3c40e09000eacdb2e77c2
+    m_Address: Popups/PausePopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 043f3069565d34204a258d89ef6ee77d
+    m_Address: Popups/AlertPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 16b01311eacb6493583cc02608fd2cc5
+    m_Address: Popups/LevelGoalsPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2f0decbd092fb4e64bf6fe32a31769a8
+    m_Address: Popups/SettingsPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4cfcae06743b34260bb360476e849ed1
+    m_Address: Popups/ConfirmationPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 567e03f83423d4e5f97ed8a9a5bd753b
+    m_Address: Popups/EndGameAwardPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5891c1b3e7357481ea76f5a89f3eeb4a
+    m_Address: Popups/LosePopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 88be82009dede4896ad11c94c07ff346
+    m_Address: Popups/BuyPowerupsPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9be59d02d81c74334a1fee9201e8f48e
+    m_Address: Popups/WinPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a04ea4eedf5584dbe8b0ba997a39b573
+    m_Address: Popups/BuyCoinsPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: af89dcbf1b5174f1999e3d57dfff8545
+    m_Address: Popups/BuyLivesPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b6071a4483d7f44d89b9644fba29fb14
+    m_Address: Popups/OutOfMovesPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c0086468fc54b45aabd5db4440ac6787
+    m_Address: Popups/LoadingPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f5712830b4b8e42c3991053a5b532d12
+    m_Address: Popups/StartGamePopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ff66012a29fbc644e8302ec6c7178e6e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f3116c177db6012428fa37696570a51b, type: 2}
+    - {fileID: 11400000, guid: e4092c7abd43b0f4cb7468a1cd109cb6, type: 2}
