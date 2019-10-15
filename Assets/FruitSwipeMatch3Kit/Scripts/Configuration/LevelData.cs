@@ -15,7 +15,7 @@ namespace FruitSwipeMatch3Kit
     [CreateAssetMenu(fileName = "LevelData", menuName = "Fruit Swipe Match 3 Kit/Level", order = 1)]
     public class LevelData : ScriptableObject
     {
-        public int Number;
+        public int Number => int.Parse(name);
         public int Width;
         public int Height;
         public int Moves;
@@ -26,7 +26,7 @@ namespace FruitSwipeMatch3Kit
         public bool IsBombAvailable;
         public bool IsSwapAvailable;
         public bool IsColorBombAvailable;
-        public bool EndGameAward;
+        public bool EndGameAward = true;
         public List<LevelTileData> Tiles = new List<LevelTileData>();
         public List<LevelGoalData> Goals = new List<LevelGoalData>();
         public List<ColorTileType> AvailableColors = new List<ColorTileType>();

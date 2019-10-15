@@ -128,13 +128,13 @@ namespace FruitSwipeMatch3Kit
             
             GUILayout.BeginVertical();
 
-            GUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(new GUIContent("Level number", "The number of this level."),
-                GUILayout.Width(EditorGUIUtility.labelWidth));
-            currentLevelData.Number = EditorGUILayout.IntField(currentLevelData.Number, GUILayout.Width(30));
-            GUILayout.EndHorizontal();
+//            GUILayout.BeginHorizontal();
+//            EditorGUILayout.LabelField(new GUIContent("Level number", "The number of this level."),
+//                GUILayout.Width(EditorGUIUtility.labelWidth));
+//            currentLevelData.Number = EditorGUILayout.IntField(currentLevelData.Number, GUILayout.Width(30));
+//            GUILayout.EndHorizontal();
 			
-			GUILayout.Space(10);
+//			GUILayout.Space(10);
 			
 			prevWidth = currentLevelData.Width;
 			
@@ -146,7 +146,7 @@ namespace FruitSwipeMatch3Kit
 	            ResetLevelTiles();
             GUILayout.EndHorizontal();
 
-			GUILayout.Space(5);
+			GUILayout.Space(10);
 			
 			prevHeight = currentLevelData.Height;
 			
