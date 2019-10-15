@@ -164,14 +164,12 @@ namespace FruitSwipeMatch3Kit
                     var tilePos = EntityManager.GetComponentData<TilePosition>(entity);
                     var idx = tilePos.X + (tilePos.Y * width);
 
-                    var entityManager = goe.EntityManager;
-                    if (entityManager.HasComponent<BoosterData>(entity))
+                    if (EntityManager.HasComponent<BoosterData>(entity))
                     {
-                        
                         if (selectedBooster == Entity.Null)
                         {
                             selectedBooster = entity;
-                            entityManager.AddComponentData(entity, new PendingBoosterData());
+                            EntityManager.AddComponentData(entity, new PendingBoosterData());
                         }
                         else
                         {
@@ -300,9 +298,9 @@ namespace FruitSwipeMatch3Kit
             var width = levelCreationSystem.Width;
             var height = levelCreationSystem.Height;
             
-            for (var i = 0; i < height; i++)
+            for (var j = 0; j < height; j++)
             {
-                for (var j = 0; j < width; j++)
+                for (var i = 0; i < width; i++)
                 {
                     var idx = i + j * width;
                     if (tileEntities[idx] == Entity.Null ||
