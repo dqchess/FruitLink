@@ -65,12 +65,11 @@ namespace FruitSwipeMatch3Kit
             spriteHalfWidth = spriteWidth / 2;
             spriteHalfHeight = spriteHeight / 2;
             temp.GetComponent<PooledObject>().Pool.ReturnObject(temp);
+            mainCamera = Camera.main;
         }
 
         protected override void OnUpdate()
         {
-            mainCamera = Camera.main;
-
             Entities.ForEach((Entity entity, ref CreateLevelEvent evt) =>
             {
                 PostUpdateCommands.DestroyEntity(entity);
@@ -81,7 +80,7 @@ namespace FruitSwipeMatch3Kit
                 var updateMovesSystem = World.GetExistingSystem<UpdateRemainingMovesUiSystem>();
                 updateMovesSystem?.Initialize(levelData.Moves);
             });
-
+            
             CreateLevel();
         }
 
@@ -159,6 +158,7 @@ namespace FruitSwipeMatch3Kit
                             z = 0
                         }
                     });
+                    
                     EntityManager.AddComponentData(tileEntity, new LocalToWorld());
                 }
             }

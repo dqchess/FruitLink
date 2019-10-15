@@ -52,13 +52,14 @@ namespace FruitSwipeMatch3Kit
             SoundPlayer.PlaySoundFx("TileMatch");
         }
 
-        private static List<int> GetNeighbours(
+        public static List<int> GetNeighbours(
             int idx,
             NativeArray<Entity> tiles,
             int width,
-            int height)
+            int height,
+            bool includeCross = false)
         {
-            var neighbours = new List<int>(4);
+            var neighbours = new List<int>(includeCross ? 8 : 4);
             
             var x = idx % width;
             var y = idx / width;
@@ -87,6 +88,20 @@ namespace FruitSwipeMatch3Kit
             if (rightX < width)
                 AddNeighbour(right, tiles, neighbours);
 
+            if (!includeCross) return neighbours;
+            // top left
+            if (topY >= 0 && leftX >= 0)
+                AddNeighbour(leftX + topY * width, tiles, neighbours);
+            // top right
+            if(topY >= 0 && rightX < width)
+                AddNeighbour(rightX + topY * width, tiles, neighbours);
+            // bot left
+            if(leftX >= 0 && bottomY < height)
+                AddNeighbour(leftX + bottomY * width, tiles, neighbours);
+            // bot right
+            if(rightX < width && bottomY < height)
+                AddNeighbour(rightX + bottomY * width, tiles, neighbours);
+            
             return neighbours;
         }
 

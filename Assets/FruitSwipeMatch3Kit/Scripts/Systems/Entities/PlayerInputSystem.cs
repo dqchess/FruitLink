@@ -36,6 +36,8 @@ namespace FruitSwipeMatch3Kit
         
         private readonly List<GameObject> selectSegments = new List<GameObject>(8);
 
+        private readonly List<SpriteRenderer> darkTiles = new List<SpriteRenderer>();
+        
         private GameObject linePrefab;
         private GameObject selectPrefab;
 
@@ -130,6 +132,8 @@ namespace FruitSwipeMatch3Kit
                         tile.GetComponent<Animator>().SetTrigger(Pressed);
                         
                         CreateSelectSegment(lastSegmentPos, selectedType);
+
+                        CreatePathHighlight(entity, selectedType);
                         
                         SoundPlayer.PlaySoundFx("Connect");
                     }
@@ -140,11 +144,10 @@ namespace FruitSwipeMatch3Kit
         private void OnMouseUp()
         {
             isDraggingInput = false;
-
+            RemoveDarkFruits();
             if (selectedTiles.Count >= GameplayConstants.NumTilesNeededForMatch)
             {
                 LockInput();
-
                 var levelCreationSystem = World.GetExistingSystem<LevelCreationSystem>();
                 var tiles = levelCreationSystem.TileEntities;
                 var tileGos = levelCreationSystem.TileGos;
@@ -153,6 +156,7 @@ namespace FruitSwipeMatch3Kit
                 var tilesToDestroy = new List<int>(8);
                 var lastIdx = 0;
                 var selectedBooster = Entity.Null;
+                
                 foreach (var t in selectedTiles)
                 {
                     var goe = t.GetComponent<GameObjectEntity>();
@@ -166,13 +170,11 @@ namespace FruitSwipeMatch3Kit
                         
                         if (selectedBooster == Entity.Null)
                         {
-                            Debug.Log("Pending booster");
                             selectedBooster = entity;
                             entityManager.AddComponentData(entity, new PendingBoosterData());
                         }
                         else
                         {
-                            Debug.Log("Add Pending booster");
                             PendingBoosterTiles.Add(entity);
                         }
                     }
@@ -182,7 +184,7 @@ namespace FruitSwipeMatch3Kit
                         lastIdx = idx;
                     }
                 }
-
+                
                 var levelData = GameObject.Find("GameScreen").GetComponent<GameScreen>().LevelData;
                 if (tilesToDestroy.Count == 0)
                 {
@@ -212,9 +214,8 @@ namespace FruitSwipeMatch3Kit
             foreach (var tile in selectedTiles)
                 tile.GetComponent<Animator>()?.SetTrigger(Idle);
             selectedTiles.Clear();
-
+            
             DestroySelectionLine();
-
             DestroySelectionEffect();
         }
 
@@ -288,6 +289,72 @@ namespace FruitSwipeMatch3Kit
                         }
                     }
                 }
+            }
+        }
+        
+        private void CreatePathHighlight(Entity selectEntity, ColorTileType colorTileType)
+        {
+            var levelCreationSystem = World.GetExistingSystem<LevelCreationSystem>();
+            var tileEntities = levelCreationSystem.TileEntities;
+            var tileGos = levelCreationSystem.TileGos;
+            var width = levelCreationSystem.Width;
+            var height = levelCreationSystem.Height;
+            
+            for (var i = 0; i < height; i++)
+            {
+                for (var j = 0; j < width; j++)
+                {
+                    var idx = i + j * width;
+                    if (tileEntities[idx] == Entity.Null ||
+                        EntityManager.HasComponent<HoleSlotData>(tileEntities[idx]) || 
+                        EntityManager.HasComponent<BlockerData>(tileEntities[idx]) || 
+                        EntityManager.HasComponent<BoosterData>(tileEntities[idx]))
+                        continue;
+                    
+                    var tile = tileGos[idx];
+                    var tileRender = tile.GetComponent<SpriteRenderer>();
+                    tileRender.color = Color.gray;
+                    darkTiles.Add(tileRender);
+                }
+            }
+            
+            TilePosition tilePos = EntityManager.GetComponentData<TilePosition>(selectEntity);
+            var startIdx = tilePos.X + tilePos.Y * width;
+            tileGos[startIdx].GetComponent<SpriteRenderer>().color = Color.white;
+            
+            List<int> openSet = new List<int>();
+            HashSet<int> closeSet = new HashSet<int>();
+            openSet.Add(startIdx);
+
+            while (openSet.Count > 0)
+            {
+                int currentIdx = openSet[0];
+                openSet.Remove(currentIdx);
+                closeSet.Add(currentIdx);
+
+                List<int> neighbours = TileUtils.GetNeighbours(currentIdx, tileEntities, width, height, true);
+                for (int i = 0; i < neighbours.Count; i++)
+                {
+                    int neighbourIdx = neighbours[i];
+                    if(closeSet.Contains(neighbourIdx)) continue;
+                    if (EntityManager.HasComponent<TileData>(tileEntities[neighbourIdx]))
+                    {
+                        if (EntityManager.GetComponentData<TileData>(tileEntities[neighbourIdx]).Type == colorTileType)
+                        {
+                            if(!openSet.Contains(neighbourIdx)) openSet.Add(neighbourIdx);
+                            tileGos[neighbourIdx].GetComponent<SpriteRenderer>().color = Color.white;
+                        }
+                    }
+                    closeSet.Add(neighbourIdx);
+                }
+            }
+        }
+
+        private void RemoveDarkFruits()
+        {
+            for (int i = 0; i < darkTiles.Count; i++)
+            {
+                darkTiles[i].color = Color.white;
             }
         }
 
