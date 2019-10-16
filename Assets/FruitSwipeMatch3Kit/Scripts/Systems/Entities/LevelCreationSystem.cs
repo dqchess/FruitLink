@@ -455,6 +455,11 @@ namespace FruitSwipeMatch3Kit
             }
         }
 
+        public float GetSpriteWidth()
+        {
+            return spriteWidth;
+        }
+        
         public float GetSpriteHeight()
         {
             return spriteHeight;

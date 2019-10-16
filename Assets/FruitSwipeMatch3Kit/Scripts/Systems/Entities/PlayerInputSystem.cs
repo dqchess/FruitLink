@@ -184,6 +184,10 @@ namespace FruitSwipeMatch3Kit
                 }
                 
                 var levelData = GameObject.Find("GameScreen").GetComponent<GameScreen>().LevelData;
+
+                isBoosterExploding = selectedTiles.Find(x =>
+                    EntityManager.HasComponent<BoosterData>(x.GetComponent<GameObjectEntity>().Entity));
+                
                 if (tilesToDestroy.Count == 0)
                 {
                     EntityManager.CreateEntity(typeof(ResolveBoostersData));
@@ -194,9 +198,6 @@ namespace FruitSwipeMatch3Kit
                         tilesToDestroy, tiles, tileGos, levelCreationSystem.Slots, particlePools,
                         levelData.Width, levelData.Height);   
                 }
-
-                isBoosterExploding = selectedTiles.Find(x =>
-                    EntityManager.HasComponent<BoosterData>(x.GetComponent<GameObjectEntity>().Entity));
 
                 var e = EntityManager.CreateEntity(applyGravityArchetype);
                 EntityManager.SetComponentData(e, new ApplyGravityData
@@ -212,7 +213,7 @@ namespace FruitSwipeMatch3Kit
             foreach (var tile in selectedTiles)
                 tile.GetComponent<Animator>()?.SetTrigger(Idle);
             selectedTiles.Clear();
-            
+            RemoveBoosterLines();
             DestroySelectionLine();
             DestroySelectionEffect();
         }
@@ -285,7 +286,9 @@ namespace FruitSwipeMatch3Kit
                                 }
                             }
                         }
+                        CreateBoosterDirection();
                     }
+                    
                 }
             }
         }
@@ -406,6 +409,57 @@ namespace FruitSwipeMatch3Kit
             selectSegments.Add(segment);
         }
 
+        private Tile lastBooster;
+        private void CreateBoosterDirection()
+        {
+            var lastTile = selectedTiles[selectedTiles.Count - 1];
+            RemoveBoosterLines();
+            var lastTileBooster = lastTile.GetComponent<Tile>();
+            if(GetBoosterType() != BoosterType.Normal)
+            {
+                if (lastTileBooster.AddBooster(GetBoosterType()))
+                    lastBooster = lastTileBooster;
+            }
+        }
+
+        private void RemoveBoosterLines()
+        {
+            if (lastBooster != null)
+            {
+                lastBooster.RemoveBooster();
+                lastBooster = null;
+            }
+        }
+
+        private BoosterType GetBoosterType()
+        {
+            var gameConfig = gameScreen.GameConfig;
+            if (selectedTiles.Count >= gameConfig.NumTilesNeededForStarBooster)
+            {
+                return BoosterType.Star;
+            } 
+            if (selectedTiles.Count >= gameConfig.NumTilesNeededForCrossBooster)
+            {
+                return BoosterType.Cross;
+            }
+            if (selectedTiles.Count >= gameConfig.NumTilesNeededForRegularBooster)
+            {
+                switch (lastMoveDirection)
+                {
+                    case MoveDirection.Horizontal:
+                        return BoosterType.Horizontal;
+                    case MoveDirection.Vertical:
+                        return BoosterType.Vertical;
+                    case MoveDirection.DiagonalLeft:
+                        return BoosterType.DiagonalLeft;
+                    case MoveDirection.DiagonalRight:
+                        return BoosterType.DiagonalRight;
+                }
+            }
+
+            return BoosterType.Normal;
+        }
+        
         private void DestroySelectionLine()
         {
             foreach (var segment in lineSegments)
@@ -440,6 +494,20 @@ namespace FruitSwipeMatch3Kit
         public void SetBoosterChainResolving(bool resolving)
         {
             isBoosterChainResolving = resolving;
+        }
+
+        public void OnGameRestarted()
+        {
+            isDraggingInput = false;
+            UnlockInput();
+            RemoveDarkFruits();
+
+            foreach (var tile in selectedTiles)
+                tile.GetComponent<Animator>()?.SetTrigger(Idle);
+            selectedTiles.Clear();
+            
+            DestroySelectionLine();
+            DestroySelectionEffect();
         }
     }
 }

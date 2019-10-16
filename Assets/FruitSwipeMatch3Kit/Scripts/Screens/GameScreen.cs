@@ -204,7 +204,7 @@ namespace FruitSwipeMatch3Kit
                 return;
 
             playerWon = true;
-            
+            World.Active.GetExistingSystem<PlayerInputSystem>().LockInput();
             var nextLevel = PlayerPrefs.GetInt(GameplayConstants.NextLevelPrefKey);
             if (nextLevel == 0)
                 nextLevel = 1;
@@ -232,7 +232,7 @@ namespace FruitSwipeMatch3Kit
                 return;
 
             playerLost = true;
-            
+            World.Active.GetExistingSystem<PlayerInputSystem>().LockInput();
             StartCoroutine(OpenOutOfMovesPopupAsync());
         }
         
@@ -351,6 +351,7 @@ namespace FruitSwipeMatch3Kit
             world.GetExistingSystem<LevelCreationSystem>().OnGameRestarted();
             world.GetExistingSystem<UpdateScoreSystem>().OnGameRestarted();
             world.GetExistingSystem<UpdateRemainingMovesUiSystem>().Initialize(levelData.Moves);
+            world.GetExistingSystem<PlayerInputSystem>().OnGameRestarted();
             
             playerWon = false;
             playerLost = false;

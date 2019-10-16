@@ -50,6 +50,7 @@ namespace FruitSwipeMatch3Kit
             var tileEntities = levelCreationSystem.TileEntities;
             var width = levelCreationSystem.Width;
             var height = levelCreationSystem.Height;
+            var spriteWidth = levelCreationSystem.GetSpriteWidth();
             var spriteHeight = levelCreationSystem.GetSpriteHeight();
 
             var job = new ApplyGravityJob
@@ -62,6 +63,7 @@ namespace FruitSwipeMatch3Kit
                 Height = height,
                 HoleSlotData = GetComponentDataFromEntity<HoleSlotData>(),
                 BlockerData = GetComponentDataFromEntity<BlockerData>(),
+                SpriteWidth = spriteWidth,
                 SpriteHeight = spriteHeight
             };
 

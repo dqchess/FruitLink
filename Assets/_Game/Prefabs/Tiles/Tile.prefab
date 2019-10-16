@@ -4962,7 +4962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3723068936462439041
 Transform:
   m_ObjectHideFlags: 0
@@ -5837,6 +5837,11 @@ MonoBehaviour:
   verticalArrows: {fileID: 1374903075977027762}
   diagonalLeftArrows: {fileID: 4999365417342049154}
   diagonalRightArrows: {fileID: 3737065399150125991}
+  linear: {fileID: 0}
+  horizontalLine: {fileID: 0}
+  verticalLine: {fileID: 0}
+  diagonalLeftLine: {fileID: 0}
+  diagonalRightLine: {fileID: 0}
 --- !u!114 &7192552967843158582
 MonoBehaviour:
   m_ObjectHideFlags: 0

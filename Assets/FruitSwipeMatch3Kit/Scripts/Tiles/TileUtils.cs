@@ -57,9 +57,9 @@ namespace FruitSwipeMatch3Kit
             NativeArray<Entity> tiles,
             int width,
             int height,
-            bool includeCross = false)
+            bool includeDiagonal = false)
         {
-            var neighbours = new List<int>(includeCross ? 8 : 4);
+            var neighbours = new List<int>(includeDiagonal ? 8 : 4);
             
             var x = idx % width;
             var y = idx / width;
@@ -88,7 +88,7 @@ namespace FruitSwipeMatch3Kit
             if (rightX < width)
                 AddNeighbour(right, tiles, neighbours);
 
-            if (!includeCross) return neighbours;
+            if (!includeDiagonal) return neighbours;
             // top left
             if (topY >= 0 && leftX >= 0)
                 AddNeighbour(leftX + topY * width, tiles, neighbours);
@@ -270,6 +270,22 @@ namespace FruitSwipeMatch3Kit
                 case BlockerType.Wood:
                     SoundPlayer.PlaySoundFx("Wood");
                     break;
+            }
+        }
+        
+        public static void RemoveBoosterToTile(GameObject go, EntityManager entityManager)
+        {
+            var goe = go.GetComponent<GameObjectEntity>();
+            Assert.IsNotNull(goe);
+            var entity = goe.Entity;
+            if (!entityManager.HasComponent<BoosterData>(entity))
+            {
+                var tile = go.GetComponent<Tile>();
+                if (tile != null)
+                {
+                    entityManager.RemoveComponent<BoosterData>(entity);
+                    tile.RemoveBooster();
+                }
             }
         }
 

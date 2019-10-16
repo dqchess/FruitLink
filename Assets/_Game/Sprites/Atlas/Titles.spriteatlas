@@ -33,7 +33,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: da9b0a3a3a148a54cbc0ea29041086ba, type: 3}
     - {fileID: 102900000, guid: ba57f0c57c47a4411a08e34d5a2092b3, type: 3}
     - {fileID: 2800000, guid: 30f99df06f55342469ae6d7c94032930, type: 3}
-    totalSpriteSurfaceArea: 1720825
+    totalSpriteSurfaceArea: 1999457
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -64,6 +64,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 056ef07a245f00f4597939880e1323dc, type: 3}
   - {fileID: 21300000, guid: 867b47ba95894de48949ba03472e43f9, type: 3}
   - {fileID: 21300000, guid: b3c620caf0a2a4927a594cd1b3661893, type: 3}
+  - {fileID: 21300000, guid: 3d3de32bb6d5c874b9bdad1ebff80a2e, type: 3}
   - {fileID: 21300000, guid: edc541dbe0bad489787dd6251a749eea, type: 3}
   - {fileID: 21300000, guid: 8ca5d72c8b5ef4e1bac16b25ecb017f8, type: 3}
   - {fileID: 21300000, guid: 5a24529cca272c140be0cd5b92b253c7, type: 3}
@@ -97,6 +98,7 @@ SpriteAtlas:
   - item_ice
   - Cupcake
   - DiagonalRightBomb
+  - item_special_4
   - Arrow
   - CrossBomb
   - ingame_wood

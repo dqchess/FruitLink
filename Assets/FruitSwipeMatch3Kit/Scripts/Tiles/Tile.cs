@@ -20,8 +20,18 @@ namespace FruitSwipeMatch3Kit
         private GameObject diagonalLeftArrows;
         [SerializeField]
         private GameObject diagonalRightArrows;
+//        [SerializeField]
+//        private GameObject linear;
+//        [SerializeField]
+//        private GameObject horizontalLine;
+//        [SerializeField]
+//        private GameObject verticalLine;
+//        [SerializeField]
+//        private GameObject diagonalLeftLine;
+//        [SerializeField]
+//        private GameObject diagonalRightLine;
 #pragma warning restore 649
-
+        
         private void Awake()
         {
             Assert.IsNotNull(booster);
@@ -33,18 +43,64 @@ namespace FruitSwipeMatch3Kit
 
         private void OnEnable()
         {
+            RemoveBooster();
+//            RemoveBoosterLine();
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            booster.SetActive(false);
         }
 
         private void OnDisable()
         {
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
+//
+//        public bool AddBoosterLine(BoosterType type)
+//        {
+//            if (type == BoosterType.Normal) return false;
+//            if(linear.activeSelf) return false;
+//            linear.SetActive(true);
+//            horizontalLine.SetActive(false);
+//            verticalLine.SetActive(false);
+//            diagonalLeftLine.SetActive(false);
+//            diagonalRightLine.SetActive(false);
+//            switch (type)
+//            {
+//                case BoosterType.Horizontal:
+//                    horizontalLine.SetActive(true);
+//                    break;
+//                
+//                case BoosterType.Vertical:
+//                    verticalLine.SetActive(true);
+//                    break;
+//                
+//                case BoosterType.DiagonalLeft:
+//                    diagonalLeftLine.SetActive(true);
+//                    break;
+//                
+//                case BoosterType.DiagonalRight:
+//                    diagonalRightLine.SetActive(true);
+//                    break;
+//                
+//                case BoosterType.Cross:
+//                    horizontalLine.SetActive(true);
+//                    verticalLine.SetActive(true);
+//                    break;
+//                
+//                case BoosterType.Star:
+//                    horizontalLine.SetActive(true);
+//                    verticalLine.SetActive(true);
+//                    diagonalLeftLine.SetActive(true);
+//                    diagonalRightLine.SetActive(true);
+//                    break;
+//            }
+//
+//            return true;
+//        }
+//        
 
-        public void AddBooster(BoosterType type)
+        public bool AddBooster(BoosterType type)
         {
-            Assert.IsTrue(!booster.activeSelf);
+            if (type == BoosterType.Normal) return false;
+            if(booster.activeSelf) return false;
             booster.SetActive(true);
             horizontalArrows.SetActive(false);
             verticalArrows.SetActive(false);
@@ -80,6 +136,18 @@ namespace FruitSwipeMatch3Kit
                     diagonalRightArrows.SetActive(true);
                     break;
             }
+
+            return true;
         }
+
+        public void RemoveBooster()
+        {
+            booster.SetActive(false);
+        }
+//
+//        public void RemoveBoosterLine()
+//        {
+//            linear.SetActive(false);
+//        }
     }
 }
