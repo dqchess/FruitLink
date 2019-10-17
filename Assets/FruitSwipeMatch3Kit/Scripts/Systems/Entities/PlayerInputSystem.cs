@@ -355,7 +355,7 @@ namespace FruitSwipeMatch3Kit
         {
             for (int i = 0; i < darkTiles.Count; i++)
             {
-                darkTiles[i].color = Color.white;
+                if(darkTiles[i] != null) darkTiles[i].color = Color.white;
             }
         }
 
