@@ -11,6 +11,7 @@ namespace FruitSwipeMatch3Kit
         Blocker,
         Collectible,
         Hole,
-        Empty
+        Empty,
+        Random
     }
 }

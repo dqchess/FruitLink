@@ -306,6 +306,7 @@ namespace FruitSwipeMatch3Kit
 					DrawCollectibleSettings();
 					break;
 			
+				case BrushType.Random:
 				case BrushType.Hole:
 				case BrushType.Empty:
 					break;
@@ -399,7 +400,6 @@ namespace FruitSwipeMatch3Kit
 			var idx = row + column * currentLevelData.Width;
 
 			var texName = string.Empty;
-			
 			if (currentLevelData.Tiles[idx].TileType == TileType.Empty)
 			{
 				switch (currentLevelData.Tiles[idx].SlotType)
@@ -447,6 +447,10 @@ namespace FruitSwipeMatch3Kit
 				
 				case TileType.Hole:
 					texName = "Empty";
+					break;
+				
+				case TileType.Random:
+					texName = "Random";
 					break;
 			}
 
@@ -525,6 +529,14 @@ namespace FruitSwipeMatch3Kit
 					onDrawCallback = i =>
 					{
 						currentLevelData.Tiles[i].TileType = TileType.Empty;
+						currentLevelData.Tiles[i].SlotType = SlotType.Normal;
+					};
+					break;
+				
+				case BrushType.Random:
+					onDrawCallback = i =>
+					{
+						currentLevelData.Tiles[i].TileType = TileType.Random;
 						currentLevelData.Tiles[i].SlotType = SlotType.Normal;
 					};
 					break;

@@ -171,6 +171,9 @@ namespace FruitSwipeMatch3Kit
         {
             switch (tileData.TileType)
             {
+                case TileType.Random:
+                    return tilePools.GetRandomColorTile();
+                
                 case TileType.Color:
                     return tilePools.GetColorTile(tileData.ColorTileType);
 
