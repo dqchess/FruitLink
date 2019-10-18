@@ -9,11 +9,11 @@ namespace FruitSwipeMatch3Kit
     /// </summary>
     public class LosePopup : EndGamePopup
     {
-        private void OnDestroy()
-        {
-            var playSound = GetComponent<PlaySound>();
-            if (playSound != null)
-                playSound.Stop("Rain");
-        }
+//        private void OnDestroy()
+//        {
+//            var playSound = GetComponent<PlaySound>();
+//            if (playSound != null)
+//                playSound.Stop("Rain");
+//        }
     }
 }

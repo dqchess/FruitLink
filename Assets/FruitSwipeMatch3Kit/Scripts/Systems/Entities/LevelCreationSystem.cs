@@ -268,8 +268,13 @@ namespace FruitSwipeMatch3Kit
                 {
                     var idx = x + (y * Width);
                     // bỏ qua hole để tìm tile đầu tiên
-                    if (levelData.Tiles[idx].TileType == TileType.Hole)
-                        continue;
+                    if (x != Width - 1 && levelData.Tiles[idx].TileType == TileType.Hole) continue;
+                    if (x == Width - 1 && levelData.Tiles[idx].TileType == TileType.Hole)
+                    {
+                        terrain.ClearPoints();
+                        pointHash.Clear();
+                        continue;    
+                    }
                     // add point to ignore conflict
                     if (!firstPoint) firstPoint = true;
                     else
@@ -308,8 +313,7 @@ namespace FruitSwipeMatch3Kit
                 {
                     var idx = x + (y * Width);
                     // bỏ qua hole để tìm tile đầu tiên
-                    if (levelData.Tiles[idx].TileType == TileType.Hole)
-                        continue;
+                    if (levelData.Tiles[idx].TileType == TileType.Hole) continue;
                     // add point to ignore conflict
                     if (!firstPoint) firstPoint = true;
                     else
@@ -333,7 +337,32 @@ namespace FruitSwipeMatch3Kit
                 }
             }
 
-            firstPoint = false;
+            ProcessColumnRight(terrain, pointHash, ref lastX, ref lastY);
+            
+            // xử lý hàng bên trên
+            for (int x = Width - 1; x >= 0; x--)
+            {
+                for (int y = 0; y < Height; y++)
+                {
+                    var idx = x + (y * Width);
+                    // bỏ qua hole để tìm tile đầu tiên
+                    if (levelData.Tiles[idx].TileType == TileType.Hole)
+                        continue;
+                    // add point top right
+                    AddPoint(terrain, pointHash, x, y, TilePointDirection.TopRight);
+                    // add point top left
+                    AddPoint(terrain, pointHash, x, y, TilePointDirection.TopLeft);
+                    // đã xử lý
+                    break;
+                }
+            }
+
+            terrain.Build();
+        }
+
+        private void ProcessColumnRight(Ferr2DT_PathTerrain terrain, HashSet<int> pointHash, ref int lastX, ref int lastY)
+        {
+            bool firstPoint = false;
             // xử lý cột bên phải
             for (int y = Height - 1; y >= 0; y--)
             {
@@ -341,8 +370,8 @@ namespace FruitSwipeMatch3Kit
                 {
                     var idx = x + (y * Width);
                     // bỏ qua hole để tìm tile đầu tiên
-                    if (levelData.Tiles[idx].TileType == TileType.Hole)
-                        continue;
+                    if (x != 0 && levelData.Tiles[idx].TileType == TileType.Hole) continue;
+                    if (x == 0 && levelData.Tiles[idx].TileType == TileType.Hole) return;
                     if (!firstPoint) firstPoint = true;
                     else
                     {
@@ -364,27 +393,6 @@ namespace FruitSwipeMatch3Kit
                     break;
                 }
             }
-
-            firstPoint = false;
-            // xử lý hàng bên trên
-            for (int x = Width - 1; x >= 0; x--)
-            {
-                for (int y = 0; y < Height; y++)
-                {
-                    var idx = x + (y * Width);
-                    // bỏ qua hole để tìm tile đầu tiên
-                    if (levelData.Tiles[idx].TileType == TileType.Hole)
-                        continue;
-                    // add point top right
-                    AddPoint(terrain, pointHash, x, y, TilePointDirection.TopRight);
-                    // add point top left
-                    AddPoint(terrain, pointHash, x, y, TilePointDirection.TopLeft);
-                    // đã xử lý
-                    break;
-                }
-            }
-
-            terrain.Build();
         }
 
         private void AddPoint(Ferr2DT_PathTerrain terrain, HashSet<int> hash, int x, int y,
