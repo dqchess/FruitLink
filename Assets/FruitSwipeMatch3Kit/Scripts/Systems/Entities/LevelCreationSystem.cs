@@ -305,7 +305,18 @@ namespace FruitSwipeMatch3Kit
                 }
             }
 
-            firstPoint = false;
+            ProcessRowBottom(terrain, pointHash, ref lastX, ref lastY);
+
+            ProcessColumnRight(terrain, pointHash, ref lastX, ref lastY);
+            
+            ProcessRowTop(terrain, pointHash, ref lastX, ref lastY);
+
+            terrain.Build();
+        }
+
+        private void ProcessRowBottom(Ferr2DT_PathTerrain terrain, HashSet<int> pointHash, ref int lastX, ref int lastY)
+        {
+            bool firstPoint = false;
             // xử lý hàng bên dưới
             for (int x = 0; x < Width; x++)
             {
@@ -313,7 +324,8 @@ namespace FruitSwipeMatch3Kit
                 {
                     var idx = x + (y * Width);
                     // bỏ qua hole để tìm tile đầu tiên
-                    if (levelData.Tiles[idx].TileType == TileType.Hole) continue;
+                    if (y != 0 && levelData.Tiles[idx].TileType == TileType.Hole) continue;
+                    if (y == 0 && levelData.Tiles[idx].TileType == TileType.Hole) return;
                     // add point to ignore conflict
                     if (!firstPoint) firstPoint = true;
                     else
@@ -336,28 +348,6 @@ namespace FruitSwipeMatch3Kit
                     break;
                 }
             }
-
-            ProcessColumnRight(terrain, pointHash, ref lastX, ref lastY);
-            
-            // xử lý hàng bên trên
-            for (int x = Width - 1; x >= 0; x--)
-            {
-                for (int y = 0; y < Height; y++)
-                {
-                    var idx = x + (y * Width);
-                    // bỏ qua hole để tìm tile đầu tiên
-                    if (levelData.Tiles[idx].TileType == TileType.Hole)
-                        continue;
-                    // add point top right
-                    AddPoint(terrain, pointHash, x, y, TilePointDirection.TopRight);
-                    // add point top left
-                    AddPoint(terrain, pointHash, x, y, TilePointDirection.TopLeft);
-                    // đã xử lý
-                    break;
-                }
-            }
-
-            terrain.Build();
         }
 
         private void ProcessColumnRight(Ferr2DT_PathTerrain terrain, HashSet<int> pointHash, ref int lastX, ref int lastY)
@@ -395,7 +385,38 @@ namespace FruitSwipeMatch3Kit
             }
         }
 
-        private void AddPoint(Ferr2DT_PathTerrain terrain, HashSet<int> hash, int x, int y,
+        private void ProcessRowTop(Ferr2DT_PathTerrain terrain, HashSet<int> pointHash, ref int lastX, ref int lastY)
+        {
+            List<int> lastPoint = new List<int>();
+            // xử lý hàng bên trên
+            for (int x = Width - 1; x >= 0; x--)
+            {
+                for (int y = 0; y < Height; y++)
+                {
+                    var idx = x + (y * Width);
+                    // bỏ qua hole để tìm tile đầu tiên
+                    if (y != Height - 1 && levelData.Tiles[idx].TileType == TileType.Hole) continue;
+                    if (y == Height - 1 && levelData.Tiles[idx].TileType == TileType.Hole)
+                    {
+                        for (int i = lastPoint.Count - 1; i >= 0; i--)
+                        {
+                            terrain.RemovePoint(lastPoint[i]);
+                        }
+                        return;
+                    }
+                    // add point top right
+                    int point1Index = AddPoint(terrain, pointHash, x, y, TilePointDirection.TopRight);
+                    // add point top left
+                    int point2Index = AddPoint(terrain, pointHash, x, y, TilePointDirection.TopLeft);
+                    if(point1Index != -1) lastPoint.Add(point1Index);
+                    if(point2Index != -1) lastPoint.Add(point2Index);
+                    // đã xử lý
+                    break;
+                }
+            }
+        }
+
+        private int AddPoint(Ferr2DT_PathTerrain terrain, HashSet<int> hash, int x, int y,
             TilePointDirection direction)
         {
             int idx = x + (y * Width);
@@ -404,33 +425,31 @@ namespace FruitSwipeMatch3Kit
             {
                 case TilePointDirection.TopLeft:
                     jdx = x + y * (Width + 1);
-                    if(hash.Contains(jdx)) return;
+                    if(hash.Contains(jdx)) return -1;
                     hash.Add(jdx);
-                    terrain.AddPoint(new Vector2(TilePositions[idx].x - spriteHalfWidth,
+                    return terrain.AddPoint(new Vector2(TilePositions[idx].x - spriteHalfWidth,
                                          TilePositions[idx].y + spriteHalfHeight) * 10);
-                    break;
                 case TilePointDirection.TopRight:
                     jdx = (x + 1) + y * (Width + 1);
-                    if(hash.Contains(jdx)) return;
+                    if(hash.Contains(jdx)) return -1;
                     hash.Add(jdx);
-                    terrain.AddPoint(new Vector2(TilePositions[idx].x + spriteHalfWidth,
+                    return terrain.AddPoint(new Vector2(TilePositions[idx].x + spriteHalfWidth,
                                          TilePositions[idx].y + spriteHalfHeight) * 10);
-                    break;
                 case TilePointDirection.BotLeft:
                     jdx = x + (y + 1) * (Width + 1);
-                    if(hash.Contains(jdx)) return;
+                    if(hash.Contains(jdx)) return -1;
                     hash.Add(jdx);
-                    terrain.AddPoint(new Vector2(TilePositions[idx].x - spriteHalfWidth,
+                    return terrain.AddPoint(new Vector2(TilePositions[idx].x - spriteHalfWidth,
                                          TilePositions[idx].y - spriteHalfHeight) * 10);
-                    break;
                 case TilePointDirection.BotRight:
                     jdx = (x + 1) + (y + 1) * (Width + 1);
-                    if(hash.Contains(jdx)) return;
+                    if(hash.Contains(jdx)) return -1;
                     hash.Add(jdx);
-                    terrain.AddPoint(new Vector2(TilePositions[idx].x + spriteHalfWidth,
+                    return terrain.AddPoint(new Vector2(TilePositions[idx].x + spriteHalfWidth,
                                          TilePositions[idx].y - spriteHalfHeight) * 10);
-                    break;
             }
+
+            return -1;
         }
 
         private void CreateSlots()
