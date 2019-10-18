@@ -10,20 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd3e77f82315a4551b7464b4d052e881, type: 3}
-  m_Name: 55
+  m_Name: 60
   m_EditorClassIdentifier: 
   Width: 9
   Height: 9
-  Moves: 23
-  Star1Score: 500
-  Star2Score: 800
-  Star3Score: 1500
+  Moves: 18
+  Star1Score: 600
+  Star2Score: 900
+  Star3Score: 1700
   IsCrusherAvailable: 1
   IsBombAvailable: 1
   IsSwapAvailable: 1
   IsColorBombAvailable: 1
   EndGameAward: 1
   Tiles:
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 0
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 1
@@ -44,103 +50,43 @@ MonoBehaviour:
     SlotType: 1
   - TileType: 1
     ColorTileType: 0
-    RandomColorTileType: 3
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 1
-  - TileType: 4
-    ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 1
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 1
-    BlockerType: 0
-    CollectibleType: 0
     SlotType: 1
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 1
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 1
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 1
-  - TileType: 4
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
+    SlotType: 1
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
+    SlotType: 1
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 1
+    CollectibleType: 0
     SlotType: 0
   - TileType: 1
     ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 1
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
+    RandomColorTileType: 0
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
@@ -152,43 +98,61 @@ MonoBehaviour:
     SlotType: 1
   - TileType: 1
     ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
-  - TileType: 4
-    ColorTileType: 0
-    RandomColorTileType: 3
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 1
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 0
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 0
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
@@ -200,111 +164,15 @@ MonoBehaviour:
     SlotType: 1
   - TileType: 1
     ColorTileType: 0
-    RandomColorTileType: 3
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 1
-  - TileType: 1
-    ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
-  - TileType: 4
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
   - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 4
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
-  - TileType: 4
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 4
-    ColorTileType: 0
-    RandomColorTileType: 3
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 4
-    ColorTileType: 0
-    RandomColorTileType: 3
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 3
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 1
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 0
-    BlockerType: 0
-    CollectibleType: 0
     SlotType: 1
   - TileType: 1
     ColorTileType: 0
@@ -312,16 +180,16 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 1
-  - TileType: 4
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 0
-    BlockerType: 0
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 1
     CollectibleType: 0
     SlotType: 0
   - TileType: 1
@@ -329,31 +197,31 @@ MonoBehaviour:
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 3
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
+    SlotType: 1
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
+  - TileType: 4
+    ColorTileType: 0
+    RandomColorTileType: 1
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 4
+    ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 4
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 0
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 3
@@ -362,7 +230,25 @@ MonoBehaviour:
     SlotType: 1
   - TileType: 1
     ColorTileType: 0
+    RandomColorTileType: 0
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 0
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 2
+    ColorTileType: 0
     RandomColorTileType: 2
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
@@ -380,11 +266,65 @@ MonoBehaviour:
     SlotType: 0
   - TileType: 1
     ColorTileType: 0
+    RandomColorTileType: 0
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 4
+    ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
   - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 1
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 4
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 4
+    ColorTileType: 0
+    RandomColorTileType: 0
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
@@ -395,16 +335,40 @@ MonoBehaviour:
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 1
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 1
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 1
+    CollectibleType: 0
     SlotType: 0
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 1
   - TileType: 1
     ColorTileType: 0
-    RandomColorTileType: 2
+    RandomColorTileType: 0
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 0
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
@@ -426,36 +390,42 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
-  - TileType: 4
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
+    SlotType: 1
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 2
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 1
+    BlockerType: 1
+    CollectibleType: 0
     SlotType: 0
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 1
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 0
@@ -480,34 +450,64 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
-  - TileType: 4
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 1
+    BlockerType: 1
+    CollectibleType: 0
+    SlotType: 0
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 2
-    BlockerType: 0
+    BlockerType: 1
     CollectibleType: 0
     SlotType: 0
   - TileType: 1
     ColorTileType: 0
-    RandomColorTileType: 2
+    RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
-  - TileType: 1
-    ColorTileType: 0
-    RandomColorTileType: 2
-    BlockerType: 0
-    CollectibleType: 0
-    SlotType: 0
+    SlotType: 1
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 1
   - TileType: 1
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 1
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 3
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 1
+    ColorTileType: 0
+    RandomColorTileType: 0
+    BlockerType: 0
+    CollectibleType: 0
+    SlotType: 1
+  - TileType: 2
+    ColorTileType: 0
+    RandomColorTileType: 0
+    BlockerType: 1
     CollectibleType: 0
     SlotType: 0
   Goals:
@@ -517,12 +517,12 @@ MonoBehaviour:
     SlotType: 1
     BlockerType: 0
     CollectibleType: 0
-    Amount: 32
-  - Type: 0
+    Amount: 55
+  - Type: 3
     ColorTileType: 0
     RandomColorTileType: 0
     SlotType: 0
-    BlockerType: 0
+    BlockerType: 1
     CollectibleType: 0
-    Amount: 30
+    Amount: 18
   AvailableColors: 02000000000000000300000001000000
