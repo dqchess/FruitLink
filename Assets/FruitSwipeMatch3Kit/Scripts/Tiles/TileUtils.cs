@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -33,14 +34,14 @@ namespace FruitSwipeMatch3Kit
                     if (entityMgr.HasComponent<BlockerData>(tiles[neighbour]))
                     {
                         var blockerData = entityMgr.GetComponentData<BlockerData>(tiles[neighbour]);
-                        if (blockerData.Type == BlockerType.Stone || blockerData.Type == BlockerType.Wood &&
-                            !blockersToDestroy.Contains(neighbour))
-                            blockersToDestroy.Add(neighbour);
+                        if (blockerData.Type == BlockerType.Stone1 || blockerData.Type == BlockerType.Wood1 ||
+                            blockerData.Type == BlockerType.Stone2 || blockerData.Type == BlockerType.Wood2 ||
+                            blockerData.Type == BlockerType.Stone3 || blockerData.Type == BlockerType.Wood3)
+                            if(!blockersToDestroy.Contains(neighbour)) blockersToDestroy.Add(neighbour);
                     }
                 }
 
-                if (entityMgr.HasComponent<TileData>(tiles[idx]) ||
-                    entityMgr.HasComponent<CollectibleData>(tiles[idx]))
+                if (entityMgr.HasComponent<TileData>(tiles[idx]) || entityMgr.HasComponent<CollectibleData>(tiles[idx]))
                 {
                     DestroyTile(idx, tiles, gos, slots, particlePools);
                 }
@@ -158,9 +159,35 @@ namespace FruitSwipeMatch3Kit
             {
                 var slot = slots[idx].GetComponent<Slot>();
                 var slotType = slot.Type;
-                
-                slots[idx].GetComponent<PooledObject>().Pool.ReturnObject(slots[idx]);
-                slots[idx] = null;
+                var tilePool = World.Active.GetExistingSystem<LevelCreationSystem>().TilePools;
+                Vector3 pos = slots[idx].transform.position;
+                switch (slotType)
+                {
+                    case SlotType.Ice3:
+                        slots[idx].GetComponent<PooledObject>().Pool.ReturnObject(slots[idx]);
+                        slots[idx] = tilePool.GetSlot(SlotType.Ice2);
+                        slots[idx].transform.position = pos;
+                        break;
+                    case SlotType.Ice2:
+                        slots[idx].GetComponent<PooledObject>().Pool.ReturnObject(slots[idx]);
+                        slots[idx] = tilePool.GetSlot(SlotType.Ice);
+                        slots[idx].transform.position = pos;
+                        break;
+                    case SlotType.Jelly3:
+                        slots[idx].GetComponent<PooledObject>().Pool.ReturnObject(slots[idx]);
+                        slots[idx] = tilePool.GetSlot(SlotType.Jelly2);
+                        slots[idx].transform.position = pos;
+                        break;
+                    case SlotType.Jelly2:
+                        slots[idx].GetComponent<PooledObject>().Pool.ReturnObject(slots[idx]);
+                        slots[idx] = tilePool.GetSlot(SlotType.Jelly);
+                        slots[idx].transform.position = pos;
+                        break;
+                    default:
+                        slots[idx].GetComponent<PooledObject>().Pool.ReturnObject(slots[idx]);
+                        slots[idx] = null;       
+                        break;
+                }
                 var evt = entityMgr.CreateEntity(typeof(SlotDestroyedEvent));
                 entityMgr.SetComponentData(evt, new SlotDestroyedEvent
                 {
@@ -223,18 +250,59 @@ namespace FruitSwipeMatch3Kit
             {
                 Type = type
             });
-            
+            var tilePool = world.GetExistingSystem<LevelCreationSystem>().TilePools;
             var particles = particlePools.GetBlockerParticles(type);
             particles.transform.position = tile.transform.position;
-            
-            tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
-
-            tiles[idx] = Entity.Null;
-            gos[idx] = null;
+            if (type == BlockerType.Stone3)
+            {
+                gos[idx] = tilePool.GetBlocker(BlockerType.Stone2);
+                var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
+                var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
+                entityMgr.SetComponentData(entity, tilePos);
+                gos[idx].transform.position = tile.transform.position;
+                tiles[idx] = entity;
+                tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+            }
+            else if (type == BlockerType.Stone2)
+            {
+                gos[idx] = tilePool.GetBlocker(BlockerType.Stone1);
+                var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
+                var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
+                entityMgr.SetComponentData(entity, tilePos);
+                gos[idx].transform.position = tile.transform.position;
+                tiles[idx] = entity;
+                tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+            }
+            else if (type == BlockerType.Wood3)
+            {
+                gos[idx] = tilePool.GetBlocker(BlockerType.Wood2);
+                var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
+                var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
+                entityMgr.SetComponentData(entity, tilePos);
+                gos[idx].transform.position = tile.transform.position;
+                tiles[idx] = entity;
+                tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+            }
+            else if (type == BlockerType.Wood2)
+            {
+                gos[idx] = tilePool.GetBlocker(BlockerType.Wood1);
+                var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
+                var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
+                entityMgr.SetComponentData(entity, tilePos);
+                gos[idx].transform.position = tile.transform.position;
+                tiles[idx] = entity;
+                tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+            }
+            else
+            {
+                tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+                tiles[idx] = Entity.Null;
+                gos[idx] = null;   
+            }
 
             PlayBlockerSoundFx(type);
         }
-        
+
         private static void AddNeighbour(
             int idx,
             NativeArray<Entity> tiles,
@@ -263,11 +331,11 @@ namespace FruitSwipeMatch3Kit
         {
             switch (type)
             {
-                case BlockerType.Stone:
+                case BlockerType.Stone1:
                     SoundPlayer.PlaySoundFx("Stone");
                     break;
                 
-                case BlockerType.Wood:
+                case BlockerType.Wood1:
                     SoundPlayer.PlaySoundFx("Wood");
                     break;
             }

@@ -55,12 +55,62 @@ namespace FruitSwipeMatch3Kit
         
         public GameObject GetSlotParticles(SlotType type)
         {
-            return slotPools[(int)type].GetObject();
+            int typeIndex = 0;
+            switch (type)
+            {
+                case SlotType.Normal:
+                    typeIndex = 0;
+                    break;
+                case SlotType.Ice:
+                    typeIndex = 1;
+                    break;
+                case SlotType.Ice2:
+                    typeIndex = 1;
+                    break;
+                case SlotType.Ice3:
+                    typeIndex = 1;
+                    break;
+                case SlotType.Jelly:
+                    typeIndex = 2;
+                    break;
+                case SlotType.Jelly2:
+                    typeIndex = 2;
+                    break;
+                case SlotType.Jelly3:
+                    typeIndex = 2;
+                    break;
+            }
+            return slotPools[typeIndex].GetObject();
         }
         
         public GameObject GetBlockerParticles(BlockerType type)
-        {
-            return blockerPools[(int)type].GetObject();
+        {            
+            int typeIndex = 0;
+            switch (type)
+            {
+                case BlockerType.Grass:
+                    typeIndex = 0;
+                    break;
+                case BlockerType.Stone1:
+                    typeIndex = 1;
+                    break;
+                case BlockerType.Stone2:
+                    typeIndex = 1;
+                    break;
+                case BlockerType.Stone3:
+                    typeIndex = 1;
+                    break;
+                case BlockerType.Wood1:
+                    typeIndex = 2;
+                    break;
+                case BlockerType.Wood2:
+                    typeIndex = 2;
+                    break;
+                case BlockerType.Wood3:
+                    typeIndex = 2;
+                    break;
+            }
+            return blockerPools[typeIndex].GetObject();
         }
         
         public GameObject GetCollectibleParticles(CollectibleType type)

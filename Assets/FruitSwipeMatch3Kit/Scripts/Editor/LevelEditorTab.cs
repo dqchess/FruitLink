@@ -405,11 +405,27 @@ namespace FruitSwipeMatch3Kit
 				switch (currentLevelData.Tiles[idx].SlotType)
 				{
 					case SlotType.Ice:
-						texName += "Ice";
+						texName += "_Ice";
 						break;
 
 					case SlotType.Jelly:
-						texName += "Jelly";
+						texName += "_Jelly";
+						break;
+					
+					case SlotType.Ice2:
+						texName += "_Ice 1";
+						break;
+					
+					case SlotType.Ice3:
+						texName += "_Ice 2";
+						break;
+						
+					case SlotType.Jelly2:
+						texName += "_Jelly 1";
+						break;
+					
+					case SlotType.Jelly3:
+						texName += "_Jelly 2";
 						break;
 				}
 
@@ -459,9 +475,25 @@ namespace FruitSwipeMatch3Kit
 				case SlotType.Ice:
 					texName += "_Ice";
 					break;
-				
+
 				case SlotType.Jelly:
 					texName += "_Jelly";
+					break;
+					
+				case SlotType.Ice2:
+					texName += "_Ice 1";
+					break;
+					
+				case SlotType.Ice3:
+					texName += "_Ice 2";
+					break;
+						
+				case SlotType.Jelly2:
+					texName += "_Jelly 1";
+					break;
+					
+				case SlotType.Jelly3:
+					texName += "_Jelly 2";
 					break;
 			}
 

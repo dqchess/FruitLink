@@ -8,6 +8,10 @@ namespace FruitSwipeMatch3Kit
     {
         Normal,
         Ice,
-        Jelly
+        Jelly,
+        Ice2,
+        Jelly2,
+        Ice3,
+        Jelly3
     }
 }

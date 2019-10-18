@@ -355,8 +355,9 @@ namespace FruitSwipeMatch3Kit
         {
             for (int i = 0; i < darkTiles.Count; i++)
             {
-                if(darkTiles[i] != null) darkTiles[i].color = Color.white;
+                darkTiles[i].color = Color.white;
             }
+            darkTiles.Clear();
         }
 
         private bool IsNeighbour(GameObject tile)

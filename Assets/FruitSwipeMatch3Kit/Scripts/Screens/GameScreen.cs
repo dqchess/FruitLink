@@ -340,7 +340,7 @@ namespace FruitSwipeMatch3Kit
             var numExtraMoves = GameConfig.NumExtraMoves;
             var world = World.Active;
             world.GetExistingSystem<UpdateRemainingMovesUiSystem>().Initialize(numExtraMoves);
-
+            world.GetExistingSystem<PlayerInputSystem>().OnGameRestarted();
             playerWon = false;
             playerLost = false;
         }

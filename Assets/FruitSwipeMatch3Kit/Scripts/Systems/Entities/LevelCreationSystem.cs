@@ -43,6 +43,7 @@ namespace FruitSwipeMatch3Kit
 
         private LevelData levelData;
         private TilePools tilePools;
+        public TilePools TilePools => tilePools;
 
         protected override void OnCreate()
         {
