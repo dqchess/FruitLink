@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3e77f82315a4551b7464b4d052e881, type: 3}
   m_Name: 8
   m_EditorClassIdentifier: 
-  Number: 8
   Width: 8
   Height: 8
   Moves: 10

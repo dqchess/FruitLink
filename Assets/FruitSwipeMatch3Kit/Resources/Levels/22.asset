@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3e77f82315a4551b7464b4d052e881, type: 3}
   m_Name: 22
   m_EditorClassIdentifier: 
-  Number: 22
   Width: 9
   Height: 9
   Moves: 30
@@ -412,7 +411,7 @@ MonoBehaviour:
   - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 1
-    BlockerType: 2
+    BlockerType: 1
     CollectibleType: 0
     SlotType: 0
   - TileType: 5
@@ -448,7 +447,7 @@ MonoBehaviour:
   - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 5
-    BlockerType: 2
+    BlockerType: 1
     CollectibleType: 0
     SlotType: 0
   - TileType: 5

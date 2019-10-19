@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 9
   Height: 9
-  Moves: 18
+  Moves: 23
   Star1Score: 800
   Star2Score: 1100
   Star3Score: 1800
@@ -518,4 +518,4 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     Amount: 20
-  AvailableColors: 02000000000000000300000001000000
+  AvailableColors: 03000000010000000200000000000000
