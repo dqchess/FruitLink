@@ -12,6 +12,7 @@ namespace FruitSwipeMatch3Kit
         Collectible,
         Hole,
         Empty,
-        Random
+        Random,
+        HoleImage
     }
 }

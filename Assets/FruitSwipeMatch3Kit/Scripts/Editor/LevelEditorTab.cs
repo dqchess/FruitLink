@@ -405,27 +405,27 @@ namespace FruitSwipeMatch3Kit
 				switch (currentLevelData.Tiles[idx].SlotType)
 				{
 					case SlotType.Ice:
-						texName += "_Ice";
+						texName += "Ice";
 						break;
 
 					case SlotType.Jelly:
-						texName += "_Jelly";
+						texName += "Jelly";
 						break;
 					
 					case SlotType.Ice2:
-						texName += "_Ice 1";
+						texName += "Ice 1";
 						break;
 					
 					case SlotType.Ice3:
-						texName += "_Ice 2";
+						texName += "Ice 2";
 						break;
 						
 					case SlotType.Jelly2:
-						texName += "_Jelly 1";
+						texName += "Jelly 1";
 						break;
 					
 					case SlotType.Jelly3:
-						texName += "_Jelly 2";
+						texName += "Jelly 2";
 						break;
 				}
 
@@ -467,6 +467,10 @@ namespace FruitSwipeMatch3Kit
 				
 				case TileType.Random:
 					texName = "Random";
+					break;
+				
+				case TileType.HoleImage:
+					texName = "HoleImage";
 					break;
 			}
 
@@ -569,6 +573,13 @@ namespace FruitSwipeMatch3Kit
 					onDrawCallback = i =>
 					{
 						currentLevelData.Tiles[i].TileType = TileType.Random;
+						currentLevelData.Tiles[i].SlotType = SlotType.Normal;
+					};
+					break;
+				case BrushType.HoleImage:
+					onDrawCallback = i =>
+					{
+						currentLevelData.Tiles[i].TileType = TileType.HoleImage;
 						currentLevelData.Tiles[i].SlotType = SlotType.Normal;
 					};
 					break;

@@ -88,7 +88,7 @@ namespace FruitSwipeMatch3Kit
             int typeIndex = 0;
             switch (type)
             {
-                case BlockerType.Grass:
+                case BlockerType.Block:
                     typeIndex = 0;
                     break;
                 case BlockerType.Stone1:

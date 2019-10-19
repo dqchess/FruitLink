@@ -6,7 +6,7 @@ namespace FruitSwipeMatch3Kit
 {
     public enum BlockerType
     {
-        Grass,
+        Block,
         Stone1,
         Wood1,
         Stone2,

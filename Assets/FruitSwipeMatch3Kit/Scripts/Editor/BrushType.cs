@@ -14,5 +14,6 @@ namespace FruitSwipeMatch3Kit
 	    Hole,
 	    Empty,
 	    Random,
+	    HoleImage
     }
 }

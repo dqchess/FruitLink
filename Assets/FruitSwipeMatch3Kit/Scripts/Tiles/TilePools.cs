@@ -23,7 +23,8 @@ namespace FruitSwipeMatch3Kit
         private ObjectPool lightBackgroundTilePool;
         [SerializeField]
         private ObjectPool darkBackgroundTilePool;
-
+        [SerializeField]
+        private ObjectPool holeImageTilePool;
         [SerializeField] private Ferr2DT_PathTerrain _borderTerrain;
 #pragma warning restore 649
 
@@ -107,6 +108,11 @@ namespace FruitSwipeMatch3Kit
         public GameObject GetDarkBackgroundTile()
         {
             return darkBackgroundTilePool.GetObject();
+        }
+
+        public GameObject GetHoleImage()
+        {
+            return holeImageTilePool.GetObject();
         }
     }
 }

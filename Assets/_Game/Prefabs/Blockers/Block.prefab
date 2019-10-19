@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 5040316483493695915, guid: c5faea341074f46e3a3e797eceb6e117,
         type: 3}
       propertyPath: m_Name
-      value: Grass
+      value: Block
       objectReference: {fileID: 0}
     - target: {fileID: 7577788020925611971, guid: c5faea341074f46e3a3e797eceb6e117,
         type: 3}
@@ -84,7 +84,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a9735bbc8994cf94f93701accad3b684,
+      objectReference: {fileID: 21300000, guid: e1d8a9fcdcaabf04a95e68c455a78b55,
         type: 3}
     - target: {fileID: 3581344094374105006, guid: c5faea341074f46e3a3e797eceb6e117,
         type: 3}

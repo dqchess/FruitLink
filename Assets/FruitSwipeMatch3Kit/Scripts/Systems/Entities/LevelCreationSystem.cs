@@ -134,7 +134,7 @@ namespace FruitSwipeMatch3Kit
                             TileEntities[idx] = e;
                             continue;
                         }
-
+                        
                         if (levelData.Tiles[idx].TileType == TileType.Empty)
                         {
                             TileEntities[idx] = Entity.Null;
@@ -147,7 +147,8 @@ namespace FruitSwipeMatch3Kit
                     tilePos.X = i;
                     tilePos.Y = j;
                     EntityManager.SetComponentData(tileEntity, tilePos);
-
+                    if (levelData.Tiles[idx].TileType == TileType.HoleImage)
+                        EntityManager.AddComponentData(tileEntity, new HoleSlotData());
                     TileEntities[idx] = tileEntity;
 
                     EntityManager.AddComponentData(tileEntity, new Translation
@@ -186,6 +187,9 @@ namespace FruitSwipeMatch3Kit
 
                 case TileType.Collectible:
                     return tilePools.GetCollectible(tileData.CollectibleType);
+                
+                case TileType.HoleImage:
+                    return tilePools.GetHoleImage();
             }
 
             return null;
