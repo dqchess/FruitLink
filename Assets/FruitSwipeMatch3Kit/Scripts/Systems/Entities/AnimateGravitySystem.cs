@@ -41,8 +41,8 @@ namespace FruitSwipeMatch3Kit
                     translation.Value,
                     GameplayConstants.FallingExistingTilesSpeed).OnComplete(() =>
                 {
-                    go.GetComponent<Animator>().SetTrigger(Falling);
-
+                    var anim = go.GetComponent<Animator>();
+                    if(anim != null) anim.SetTrigger(Falling);
                     var fallingTile = go.GetComponent<IFallingTile>();
                     fallingTile?.OnTileFell();
                 });

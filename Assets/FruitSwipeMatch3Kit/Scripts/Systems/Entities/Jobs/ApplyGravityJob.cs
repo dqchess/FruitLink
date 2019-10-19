@@ -30,13 +30,13 @@ namespace FruitSwipeMatch3Kit
         public void Execute()
         {
             Bottom();
+//            BottomLeft();
             if (!isFall)
             {
                 var inputSystem = World.Active.GetExistingSystem<PlayerInputSystem>();
                 if (!inputSystem.IsBoosterExploding() && !inputSystem.IsBoosterChainResolving())
                     inputSystem.UnlockInput();
             }
-//            BottomLeft();
         }
 
         private void Bottom()
@@ -47,14 +47,16 @@ namespace FruitSwipeMatch3Kit
                 {
                     var idx = i + j * Width;
                     var tile = Tiles[idx];
-                    if (tile == Entity.Null ||
-                        BlockerData.Exists(tile) ||
-                        HoleSlotData.Exists(tile))
+                    if (tile == Entity.Null || HoleSlotData.Exists(tile))
                         continue;
-
+                    if (tile != Entity.Null && BlockerData.Exists(tile) &&
+                            BlockerData[tile].Type != BlockerType.Wood1 &&
+                            BlockerData[tile].Type != BlockerType.Wood2 &&
+                            BlockerData[tile].Type != BlockerType.Wood3)
+                        continue;
                     // Find bottom.
                     var bottom = -1;
-                    for (var k = j; k < Height; k++)
+                    for (var k = j + 1; k < Height; k++)
                     {
                         var idx2 = i + k * Width;
                         var bottomTile = Tiles[idx2];
@@ -103,11 +105,9 @@ namespace FruitSwipeMatch3Kit
 
         private void BottomLeft()
         {
-            // top to bot
-            for (var j = 0; j < Height; j++)
+            for (var i = Width - 1; i >= 0; i--)
             {
-                // right to left
-                for (var i = Width - 1; i >= 0; i--)
+                for (var j = Height - 1; j >= 0; j--)
                 {
                     var idx = i + j * Width;
                     var tile = Tiles[idx];

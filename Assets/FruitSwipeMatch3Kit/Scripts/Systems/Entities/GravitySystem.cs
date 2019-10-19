@@ -61,8 +61,8 @@ namespace FruitSwipeMatch3Kit
                 TranslationData = GetComponentDataFromEntity<Translation>(),
                 Width = width,
                 Height = height,
-                HoleSlotData = GetComponentDataFromEntity<HoleSlotData>(),
-                BlockerData = GetComponentDataFromEntity<BlockerData>(),
+                HoleSlotData = GetComponentDataFromEntity<HoleSlotData>(true),
+                BlockerData = GetComponentDataFromEntity<BlockerData>(true),
                 SpriteWidth = spriteWidth,
                 SpriteHeight = spriteHeight
             };
