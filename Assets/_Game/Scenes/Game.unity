@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 696981545}
   GameConfig: {fileID: 11400000, guid: 6b47954202b9549b6a59ab55ca91f82a, type: 2}
-  LevelNumber: 0
+  LevelNumber: 70
   goalsWidget: {fileID: 1906350947}
   scoreWidget: {fileID: 675131494}
   topCanvas: {fileID: 1328661497}
@@ -2092,6 +2092,51 @@ Transform:
   m_Father: {fileID: 848473357}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &831407757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831407758}
+  - component: {fileID: 831407759}
+  m_Layer: 0
+  m_Name: HoleImageTilePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &831407758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831407757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 848473357}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831407759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831407757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a331a7adc2f448cb8e7bed33777d3a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 3678683435583221565, guid: 9893ca169ec2cf64c8111fe87643b107, type: 3}
+  InitialSize: 32
 --- !u!1 &838354707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,6 +2234,7 @@ Transform:
   - {fileID: 813721984}
   - {fileID: 1701960255}
   - {fileID: 333674062}
+  - {fileID: 831407758}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2233,6 +2279,7 @@ MonoBehaviour:
   - {fileID: 813721983}
   lightBackgroundTilePool: {fileID: 1701960256}
   darkBackgroundTilePool: {fileID: 333674063}
+  holeImageTilePool: {fileID: 831407759}
   _borderTerrain: {fileID: 1144685701}
 --- !u!1 &890043913
 GameObject:
