@@ -38,5 +38,26 @@ namespace FruitSwipeMatch3Kit
                 AvailableColors.Add((ColorTileType)value);
             }
         }
+
+        public void InitGoal()
+        {
+            foreach (var goal in Goals)
+            {
+                if (goal.Type == GoalType.CollectSlots)
+                {
+                    if (goal.Amount == -1)
+                    {
+                        goal.Amount = Tiles.FindAll(x => x.SlotType == goal.SlotType).Count;
+                    }
+                }
+                else if (goal.Type == GoalType.CollectBlockers)
+                {
+                    if (goal.Amount == -1)
+                    {
+                        goal.Amount = Tiles.FindAll(x => x.TileType == TileType.Blocker && x.BlockerType == goal.BlockerType).Count;
+                    }
+                }
+            }
+        }
     }
 }
