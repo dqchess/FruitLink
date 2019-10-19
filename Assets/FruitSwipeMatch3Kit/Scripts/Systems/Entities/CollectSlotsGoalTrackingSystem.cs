@@ -29,7 +29,7 @@ namespace FruitSwipeMatch3Kit
             query = GetEntityQuery(
                 ComponentType.ReadOnly<SlotDestroyedEvent>());
             
-            numDestroyedSlots = new int[Enum.GetValues(typeof(ColorTileType)).Length];
+            numDestroyedSlots = new int[Enum.GetValues(typeof(SlotType)).Length];
         }
         
         public void Initialize()
