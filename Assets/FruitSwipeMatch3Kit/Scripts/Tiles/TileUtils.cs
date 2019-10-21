@@ -21,24 +21,25 @@ namespace FruitSwipeMatch3Kit
             List<GameObject> slots,
             ParticlePools particlePools,
             int width,
-            int height)
+            int height,
+            bool isBooster = false)
         {
             var blockersToDestroy = new List<int>(8);
             var entityMgr = World.Active.EntityManager;
             
             foreach (var idx in indices)
             {
-                var neighbours = GetNeighbours(idx, tiles, width, height);
-                foreach (var neighbour in neighbours)
+                if (!isBooster)
                 {
-                    if (entityMgr.HasComponent<BlockerData>(tiles[neighbour]))
+                    var neighbours = GetNeighbours(idx, tiles, width, height);
+                    foreach (var neighbour in neighbours)
                     {
-                        var blockerData = entityMgr.GetComponentData<BlockerData>(tiles[neighbour]);
-                        if (blockerData.Type == BlockerType.Stone || blockerData.Type == BlockerType.Wood ||
-                            blockerData.Type == BlockerType.Stone2 || blockerData.Type == BlockerType.Wood2 ||
-                            blockerData.Type == BlockerType.Stone3 || blockerData.Type == BlockerType.Wood3)
-                            if(!blockersToDestroy.Contains(neighbour)) blockersToDestroy.Add(neighbour);
-                    }
+                        AddBlockersToDestroy(neighbour, entityMgr, tiles[neighbour], blockersToDestroy);
+                    }   
+                }
+                else
+                {
+                    AddBlockersToDestroy(idx, entityMgr, tiles[idx], blockersToDestroy);
                 }
 
                 if (entityMgr.HasComponent<TileData>(tiles[idx]) || entityMgr.HasComponent<CollectibleData>(tiles[idx]))
@@ -51,6 +52,18 @@ namespace FruitSwipeMatch3Kit
                 DestroyBlocker(blocker, tiles, gos, particlePools);
             
             SoundPlayer.PlaySoundFx("TileMatch");
+        }
+
+        private static void AddBlockersToDestroy(int idx, EntityManager entityMgr, Entity tile, List<int> blockersToDestroy)
+        {
+            if (entityMgr.HasComponent<BlockerData>(tile))
+            {
+                var blockerData = entityMgr.GetComponentData<BlockerData>(tile);
+                if (blockerData.Type == BlockerType.Stone || blockerData.Type == BlockerType.Wood ||
+                    blockerData.Type == BlockerType.Stone2 || blockerData.Type == BlockerType.Wood2 ||
+                    blockerData.Type == BlockerType.Stone3 || blockerData.Type == BlockerType.Wood3)
+                    if(!blockersToDestroy.Contains(idx)) blockersToDestroy.Add(idx);
+            }
         }
 
         public static List<int> GetNeighbours(

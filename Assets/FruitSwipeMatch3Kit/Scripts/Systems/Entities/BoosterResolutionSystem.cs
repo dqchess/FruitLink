@@ -175,7 +175,7 @@ namespace FruitSwipeMatch3Kit
             var slots = levelCreationSystem.Slots;
             var width = levelCreationSystem.Width;
             var height = levelCreationSystem.Height;
-            TileUtils.DestroyTiles(tilesToExplode, entities, gos, slots, particlePools, width, height);
+            TileUtils.DestroyTiles(tilesToExplode, entities, gos, slots, particlePools, width, height, true);
 
             SoundPlayer.PlaySoundFx("Booster");
 
