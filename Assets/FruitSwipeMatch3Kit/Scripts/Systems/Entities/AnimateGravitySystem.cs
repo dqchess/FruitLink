@@ -78,20 +78,22 @@ namespace FruitSwipeMatch3Kit
                 !inputSystem.IsBoosterChainResolving() &&
                 !levelHasPendingBoosters)
             {
-                inputSystem.UnlockInput();
-                EntityManager.CreateEntity(gravityFinishedArchetype);
+                if (inputSystem.PendingBoosterTiles.Count > 0)
+                {
+                    var pendingBooster = inputSystem.PendingBoosterTiles[0];
+                    inputSystem.PendingBoosterTiles.RemoveAt(0);
+                    EntityManager.AddComponentData(pendingBooster, new PendingBoosterData());
+                    EntityManager.CreateEntity(boosterResolutionArchetype);
+                }
+                else
+                {
+                    inputSystem.UnlockInput();
+                    EntityManager.CreateEntity(gravityFinishedArchetype);   
+                }
             }
 
             if (levelHasPendingBoosters)
                 EntityManager.CreateEntity(boosterResolutionArchetype);
-
-            if (!inputSystem.IsBoosterExploding() &&
-                inputSystem.PendingBoosterTiles.Count > 0)
-            {
-                var pendingBooster = inputSystem.PendingBoosterTiles[0];
-                inputSystem.PendingBoosterTiles.RemoveAt(0);
-                EntityManager.AddComponentData(pendingBooster, new PendingBoosterData());
-            }
         }
     }
 }

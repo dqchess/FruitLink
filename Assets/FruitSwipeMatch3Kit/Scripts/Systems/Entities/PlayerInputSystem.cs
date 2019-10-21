@@ -33,11 +33,11 @@ namespace FruitSwipeMatch3Kit
 
         private readonly List<GameObject> lineSegments = new List<GameObject>(8);
         private Vector3 lastSegmentPos;
-        
+
         private readonly List<GameObject> selectSegments = new List<GameObject>(8);
 
         private readonly List<SpriteRenderer> darkTiles = new List<SpriteRenderer>();
-        
+
         private GameObject linePrefab;
         private GameObject selectPrefab;
 
@@ -130,11 +130,11 @@ namespace FruitSwipeMatch3Kit
                         lastSegmentPos = tile.gameObject.transform.localPosition;
 
                         tile.GetComponent<Animator>().SetTrigger(Pressed);
-                        
+
                         CreateSelectSegment(lastSegmentPos, selectedType);
 
                         CreatePathHighlight(entity, selectedType);
-                        
+
                         SoundPlayer.PlaySoundFx("Connect");
                     }
                 }
@@ -156,7 +156,7 @@ namespace FruitSwipeMatch3Kit
                 var tilesToDestroy = new List<int>(8);
                 var lastIdx = 0;
                 var selectedBooster = Entity.Null;
-                
+
                 foreach (var t in selectedTiles)
                 {
                     var goe = t.GetComponent<GameObjectEntity>();
@@ -183,16 +183,20 @@ namespace FruitSwipeMatch3Kit
                         lastIdx = idx;
                     }
                 }
-                
+
                 var levelData = gameScreen.LevelData;
-//
-//                isBoosterExploding = selectedTiles.Find(x =>
-//                    EntityManager.HasComponent<BoosterData>(x.GetComponent<GameObjectEntity>().Entity));
-//              
-                TileUtils.DestroyTiles(
-                    tilesToDestroy, tiles, tileGos, levelCreationSystem.Slots, particlePools,
-                    levelData.Width, levelData.Height);   
-                
+
+                // three boosters
+                if (tilesToDestroy.Count == 0)
+                {
+                    var entity = EntityManager.CreateEntity();
+                    EntityManager.AddComponentData(entity, new ResolveBoostersData());
+                }
+                else
+                    TileUtils.DestroyTiles(
+                        tilesToDestroy, tiles, tileGos, levelCreationSystem.Slots, particlePools,
+                        levelData.Width, levelData.Height);
+
                 var e = EntityManager.CreateEntity(applyGravityArchetype);
                 EntityManager.SetComponentData(e, new ApplyGravityData
                 {
@@ -200,7 +204,7 @@ namespace FruitSwipeMatch3Kit
                     MatchIndex = lastIdx,
                     MatchDirection = lastMoveDirection
                 });
-                
+
                 EntityManager.CreateEntity(matchHappenedArchetype);
             }
 
@@ -275,18 +279,18 @@ namespace FruitSwipeMatch3Kit
                                     lastSegment = selectSegments[selectSegments.Count - 1];
                                     selectSegments.RemoveAtSwapBack(selectSegments.Count - 1);
                                     Object.Destroy(lastSegment);
-                                    
+
                                     lastSegmentPos = selectedTiles[selectedTiles.Count - 1].transform.localPosition;
                                 }
                             }
                         }
+
                         CreateBoosterDirection();
                     }
-                    
                 }
             }
         }
-        
+
         private void CreatePathHighlight(Entity selectEntity, ColorTileType colorTileType)
         {
             var levelCreationSystem = World.GetExistingSystem<LevelCreationSystem>();
@@ -294,29 +298,29 @@ namespace FruitSwipeMatch3Kit
             var tileGos = levelCreationSystem.TileGos;
             var width = levelCreationSystem.Width;
             var height = levelCreationSystem.Height;
-            
+
             for (var j = 0; j < height; j++)
             {
                 for (var i = 0; i < width; i++)
                 {
                     var idx = i + j * width;
                     if (tileEntities[idx] == Entity.Null ||
-                        EntityManager.HasComponent<HoleSlotData>(tileEntities[idx]) || 
-                        EntityManager.HasComponent<BlockerData>(tileEntities[idx]) || 
+                        EntityManager.HasComponent<HoleSlotData>(tileEntities[idx]) ||
+                        EntityManager.HasComponent<BlockerData>(tileEntities[idx]) ||
                         EntityManager.HasComponent<BoosterData>(tileEntities[idx]))
                         continue;
-                    
+
                     var tile = tileGos[idx];
                     var tileRender = tile.GetComponent<SpriteRenderer>();
                     tileRender.color = Color.gray;
                     darkTiles.Add(tileRender);
                 }
             }
-            
+
             TilePosition tilePos = EntityManager.GetComponentData<TilePosition>(selectEntity);
             var startIdx = tilePos.X + tilePos.Y * width;
             tileGos[startIdx].GetComponent<SpriteRenderer>().color = Color.white;
-            
+
             List<int> openSet = new List<int>();
             HashSet<int> closeSet = new HashSet<int>();
             openSet.Add(startIdx);
@@ -331,15 +335,16 @@ namespace FruitSwipeMatch3Kit
                 for (int i = 0; i < neighbours.Count; i++)
                 {
                     int neighbourIdx = neighbours[i];
-                    if(closeSet.Contains(neighbourIdx)) continue;
+                    if (closeSet.Contains(neighbourIdx)) continue;
                     if (EntityManager.HasComponent<TileData>(tileEntities[neighbourIdx]))
                     {
                         if (EntityManager.GetComponentData<TileData>(tileEntities[neighbourIdx]).Type == colorTileType)
                         {
-                            if(!openSet.Contains(neighbourIdx)) openSet.Add(neighbourIdx);
+                            if (!openSet.Contains(neighbourIdx)) openSet.Add(neighbourIdx);
                             tileGos[neighbourIdx].GetComponent<SpriteRenderer>().color = Color.white;
                         }
                     }
+
                     closeSet.Add(neighbourIdx);
                 }
             }
@@ -351,6 +356,7 @@ namespace FruitSwipeMatch3Kit
             {
                 darkTiles[i].color = Color.white;
             }
+
             darkTiles.Clear();
         }
 
@@ -405,12 +411,13 @@ namespace FruitSwipeMatch3Kit
         }
 
         private Tile lastBooster;
+
         private void CreateBoosterDirection()
         {
             var lastTile = selectedTiles[selectedTiles.Count - 1];
             RemoveBoosterLines();
             var lastTileBooster = lastTile.GetComponent<Tile>();
-            if(GetBoosterType() != BoosterType.Normal)
+            if (GetBoosterType() != BoosterType.Normal)
             {
                 if (lastTileBooster.AddBooster(GetBoosterType()))
                     lastBooster = lastTileBooster;
@@ -432,11 +439,13 @@ namespace FruitSwipeMatch3Kit
             if (selectedTiles.Count >= gameConfig.NumTilesNeededForStarBooster)
             {
                 return BoosterType.Star;
-            } 
+            }
+
             if (selectedTiles.Count >= gameConfig.NumTilesNeededForCrossBooster)
             {
                 return BoosterType.Cross;
             }
+
             if (selectedTiles.Count >= gameConfig.NumTilesNeededForRegularBooster)
             {
                 switch (lastMoveDirection)
@@ -454,7 +463,7 @@ namespace FruitSwipeMatch3Kit
 
             return BoosterType.Normal;
         }
-        
+
         private void DestroySelectionLine()
         {
             foreach (var segment in lineSegments)
@@ -500,7 +509,7 @@ namespace FruitSwipeMatch3Kit
             foreach (var tile in selectedTiles)
                 tile.GetComponent<Animator>()?.SetTrigger(Idle);
             selectedTiles.Clear();
-            
+
             DestroySelectionLine();
             DestroySelectionEffect();
         }

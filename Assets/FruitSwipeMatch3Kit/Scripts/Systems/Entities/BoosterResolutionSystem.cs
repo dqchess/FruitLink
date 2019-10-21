@@ -99,12 +99,6 @@ namespace FruitSwipeMatch3Kit
                 ResolveBooster(entities2[0], boosterData[0]);
                 boosterData.Dispose();
                 entities2.Dispose();
-                
-                if (inputSystem.PendingBoosterTiles.Count > 0)
-                {
-                    EntityManager.AddComponentData(inputSystem.PendingBoosterTiles[0], new PendingBoosterData());
-                    inputSystem.PendingBoosterTiles.RemoveAt(0);
-                }
             }
         }
 
@@ -140,32 +134,32 @@ namespace FruitSwipeMatch3Kit
             }
 
             var tilesToExplode = new List<int>(indexes.Count);
-
+            bool isPendingBooster = false;
             for (var i = 0; i < indexes.Count; ++i)
             {
                 var idx = indexes[i];
                 var tileEntity = levelCreationSystem.TileEntities[idx];
 
-                if (inputSystem.PendingBoosterTiles.Contains(tileEntity))
+                if (inputSystem.PendingBoosterTiles.Contains(tileEntity) && !isPendingBooster)
                 {
+                    isPendingBooster = true;
                     inputSystem.PendingBoosterTiles.Remove(tileEntity);
                     EntityManager.AddComponentData(tileEntity, new PendingBoosterData());
+                    continue;
+                }
+                
+                if (EntityManager.HasComponent<BoosterData>(tileEntity) &&
+                    !EntityManager.HasComponent<PendingBoosterData>(tileEntity))
+                {
+                    if (selectedBooster == Entity.Null)
+                    {
+                        selectedBooster = tileEntity;
+                        chainingBoosters = true;
+                    }
                 }
                 else
                 {
-                    if (EntityManager.HasComponent<BoosterData>(tileEntity) &&
-                        !EntityManager.HasComponent<PendingBoosterData>(tileEntity))
-                    {
-                        if (selectedBooster == Entity.Null)
-                        {
-                            selectedBooster = tileEntity;
-                            chainingBoosters = true;
-                        }
-                    }
-                    else
-                    {
-                        tilesToExplode.Add(idx);
-                    }
+                    tilesToExplode.Add(idx);
                 }
             }
 
