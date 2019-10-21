@@ -16,7 +16,7 @@ namespace FruitSwipeMatch3Kit
     public class AnimateGravitySystem : ComponentSystem
     {
         private EntityArchetype boosterResolutionArchetype;
-
+        private bool isCompleted;
         private static readonly int Falling = Animator.StringToHash("Falling");
 
         protected override void OnCreate()
@@ -64,21 +64,23 @@ namespace FruitSwipeMatch3Kit
                 seq.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
                 seq.AppendCallback(OnGravityCompleted);
             }
+
+            if (isCompleted)
+            {
+                isCompleted = false;
+                OnGravityCompleted();
+            }
         }
 
-        public void OnGravityCompleted()
+        public void GravityComplete()
         {
-            var levelSystem = World.GetExistingSystem<LevelCreationSystem>();
-            var tileEntities = levelSystem.TileEntities;
+            isCompleted = true;
+        }
+        
+        private void OnGravityCompleted()
+        {
             var levelHasPendingBoosters = false;
-            foreach (var tile in tileEntities)
-            {
-                if (EntityManager.HasComponent<PendingBoosterData>(tile))
-                {
-                    levelHasPendingBoosters = true;
-                    break;
-                }
-            }
+            Entities.WithAllReadOnly<PendingBoosterData>().ForEach(entity => levelHasPendingBoosters = true);
 
             if (levelHasPendingBoosters)
                 EntityManager.CreateEntity(boosterResolutionArchetype);

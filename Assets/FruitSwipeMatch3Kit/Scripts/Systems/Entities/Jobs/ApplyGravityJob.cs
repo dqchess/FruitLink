@@ -30,7 +30,7 @@ namespace FruitSwipeMatch3Kit
         public void Execute()
         {
             Bottom();
-            if (!isFall) World.Active.GetExistingSystem<AnimateGravitySystem>().OnGravityCompleted();
+            if (!isFall) World.Active.GetExistingSystem<AnimateGravitySystem>().GravityComplete();
         }
 
         private void Bottom()

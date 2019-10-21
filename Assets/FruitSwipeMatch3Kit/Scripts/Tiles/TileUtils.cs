@@ -256,42 +256,22 @@ namespace FruitSwipeMatch3Kit
             if (type == BlockerType.Stone3)
             {
                 gos[idx] = tilePool.GetBlocker(BlockerType.Stone2);
-                var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
-                var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
-                entityMgr.SetComponentData(entity, tilePos);
-                gos[idx].transform.position = tile.transform.position;
-                tiles[idx] = entity;
-                tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+                tiles[idx] = ReplaceTile(entityMgr, tileEntity, tile, gos[idx]);
             }
             else if (type == BlockerType.Stone2)
             {
                 gos[idx] = tilePool.GetBlocker(BlockerType.Stone);
-                var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
-                var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
-                entityMgr.SetComponentData(entity, tilePos);
-                gos[idx].transform.position = tile.transform.position;
-                tiles[idx] = entity;
-                tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+                tiles[idx] = ReplaceTile(entityMgr, tileEntity, tile, gos[idx]);
             }
             else if (type == BlockerType.Wood3)
             {
                 gos[idx] = tilePool.GetBlocker(BlockerType.Wood2);
-                var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
-                var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
-                entityMgr.SetComponentData(entity, tilePos);
-                gos[idx].transform.position = tile.transform.position;
-                tiles[idx] = entity;
-                tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+                tiles[idx] = ReplaceTile(entityMgr, tileEntity, tile, gos[idx]);
             }
             else if (type == BlockerType.Wood2)
             {
                 gos[idx] = tilePool.GetBlocker(BlockerType.Wood);
-                var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
-                var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
-                entityMgr.SetComponentData(entity, tilePos);
-                gos[idx].transform.position = tile.transform.position;
-                tiles[idx] = entity;
-                tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+                tiles[idx] = ReplaceTile(entityMgr, tileEntity, tile, gos[idx]);
             }
             else
             {
@@ -301,6 +281,19 @@ namespace FruitSwipeMatch3Kit
             }
 
             PlayBlockerSoundFx(type);
+        }
+
+        private static Entity ReplaceTile(EntityManager entityMgr, Entity tileEntity, GameObject tile, GameObject go)
+        {
+            var entity = go.GetComponent<GameObjectEntity>().Entity;
+            var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
+            var translation = entityMgr.GetComponentData<Translation>(tileEntity);
+            entityMgr.SetComponentData(entity, tilePos);
+            entityMgr.AddComponentData(entity, translation);
+            entityMgr.AddComponentData(entity, new LocalToWorld());
+            go.transform.position = tile.transform.position;
+            tile.GetComponent<PooledObject>().Pool.ReturnObject(tile.gameObject);
+            return entity;
         }
 
         private static void AddNeighbour(
