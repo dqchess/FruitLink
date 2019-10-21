@@ -33,7 +33,6 @@ namespace FruitSwipeMatch3Kit
         private bool chainingBoosters;
         private Entity selectedBooster = Entity.Null;
 
-        private bool applyingGravity;
         private float gravityAccTime;
 
         protected override void OnCreate()
@@ -62,14 +61,14 @@ namespace FruitSwipeMatch3Kit
                 PostUpdateCommands.AddComponent(selectedBooster, new PendingBoosterData());
                 selectedBooster = Entity.Null;
             }
-            else if (applyingGravity)
+            else if (GameState.IsBoosting)
             {
                 gravityAccTime += Time.deltaTime;
                 if (gravityAccTime >= GameplayConstants.GravityAfterBoosterDelay)
                 {
                     gravityAccTime = 0.0f;
-                    applyingGravity = false;
-
+                    GameState.IsBoosting = false;
+                    
                     var applyGravity = EntityManager.CreateArchetype(typeof(ApplyGravityData));
                     var e = PostUpdateCommands.CreateEntity(applyGravity);
                     PostUpdateCommands.SetComponent(e, new ApplyGravityData());
@@ -183,7 +182,7 @@ namespace FruitSwipeMatch3Kit
                 inputSystem.SetBoosterExploding(false);
             inputSystem.SetBoosterChainResolving(chainingBoosters);
     
-            applyingGravity = true;
+            GameState.IsBoosting = true;
         }
 
         private void ResolveHorizontalBooster(Entity entity)

@@ -3,6 +3,7 @@
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
 using DG.Tweening;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
@@ -15,13 +16,14 @@ namespace FruitSwipeMatch3Kit
     [UpdateInGroup(typeof(PresentationSystemGroup))]
     public class AnimateGravitySystem : ComponentSystem
     {
+        private EntityArchetype gravityFinishedArchetype;
         private EntityArchetype boosterResolutionArchetype;
-        private bool isCompleted;
         private static readonly int Falling = Animator.StringToHash("Falling");
 
         protected override void OnCreate()
         {
             Enabled = false;
+            gravityFinishedArchetype = EntityManager.CreateArchetype(typeof(GravityFinishedEvent));
             boosterResolutionArchetype = EntityManager.CreateArchetype(
                 typeof(ResolveBoostersData));
         }
@@ -64,35 +66,24 @@ namespace FruitSwipeMatch3Kit
                 seq.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
                 seq.AppendCallback(OnGravityCompleted);
             }
-
-            if (isCompleted)
-            {
-                isCompleted = false;
-                OnGravityCompleted();
-            }
         }
 
-        public void GravityComplete()
-        {
-            isCompleted = true;
-        }
-        
         private void OnGravityCompleted()
         {
-            var levelHasPendingBoosters = false;
-            Entities.WithAllReadOnly<PendingBoosterData>().ForEach(entity => levelHasPendingBoosters = true);
-
-            if (levelHasPendingBoosters)
-                EntityManager.CreateEntity(boosterResolutionArchetype);
-
+            var pendingBoosterGroup = GetEntityQuery(typeof(PendingBoosterData));
+            var levelHasPendingBoosters = pendingBoosterGroup.CalculateLength() > 0;
             var inputSystem = World.GetExistingSystem<PlayerInputSystem>();
+            
             if (!inputSystem.IsBoosterExploding() &&
                 !inputSystem.IsBoosterChainResolving() &&
                 !levelHasPendingBoosters)
             {
                 inputSystem.UnlockInput();
-                EntityManager.CreateEntity(typeof(GravityFinishedEvent));
+                EntityManager.CreateEntity(gravityFinishedArchetype);
             }
+
+            if (levelHasPendingBoosters)
+                EntityManager.CreateEntity(boosterResolutionArchetype);
 
             if (!inputSystem.IsBoosterExploding() &&
                 inputSystem.PendingBoosterTiles.Count > 0)

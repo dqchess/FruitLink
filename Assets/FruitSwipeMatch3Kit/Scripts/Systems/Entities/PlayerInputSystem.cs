@@ -87,7 +87,7 @@ namespace FruitSwipeMatch3Kit
             if (gameScreen.CurrentPopups.Count > 0)
                 return;
 
-            if (gameScreen.IsPlayingEndGameSequence)
+            if (GameState.IsPlayingEndGameSequence)
                 return;
 
             if (isDraggingInput)
@@ -188,7 +188,7 @@ namespace FruitSwipeMatch3Kit
 //
 //                isBoosterExploding = selectedTiles.Find(x =>
 //                    EntityManager.HasComponent<BoosterData>(x.GetComponent<GameObjectEntity>().Entity));
-//                
+//              
                 TileUtils.DestroyTiles(
                     tilesToDestroy, tiles, tileGos, levelCreationSystem.Slots, particlePools,
                     levelData.Width, levelData.Height);   

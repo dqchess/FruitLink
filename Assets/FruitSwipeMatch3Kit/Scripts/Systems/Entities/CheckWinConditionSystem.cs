@@ -37,7 +37,7 @@ namespace FruitSwipeMatch3Kit
             {
                 PostUpdateCommands.DestroyEntity(entity);
                 
-                if (gameScreen.IsPlayingEndGameSequence)
+                if (GameState.IsPlayingEndGameSequence)
                 {
                     playingEndGameSequence = true;
                 }

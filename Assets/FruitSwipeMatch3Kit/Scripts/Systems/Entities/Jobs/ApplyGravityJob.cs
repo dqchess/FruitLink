@@ -25,12 +25,10 @@ namespace FruitSwipeMatch3Kit
         [ReadOnly] public float SpriteHeight;
         [ReadOnly] public ComponentDataFromEntity<HoleSlotData> HoleSlotData;
         [ReadOnly] public ComponentDataFromEntity<BlockerData> BlockerData;
-        bool isFall;
-        
+
         public void Execute()
         {
             Bottom();
-            if (!isFall) World.Active.GetExistingSystem<AnimateGravitySystem>().GravityComplete();
         }
 
         private void Bottom()
@@ -91,8 +89,6 @@ namespace FruitSwipeMatch3Kit
                     Ecb.AddComponent(tile, new GravityTag());
                     
                     Tiles[idx] = Entity.Null;
-
-                    isFall = true;
                 }
             }
         }

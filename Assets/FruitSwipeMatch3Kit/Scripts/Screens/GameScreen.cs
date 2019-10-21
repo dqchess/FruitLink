@@ -54,9 +54,6 @@ namespace FruitSwipeMatch3Kit
         private LevelData levelData;
         private GameState gameState;
 
-        private bool isPlayingEndGameSequence;
-        public bool IsPlayingEndGameSequence => isPlayingEndGameSequence;
-
         private bool playerWon;
         private bool playerLost;
 
@@ -405,7 +402,7 @@ namespace FruitSwipeMatch3Kit
 
         private void BeginEndGameAwardSequence()
         {
-            isPlayingEndGameSequence = true;
+            GameState.IsPlayingEndGameSequence = true;
             StartCoroutine(BeginEndGameAwardSequenceAsync());
         }
 
@@ -473,7 +470,7 @@ namespace FruitSwipeMatch3Kit
 
             if (!foundBooster)
             {
-                isPlayingEndGameSequence = false;
+                GameState.IsPlayingEndGameSequence = false;
                 StartCoroutine(OpenWinPopupAsync());
             }
         }
