@@ -17,6 +17,7 @@ namespace FruitSwipeMatch3Kit
     {
         public EntityCommandBuffer Ecb;
         public NativeArray<Entity> Tiles;
+        public EntityArchetype GravityCompleteArchetype;
         public ComponentDataFromEntity<TilePosition> TilePosition;
         public ComponentDataFromEntity<Translation> TranslationData;
         [ReadOnly] public int Width;
@@ -30,13 +31,7 @@ namespace FruitSwipeMatch3Kit
         public void Execute()
         {
             Bottom();
-//            BottomLeft();
-            if (!isFall)
-            {
-                var inputSystem = World.Active.GetExistingSystem<PlayerInputSystem>();
-                if (!inputSystem.IsBoosterExploding() && !inputSystem.IsBoosterChainResolving())
-                    inputSystem.UnlockInput();
-            }
+            if (!isFall) Ecb.CreateEntity(GravityCompleteArchetype);
         }
 
         private void Bottom()
@@ -50,7 +45,7 @@ namespace FruitSwipeMatch3Kit
                     if (tile == Entity.Null || HoleSlotData.Exists(tile))
                         continue;
                     if (tile != Entity.Null && BlockerData.Exists(tile) &&
-                            BlockerData[tile].Type != BlockerType.Wood1 &&
+                            BlockerData[tile].Type != BlockerType.Wood &&
                             BlockerData[tile].Type != BlockerType.Wood2 &&
                             BlockerData[tile].Type != BlockerType.Wood3)
                         continue;

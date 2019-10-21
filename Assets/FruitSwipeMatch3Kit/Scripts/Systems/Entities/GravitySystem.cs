@@ -18,6 +18,7 @@ namespace FruitSwipeMatch3Kit
     {
         private EntityQuery query;
         private EntityArchetype fillEmptySlotsArchetype;
+        private EntityArchetype gravityCompleteArchetype;
         private EndSimulationEntityCommandBufferSystem barrier;
 
         protected override void OnCreate()
@@ -26,6 +27,7 @@ namespace FruitSwipeMatch3Kit
             query = GetEntityQuery(
                 ComponentType.ReadOnly<ApplyGravityData>());
             fillEmptySlotsArchetype = EntityManager.CreateArchetype(typeof(FillEmptySlotsData));
+            gravityCompleteArchetype = EntityManager.CreateArchetype(typeof(GravityCompleteTag));
             barrier = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
         }
 
@@ -64,16 +66,17 @@ namespace FruitSwipeMatch3Kit
                 HoleSlotData = GetComponentDataFromEntity<HoleSlotData>(true),
                 BlockerData = GetComponentDataFromEntity<BlockerData>(true),
                 SpriteWidth = spriteWidth,
-                SpriteHeight = spriteHeight
+                SpriteHeight = spriteHeight,
+                GravityCompleteArchetype = gravityCompleteArchetype
             };
 
             inputDeps = job.Schedule(inputDeps);
             barrier.AddJobHandleForProducer(inputDeps);
             inputDeps.Complete();
 
-            var inputSystem = World.GetExistingSystem<PlayerInputSystem>();
-            if (!inputSystem.IsBoosterExploding())
-            {
+//            var inputSystem = World.GetExistingSystem<PlayerInputSystem>();
+//            if (!inputSystem.IsBoosterExploding())
+//            {
                 var boosterTile = tileEntities[matchIndex];
                 if (EntityManager.Exists(boosterTile) && !EntityManager.HasComponent<AddBoosterData>(boosterTile))
                 {
@@ -83,7 +86,7 @@ namespace FruitSwipeMatch3Kit
                         MatchDirection = matchDir
                     });
                 }
-            }
+//            }
 
             var e = EntityManager.CreateEntity(fillEmptySlotsArchetype);
             EntityManager.SetComponentData(e, new FillEmptySlotsData

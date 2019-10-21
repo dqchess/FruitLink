@@ -29,6 +29,7 @@ namespace FruitSwipeMatch3Kit
         protected override void OnUpdate()
         {
             var hasGravity = false;
+            var hasGravityComplete = false;
             Entities.WithAll<GravityTag>().ForEach((Entity entity, Transform transform) =>
             {
                 hasGravity = true;
@@ -58,44 +59,62 @@ namespace FruitSwipeMatch3Kit
 
             if (hasGravity)
             {
-                SoundPlayer.PlaySoundFx("TileFalling");
+                DoGravity();
+            }
+            
+            Entities.WithAll<GravityCompleteTag>().ForEach(entity =>
+            {
+                hasGravityComplete = true;
+                PostUpdateCommands.RemoveComponent<GravityCompleteTag>(entity);
+            });
 
-                var seq = DOTween.Sequence();
-                seq.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
-                seq.AppendCallback(() =>
+            if (hasGravityComplete)
+            {
+                OnGravityCompleted();
+            }
+        }
+
+        private void DoGravity()
+        {
+            SoundPlayer.PlaySoundFx("TileFalling");
+
+            var seq = DOTween.Sequence();
+            seq.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
+            seq.AppendCallback(OnGravityCompleted);
+        }
+
+        private void OnGravityCompleted()
+        {
+            var levelSystem = World.GetExistingSystem<LevelCreationSystem>();
+            var tileEntities = levelSystem.TileEntities;
+            var levelHasPendingBoosters = false;
+            foreach (var tile in tileEntities)
+            {
+                if (EntityManager.HasComponent<PendingBoosterData>(tile))
                 {
-                    var levelSystem = World.GetExistingSystem<LevelCreationSystem>();
-                    var tileEntities = levelSystem.TileEntities;
-                    var levelHasPendingBoosters = false;
-                    foreach (var tile in tileEntities)
-                    {
-                        if (EntityManager.HasComponent<PendingBoosterData>(tile))
-                        {
-                            levelHasPendingBoosters = true;
-                            break;
-                        }
-                    }
+                    levelHasPendingBoosters = true;
+                    break;
+                }
+            }
 
-                    if (levelHasPendingBoosters)
-                        EntityManager.CreateEntity(boosterResolutionArchetype);
+            if (levelHasPendingBoosters)
+                EntityManager.CreateEntity(boosterResolutionArchetype);
 
-                    var inputSystem = World.GetExistingSystem<PlayerInputSystem>();
-                    if (!inputSystem.IsBoosterExploding() &&
-                        !inputSystem.IsBoosterChainResolving() &&
-                        !levelHasPendingBoosters)
-                    {
-                        inputSystem.UnlockInput();
-                        EntityManager.CreateEntity(typeof(GravityFinishedEvent));
-                    }
+            var inputSystem = World.GetExistingSystem<PlayerInputSystem>();
+            if (!inputSystem.IsBoosterExploding() &&
+                !inputSystem.IsBoosterChainResolving() &&
+                !levelHasPendingBoosters)
+            {
+                inputSystem.UnlockInput();
+                EntityManager.CreateEntity(typeof(GravityFinishedEvent));
+            }
 
-                    if (!inputSystem.IsBoosterExploding() &&
-                        inputSystem.PendingBoosterTiles.Count > 0)
-                    {
-                        var pendingBooster = inputSystem.PendingBoosterTiles[0];
-                        inputSystem.PendingBoosterTiles.RemoveAt(0);
-                        EntityManager.AddComponentData(pendingBooster, new PendingBoosterData());
-                    }
-                });
+            if (!inputSystem.IsBoosterExploding() &&
+                inputSystem.PendingBoosterTiles.Count > 0)
+            {
+                var pendingBooster = inputSystem.PendingBoosterTiles[0];
+                inputSystem.PendingBoosterTiles.RemoveAt(0);
+                EntityManager.AddComponentData(pendingBooster, new PendingBoosterData());
             }
         }
     }

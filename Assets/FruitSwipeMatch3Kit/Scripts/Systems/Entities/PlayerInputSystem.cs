@@ -169,6 +169,7 @@ namespace FruitSwipeMatch3Kit
                         if (selectedBooster == Entity.Null)
                         {
                             selectedBooster = entity;
+                            isBoosterExploding = true;
                             EntityManager.AddComponentData(entity, new PendingBoosterData());
                         }
                         else
@@ -183,22 +184,15 @@ namespace FruitSwipeMatch3Kit
                     }
                 }
                 
-                var levelData = GameObject.Find("GameScreen").GetComponent<GameScreen>().LevelData;
-
-                isBoosterExploding = selectedTiles.Find(x =>
-                    EntityManager.HasComponent<BoosterData>(x.GetComponent<GameObjectEntity>().Entity));
+                var levelData = gameScreen.LevelData;
+//
+//                isBoosterExploding = selectedTiles.Find(x =>
+//                    EntityManager.HasComponent<BoosterData>(x.GetComponent<GameObjectEntity>().Entity));
+//                
+                TileUtils.DestroyTiles(
+                    tilesToDestroy, tiles, tileGos, levelCreationSystem.Slots, particlePools,
+                    levelData.Width, levelData.Height);   
                 
-                if (tilesToDestroy.Count == 0)
-                {
-                    EntityManager.CreateEntity(typeof(ResolveBoostersData));
-                }
-                else
-                {
-                    TileUtils.DestroyTiles(
-                        tilesToDestroy, tiles, tileGos, levelCreationSystem.Slots, particlePools,
-                        levelData.Width, levelData.Height);   
-                }
-
                 var e = EntityManager.CreateEntity(applyGravityArchetype);
                 EntityManager.SetComponentData(e, new ApplyGravityData
                 {
@@ -206,7 +200,7 @@ namespace FruitSwipeMatch3Kit
                     MatchIndex = lastIdx,
                     MatchDirection = lastMoveDirection
                 });
-
+                
                 EntityManager.CreateEntity(matchHappenedArchetype);
             }
 
