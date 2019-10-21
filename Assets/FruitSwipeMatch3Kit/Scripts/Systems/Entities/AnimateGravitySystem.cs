@@ -29,7 +29,6 @@ namespace FruitSwipeMatch3Kit
         protected override void OnUpdate()
         {
             var hasGravity = false;
-            var hasGravityComplete = false;
             Entities.WithAll<GravityTag>().ForEach((Entity entity, Transform transform) =>
             {
                 hasGravity = true;
@@ -59,31 +58,15 @@ namespace FruitSwipeMatch3Kit
 
             if (hasGravity)
             {
-                DoGravity();
-            }
-            
-            Entities.WithAll<GravityCompleteTag>().ForEach(entity =>
-            {
-                hasGravityComplete = true;
-                PostUpdateCommands.RemoveComponent<GravityCompleteTag>(entity);
-            });
+                SoundPlayer.PlaySoundFx("TileFalling");
 
-            if (hasGravityComplete)
-            {
-                OnGravityCompleted();
+                var seq = DOTween.Sequence();
+                seq.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
+                seq.AppendCallback(OnGravityCompleted);
             }
         }
 
-        private void DoGravity()
-        {
-            SoundPlayer.PlaySoundFx("TileFalling");
-
-            var seq = DOTween.Sequence();
-            seq.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
-            seq.AppendCallback(OnGravityCompleted);
-        }
-
-        private void OnGravityCompleted()
+        public void OnGravityCompleted()
         {
             var levelSystem = World.GetExistingSystem<LevelCreationSystem>();
             var tileEntities = levelSystem.TileEntities;

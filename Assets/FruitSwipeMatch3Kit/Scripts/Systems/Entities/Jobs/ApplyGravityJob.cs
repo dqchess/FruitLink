@@ -17,7 +17,6 @@ namespace FruitSwipeMatch3Kit
     {
         public EntityCommandBuffer Ecb;
         public NativeArray<Entity> Tiles;
-        public EntityArchetype GravityCompleteArchetype;
         public ComponentDataFromEntity<TilePosition> TilePosition;
         public ComponentDataFromEntity<Translation> TranslationData;
         [ReadOnly] public int Width;
@@ -31,7 +30,7 @@ namespace FruitSwipeMatch3Kit
         public void Execute()
         {
             Bottom();
-            if (!isFall) Ecb.CreateEntity(GravityCompleteArchetype);
+            if (!isFall) World.Active.GetExistingSystem<AnimateGravitySystem>().OnGravityCompleted();
         }
 
         private void Bottom()
