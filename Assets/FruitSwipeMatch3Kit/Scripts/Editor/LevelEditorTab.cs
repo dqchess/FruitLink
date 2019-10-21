@@ -825,7 +825,7 @@ namespace FruitSwipeMatch3Kit
 			goal.Amount = EditorGUILayout.IntField(goal.Amount, GUILayout.Width(30));
 			GUILayout.EndHorizontal();
 
-			if (GUILayout.Button("Replace amount -1"))
+			if (GUILayout.Button("Update amount"))
 			{
 				currentLevelData.InitGoal();
 			}
