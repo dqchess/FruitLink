@@ -91,7 +91,7 @@ namespace FruitSwipeMatch3Kit
                 case BlockerType.Block:
                     typeIndex = 0;
                     break;
-                case BlockerType.Stone1:
+                case BlockerType.Stone:
                     typeIndex = 1;
                     break;
                 case BlockerType.Stone2:
@@ -100,7 +100,7 @@ namespace FruitSwipeMatch3Kit
                 case BlockerType.Stone3:
                     typeIndex = 1;
                     break;
-                case BlockerType.Wood1:
+                case BlockerType.Wood:
                     typeIndex = 2;
                     break;
                 case BlockerType.Wood2:

@@ -47,14 +47,28 @@ namespace FruitSwipeMatch3Kit
                 {
                     if (goal.Amount == -1)
                     {
-                        goal.Amount = Tiles.FindAll(x => x.SlotType == goal.SlotType).Count;
+                        if(goal.SlotType == SlotType.Ice) 
+                            goal.Amount = Tiles.FindAll(x => x.SlotType == SlotType.Ice || 
+                                                             x.SlotType == SlotType.Ice2 || 
+                                                             x.SlotType == SlotType.Ice3).Count;
+                        if(goal.SlotType == SlotType.Jelly)
+                            goal.Amount = Tiles.FindAll(x => x.SlotType == SlotType.Jelly || 
+                                                             x.SlotType == SlotType.Jelly2 || 
+                                                             x.SlotType == SlotType.Jelly3).Count;
                     }
                 }
                 else if (goal.Type == GoalType.CollectBlockers)
                 {
                     if (goal.Amount == -1)
                     {
-                        goal.Amount = Tiles.FindAll(x => x.TileType == TileType.Blocker && x.BlockerType == goal.BlockerType).Count;
+                        if(goal.BlockerType == BlockerType.Stone) 
+                            goal.Amount = Tiles.FindAll(x => x.BlockerType == BlockerType.Stone ||
+                                                             x.BlockerType == BlockerType.Stone2 ||
+                                                             x.BlockerType == BlockerType.Stone3).Count;
+                        if(goal.BlockerType == BlockerType.Wood) 
+                            goal.Amount = Tiles.FindAll(x => x.BlockerType == BlockerType.Wood ||
+                                                             x.BlockerType == BlockerType.Wood2 ||
+                                                             x.BlockerType == BlockerType.Wood3).Count;
                     }
                 }
             }

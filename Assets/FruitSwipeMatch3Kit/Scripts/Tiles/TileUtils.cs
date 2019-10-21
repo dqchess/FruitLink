@@ -34,7 +34,7 @@ namespace FruitSwipeMatch3Kit
                     if (entityMgr.HasComponent<BlockerData>(tiles[neighbour]))
                     {
                         var blockerData = entityMgr.GetComponentData<BlockerData>(tiles[neighbour]);
-                        if (blockerData.Type == BlockerType.Stone1 || blockerData.Type == BlockerType.Wood1 ||
+                        if (blockerData.Type == BlockerType.Stone || blockerData.Type == BlockerType.Wood ||
                             blockerData.Type == BlockerType.Stone2 || blockerData.Type == BlockerType.Wood2 ||
                             blockerData.Type == BlockerType.Stone3 || blockerData.Type == BlockerType.Wood3)
                             if(!blockersToDestroy.Contains(neighbour)) blockersToDestroy.Add(neighbour);
@@ -265,7 +265,7 @@ namespace FruitSwipeMatch3Kit
             }
             else if (type == BlockerType.Stone2)
             {
-                gos[idx] = tilePool.GetBlocker(BlockerType.Stone1);
+                gos[idx] = tilePool.GetBlocker(BlockerType.Stone);
                 var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
                 var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
                 entityMgr.SetComponentData(entity, tilePos);
@@ -285,7 +285,7 @@ namespace FruitSwipeMatch3Kit
             }
             else if (type == BlockerType.Wood2)
             {
-                gos[idx] = tilePool.GetBlocker(BlockerType.Wood1);
+                gos[idx] = tilePool.GetBlocker(BlockerType.Wood);
                 var entity = gos[idx].GetComponent<GameObjectEntity>().Entity;
                 var tilePos = entityMgr.GetComponentData<TilePosition>(tileEntity);
                 entityMgr.SetComponentData(entity, tilePos);
@@ -331,11 +331,11 @@ namespace FruitSwipeMatch3Kit
         {
             switch (type)
             {
-                case BlockerType.Stone1:
+                case BlockerType.Stone:
                     SoundPlayer.PlaySoundFx("Stone");
                     break;
                 
-                case BlockerType.Wood1:
+                case BlockerType.Wood:
                     SoundPlayer.PlaySoundFx("Wood");
                     break;
             }
