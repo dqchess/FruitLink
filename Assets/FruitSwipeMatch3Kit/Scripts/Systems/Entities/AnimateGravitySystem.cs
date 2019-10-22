@@ -65,6 +65,23 @@ namespace FruitSwipeMatch3Kit
                 var seq = DOTween.Sequence();
                 seq.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
                 seq.AppendCallback(OnGravityCompleted);
+                Entities.WithAll<CheckGravityTag>().ForEach(entity =>
+                {
+                    PostUpdateCommands.DestroyEntity(entity);
+                });
+            }
+            else
+            {
+                bool isCompleted = false;
+                Entities.WithAll<CheckGravityTag>().ForEach(entity =>
+                {
+                    isCompleted = true;
+                    PostUpdateCommands.DestroyEntity(entity);
+                });
+                if (isCompleted)
+                {
+                    OnGravityCompleted();
+                }
             }
         }
 

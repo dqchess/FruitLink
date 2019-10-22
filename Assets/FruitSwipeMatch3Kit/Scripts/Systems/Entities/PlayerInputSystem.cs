@@ -45,6 +45,7 @@ namespace FruitSwipeMatch3Kit
 
         private EntityArchetype applyGravityArchetype;
         private EntityArchetype matchHappenedArchetype;
+        private EntityArchetype checkMoveArcheType;
 
         private bool inputLocked;
 
@@ -59,6 +60,7 @@ namespace FruitSwipeMatch3Kit
         protected override void OnCreate()
         {
             Enabled = false;
+            checkMoveArcheType = EntityManager.CreateArchetype(typeof(CheckGravityTag));
             applyGravityArchetype = EntityManager.CreateArchetype(typeof(ApplyGravityData));
             matchHappenedArchetype = EntityManager.CreateArchetype(typeof(MatchHappenedEvent));
         }
@@ -204,7 +206,7 @@ namespace FruitSwipeMatch3Kit
                     MatchIndex = lastIdx,
                     MatchDirection = lastMoveDirection
                 });
-
+                EntityManager.CreateEntity(checkMoveArcheType);
                 EntityManager.CreateEntity(matchHappenedArchetype);
             }
 
