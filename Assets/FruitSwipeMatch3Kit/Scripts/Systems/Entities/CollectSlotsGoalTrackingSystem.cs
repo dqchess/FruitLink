@@ -17,7 +17,8 @@ namespace FruitSwipeMatch3Kit
     [UpdateAfter(typeof(UpdateScoreSystem))]
     public class CollectSlotsGoalTrackingSystem : ComponentSystem
     {
-        private EntityQuery query;
+        private EntityQuery destroyQuery;
+        private EntityQuery instantiateQuery;
 
         private int[] numDestroyedSlots;
         private GoalsWidget goalsWidget;
@@ -25,9 +26,8 @@ namespace FruitSwipeMatch3Kit
         protected override void OnCreate()
         {
             Enabled = false;
-            
-            query = GetEntityQuery(
-                ComponentType.ReadOnly<SlotDestroyedEvent>());
+            destroyQuery = GetEntityQuery(ComponentType.ReadOnly<SlotDestroyedEvent>());
+            instantiateQuery = GetEntityQuery(ComponentType.ReadOnly<SlotInstantiatedEvent>());
             
             numDestroyedSlots = new int[Enum.GetValues(typeof(SlotType)).Length];
         }
@@ -39,23 +39,32 @@ namespace FruitSwipeMatch3Kit
 
         protected override void OnUpdate()
         {
-            Entities.With(query).ForEach((Entity entity, ref SlotDestroyedEvent evt) =>
+            Entities.With(instantiateQuery).ForEach((Entity entity, ref SlotInstantiatedEvent evt) =>
+            {
+                PostUpdateCommands.DestroyEntity(entity);
+                goalsWidget.OnSlotInstantiated(evt);
+            });
+
+            bool isJellyDestroy = false;
+            Entities.With(destroyQuery).ForEach((Entity entity, ref SlotDestroyedEvent evt) =>
             {
                 PostUpdateCommands.DestroyEntity(entity);
                 numDestroyedSlots[(int)evt.Type] += 1;
-                UpdateUi(evt);
+                goalsWidget.OnSlotDestroyed(evt);
+                if (evt.Type == SlotType.Jelly || evt.Type == SlotType.Jelly2 || evt.Type == SlotType.Jelly3)
+                    isJellyDestroy = true;
             });
+            
+            if (isJellyDestroy)
+            {
+                EntityManager.CreateEntity(typeof(JellyDestroyedEvent));
+            }
         }
 
         private void Reset()
         {
             for (var i = 0; i < numDestroyedSlots.Length; ++i)
                 numDestroyedSlots[i] = 0;
-        }
-
-        private void UpdateUi(SlotDestroyedEvent evt)
-        {
-            goalsWidget.OnSlotDestroyed(evt);
         }
     }
 }

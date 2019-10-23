@@ -9,6 +9,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace FruitSwipeMatch3Kit
 {
@@ -471,6 +472,48 @@ namespace FruitSwipeMatch3Kit
                         slot.transform.position = TilePositions[idx];
                 }
             }
+        }
+
+        public void SpawnRandomJelly()
+        {
+            List<int> indexList = new List<int>();
+            for (int i = 0; i < Slots.Count; i++)
+            {
+                if(Slots[i] != null) indexList.Add(i);
+            }
+            for (int i = 0; i < Slots.Count; i++)
+            {
+                int idx = Random.Range(0, indexList.Count);
+                indexList.Remove(idx);
+                idx = indexList[idx];
+                idx = GetNormalSlotNeighbour(idx);
+                if (idx != -1)
+                {
+                    var slot = tilePools.GetSlot(SlotType.Jelly);
+                    Slots[idx] = slot;
+                    slot.transform.position = TilePositions[idx];
+                    var evt = EntityManager.CreateEntity(typeof(SlotInstantiatedEvent));
+                    EntityManager.SetComponentData(evt, new SlotInstantiatedEvent
+                    {
+                        Type = SlotType.Jelly
+                    });
+                    return;
+                }
+            }
+        }
+
+        private int GetNormalSlotNeighbour(int idx)
+        {
+            List<int> neighbours = TileUtils.GetNeighbours(idx, TileEntities, Width, Height);
+            for (int i = 0; i < neighbours.Count; i++)
+            {
+                if(Slots[neighbours[i]] != null || 
+                   EntityManager.HasComponent<HoleSlotData>(TileEntities[neighbours[i]]) || 
+                   EntityManager.HasComponent<BlockerData>(TileEntities[neighbours[i]])) continue;
+                return neighbours[i];
+            }
+
+            return -1;
         }
 
         private void ZoomMainCamera()

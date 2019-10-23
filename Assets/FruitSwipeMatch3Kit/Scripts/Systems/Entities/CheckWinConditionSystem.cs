@@ -15,14 +15,14 @@ namespace FruitSwipeMatch3Kit
     public class CheckWinConditionSystem : ComponentSystem
     {
         private EntityQuery query;
-
+        private EntityArchetype matchEndArchetype;
         private GameScreen gameScreen;
 
         protected override void OnCreate()
         {
-            query = GetEntityQuery(
-                ComponentType.ReadOnly<GravityFinishedEvent>());
             Enabled = false;
+            query = GetEntityQuery(ComponentType.ReadOnly<GravityFinishedEvent>());
+            matchEndArchetype = EntityManager.CreateArchetype(typeof(MatchEndEvent));
         }
 
         public void Initialize()
@@ -56,9 +56,11 @@ namespace FruitSwipeMatch3Kit
                     }
                 }
             });
-            
+
             if (playingEndGameSequence)
                 gameScreen.AdvanceEndGameSequence();
+            else
+                EntityManager.CreateEntity(matchEndArchetype);
         }
     }
 }

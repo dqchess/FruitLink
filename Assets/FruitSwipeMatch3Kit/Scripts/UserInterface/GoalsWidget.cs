@@ -56,6 +56,14 @@ namespace FruitSwipeMatch3Kit
             foreach (var widget in widgets)
                 widget.OnSlotDestroyed(evt);
         }
+
+        public void OnSlotInstantiated(SlotInstantiatedEvent evt)
+        {
+            foreach (var widget in widgets)
+            {
+                widget.OnSlotInstantiated(evt);
+            }
+        }
         
         public void OnBlockerDestroyed(BlockerDestroyedEvent evt)
         {

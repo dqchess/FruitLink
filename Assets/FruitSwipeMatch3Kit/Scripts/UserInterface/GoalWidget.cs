@@ -89,6 +89,13 @@ namespace FruitSwipeMatch3Kit
                 goal.Data.SlotType == evt.Type)
                 UpdateAmount();
         }
+
+        public void OnSlotInstantiated(SlotInstantiatedEvent evt)
+        {
+            if (goal.Type == GoalType.CollectSlots &&
+                goal.Data.SlotType == evt.Type)
+                UpdateAmount(1);
+        }
         
         public void OnBlockerDestroyed(BlockerDestroyedEvent evt)
         {
@@ -109,9 +116,9 @@ namespace FruitSwipeMatch3Kit
             return goal.IsCompleted;
         }
 
-        private void UpdateAmount()
+        private void UpdateAmount(int amount = -1)
         {
-            goal.UpdateAmount(-1);
+            goal.UpdateAmount(amount);
 
             SetAmountText(goal.Amount);
 
