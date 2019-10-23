@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 696981545}
   GameConfig: {fileID: 11400000, guid: 6b47954202b9549b6a59ab55ca91f82a, type: 2}
-  LevelNumber: 70
+  LevelNumber: 0
   goalsWidget: {fileID: 1906350947}
   scoreWidget: {fileID: 675131494}
   topCanvas: {fileID: 1328661497}
@@ -10740,8 +10740,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc99a464a19d434fae1bfa91c6f3ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skeletons: []
   _skeleton: {fileID: 2013128254}
   _winkAnimName: idle_eye
+  _min: 2.5
+  _max: 5
 --- !u!1 &2015771446
 GameObject:
   m_ObjectHideFlags: 0
