@@ -467,7 +467,7 @@ namespace FruitSwipeMatch3Kit
                 for (var i = 0; i < Width; ++i)
                 {
                     var idx = i + (j * Width);
-
+                
                     var slot = CreateSlot(levelData.Tiles[idx]);
                     Slots.Add(slot);
 
@@ -487,7 +487,7 @@ namespace FruitSwipeMatch3Kit
             for (int i = 0; i < Slots.Count; i++)
             {
                 int idx = Random.Range(0, indexList.Count);
-                indexList.RemoveAt(idx);
+                indexList.Remove(idx);
                 idx = indexList[idx];
                 idx = GetNormalSlotNeighbour(idx);
                 if (idx != -1)

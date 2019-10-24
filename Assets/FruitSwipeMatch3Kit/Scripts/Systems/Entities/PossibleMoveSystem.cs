@@ -1,6 +1,8 @@
-﻿using Unity.Collections;
+﻿using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
+using UnityEngine;
 
 namespace FruitSwipeMatch3Kit
 {
@@ -34,9 +36,10 @@ namespace FruitSwipeMatch3Kit
         {
             var levelCreationSystem = World.GetExistingSystem<LevelCreationSystem>();
             var tileEntities = levelCreationSystem.TileEntities;
+            var slots = levelCreationSystem.Slots;
             var width = levelCreationSystem.Width;
             var height = levelCreationSystem.Height;
-
+            CheckJelly(slots, width, height);
             var job = new PossibleMoveJob()
             {
                 Ecb = barrier.CreateCommandBuffer(),
@@ -53,6 +56,27 @@ namespace FruitSwipeMatch3Kit
             inputDeps.Complete();
             
             return inputDeps;
+        }
+
+        private void CheckJelly(List<GameObject> slots, int width, int height)
+        {
+            for (var i = 0; i < width; i++)
+            {
+                for (var j = height - 1; j >= 0; j--)
+                {
+                    var idx = i + j * width;
+                    if (slots[idx] != null)
+                    {
+                        SlotType slotType = slots[idx].GetComponent<Slot>().Type;
+                        if (slotType == SlotType.Jelly || slotType == SlotType.Jelly2 || slotType == SlotType.Jelly3)
+                        {
+                            GameState.HasJelly = true;
+                            return;
+                        }
+                    }
+                }
+            }
+            GameState.HasJelly = false;
         }
     }
 }

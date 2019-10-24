@@ -29,7 +29,7 @@ namespace FruitSwipeMatch3Kit
                 });
                 PostUpdateCommands.DestroyEntity(entity);
             });
-            if (isMatchEnd && !isJellyDestroy)
+            if (isMatchEnd && !isJellyDestroy && GameState.HasJelly)
             {
                 World.GetExistingSystem<LevelCreationSystem>().SpawnRandomJelly();
             }
