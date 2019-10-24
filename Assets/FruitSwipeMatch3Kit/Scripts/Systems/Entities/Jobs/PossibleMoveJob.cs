@@ -18,8 +18,6 @@ namespace FruitSwipeMatch3Kit
 
         public void Execute()
         {
-            List<int> openSet = new List<int>();
-            HashSet<int> closeSet = new HashSet<int>();
             List<int> possibleMove = new List<int>();
             for (var j = 0; j < Height; ++j)
             {
@@ -29,7 +27,7 @@ namespace FruitSwipeMatch3Kit
                     var tile = Tiles[idx];
                     if (tile == Entity.Null || HoleSlotData.Exists(tile) || BlockerData.Exists(tile))
                         continue;
-                    if (CheckTile(idx, ref openSet, ref closeSet, ref possibleMove) >= GameplayConstants.NumTilesNeededForMatch)
+                    if (CheckTile(idx, ref possibleMove) >= GameplayConstants.NumTilesNeededForMatch)
                     {
                         Debug.Log("Found " + idx);
                         GameState.SwapCount = 0;
@@ -41,8 +39,10 @@ namespace FruitSwipeMatch3Kit
             Ecb.AddComponent(Ecb.CreateEntity(), new SwapTileEvent());
         }
 
-        private int CheckTile(int startIdx, ref List<int> openSet, ref HashSet<int> closeSet, ref List<int> possibleMove)
+        private int CheckTile(int startIdx, ref List<int> possibleMove)
         {
+            List<int> openSet = new List<int>();
+            HashSet<int> closeSet = new HashSet<int>();
             possibleMove.Clear();
             openSet.Add(startIdx);
             possibleMove.Add(startIdx);
