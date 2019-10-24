@@ -258,19 +258,19 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 1
-  - TileType: 1
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 5
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0

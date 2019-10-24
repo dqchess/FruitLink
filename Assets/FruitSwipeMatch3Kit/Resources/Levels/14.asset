@@ -420,22 +420,22 @@ MonoBehaviour:
     BlockerType: 2
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 3
-    BlockerType: 0
+    BlockerType: 2
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 2
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 3
-    BlockerType: 0
+    BlockerType: 2
     CollectibleType: 0
     SlotType: 0
   - TileType: 4
@@ -480,7 +480,7 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 2

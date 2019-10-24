@@ -24,7 +24,7 @@ MonoBehaviour:
   IsColorBombAvailable: 1
   EndGameAward: 1
   Tiles:
-  - TileType: 1
+  - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 4
     BlockerType: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
     BlockerType: 1
     CollectibleType: 0
     SlotType: 0
-  - TileType: 2
+  - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 2
@@ -306,7 +306,7 @@ MonoBehaviour:
     BlockerType: 2
     CollectibleType: 0
     SlotType: 0
-  - TileType: 2
+  - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 2

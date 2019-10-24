@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 6
   Height: 6
-  Moves: 10
+  Moves: 9
   Star1Score: 70
-  Star2Score: 140
-  Star3Score: 210
+  Star2Score: 130
+  Star3Score: 190
   IsCrusherAvailable: 0
   IsBombAvailable: 0
   IsSwapAvailable: 0
@@ -144,10 +144,10 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 1
-    BlockerType: 0
+    BlockerType: 2
     CollectibleType: 0
     SlotType: 0
   - TileType: 1

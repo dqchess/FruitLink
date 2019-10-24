@@ -42,16 +42,16 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 1
-    BlockerType: 0
+    BlockerType: 2
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 2
-    BlockerType: 0
+    BlockerType: 2
     CollectibleType: 0
     SlotType: 0
   - TileType: 1
@@ -264,16 +264,16 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 2
-    BlockerType: 0
+    BlockerType: 2
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 0
-    BlockerType: 0
+    BlockerType: 2
     CollectibleType: 0
     SlotType: 0
   - TileType: 1
@@ -300,16 +300,16 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 2
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 3
-    BlockerType: 0
+    BlockerType: 2
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 2
-    BlockerType: 0
+    BlockerType: 2
     CollectibleType: 0
     SlotType: 0
   - TileType: 4
@@ -416,4 +416,4 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     Amount: 16
-  AvailableColors: 0400000002000000000000000300000001000000
+  AvailableColors: 0000000001000000030000000400000002000000

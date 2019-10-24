@@ -180,10 +180,10 @@ MonoBehaviour:
     BlockerType: 1
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 3
-    BlockerType: 0
+    BlockerType: 1
     CollectibleType: 0
     SlotType: 0
   - TileType: 1
@@ -246,7 +246,7 @@ MonoBehaviour:
     BlockerType: 1
     CollectibleType: 0
     SlotType: 0
-  - TileType: 1
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 1
