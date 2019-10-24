@@ -29,13 +29,11 @@ namespace FruitSwipeMatch3Kit
                         continue;
                     if (CheckTile(idx, ref possibleMove) >= GameplayConstants.NumTilesNeededForMatch)
                     {
-                        Debug.Log("Found " + idx);
                         GameState.SwapCount = 0;
                         return;
                     }
                 }
             }
-            Debug.Log("Not Found");
             Ecb.AddComponent(Ecb.CreateEntity(), new SwapTileEvent());
         }
 
