@@ -168,8 +168,6 @@ namespace FruitSwipeMatch3Kit
             world.GetExistingSystem<SwapPowerupResolutionSystem>().Enabled = true;
             world.GetExistingSystem<ColorBombPowerupResolutionSystem>().Enabled = true;
             world.GetExistingSystem<MatchEndSystem>().Enabled = true;
-            world.GetExistingSystem<PossibleMoveSystem>().Enabled = true;
-            world.GetExistingSystem<SwapAllTileSystem>().Enabled = true;
         }
         
         private void DisableGameSystems()
@@ -196,8 +194,6 @@ namespace FruitSwipeMatch3Kit
                 world.GetExistingSystem<SwapPowerupResolutionSystem>().Enabled = false;
                 world.GetExistingSystem<ColorBombPowerupResolutionSystem>().Enabled = false;
                 world.GetExistingSystem<MatchEndSystem>().Enabled = false;
-                world.GetExistingSystem<PossibleMoveSystem>().Enabled = false;
-                world.GetExistingSystem<SwapAllTileSystem>().Enabled = false;
             }
         }
 

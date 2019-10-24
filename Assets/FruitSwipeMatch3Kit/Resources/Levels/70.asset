@@ -518,4 +518,4 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     Amount: 12
-  AvailableColors: 00000000010000000300000002000000
+  AvailableColors: 01000000030000000000000002000000
