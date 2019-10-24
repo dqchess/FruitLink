@@ -492,10 +492,10 @@ namespace FruitSwipeMatch3Kit
             }
             for (int i = 0; i < Slots.Count; i++)
             {
-                int idx = Random.Range(0, indexList.Count);
-                idx = indexList[idx];
-                idx = GetNormalSlotNeighbour(idx);
-                indexList.RemoveAt(idx);
+                int randomIdx = Random.Range(0, indexList.Count);
+                randomIdx = indexList[randomIdx];
+                int idx = GetNormalSlotNeighbour(randomIdx);
+                indexList.RemoveAt(randomIdx);
                 if (idx != -1)
                 {
                     var slot = tilePools.GetSlot(SlotType.Jelly);
