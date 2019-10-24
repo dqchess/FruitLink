@@ -10,8 +10,11 @@ namespace FruitSwipeMatch3Kit
     public class GameState : IRestartable
     {
         public int Score;
+        public static int SwapCount = 0;
         public static bool IsBoosting = false;
         public static bool IsPlayingEndGameSequence = false;
+        public static bool HasJelly = false;
+
         public void OnGameRestarted()
         {
             Score = 0;
