@@ -10,6 +10,7 @@ namespace FruitSwipeMatch3Kit
     public static class GameplayConstants
     {
         public const int NumTilesNeededForMatch = 3;
+        public const int GameOverSwapCount = 3;
             
         public const float FallingExistingTilesSpeed = 0.3f;
 

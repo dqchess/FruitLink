@@ -84,6 +84,8 @@ namespace FruitSwipeMatch3Kit
             });
             
             CreateLevel();
+            EntityManager.CreateEntity(ComponentType.ReadOnly<MatchEndEvent>());
+            EntityManager.CreateEntity(ComponentType.ReadOnly<JellyDestroyedEvent>());
         }
 
         private void CreateLevel()
@@ -265,8 +267,20 @@ namespace FruitSwipeMatch3Kit
             terrain.ClearPoints();
             HashSet<int> pointHash = new HashSet<int>();
             int lastX = 0, lastY = 0;
+            ProcessColumnLeft(terrain, pointHash, ref lastX, ref lastY);
+
+            ProcessRowBottom(terrain, pointHash, ref lastX, ref lastY);
+
+            ProcessColumnRight(terrain, pointHash, ref lastX, ref lastY);
+            
+            ProcessRowTop(terrain, pointHash, ref lastX, ref lastY);
+
+            terrain.Build();
+        }
+
+        private void ProcessColumnLeft(Ferr2DT_PathTerrain terrain, HashSet<int> pointHash, ref int lastX, ref int lastY)
+        {
             bool firstPoint = false;
-            // xử lý cột bên trái
             for (int y = 0; y < Height; ++y)
             {
                 for (int x = 0; x < Width; x++)
@@ -309,20 +323,11 @@ namespace FruitSwipeMatch3Kit
                     break;
                 }
             }
-
-            ProcessRowBottom(terrain, pointHash, ref lastX, ref lastY);
-
-            ProcessColumnRight(terrain, pointHash, ref lastX, ref lastY);
-            
-            ProcessRowTop(terrain, pointHash, ref lastX, ref lastY);
-
-            terrain.Build();
         }
 
         private void ProcessRowBottom(Ferr2DT_PathTerrain terrain, HashSet<int> pointHash, ref int lastX, ref int lastY)
         {
             bool firstPoint = false;
-            // xử lý hàng bên dưới
             for (int x = 0; x < Width; x++)
             {
                 for (int y = Height - 1; y >= 0; y--)
@@ -358,7 +363,6 @@ namespace FruitSwipeMatch3Kit
         private void ProcessColumnRight(Ferr2DT_PathTerrain terrain, HashSet<int> pointHash, ref int lastX, ref int lastY)
         {
             bool firstPoint = false;
-            // xử lý cột bên phải
             for (int y = Height - 1; y >= 0; y--)
             {
                 for (int x = Width - 1; x >= 0; x--)
@@ -393,7 +397,6 @@ namespace FruitSwipeMatch3Kit
         private void ProcessRowTop(Ferr2DT_PathTerrain terrain, HashSet<int> pointHash, ref int lastX, ref int lastY)
         {
             List<int> lastPoint = new List<int>();
-            // xử lý hàng bên trên
             for (int x = Width - 1; x >= 0; x--)
             {
                 for (int y = 0; y < Height; y++)
@@ -484,7 +487,7 @@ namespace FruitSwipeMatch3Kit
             for (int i = 0; i < Slots.Count; i++)
             {
                 int idx = Random.Range(0, indexList.Count);
-                indexList.Remove(idx);
+                indexList.RemoveAt(idx);
                 idx = indexList[idx];
                 idx = GetNormalSlotNeighbour(idx);
                 if (idx != -1)

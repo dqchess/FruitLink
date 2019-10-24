@@ -48,6 +48,10 @@ namespace FruitSwipeMatch3Kit
                     {
                         gameScreen.OnPlayerWon();
                     }
+                    else if (GameState.SwapCount >= GameplayConstants.GameOverSwapCount)
+                    {
+                        gameScreen.OnPlayerLost();
+                    }
                     else
                     {
                         var updateMovesSystem = World.GetExistingSystem<UpdateRemainingMovesUiSystem>();
