@@ -3,6 +3,7 @@
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -84,8 +85,13 @@ namespace FruitSwipeMatch3Kit
             });
             
             CreateLevel();
-            EntityManager.CreateEntity(ComponentType.ReadOnly<MatchEndEvent>());
-            EntityManager.CreateEntity(ComponentType.ReadOnly<JellyDestroyedEvent>());
+            var seg = DOTween.Sequence();
+            seg.AppendInterval(GameplayConstants.OpenPopupDelay);
+            seg.AppendCallback(() =>
+            {
+                EntityManager.CreateEntity(ComponentType.ReadOnly<MatchEndEvent>());
+                EntityManager.CreateEntity(ComponentType.ReadOnly<JellyDestroyedEvent>());
+            });
         }
 
         private void CreateLevel()

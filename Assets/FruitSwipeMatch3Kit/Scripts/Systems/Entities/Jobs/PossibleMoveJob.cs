@@ -2,6 +2,7 @@
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
+using UnityEngine;
 
 namespace FruitSwipeMatch3Kit
 {
@@ -20,9 +21,9 @@ namespace FruitSwipeMatch3Kit
             List<int> openSet = new List<int>();
             HashSet<int> closeSet = new HashSet<int>();
             List<int> possibleMove = new List<int>();
-            for (var i = 0; i < Width; i++)
+            for (var j = 0; j < Height; ++j)
             {
-                for (var j = Height - 1; j >= 0; j--)
+                for (var i = 0; i < Width; ++i)
                 {
                     var idx = i + j * Width;
                     var tile = Tiles[idx];
@@ -30,12 +31,13 @@ namespace FruitSwipeMatch3Kit
                         continue;
                     if (CheckTile(idx, ref openSet, ref closeSet, ref possibleMove) >= GameplayConstants.NumTilesNeededForMatch)
                     {
+                        Debug.Log("Found " + idx);
                         GameState.SwapCount = 0;
                         return;
                     }
                 }
             }
-            
+            Debug.Log("Not Found");
             Ecb.AddComponent(Ecb.CreateEntity(), new SwapTileEvent());
         }
 

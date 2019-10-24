@@ -54,6 +54,8 @@ namespace FruitSwipeMatch3Kit
 
         private GameScreen gameScreen;
 
+        public GameScreen GameScreen => gameScreen;
+
         private static readonly int Pressed = Animator.StringToHash("Pressed");
         private static readonly int Idle = Animator.StringToHash("Idle");
 

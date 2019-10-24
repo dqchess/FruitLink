@@ -23,6 +23,7 @@ namespace FruitSwipeMatch3Kit
 
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
+            if (GameState.IsSwapping) return inputDeps;
             var data = query.ToEntityArray(Allocator.TempJob);
             for (int i = 0; i < data.Length; i++)
             {
@@ -60,9 +61,9 @@ namespace FruitSwipeMatch3Kit
 
         private void CheckJelly(List<GameObject> slots, int width, int height)
         {
-            for (var i = 0; i < width; i++)
+            for (var j = 0; j < height; ++j)
             {
-                for (var j = height - 1; j >= 0; j--)
+                for (var i = 0; i < width; ++i)
                 {
                     var idx = i + j * width;
                     if (slots[idx] != null)

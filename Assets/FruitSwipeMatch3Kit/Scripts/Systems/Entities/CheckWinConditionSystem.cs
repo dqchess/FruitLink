@@ -56,7 +56,7 @@ namespace FruitSwipeMatch3Kit
                     {
                         var updateMovesSystem = World.GetExistingSystem<UpdateRemainingMovesUiSystem>();
                         if (updateMovesSystem.NumRemainingMoves == 0)
-                            gameScreen.OnPlayerLost();
+                            gameScreen.OpenLosePopup();
                     }
                 }
             });

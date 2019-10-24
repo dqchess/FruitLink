@@ -27,6 +27,7 @@ namespace FruitSwipeMatch3Kit
                     isJellyDestroy = true;
                     PostUpdateCommands.DestroyEntity(entity1);
                 });
+
                 PostUpdateCommands.DestroyEntity(entity);
             });
             if (isMatchEnd && !isJellyDestroy && GameState.HasJelly)

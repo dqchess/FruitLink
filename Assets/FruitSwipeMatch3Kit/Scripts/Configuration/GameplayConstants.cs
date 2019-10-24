@@ -16,8 +16,10 @@ namespace FruitSwipeMatch3Kit
 
         public const float GravityAfterBoosterDelay = 0.5f;
 
+        public const float OpenPopupDelay = 2.5f;
         public const float WinPopupDelay = 0.5f;
         public const float LosePopupDelay = 0.5f;
+        public const float NoMoreMoveDelay = 2f;
         public const float OutOfMovesPopupDelay = 0.5f;
         public const float EndGameAwardPopupDelay = 0.5f;
 

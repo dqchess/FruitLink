@@ -35,3 +35,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 .idea/
+Assets/FruitSwipeMatch3Kit/Resources/Levels/0.asset
+Assets/FruitSwipeMatch3Kit/Resources/Levels/0.asset.meta

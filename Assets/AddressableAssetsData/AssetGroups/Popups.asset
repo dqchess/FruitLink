@@ -29,6 +29,10 @@ MonoBehaviour:
     m_Address: Popups/LevelGoalsPopup
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 19df29cadf7d5124d978f9b9fc2274a4
+    m_Address: Popups/NoMoreMovePopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   - m_GUID: 2f0decbd092fb4e64bf6fe32a31769a8
     m_Address: Popups/SettingsPopup
     m_ReadOnly: 0

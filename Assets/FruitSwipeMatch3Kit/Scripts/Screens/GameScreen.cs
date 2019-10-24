@@ -251,6 +251,11 @@ namespace FruitSwipeMatch3Kit
             OpenPopup<EndGameAwardPopup>("Popups/EndGameAwardPopup");
         }
 
+        public void OpenNoMoreMovePopup()
+        {
+            OpenPopup<EndGameAwardPopup>("Popups/NoMoreMovePopup");
+        }
+
         private IEnumerator OpenWinPopupAsync()
         {
             yield return new WaitForSeconds(GameplayConstants.WinPopupDelay);
