@@ -464,7 +464,7 @@ namespace FruitSwipeMatch3Kit
                 for (var i = 0; i < Width; ++i)
                 {
                     var idx = i + (j * Width);
-
+                
                     var slot = CreateSlot(levelData.Tiles[idx]);
                     Slots.Add(slot);
 

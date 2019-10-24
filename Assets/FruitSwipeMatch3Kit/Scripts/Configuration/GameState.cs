@@ -12,6 +12,8 @@ namespace FruitSwipeMatch3Kit
         public int Score;
         public static bool IsBoosting = false;
         public static bool IsPlayingEndGameSequence = false;
+        public static bool HasJelly = false;
+
         public void OnGameRestarted()
         {
             Score = 0;
