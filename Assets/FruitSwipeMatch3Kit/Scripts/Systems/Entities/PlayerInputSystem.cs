@@ -495,13 +495,16 @@ namespace FruitSwipeMatch3Kit
         {
             isSuggestShowing = true;
             var levelCreation = World.GetExistingSystem<LevelCreationSystem>();
-//            var tilePos = levelCreation.TilePositions;
+            var tileEntities = levelCreation.TileEntities;
+            var tilePos = levelCreation.TilePositions;
             var tileGos = levelCreation.TileGos;
             
             for (int i = 0; i < indexList.Count; i++)
             {
 //                GameObject go = suggestPool.GetObject();
 //                go.transform.position = tilePos[indexList[i]];
+                var type = EntityManager.GetComponentData<TileData>(tileEntities[indexList[i]]).Type;
+                CreateSelectSegment(tilePos[indexList[i]], type);
                 tileGos[indexList[i]].GetComponent<Animator>().SetTrigger(Pressed);
             }
         }
@@ -520,6 +523,8 @@ namespace FruitSwipeMatch3Kit
             {
                 tileGos[GameState.SuggestIndexes[i]].GetComponent<Animator>()?.SetTrigger(Idle);
             }
+
+            DestroySelectionEffect();
 //            suggestPool.Reset();
         }
 
