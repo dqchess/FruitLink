@@ -3,6 +3,8 @@
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
 using System.Collections.Generic;
+using System.Net.Http.Headers;
+using DG.Tweening;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -40,6 +42,7 @@ namespace FruitSwipeMatch3Kit
 
         private GameObject linePrefab;
         private GameObject selectPrefab;
+        private ObjectPool suggestPool;
 
         private MoveDirection lastMoveDirection;
 
@@ -51,6 +54,7 @@ namespace FruitSwipeMatch3Kit
 
         private bool isBoosterExploding;
         private bool isBoosterChainResolving;
+        private bool isSuggestShowing;
 
         private GameScreen gameScreen;
 
@@ -76,6 +80,7 @@ namespace FruitSwipeMatch3Kit
 
             linePrefab = particlePools.SelectionLine;
             selectPrefab = particlePools.SelectionParticle;
+            suggestPool = particlePools.SuggetionPool;
 
             gameScreen = Object.FindObjectOfType<GameScreen>();
 
@@ -138,6 +143,8 @@ namespace FruitSwipeMatch3Kit
                         CreateSelectSegment(lastSegmentPos, selectedType);
 
                         CreatePathHighlight(entity, selectedType);
+                        
+                        DestroySuggetion();
 
                         SoundPlayer.PlaySoundFx("Connect");
                     }
@@ -482,6 +489,38 @@ namespace FruitSwipeMatch3Kit
                 Object.Destroy(segment);
 
             selectSegments.Clear();
+        }
+
+        public void DisplaySuggetion(List<int> indexList)
+        {
+            isSuggestShowing = true;
+            var levelCreation = World.GetExistingSystem<LevelCreationSystem>();
+//            var tilePos = levelCreation.TilePositions;
+            var tileGos = levelCreation.TileGos;
+            
+            for (int i = 0; i < indexList.Count; i++)
+            {
+//                GameObject go = suggestPool.GetObject();
+//                go.transform.position = tilePos[indexList[i]];
+                tileGos[indexList[i]].GetComponent<Animator>().SetTrigger(Pressed);
+            }
+        }
+
+        private void DestroySuggetion()
+        {
+            if (!isSuggestShowing)
+            {
+                GameState.SuggestSequence.Kill();
+                return;
+            }
+            isSuggestShowing = false;
+            var levelCreation = World.GetExistingSystem<LevelCreationSystem>();
+            var tileGos = levelCreation.TileGos;
+            for (int i = 0; i < GameState.SuggestIndexes.Count; i++)
+            {
+                tileGos[GameState.SuggestIndexes[i]].GetComponent<Animator>()?.SetTrigger(Idle);
+            }
+//            suggestPool.Reset();
         }
 
         public bool IsBoosterExploding()

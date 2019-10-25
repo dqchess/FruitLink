@@ -2,6 +2,9 @@
 // This code can only be used under the standard Unity Asset Store EULA,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
+using System.Collections.Generic;
+using DG.Tweening;
+
 namespace FruitSwipeMatch3Kit
 {
     /// <summary>
@@ -15,7 +18,8 @@ namespace FruitSwipeMatch3Kit
         public static bool IsPlayingEndGameSequence = false;
         public static bool HasJelly = false;
         public static bool IsSwapping = false;
-
+        public static List<int> SuggestIndexes;
+        public static Sequence SuggestSequence;
         public void OnGameRestarted()
         {
             Score = 0;

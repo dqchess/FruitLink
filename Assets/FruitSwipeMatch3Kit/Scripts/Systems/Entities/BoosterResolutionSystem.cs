@@ -140,11 +140,18 @@ namespace FruitSwipeMatch3Kit
                 var idx = indexes[i];
                 var tileEntity = levelCreationSystem.TileEntities[idx];
 
-                if (inputSystem.PendingBoosterTiles.Contains(tileEntity) && !isPendingBooster)
+                if (inputSystem.PendingBoosterTiles.Contains(tileEntity))
                 {
-                    isPendingBooster = true;
-                    inputSystem.PendingBoosterTiles.Remove(tileEntity);
-                    EntityManager.AddComponentData(tileEntity, new PendingBoosterData());
+                    if (!isPendingBooster)
+                    {
+                        isPendingBooster = true;
+                        inputSystem.PendingBoosterTiles.Remove(tileEntity);
+                        EntityManager.AddComponentData(tileEntity, new PendingBoosterData());
+                    }
+                    else
+                    {
+                        inputSystem.PendingBoosterTiles.Insert(0, tileEntity);
+                    }
                     continue;
                 }
                 
@@ -155,6 +162,10 @@ namespace FruitSwipeMatch3Kit
                     {
                         selectedBooster = tileEntity;
                         chainingBoosters = true;
+                    }
+                    else
+                    {
+                        inputSystem.PendingBoosterTiles.Insert(0, tileEntity);
                     }
                 }
                 else

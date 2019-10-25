@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
@@ -30,6 +31,13 @@ namespace FruitSwipeMatch3Kit
                     if (CheckTile(idx, ref possibleMove) >= GameplayConstants.NumTilesNeededForMatch)
                     {
                         GameState.SwapCount = 0;
+                        GameState.SuggestIndexes = possibleMove;
+                        GameState.SuggestSequence = DOTween.Sequence();
+                        GameState.SuggestSequence.AppendInterval(GameplayConstants.SuggetionDelay);
+                        GameState.SuggestSequence.AppendCallback(() =>
+                        {
+                            World.Active.GetExistingSystem<PlayerInputSystem>().DisplaySuggetion(GameState.SuggestIndexes);
+                        });
                         return;
                     }
                 }
