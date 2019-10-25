@@ -40,9 +40,8 @@ namespace FruitSwipeMatch3Kit
 
         private readonly List<SpriteRenderer> darkTiles = new List<SpriteRenderer>();
 
-        private GameObject linePrefab;
-        private GameObject selectPrefab;
-        private ObjectPool suggestPool;
+        private ObjectPool linePool;
+        private ObjectPool selectPool;
 
         private MoveDirection lastMoveDirection;
 
@@ -78,9 +77,8 @@ namespace FruitSwipeMatch3Kit
 
             particlePools = Object.FindObjectOfType<ParticlePools>();
 
-            linePrefab = particlePools.SelectionLine;
-            selectPrefab = particlePools.SelectionParticle;
-            suggestPool = particlePools.SuggetionPool;
+            linePool = particlePools.SelectionLinePool;
+            selectPool = particlePools.SelectionParticlePool;
 
             gameScreen = Object.FindObjectOfType<GameScreen>();
 
@@ -285,11 +283,11 @@ namespace FruitSwipeMatch3Kit
 
                                     var lastSegment = lineSegments[lineSegments.Count - 1];
                                     lineSegments.RemoveAtSwapBack(lineSegments.Count - 1);
-                                    Object.Destroy(lastSegment);
+                                    linePool.ReturnObject(lastSegment);
 
                                     lastSegment = selectSegments[selectSegments.Count - 1];
                                     selectSegments.RemoveAtSwapBack(selectSegments.Count - 1);
-                                    Object.Destroy(lastSegment);
+                                    selectPool.ReturnObject(lastSegment);
 
                                     lastSegmentPos = selectedTiles[selectedTiles.Count - 1].transform.localPosition;
                                 }
@@ -406,19 +404,21 @@ namespace FruitSwipeMatch3Kit
         {
             var dir = end - start;
             var dist = Vector3.Distance(start, end);
-            var segment = Object.Instantiate(linePrefab, start, quaternion.identity);
-            segment.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
-            segment.transform.localScale = new Vector3(2, dist / 1.5f, 1);
-            segment.GetComponent<SelectionLine>().SetColor(particlePools.GetColorTile(color));
-            lineSegments.Add(segment);
+            var lineGo = linePool.GetObject();
+            lineGo.transform.position = start;
+            lineGo.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
+            lineGo.transform.localScale = new Vector3(2, dist / 1.5f, 1);
+            lineGo.GetComponent<SelectionLine>().SetColor(particlePools.GetColorTile(color));
+            lineSegments.Add(lineGo);
         }
 
         private void CreateSelectSegment(Vector3 start, ColorTileType color)
         {
-            var segment = Object.Instantiate(selectPrefab, start, quaternion.identity);
-            var mainModule = segment.GetComponent<ParticleSystem>().main;
+            var selectGo = selectPool.GetObject();
+            selectGo.transform.position = start;
+            var mainModule = selectGo.GetComponent<ParticleSystem>().main;
             mainModule.startColor = new ParticleSystem.MinMaxGradient(particlePools.GetColorTile(color));
-            selectSegments.Add(segment);
+            selectSegments.Add(selectGo);
         }
 
         private Tile lastBooster;
@@ -477,18 +477,12 @@ namespace FruitSwipeMatch3Kit
 
         private void DestroySelectionLine()
         {
-            foreach (var segment in lineSegments)
-                Object.Destroy(segment);
-
-            lineSegments.Clear();
+            linePool.Reset();
         }
 
         private void DestroySelectionEffect()
         {
-            foreach (var segment in selectSegments)
-                Object.Destroy(segment);
-
-            selectSegments.Clear();
+            selectPool.Reset();
         }
 
         public void DisplaySuggetion(List<int> indexList)
@@ -501,8 +495,6 @@ namespace FruitSwipeMatch3Kit
             
             for (int i = 0; i < indexList.Count; i++)
             {
-//                GameObject go = suggestPool.GetObject();
-//                go.transform.position = tilePos[indexList[i]];
                 var type = EntityManager.GetComponentData<TileData>(tileEntities[indexList[i]]).Type;
                 CreateSelectSegment(tilePos[indexList[i]], type);
                 tileGos[indexList[i]].GetComponent<Animator>().SetTrigger(Pressed);
@@ -525,7 +517,6 @@ namespace FruitSwipeMatch3Kit
             }
 
             DestroySelectionEffect();
-//            suggestPool.Reset();
         }
 
         public bool IsBoosterExploding()

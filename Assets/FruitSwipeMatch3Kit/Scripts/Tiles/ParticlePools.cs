@@ -20,13 +20,12 @@ namespace FruitSwipeMatch3Kit
         private List<ObjectPool> collectiblePools;
 
         [SerializeField] private Color[] colors;
-        [SerializeField] private GameObject selectionLine;
-        [SerializeField] private GameObject selectionParticle;
-        [SerializeField] private ObjectPool suggetionPool;
+        [SerializeField] private ObjectPool selectionLinePool;
+        [SerializeField] private ObjectPool selectionParticlePool;
+
 #pragma warning restore 649
-        public GameObject SelectionLine => selectionLine;
-        public GameObject SelectionParticle => selectionParticle;
-        public ObjectPool SuggetionPool => suggetionPool;
+        public ObjectPool SelectionLinePool => selectionLinePool;
+        public ObjectPool SelectionParticlePool => selectionParticlePool;
 
         public Color GetColorTile(ColorTileType color)
         {
@@ -49,7 +48,8 @@ namespace FruitSwipeMatch3Kit
             foreach (var pool in collectiblePools)
                 pool.Initialize();
             
-            suggetionPool.Initialize();
+            selectionLinePool.Initialize();
+            selectionParticlePool.Initialize();
         }
 
         public GameObject GetColorTileParticles(ColorTileType type)
