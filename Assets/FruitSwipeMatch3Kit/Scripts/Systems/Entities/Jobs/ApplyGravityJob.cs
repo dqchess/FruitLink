@@ -18,6 +18,7 @@ namespace FruitSwipeMatch3Kit
     {
         public EntityCommandBuffer Ecb;
         public NativeArray<Entity> Tiles;
+        public NativeArray<PendingGravity> pending;
         public ComponentDataFromEntity<TilePosition> TilePosition;
         public ComponentDataFromEntity<Translation> TranslationData;
         [ReadOnly] public int Width;
@@ -210,6 +211,7 @@ namespace FruitSwipeMatch3Kit
         private void ResortTiles()
         {
             bool dirty = false;
+            bool checkDirtyOne = false;
             do
             {
                 dirty = false;
@@ -231,10 +233,6 @@ namespace FruitSwipeMatch3Kit
                         // Move down any tiles above empty spaces.
                         var numTilesToFall = j - (pResultFind.x / Width);
                         var numTilesToMove = (pResultFind.x % Width) - i;
-                        if (Tiles[pResultFind.x] == Entity.Null)
-                        {
-                            Debug.Log("null");
-                        }
                         Tiles[idx] = Tiles[pResultFind.x];
                         var tilePos = TilePosition[Tiles[pResultFind.x]];
                         var newPos = new TilePosition
@@ -261,9 +259,17 @@ namespace FruitSwipeMatch3Kit
 
                         Tiles[pResultFind.x] = Entity.Null;
                         dirty = true;
+                        checkDirtyOne = true;
                     }
                 }
             } while (dirty);
+
+            if (!checkDirtyOne)
+            {
+                var pPending = this.pending[0];
+                pPending.dirty = 0;
+                pending[0] = pPending;
+            }
         }
 
         private int2 FindTileForEmptySlot(int posX, int posY, int currentLength)
@@ -311,6 +317,9 @@ namespace FruitSwipeMatch3Kit
                         if (pSide == 1)
                         {
                             pSide = -1;
+                            continue;
+                        }else if (pSide == -1 )
+                        {
                             continue;
                         }
                     }

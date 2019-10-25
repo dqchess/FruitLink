@@ -12,4 +12,9 @@ namespace FruitSwipeMatch3Kit
         public int MatchIndex;
         public MoveDirection MatchDirection;
     }
+    
+    public struct PendingGravity : IComponentData
+    {
+        public int dirty;
+    }
 }

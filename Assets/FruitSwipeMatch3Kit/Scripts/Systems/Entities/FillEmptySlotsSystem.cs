@@ -26,6 +26,7 @@ namespace FruitSwipeMatch3Kit
             Enabled = false;
             query = GetEntityQuery(
                 ComponentType.ReadOnly<FillEmptySlotsData>());
+            
         }
 
         public void Initialize()
@@ -41,10 +42,18 @@ namespace FruitSwipeMatch3Kit
                 PostUpdateCommands.DestroyEntity(entity);
                 dataCopy = data;
             });
-            CreateNewTilesInEmptySlots(dataCopy);
+            bool pDirty = CreateNewTilesInEmptySlots(dataCopy);
+            Entities.WithAll<PendingGravity>().ForEach((ref PendingGravity pending) =>
+            {
+                if (pDirty)
+                {
+                    pending.dirty = 1;
+                }
+                
+            });
         }
 
-        private void CreateNewTilesInEmptySlots(FillEmptySlotsData data)
+        private bool CreateNewTilesInEmptySlots(FillEmptySlotsData data)
         {
             var levelCreationSystem = World.GetExistingSystem<LevelCreationSystem>();
             var width = levelCreationSystem.Width;
@@ -52,7 +61,7 @@ namespace FruitSwipeMatch3Kit
             
             var tiles = levelCreationSystem.TileEntities;
             var gos = levelCreationSystem.TileGos;
-
+            bool dirty = false;
             for (var i = 0; i < width; i++)
             {
                 var numEmpties = 0;
@@ -79,6 +88,7 @@ namespace FruitSwipeMatch3Kit
                     if (tiles[idx] == Entity.Null &&
                         !EntityManager.HasComponent<HoleSlotData>(tiles[idx]))
                     {
+                        dirty = true;
                         var tile = tilePools.GetRandomColorTile();
                         var entity = tile.GetComponent<GameObjectEntity>().Entity;
                         var tilePos = EntityManager.GetComponentData<TilePosition>(entity);
@@ -111,8 +121,11 @@ namespace FruitSwipeMatch3Kit
                             });
                         }
                     }
+
                 }
             }
+
+            return dirty;
         }
     }
 }

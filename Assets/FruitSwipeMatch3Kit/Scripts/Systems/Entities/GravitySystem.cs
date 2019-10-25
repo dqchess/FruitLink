@@ -24,7 +24,7 @@ namespace FruitSwipeMatch3Kit
         {
             Enabled = false;
             query = GetEntityQuery(
-                ComponentType.ReadOnly<ApplyGravityData>());
+                ComponentType.ReadOnly<ApplyGravityData>(),typeof(PendingGravity));
             fillEmptySlotsArchetype = EntityManager.CreateArchetype(typeof(FillEmptySlotsData));
             barrier = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
         }
@@ -32,6 +32,7 @@ namespace FruitSwipeMatch3Kit
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
             var data = query.ToComponentDataArray<ApplyGravityData>(Allocator.TempJob);
+ 
             var matchSize = data[0].MatchSize;
             var matchIndex = data[0].MatchIndex;
             var matchDir = data[0].MatchDirection;
@@ -52,9 +53,11 @@ namespace FruitSwipeMatch3Kit
             var height = levelCreationSystem.Height;
             var spriteWidth = levelCreationSystem.GetSpriteWidth();
             var spriteHeight = levelCreationSystem.GetSpriteHeight();
-
+            var dataPending = query.ToComponentDataArray<PendingGravity>(Allocator.TempJob);
+            
             var job = new ApplyGravityJob
             {
+                pending = dataPending,
                 Ecb = barrier.CreateCommandBuffer(),
                 Tiles = tileEntities,
                 TilePosition = GetComponentDataFromEntity<TilePosition>(),
@@ -92,11 +95,14 @@ namespace FruitSwipeMatch3Kit
                 MatchSize = matchSize,
                 MatchDirection = matchDir
             });
-
-            var entities = query.ToEntityArray(Allocator.TempJob);
-            for (var i = 0; i < entities.Length; ++i)
-                EntityManager.DestroyEntity(entities[i]);
-            entities.Dispose();
+            if (dataPending[0].dirty == 0)
+            {
+                var entities = query.ToEntityArray(Allocator.TempJob);
+                for (var i = 0; i < entities.Length; ++i)
+                    EntityManager.DestroyEntity(entities[i]);
+                entities.Dispose();
+            }
+           
             
             return inputDeps;
         }
