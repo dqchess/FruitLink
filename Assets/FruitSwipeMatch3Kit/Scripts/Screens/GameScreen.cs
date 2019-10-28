@@ -57,6 +57,7 @@ namespace FruitSwipeMatch3Kit
 
         private bool playerWon;
         private bool playerLost;
+        private int continueLevel;
 
         private void Awake()
         {
@@ -228,6 +229,7 @@ namespace FruitSwipeMatch3Kit
                 StartCoroutine(OpenEndGameAwardPopupAsync());
             else
                 StartCoroutine(OpenWinPopupAsync());
+            Analytics.Instance.CompleteLevel();
         }
 
         public void OnPlayerLost()
@@ -238,6 +240,7 @@ namespace FruitSwipeMatch3Kit
             playerLost = true;
             World.Active.GetExistingSystem<PlayerInputSystem>().LockInput();
             StartCoroutine(OpenOutOfMovesPopupAsync());
+            Analytics.Instance.LoseLevel();
         }
         
         private IEnumerator OpenEndGameAwardPopupAsync()
@@ -352,6 +355,7 @@ namespace FruitSwipeMatch3Kit
             world.GetExistingSystem<PlayerInputSystem>().OnGameRestarted();
             playerWon = false;
             playerLost = false;
+            Analytics.Instance.ContinueLevel(continueLevel++);
         }
 
         public void RestartGame()
@@ -364,9 +368,11 @@ namespace FruitSwipeMatch3Kit
             
             playerWon = false;
             playerLost = false;
+            continueLevel = 0;
             
             goalsWidget.OnGameRestarted();
             ShowAds();
+            Analytics.Instance.RestartLevel();
         }
 
         private void ShowAds()
@@ -422,6 +428,7 @@ namespace FruitSwipeMatch3Kit
             PenalizePlayer();
             GetComponent<ScreenTransition>().PerformTransition();
             ShowAds();
+            Analytics.Instance.QuitLevel();
         }
 
         public void EnablePowerupOverlay()
