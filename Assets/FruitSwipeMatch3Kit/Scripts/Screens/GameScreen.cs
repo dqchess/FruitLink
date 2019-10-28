@@ -57,8 +57,9 @@ namespace FruitSwipeMatch3Kit
 
         private bool playerWon;
         private bool playerLost;
-        private int continueLevel;
-
+        #if !UNITY_EDITOR
+        private int continueLevel = 0;
+        #endif
         private void Awake()
         {
             Assert.IsNotNull(goalsWidget);
@@ -229,7 +230,9 @@ namespace FruitSwipeMatch3Kit
                 StartCoroutine(OpenEndGameAwardPopupAsync());
             else
                 StartCoroutine(OpenWinPopupAsync());
+#if !UNITY_EDITOR
             Analytics.Instance.CompleteLevel();
+#endif
         }
 
         public void OnPlayerLost()
@@ -240,7 +243,9 @@ namespace FruitSwipeMatch3Kit
             playerLost = true;
             World.Active.GetExistingSystem<PlayerInputSystem>().LockInput();
             StartCoroutine(OpenOutOfMovesPopupAsync());
+#if !UNITY_EDITOR
             Analytics.Instance.LoseLevel();
+#endif
         }
         
         private IEnumerator OpenEndGameAwardPopupAsync()
@@ -355,7 +360,9 @@ namespace FruitSwipeMatch3Kit
             world.GetExistingSystem<PlayerInputSystem>().OnGameRestarted();
             playerWon = false;
             playerLost = false;
+#if !UNITY_EDITOR
             Analytics.Instance.ContinueLevel(continueLevel++);
+#endif
         }
 
         public void RestartGame()
@@ -368,11 +375,15 @@ namespace FruitSwipeMatch3Kit
             
             playerWon = false;
             playerLost = false;
+            #if !UNITY_EDITOR
             continueLevel = 0;
+            #endif
             
             goalsWidget.OnGameRestarted();
             ShowAds();
+#if !UNITY_EDITOR
             Analytics.Instance.RestartLevel();
+#endif
         }
 
         private void ShowAds()
@@ -428,7 +439,9 @@ namespace FruitSwipeMatch3Kit
             PenalizePlayer();
             GetComponent<ScreenTransition>().PerformTransition();
             ShowAds();
+#if !UNITY_EDITOR
             Analytics.Instance.QuitLevel();
+#endif
         }
 
         public void EnablePowerupOverlay()
