@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "293448682090",
+    "firebase_url": "https://fruit-link-61343.firebaseio.com",
+    "project_id": "fruit-link-61343",
+    "storage_bucket": "fruit-link-61343.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293448682090:android:24ca0a16200c0cb6f21813",
+        "android_client_info": {
+          "package_name": "com.doublex2.fruitlink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293448682090-a63tkt8p2oofg3cphpjda40shr2vpjj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAm2dXkS23rTOWhS9CIzYrSnpyNsuWsQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293448682090-a63tkt8p2oofg3cphpjda40shr2vpjj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
