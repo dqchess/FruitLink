@@ -14,8 +14,8 @@ namespace FruitSwipeMatch3Kit
         public const int SuggetionDelay = 5;
             
         public const float FallingExistingTilesSpeed = 0.3f;
-
         public const float GravityAfterBoosterDelay = 0.5f;
+        public const float UseItemDelay = 0.5f;
 
         public const float OpenPopupDelay = 2.5f;
         public const float WinPopupDelay = 0.5f;

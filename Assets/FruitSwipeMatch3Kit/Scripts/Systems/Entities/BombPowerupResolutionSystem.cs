@@ -3,6 +3,7 @@
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Entities;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace FruitSwipeMatch3Kit
     [AlwaysUpdateSystem]
     public class BombPowerupResolutionSystem : PowerupResolutionSystem
     {
+        private bool isResolving;
         protected override void OnCreate()
         {
             base.OnCreate();
@@ -24,9 +26,8 @@ namespace FruitSwipeMatch3Kit
 
         protected override void ResolvePowerup()
         {
-            if (!Input.GetMouseButtonDown(0))
-                return;
-            
+            if (!Input.GetMouseButtonDown(0)) return;
+            if (isResolving) return;
             var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             if (Physics2D.RaycastNonAlloc(mousePos, Vector3.forward, raycastResults, Mathf.Infinity, tileLayer) > 0)
             {
@@ -34,6 +35,7 @@ namespace FruitSwipeMatch3Kit
                 var tile = result.collider.gameObject.GetComponent<Tile>();
                 if (tile != null)
                 {
+                    isResolving = true;
                     var goe = result.collider.GetComponent<GameObjectEntity>();
                     var entity = goe.Entity;
                     var tilePos = goe.EntityManager.GetComponentData<TilePosition>(entity);
@@ -58,16 +60,24 @@ namespace FruitSwipeMatch3Kit
                     AddTileToDestroyIfValid(x, y + 1, tilesToDestroy, width, height);
                     AddTileToDestroyIfValid(x + 1, y + 1, tilesToDestroy, width, height);
                    
-                    TileUtils.DestroyTiles(
-                        tilesToDestroy,
-                        levelCreationSystem.TileEntities,
-                        levelCreationSystem.TileGos,
-                        levelCreationSystem.Slots,
-                        particlePools,
-                        width,
-                        height);
+                    var go = Object.Instantiate(particlePools.Bomb, goe.transform.position, Quaternion.identity);
+                    var seg = DOTween.Sequence();
+                    seg.AppendInterval(GameplayConstants.UseItemDelay);
+                    seg.AppendCallback(() =>
+                    {
+                        isResolving = false;
+                        Object.Destroy(go);
+                        TileUtils.DestroyTiles(
+                            tilesToDestroy,
+                            levelCreationSystem.TileEntities,
+                            levelCreationSystem.TileGos,
+                            levelCreationSystem.Slots,
+                            particlePools,
+                            width,
+                            height);
 
-                    OnResolvedPowerup();
+                        OnResolvedPowerup();
+                    });
                 }
             }
         }

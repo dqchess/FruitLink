@@ -35,8 +35,8 @@ namespace FruitSwipeMatch3Kit
         private Image coinsImage;
         [SerializeField]
         private List<Sprite> coinIcons;
-        [SerializeField]
-        private ParticleSystem coinsParticles;
+//        [SerializeField]
+//        private ParticleSystem coinsParticles;
 #pragma warning restore 649
 
         private IapItem cachedItem;
@@ -50,7 +50,7 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(numCoinsText);
             Assert.IsNotNull(priceText);
             Assert.IsNotNull(coinsImage);
-            Assert.IsNotNull(coinsParticles);
+//            Assert.IsNotNull(coinsParticles);
         }
 
         public void Fill(IapItem item)
@@ -109,9 +109,9 @@ namespace FruitSwipeMatch3Kit
             #endif
         }
 
-        public void PlayCoinParticles()
-        {
-            coinsParticles.Play();
-        }
+//        public void PlayCoinParticles()
+//        {
+//            coinsParticles.Play();
+//        }
     }
 }

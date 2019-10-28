@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 3ba28b95ae26a024a807b291dda8dfc8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3970754157962280739
+    second: item_booster_bomb_0
+  - first:
+      213: 9087832978024794512
+    second: item_booster_bomb_1
+  - first:
+      213: 3954482224908455259
+    second: item_booster_bomb_2
+  - first:
+      213: -7498974242982545148
+    second: item_booster_bomb_3
+  - first:
+      213: -7268090281538193986
+    second: item_booster_bomb_4
+  - first:
+      213: -3526736681284824870
+    second: item_booster_bomb_5
+  - first:
+      213: 1742812323772106039
+    second: item_booster_bomb_6
+  - first:
+      213: 7638813074270228991
+    second: item_booster_bomb_7
+  - first:
+      213: -2776669167552266550
+    second: item_booster_bomb_8
+  - first:
+      213: 1909104458812611097
+    second: item_booster_bomb_9
+  - first:
+      213: -916859097409005491
+    second: item_booster_bomb_10
+  - first:
+      213: -5430139258736621908
+    second: item_booster_bomb_11
+  - first:
+      213: -1774058704368863869
+    second: item_booster_bomb_12
+  - first:
+      213: 2607797812107114451
+    second: item_booster_bomb_13
+  - first:
+      213: -4325560281837944127
+    second: item_booster_bomb_14
+  - first:
+      213: 5787989036851908087
+    second: item_booster_bomb_15
+  - first:
+      213: 4212453137125176111
+    second: item_booster_bomb_16
+  - first:
+      213: 5147385909920096534
+    second: item_booster_bomb_17
+  - first:
+      213: -1927837188878822994
+    second: item_booster_bomb_18
+  - first:
+      213: 62541549607080827
+    second: item_booster_bomb_19
+  - first:
+      213: 8217833915950662148
+    second: item_booster_bomb_20
+  - first:
+      213: -5465816415863421005
+    second: item_booster_bomb_21
+  - first:
+      213: -1906720210942691641
+    second: item_booster_bomb_22
+  - first:
+      213: -8949272552817083738
+    second: item_booster_bomb_23
+  - first:
+      213: -7055441559599519722
+    second: item_booster_bomb_24
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: item_booster_bomb_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1324
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c80398f5a5ed44aa13480700d1532a
+      internalID: 3970754157962280739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_1
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 1324
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528640d41814ea54589e1be00771940e
+      internalID: 9087832978024794512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_2
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1324
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5744018217f574da3c6b704b77a7fb
+      internalID: 3954482224908455259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_3
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 1324
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e68638783e278e4aa7c9ab152541428
+      internalID: -7498974242982545148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_4
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 1324
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6a3f79b23c6494fabee0130be208b1
+      internalID: -7268090281538193986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 993
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b847689a010ca1499494da4fd13c4b6
+      internalID: -3526736681284824870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_6
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 993
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc1b4798bcd1784b85ccdbc77c4c0ea
+      internalID: 1742812323772106039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_7
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 993
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e7c0a63c495b743928050f8a7b4a4b
+      internalID: 7638813074270228991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_8
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 993
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2518ee9871ea2b4439d24de82c386cae
+      internalID: -2776669167552266550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_9
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 993
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1875beaf1c21e6a49bb10b74fb0c8d76
+      internalID: 1909104458812611097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 662
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01773f4a25792194f90251f0de8683bd
+      internalID: -916859097409005491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_11
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 662
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba5bc98823b811044a04577ea0f7663c
+      internalID: -5430139258736621908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_12
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 662
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d7866e711703140b50d07ee0e7b484
+      internalID: -1774058704368863869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_13
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 662
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 309cb1b6c3dfa6142830ec55ca50fc33
+      internalID: 2607797812107114451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_14
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 662
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4efb99b7cc57e2e4da432e65b3ceb040
+      internalID: -4325560281837944127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 331
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c20330897355e4f8c1f062d0547939
+      internalID: 5787989036851908087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_16
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 331
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21576b22da62334196f34ef802c372c
+      internalID: 4212453137125176111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_17
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 331
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de821103f0152554a999f3b37fd313ee
+      internalID: 5147385909920096534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_18
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 331
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5adb48ca831529b439467d8a0601a1f4
+      internalID: -1927837188878822994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_19
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 331
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e513bbde59fd68348b498eeb33a8e13e
+      internalID: 62541549607080827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64c84455c0dff274094e178f510ec82b
+      internalID: 8217833915950662148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_21
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 0
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 536e5055d8af9cd44b59bd06b06b06ed
+      internalID: -5465816415863421005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_22
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 0
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5eb5d8644bd0174ab65dbf811e15286
+      internalID: -1906720210942691641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_23
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 0
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f6a5d84827c174bb047f9962ad6eef
+      internalID: -8949272552817083738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_bomb_24
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 0
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc703b9e61896be49a802b3f78fb1ff8
+      internalID: -7055441559599519722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

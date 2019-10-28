@@ -269,6 +269,8 @@ MonoBehaviour:
   - {r: 1, g: 0.35686275, b: 0.30588236, a: 1}
   selectionLinePool: {fileID: 1578360701}
   selectionParticlePool: {fileID: 1347629116}
+  crusher: {fileID: 3580555734120437971, guid: 3fa2e0452b899124fbf495de713fa827, type: 3}
+  bomb: {fileID: 8339463868720145998, guid: 559d9562312d5944ca136625c1c30a75, type: 3}
 --- !u!4 &280753775
 Transform:
   m_ObjectHideFlags: 0
