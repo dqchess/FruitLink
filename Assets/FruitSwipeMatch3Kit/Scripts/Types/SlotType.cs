@@ -12,6 +12,7 @@ namespace FruitSwipeMatch3Kit
         Ice2,
         Jelly2,
         Ice3,
-        Jelly3
+        Jelly3,
+        Vines
     }
 }

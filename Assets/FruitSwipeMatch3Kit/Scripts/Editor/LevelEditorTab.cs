@@ -427,6 +427,10 @@ namespace FruitSwipeMatch3Kit
 					case SlotType.Jelly3:
 						texName += "Jelly 2";
 						break;
+					
+					case SlotType.Vines:
+						texName += "Vines";
+						break;
 				}
 
 				if (string.IsNullOrEmpty(texName))
@@ -498,6 +502,10 @@ namespace FruitSwipeMatch3Kit
 					
 				case SlotType.Jelly3:
 					texName += "_Jelly 2";
+					break;
+				
+				case SlotType.Vines:
+					texName += "_Vines";
 					break;
 			}
 

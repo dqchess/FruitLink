@@ -167,7 +167,14 @@ namespace FruitSwipeMatch3Kit
                 tiles[idx] = Entity.Null;
                 gos[idx] = null;
             }
-            
+            DestroySlot(idx, tile, slots, particlePools);
+        }
+
+        public static void DestroySlot(int idx,
+            GameObject slotGo,
+            List<GameObject> slots,
+            ParticlePools particlePools)
+        {
             if (slots[idx] != null && slots[idx].GetComponent<Slot>() != null)
             {
                 var slot = slots[idx].GetComponent<Slot>();
@@ -201,34 +208,6 @@ namespace FruitSwipeMatch3Kit
                         slots[idx] = null;       
                         break;
                 }
-                var evt = entityMgr.CreateEntity(typeof(SlotDestroyedEvent));
-                entityMgr.SetComponentData(evt, new SlotDestroyedEvent
-                {
-                    Type = slotType
-                });
-
-                var particles = particlePools.GetSlotParticles(slotType);
-                particles.transform.position = tile.transform.position;
-
-                PlaySlotSoundFx(slotType);
-            }
-        }
-
-        public static void DestroySlot(
-            GameObject slotGo,
-            List<GameObject> slots,
-            List<float3> positions,
-            ParticlePools particlePools)
-        {
-            var idx = slots.IndexOf(slotGo);
-            if (slots[idx] != null && slots[idx].GetComponent<Slot>() != null)
-            {
-                var slot = slots[idx].GetComponent<Slot>();
-                var slotType = slot.Type;
-                
-                slots[idx].GetComponent<PooledObject>().Pool.ReturnObject(slots[idx]);
-                slots[idx] = null;
-
                 var entityMgr = World.Active.EntityManager;
                 var evt = entityMgr.CreateEntity(typeof(SlotDestroyedEvent));
                 entityMgr.SetComponentData(evt, new SlotDestroyedEvent
@@ -237,7 +216,7 @@ namespace FruitSwipeMatch3Kit
                 });
 
                 var particles = particlePools.GetSlotParticles(slotType);
-                particles.transform.position = positions[idx];
+                particles.transform.position = slotGo.transform.position;
 
                 PlaySlotSoundFx(slotType);
             }

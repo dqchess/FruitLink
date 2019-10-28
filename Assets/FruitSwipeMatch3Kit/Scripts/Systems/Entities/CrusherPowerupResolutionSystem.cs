@@ -57,10 +57,10 @@ namespace FruitSwipeMatch3Kit
                 if (slot != null)
                 {
                     var particlePools = Object.FindObjectOfType<ParticlePools>();
-                    TileUtils.DestroySlot(
+                    TileUtils.DestroySlot( 
+                        levelCreationSystem.Slots.IndexOf(slot.gameObject),
                         slot.gameObject,
                         levelCreationSystem.Slots,
-                        levelCreationSystem.TilePositions,
                         particlePools);
 
                     OnResolvedPowerup();
