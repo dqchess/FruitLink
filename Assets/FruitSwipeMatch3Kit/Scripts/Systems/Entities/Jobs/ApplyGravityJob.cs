@@ -290,8 +290,11 @@ namespace FruitSwipeMatch3Kit
                     var tile = Tiles[idx];
                     if (tile == Entity.Null && pSide == 1)
                         continue;
-                    
-                    if ((HoleSlotData.Exists(tile) || (BlockerData.Exists(tile) &&
+                    if (HoleSlotData.Exists(tile))
+                    {
+                        return  new int2(-1, currentLength);
+                    }
+                    if ((  (BlockerData.Exists(tile) &&
                                                       BlockerData[tile].Type != BlockerType.Wood &&
                                                       BlockerData[tile].Type != BlockerType.Wood2 &&
                                                       BlockerData[tile].Type != BlockerType.Wood3))|| pSide ==-1)
