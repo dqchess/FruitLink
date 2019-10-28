@@ -46,10 +46,8 @@ namespace FruitSwipeMatch3Kit
             var progressionSystem = World.Active.GetExistingSystem<GameProgressionSystem>();
             progressionSystem.IsPlayerComingFromLevelScreen = true;
 
-            #if UNITY_ADS
-            rewardedAdButton.SetActive(true);
-            #else
-            rewardedAdButton.SetActive(false);
+            #if !UNITY_EDITOR
+            rewardedAdButton.SetActive(Admob.Instance.IsRewardLoaded());
             #endif
 
             var avatar = Instantiate(avatarPrefab, scrollView.transform.GetChild(0), false);

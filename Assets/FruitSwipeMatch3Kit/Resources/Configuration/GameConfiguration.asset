@@ -43,7 +43,7 @@ MonoBehaviour:
     Height: 2960
     ZoomLevel: 1.2
     CanvasScalingMatch: 0
-  RewardedAdCoins: 100
+  RewardedAdCoins: 50
   IapItems:
   - StoreId: com.gamevanilla.fruitswipematch3.coinspack5
     NumCoins: 3600

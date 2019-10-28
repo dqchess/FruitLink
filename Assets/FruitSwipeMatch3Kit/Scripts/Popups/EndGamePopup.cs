@@ -43,7 +43,15 @@ namespace FruitSwipeMatch3Kit
 
 	    public void OnCloseButtonPressed()
 	    {
-	        GetComponent<ScreenTransition>().PerformTransition();
+            var gameScreen = ParentScreen as GameScreen;
+            if (gameScreen != null)
+            {
+                gameScreen.ExitGame();
+            }
+            else
+            {
+                GetComponent<ScreenTransition>().PerformTransition();
+            }
 	    }
 
         public void OnReplayButtonPressed()

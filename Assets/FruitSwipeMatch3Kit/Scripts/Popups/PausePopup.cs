@@ -61,8 +61,8 @@ namespace FruitSwipeMatch3Kit
 					var gameScreen = ParentScreen as GameScreen;
 					if (gameScreen != null)
 					{
-						gameScreen.PenalizePlayer();
 						gameScreen.RestartGame();
+						gameScreen.PenalizePlayer();
 					}
 					
 					inputSystem.UnlockInput();

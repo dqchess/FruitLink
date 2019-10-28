@@ -20,6 +20,7 @@ namespace FruitSwipeMatch3Kit
     public class GameScreen : BaseScreen, IRestartable
     {
         public GameConfiguration GameConfig;
+        public CoinsSystem CoinsSystem;
         public int LevelNumber;
         
 #pragma warning disable 649
@@ -365,6 +366,38 @@ namespace FruitSwipeMatch3Kit
             playerLost = false;
             
             goalsWidget.OnGameRestarted();
+            ShowAds();
+        }
+
+        private void ShowAds()
+        {
+#if !UNITY_EDITOR
+            Admob.Instance.ShowInterstitial(() =>
+            {
+                var rewardCoins = GetRewardCoin();
+                CoinsSystem.BuyCoins(rewardCoins);
+                OpenPopup<AlertPopup>("Popups/AlertPopup", popup =>
+			    {
+				    popup.SetText($"You earned {rewardCoins} coins!");
+			    });
+            }, GetMaxLevelAds());
+#endif
+        }
+
+        private int GetMaxLevelAds()
+        {
+            var lastSelectedLevel = PlayerPrefs.GetInt(GameplayConstants.LastSelectedLevelPrefKey);
+            if (lastSelectedLevel < 30) return 5;
+            if (lastSelectedLevel < 120) return 3;
+            return 2;
+        }
+
+        private int GetRewardCoin()
+        {
+            var lastSelectedLevel = PlayerPrefs.GetInt(GameplayConstants.LastSelectedLevelPrefKey);
+            if (lastSelectedLevel < 80) return 5;
+            if (lastSelectedLevel < 120) return 15;
+            return 20;
         }
 
         public void OnGameRestarted()
@@ -388,6 +421,7 @@ namespace FruitSwipeMatch3Kit
             CloseTopCanvas();
             PenalizePlayer();
             GetComponent<ScreenTransition>().PerformTransition();
+            ShowAds();
         }
 
         public void EnablePowerupOverlay()

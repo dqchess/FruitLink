@@ -3,6 +3,7 @@
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
 using UnityEngine;
+
 #if UNITY_ADS
 using UnityEngine.Advertisements;
 #endif
@@ -15,42 +16,30 @@ namespace FruitSwipeMatch3Kit
     public class RewardedAdButton : MonoBehaviour
     {
 #pragma warning disable 649
-        [SerializeField]
-        private GameConfiguration gameConfig;
-		
-        [SerializeField]
-        private CoinsSystem coinsSystem;
-		
-        [SerializeField]
-        private LevelScreen levelScreen;
+        [SerializeField] private GameConfiguration gameConfig;
+
+        [SerializeField] private CoinsSystem coinsSystem;
+
+        [SerializeField] private LevelScreen levelScreen;
 #pragma warning restore 649
-		
+
         public void ShowRewardedAd()
         {
-#if UNITY_ADS
-			if (Advertisement.IsReady("rewardedVideo"))
-			{
-				var options = new ShowOptions { resultCallback = HandleShowResult };
-				Advertisement.Show("rewardedVideo", options);
-			}
+#if !UNITY_EDITOR
+	        bool isRewarded = false;
+	        Admob.Instance.ShowReward(() => isRewarded = true, () =>
+	        {
+		        if (isRewarded)
+		        {
+			        var rewardCoins = gameConfig.RewardedAdCoins;
+			        coinsSystem.BuyCoins(rewardCoins);
+			        levelScreen.OpenPopup<AlertPopup>("Popups/AlertPopup", popup =>
+			        {
+				        popup.SetText($"You earned {rewardCoins} coins!");
+			        });
+		        }
+	        });
 #endif
         }
-
-#if UNITY_ADS
-		private void HandleShowResult(ShowResult result)
-		{
-			switch (result)
-			{
-				case ShowResult.Finished:
-					var rewardCoins = gameConfig.RewardedAdCoins;
-            		coinsSystem.BuyCoins(rewardCoins);
-					levelScreen.OpenPopup<AlertPopup>("Popups/AlertPopup", popup =>
-					{
-						popup.SetText($"You earned {rewardCoins} coins!");
-					});
-					break;
-			}
-		}
-#endif
     }
 }
