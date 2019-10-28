@@ -31,8 +31,8 @@ namespace FruitSwipeMatch3Kit
         protected override void OnUpdate()
         {
             bool pending = false;
-            var pQuery = Entities.WithAll<PendingGravity>();
-            pQuery.ForEach((Entity entity, ref PendingGravity pendingData) => { pending = true; });
+            var pQuery = Entities.WithAny<ApplyGravityData>().WithAny<FillEmptySlotsData>();
+            pQuery.ForEach((Entity entity) => { pending = true; });
             if (pending)
             {
                 return;
