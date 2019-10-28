@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd3e77f82315a4551b7464b4d052e881, type: 3}
-  m_Name: 110
+  m_Name: 117
   m_EditorClassIdentifier: 
   Width: 9
   Height: 9
@@ -48,7 +48,7 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 6
+  - TileType: 0
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 7
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
@@ -209,19 +209,19 @@ MonoBehaviour:
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 7
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 7
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 7
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 3
