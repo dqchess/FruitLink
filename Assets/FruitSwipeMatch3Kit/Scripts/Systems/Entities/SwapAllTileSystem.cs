@@ -115,6 +115,14 @@ namespace FruitSwipeMatch3Kit
             var targetTranslation = EntityManager.GetComponentData<Translation>(tileEntities[toIdx]).Value;
             EntityManager.SetComponentData(tileEntities[fromIdx], new Translation { Value = targetTranslation });
             EntityManager.SetComponentData(tileEntities[toIdx], new Translation { Value = fromTranslation });
+            if (EntityManager.HasComponent<BlockerData>(tileEntities[fromIdx]))
+            {
+                EntityManager.RemoveComponent<BlockerData>(tileEntities[fromIdx]);
+            }
+            if (EntityManager.HasComponent<BlockerData>(tileEntities[toIdx]))
+            {
+                EntityManager.RemoveComponent<BlockerData>(tileEntities[toIdx]);
+            }
             var cacheEntity = tileEntities[fromIdx];
             tileEntities[fromIdx] = tileEntities[toIdx];
             tileEntities[toIdx] = cacheEntity;

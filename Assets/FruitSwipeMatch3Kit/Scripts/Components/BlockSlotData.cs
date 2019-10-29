@@ -6,6 +6,6 @@ namespace FruitSwipeMatch3Kit
     [Serializable]
     public struct BlockSlotData : IComponentData
     {
-        public SlotType Type;
+        public int tilePosition;
     }
 }
