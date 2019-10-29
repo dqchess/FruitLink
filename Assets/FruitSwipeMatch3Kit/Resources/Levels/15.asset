@@ -264,10 +264,10 @@ MonoBehaviour:
     BlockerType: 1
     CollectibleType: 0
     SlotType: 0
-  - TileType: 7
+  - TileType: 2
     ColorTileType: 0
     RandomColorTileType: 0
-    BlockerType: 1
+    BlockerType: 0
     CollectibleType: 0
     SlotType: 0
   - TileType: 2
@@ -525,4 +525,4 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 1
     Amount: 1
-  AvailableColors: 0100000002000000030000000400000005000000
+  AvailableColors: 0200000004000000050000000300000001000000
