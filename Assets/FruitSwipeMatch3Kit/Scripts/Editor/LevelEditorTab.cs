@@ -223,7 +223,7 @@ namespace FruitSwipeMatch3Kit
             currentLevelData.IsCrusherAvailable = EditorGUILayout.Toggle(currentLevelData.IsCrusherAvailable);
             GUILayout.EndHorizontal();
             
-			GUILayout.Space(10);
+			GUILayout.Space(5);
 			
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField(new GUIContent("Bomb available", "Is the bomb power-up available to purchase on this level?"),
@@ -231,7 +231,7 @@ namespace FruitSwipeMatch3Kit
             currentLevelData.IsBombAvailable = EditorGUILayout.Toggle(currentLevelData.IsBombAvailable);
             GUILayout.EndHorizontal();
             
-			GUILayout.Space(10);
+			GUILayout.Space(5);
 			
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField(new GUIContent("Swap available", "Is the swap power-up available to purchase on this level?"),
@@ -239,7 +239,7 @@ namespace FruitSwipeMatch3Kit
             currentLevelData.IsSwapAvailable = EditorGUILayout.Toggle(currentLevelData.IsSwapAvailable);
             GUILayout.EndHorizontal();
             
-			GUILayout.Space(10);
+			GUILayout.Space(5);
 			
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField(new GUIContent("Color bomb available", "Is the color bomb power-up available to purchase on this level?"),
@@ -247,7 +247,15 @@ namespace FruitSwipeMatch3Kit
             currentLevelData.IsColorBombAvailable = EditorGUILayout.Toggle(currentLevelData.IsColorBombAvailable);
             GUILayout.EndHorizontal();
             
-			GUILayout.Space(10);
+			GUILayout.Space(5);
+			
+			GUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField(new GUIContent("Arrow down available", "Is the arrow down collectible available to purchase on this level?"),
+				GUILayout.Width(EditorGUIUtility.labelWidth));
+			currentLevelData.IsArrowDown = EditorGUILayout.Toggle(currentLevelData.IsArrowDown);
+			GUILayout.EndHorizontal();
+            
+			GUILayout.Space(5);
 			
             EditorGUIUtility.labelWidth = oldLabelWidth;
 			

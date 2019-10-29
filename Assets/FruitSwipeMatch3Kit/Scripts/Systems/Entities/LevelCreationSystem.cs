@@ -114,6 +114,7 @@ namespace FruitSwipeMatch3Kit
             CreateBackground();
             CreateMainBorderTerrain();
             CreateSlots();
+            CreateArrowDown();
             ZoomMainCamera();
         }
 
@@ -525,6 +526,25 @@ namespace FruitSwipeMatch3Kit
             return -1;
         }
 
+        private void CreateArrowDown()
+        {
+            if(!levelData.IsArrowDown) return;
+            for (int i = 0; i < Width; i++)
+            {
+                for (var j = Height - 1; j >= 0; j--)
+                {
+                    var idx = i + j * Width;
+                    var tile = TileEntities[idx];
+                    if (tile == Entity.Null || EntityManager.HasComponent<HoleSlotData>(tile))
+                        continue;
+                    float3 pos = EntityManager.GetComponentData<Translation>(tile).Value;
+                    pos.y -= spriteHeight / 1.5f;
+                    Object.Instantiate(tilePools.ArrowDown, new Vector3(pos.x, pos.y), Quaternion.identity);
+                    break;
+                }
+            }
+        }
+
         private void ZoomMainCamera()
         {
             var gameScreen = Object.FindObjectOfType<GameScreen>();
@@ -556,7 +576,7 @@ namespace FruitSwipeMatch3Kit
         {
             foreach (var pool in tilePools.GetComponentsInChildren<ObjectPool>())
                 pool.Reset();
-
+            
             CreateLevel();
         }
     }

@@ -1587,7 +1587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 696981545}
   GameConfig: {fileID: 11400000, guid: 6b47954202b9549b6a59ab55ca91f82a, type: 2}
-  LevelNumber: 90
+  LevelNumber: 0
   goalsWidget: {fileID: 1906350947}
   scoreWidget: {fileID: 675131494}
   topCanvas: {fileID: 1328661497}
@@ -2376,6 +2376,8 @@ MonoBehaviour:
   lightBackgroundTilePool: {fileID: 1701960256}
   darkBackgroundTilePool: {fileID: 333674063}
   holeImageTilePool: {fileID: 831407759}
+  arrowDown: {fileID: 1719311199070741414, guid: 62e1cf31355772d419ab7a26d32482cd,
+    type: 3}
   _borderTerrain: {fileID: 1144685701}
 --- !u!1 &890043913
 GameObject:

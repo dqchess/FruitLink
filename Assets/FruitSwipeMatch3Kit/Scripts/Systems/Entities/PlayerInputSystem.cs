@@ -549,7 +549,7 @@ namespace FruitSwipeMatch3Kit
             foreach (var tile in selectedTiles)
                 tile.GetComponent<Animator>()?.SetTrigger(Idle);
             selectedTiles.Clear();
-
+            DestroySuggetion();
             DestroySelectionLine();
             DestroySelectionEffect();
         }
