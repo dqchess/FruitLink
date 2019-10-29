@@ -19,6 +19,7 @@ namespace FruitSwipeMatch3Kit
 
         public void Execute()
         {
+            GameState.SuggestSequence.Kill();
             List<int> possibleMove = new List<int>();
             for (var j = 0; j < Height; ++j)
             {
