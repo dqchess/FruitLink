@@ -528,7 +528,7 @@ namespace FruitSwipeMatch3Kit
 
         private void CreateArrowDown()
         {
-            if(!levelData.IsArrowDown) return;
+            if(!levelData.Goals.Exists(x => x.Type == GoalType.CollectCollectibles)) return;
             for (int i = 0; i < Width; i++)
             {
                 for (var j = Height - 1; j >= 0; j--)
