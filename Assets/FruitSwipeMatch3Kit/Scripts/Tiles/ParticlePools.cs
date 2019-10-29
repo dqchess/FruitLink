@@ -87,6 +87,9 @@ namespace FruitSwipeMatch3Kit
                 case SlotType.Jelly3:
                     typeIndex = 2;
                     break;
+                case SlotType.Vines:
+                    typeIndex = 3;
+                    break;
             }
             return slotPools[typeIndex].GetObject();
         }
