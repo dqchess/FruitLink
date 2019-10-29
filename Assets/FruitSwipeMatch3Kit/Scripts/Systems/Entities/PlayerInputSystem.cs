@@ -137,12 +137,12 @@ namespace FruitSwipeMatch3Kit
                         lastSegmentPos = tile.gameObject.transform.localPosition;
 
                         tile.GetComponent<Animator>().SetTrigger(Pressed);
+                        
+                        DestroySuggetion();
 
                         CreateSelectSegment(lastSegmentPos, selectedType);
 
                         CreatePathHighlight(entity, selectedType);
-                        
-                        DestroySuggetion();
 
                         SoundPlayer.PlaySoundFx("Connect");
                     }
@@ -487,6 +487,7 @@ namespace FruitSwipeMatch3Kit
 
         public void DisplaySuggetion(List<int> indexList)
         {
+            if(isDraggingInput || inputLocked) return;
             isSuggestShowing = true;
             var levelCreation = World.GetExistingSystem<LevelCreationSystem>();
             var tileEntities = levelCreation.TileEntities;
@@ -501,7 +502,7 @@ namespace FruitSwipeMatch3Kit
             }
         }
 
-        private void DestroySuggetion()
+        public void DestroySuggetion()
         {
             if (!isSuggestShowing)
             {
