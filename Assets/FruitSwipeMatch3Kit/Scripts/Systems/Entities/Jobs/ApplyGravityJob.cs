@@ -292,7 +292,7 @@ namespace FruitSwipeMatch3Kit
                         continue;
                     if (HoleSlotData.Exists(tile))
                     {
-                        return  new int2(-1, currentLength);
+                        continue;
                     }
                     if ((  (BlockerData.Exists(tile) &&
                                                       BlockerData[tile].Type != BlockerType.Wood &&
