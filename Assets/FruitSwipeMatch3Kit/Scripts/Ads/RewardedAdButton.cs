@@ -37,6 +37,7 @@ namespace FruitSwipeMatch3Kit
 			        {
 				        popup.SetText($"You earned {rewardCoins} coins!");
 			        });
+					gameObject.SetActive(false);
 		        }
 	        });
 #endif

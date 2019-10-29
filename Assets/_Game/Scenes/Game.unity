@@ -1587,6 +1587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 696981545}
   GameConfig: {fileID: 11400000, guid: 6b47954202b9549b6a59ab55ca91f82a, type: 2}
+  CoinsSystem: {fileID: 11400000, guid: 41c76809fc5664e68a9d954197c9e9d6, type: 2}
   LevelNumber: 0
   goalsWidget: {fileID: 1906350947}
   scoreWidget: {fileID: 675131494}
