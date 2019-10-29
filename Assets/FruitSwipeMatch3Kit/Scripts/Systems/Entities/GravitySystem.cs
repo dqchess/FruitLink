@@ -23,8 +23,17 @@ namespace FruitSwipeMatch3Kit
         protected override void OnCreate()
         {
             Enabled = false;
-            query = GetEntityQuery(
-                ComponentType.ReadOnly<ApplyGravityData>());
+            query = GetEntityQuery(new EntityQueryDesc()
+            {
+                All = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<ApplyGravityData>(), 
+                },
+                None = new ComponentType[]
+                {
+                    typeof(FillEmptySlotsData)
+                }
+            });
             fillEmptySlotsArchetype = EntityManager.CreateArchetype(typeof(FillEmptySlotsData));
             barrier = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
         }
