@@ -18,7 +18,6 @@ namespace FruitSwipeMatch3Kit
     {
         public EntityCommandBuffer Ecb;
         public NativeArray<Entity> Tiles;
-        public NativeArray<PendingGravity> pending;
         public ComponentDataFromEntity<TilePosition> TilePosition;
         public ComponentDataFromEntity<Translation> TranslationData;
         [ReadOnly] public int Width;
@@ -264,12 +263,6 @@ namespace FruitSwipeMatch3Kit
                 }
             } while (dirty);
 
-            if (!checkDirtyOne)
-            {
-                var pPending = this.pending[0];
-                pPending.dirty = 0;
-                pending[0] = pPending;
-            }
         }
 
         private int2 FindTileForEmptySlot(int posX, int posY, int currentLength)
@@ -297,8 +290,11 @@ namespace FruitSwipeMatch3Kit
                     var tile = Tiles[idx];
                     if (tile == Entity.Null && pSide == 1)
                         continue;
-                    
-                    if ((HoleSlotData.Exists(tile) || (BlockerData.Exists(tile) &&
+                    if (HoleSlotData.Exists(tile))
+                    {
+                        continue;
+                    }
+                    if ((  (BlockerData.Exists(tile) &&
                                                       BlockerData[tile].Type != BlockerType.Wood &&
                                                       BlockerData[tile].Type != BlockerType.Wood2 &&
                                                       BlockerData[tile].Type != BlockerType.Wood3))|| pSide ==-1)

@@ -2,6 +2,7 @@
 // This code can only be used under the standard Unity Asset Store EULA,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
+using Unity.Collections;
 using UnityEngine;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -20,13 +21,18 @@ namespace FruitSwipeMatch3Kit
         private EntityQuery query;
         
         private TilePools tilePools;
-
+        private EntityArchetype applyGravityArchetype;
         protected override void OnCreate()
         {
             Enabled = false;
-            query = GetEntityQuery(
-                ComponentType.ReadOnly<FillEmptySlotsData>());
-            
+            query = GetEntityQuery(new EntityQueryDesc()
+            {
+                All = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<FillEmptySlotsData>(), 
+                },
+            });
+            applyGravityArchetype = EntityManager.CreateArchetype(typeof(ApplyGravityData));
         }
 
         public void Initialize()
@@ -37,20 +43,23 @@ namespace FruitSwipeMatch3Kit
         protected override void OnUpdate()
         {
             var dataCopy = new FillEmptySlotsData();
+          //  var pChunks  = query.CreateArchetypeChunkArray(Allocator.TempJob);
+           /*var pendingType= GetArchetypeChunkComponentType<PendingFillSlot>(true);
+           var fillDataType = GetArchetypeChunkComponentType<FillEmptySlotsData>(true);
+            foreach (var pChunk in pChunks)
+            {
+                 var pHasPending =  pChunk.Has(pendingType);
+            }*/
             Entities.With(query).ForEach((Entity entity, ref FillEmptySlotsData data) =>
             {
                 PostUpdateCommands.DestroyEntity(entity);
                 dataCopy = data;
             });
-            bool pDirty = CreateNewTilesInEmptySlots(dataCopy);
-            Entities.WithAll<PendingGravity>().ForEach((ref PendingGravity pending) =>
-            {
-                if (pDirty)
-                {
-                    pending.dirty = 1;
-                }
-                
-            });
+           bool dirty = CreateNewTilesInEmptySlots(dataCopy);
+           if (dirty)
+           {
+               PostUpdateCommands.CreateEntity(applyGravityArchetype);
+           }
         }
 
         private bool CreateNewTilesInEmptySlots(FillEmptySlotsData data)

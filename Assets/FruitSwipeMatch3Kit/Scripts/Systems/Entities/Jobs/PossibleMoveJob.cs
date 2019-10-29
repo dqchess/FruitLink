@@ -52,6 +52,7 @@ namespace FruitSwipeMatch3Kit
             possibleMove.Clear();
             openSet.Add(startIdx);
             possibleMove.Add(startIdx);
+            if (!TileData.Exists(Tiles[startIdx])) return 0;
             var startColor = TileData[Tiles[startIdx]].Type;
             while (openSet.Count > 0)
             {

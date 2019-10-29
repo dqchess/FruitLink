@@ -1,0 +1,691 @@
+fileFormatVersion: 2
+guid: 2e59b2fb6fa66354ab1dc728bddf5874
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8048674624933734372
+    second: item_booster_crusher_0
+  - first:
+      213: -6765741086697607078
+    second: item_booster_crusher_1
+  - first:
+      213: -2700993543087347665
+    second: item_booster_crusher_2
+  - first:
+      213: -3546424015771391315
+    second: item_booster_crusher_3
+  - first:
+      213: -3769473144551775205
+    second: item_booster_crusher_4
+  - first:
+      213: 1355814008788708935
+    second: item_booster_crusher_5
+  - first:
+      213: -3706266000276261698
+    second: item_booster_crusher_6
+  - first:
+      213: 7083767137098236607
+    second: item_booster_crusher_7
+  - first:
+      213: 9112545733948894424
+    second: item_booster_crusher_8
+  - first:
+      213: 4881320504161250305
+    second: item_booster_crusher_9
+  - first:
+      213: 4931844874905030426
+    second: item_booster_crusher_10
+  - first:
+      213: 837010288709534890
+    second: item_booster_crusher_11
+  - first:
+      213: -746426871776160473
+    second: item_booster_crusher_12
+  - first:
+      213: -2024080763608016284
+    second: item_booster_crusher_13
+  - first:
+      213: -1016525068095808691
+    second: item_booster_crusher_14
+  - first:
+      213: 9116735490760238527
+    second: item_booster_crusher_15
+  - first:
+      213: 1554331064431347405
+    second: item_booster_crusher_16
+  - first:
+      213: 275938299866584397
+    second: item_booster_crusher_17
+  - first:
+      213: -490898909303113577
+    second: item_booster_crusher_18
+  - first:
+      213: -590026646410097803
+    second: item_booster_crusher_19
+  - first:
+      213: 6533939234884584006
+    second: item_booster_crusher_20
+  - first:
+      213: 6505831358029965751
+    second: item_booster_crusher_21
+  - first:
+      213: 3047049139097754357
+    second: item_booster_crusher_22
+  - first:
+      213: 454649298151499732
+    second: item_booster_crusher_23
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: item_booster_crusher_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1136
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff0cc79a095f3548a636658b1d5b345
+      internalID: 8048674624933734372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_1
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1136
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b0a985da4094f2408c99a70f79e0270
+      internalID: -6765741086697607078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_2
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 1136
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda9eb2fe9393294ea8ab778432542a3
+      internalID: -2700993543087347665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_3
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 1136
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5ffa8e4f8b7864693a7255c942ed8f
+      internalID: -3546424015771391315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_4
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 1136
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e53f4904cb80b4eb836fb7cf0f6a92
+      internalID: -3769473144551775205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 852
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6f5b6b2c5f947428d2ab20f6998ab2
+      internalID: 1355814008788708935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_6
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 852
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 129d86c4f5c3c2e42ae8aa04b50779b9
+      internalID: -3706266000276261698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_7
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 852
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c981b82f8ca9145804f011dde8f9ab
+      internalID: 7083767137098236607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_8
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 852
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e94c4734929924cb2f00577c4a21bb
+      internalID: 9112545733948894424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_9
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 852
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d711ee521c790d4e9b30c0d3ef7f47d
+      internalID: 4881320504161250305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 568
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1cb4548d3eb477478d4a93d0df1d3fc
+      internalID: 4931844874905030426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_11
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 568
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d07fc93c22a7a4798b65b602ee1158
+      internalID: 837010288709534890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_12
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 568
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0ea29b7961e214488c00568950d0e7
+      internalID: -746426871776160473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_13
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 568
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4786dd8394c656342bb704003b856e82
+      internalID: -2024080763608016284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_14
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 568
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd49f7345487ef48a048fa7ff9c71ab
+      internalID: -1016525068095808691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 284
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc8bb5582c4c1a408e5d1a53f4120f1
+      internalID: 9116735490760238527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_16
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 286
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266f316e992203645910ed02976e123d
+      internalID: 1554331064431347405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_17
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 284
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145b1f1be9e15f34cab56688c7081d40
+      internalID: 275938299866584397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_18
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 284
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c312d54ecc799348b20ac00f7d8b82f
+      internalID: -490898909303113577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_19
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 284
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834eaa8be984d7c47ac1ce775f1e3dae
+      internalID: -590026646410097803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8cb2d52b1de785498dcdabf41527ed0
+      internalID: 6533939234884584006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_21
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 0
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbea490d771872b4ca61f720a063734a
+      internalID: 6505831358029965751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_22
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 2
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5af140cbf783584397361581d56e5f1
+      internalID: 3047049139097754357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_booster_crusher_23
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 0
+        width: 284
+        height: 284
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda3b3928c2f43649aef5a2eee317deb
+      internalID: 454649298151499732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

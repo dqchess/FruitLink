@@ -27,6 +27,7 @@ namespace FruitSwipeMatch3Kit
         public bool IsSwapAvailable;
         public bool IsColorBombAvailable;
         public bool EndGameAward = true;
+        public bool IsArrowDown = false;
         public List<LevelTileData> Tiles = new List<LevelTileData>();
         public List<LevelGoalData> Goals = new List<LevelGoalData>();
         public List<ColorTileType> AvailableColors = new List<ColorTileType>();

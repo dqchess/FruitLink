@@ -68,8 +68,8 @@ namespace FruitSwipeMatch3Kit
 
         private void OnCoinsChanged(int numCoins)
         {
-            if (currentPurchasableItem != null)
-                currentPurchasableItem.PlayCoinParticles();
+//            if (currentPurchasableItem != null)
+//                currentPurchasableItem.PlayCoinParticles();
             SoundPlayer.PlaySoundFx("BuyCoinsButton");
         }
 

@@ -22,10 +22,14 @@ namespace FruitSwipeMatch3Kit
         [SerializeField] private Color[] colors;
         [SerializeField] private ObjectPool selectionLinePool;
         [SerializeField] private ObjectPool selectionParticlePool;
+        [SerializeField] private GameObject crusher;
+        [SerializeField] private GameObject bomb;
 
 #pragma warning restore 649
         public ObjectPool SelectionLinePool => selectionLinePool;
         public ObjectPool SelectionParticlePool => selectionParticlePool;
+        public GameObject Crusher => crusher;
+        public GameObject Bomb => bomb;
 
         public Color GetColorTile(ColorTileType color)
         {
@@ -82,6 +86,9 @@ namespace FruitSwipeMatch3Kit
                     break;
                 case SlotType.Jelly3:
                     typeIndex = 2;
+                    break;
+                case SlotType.Vines:
+                    typeIndex = 3;
                     break;
             }
             return slotPools[typeIndex].GetObject();

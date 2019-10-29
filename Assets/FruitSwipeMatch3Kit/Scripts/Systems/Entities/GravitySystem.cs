@@ -23,8 +23,17 @@ namespace FruitSwipeMatch3Kit
         protected override void OnCreate()
         {
             Enabled = false;
-            query = GetEntityQuery(
-                ComponentType.ReadOnly<ApplyGravityData>(),typeof(PendingGravity));
+            query = GetEntityQuery(new EntityQueryDesc()
+            {
+                All = new ComponentType[]
+                {
+                    ComponentType.ReadOnly<ApplyGravityData>(), 
+                },
+                None = new ComponentType[]
+                {
+                    typeof(FillEmptySlotsData)
+                }
+            });
             fillEmptySlotsArchetype = EntityManager.CreateArchetype(typeof(FillEmptySlotsData));
             barrier = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
         }
@@ -53,11 +62,9 @@ namespace FruitSwipeMatch3Kit
             var height = levelCreationSystem.Height;
             var spriteWidth = levelCreationSystem.GetSpriteWidth();
             var spriteHeight = levelCreationSystem.GetSpriteHeight();
-            var dataPending = query.ToComponentDataArray<PendingGravity>(Allocator.TempJob);
             
             var job = new ApplyGravityJob
             {
-                pending = dataPending,
                 Ecb = barrier.CreateCommandBuffer(),
                 Tiles = tileEntities,
                 TilePosition = GetComponentDataFromEntity<TilePosition>(),
@@ -95,14 +102,10 @@ namespace FruitSwipeMatch3Kit
                 MatchSize = matchSize,
                 MatchDirection = matchDir
             });
-            if (dataPending[0].dirty == 0)
-            {
                 var entities = query.ToEntityArray(Allocator.TempJob);
                 for (var i = 0; i < entities.Length; ++i)
                     EntityManager.DestroyEntity(entities[i]);
                 entities.Dispose();
-            }
-           
             
             return inputDeps;
         }

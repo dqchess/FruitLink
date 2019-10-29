@@ -76,7 +76,7 @@ namespace FruitSwipeMatch3Kit
 
             inputSystem.UnlockInput();
             isResolvingPowerup = false;
-            
+            inputSystem.DestroySuggetion();
             gameScreen.DisablePowerupOverlay();
         }
     }
