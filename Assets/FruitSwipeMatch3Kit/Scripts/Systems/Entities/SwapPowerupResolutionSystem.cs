@@ -39,7 +39,7 @@ namespace FruitSwipeMatch3Kit
                 {
                     var result = raycastResults[0];
                     var tile = result.collider.gameObject;
-                    if (tile != null)
+                    if (tile != null && tile.GetComponent<Tile>() != null)
                     {
                         tileA = tile;
                     }
@@ -56,14 +56,22 @@ namespace FruitSwipeMatch3Kit
                 {
                     var result = raycastResults[0];
                     var tile = result.collider.gameObject;
-                    if (tile != null && tile != tileA)
+                    if (tile != null && tile != tileA && tile.GetComponent<Tile>() != null)
                     {
                         tileB = tile;
-
-                        SwapTiles();
+                        Entity entityA = tileA.GetComponent<GameObjectEntity>().Entity;
+                        Entity entityB = tileB.GetComponent<GameObjectEntity>().Entity;
+                        if(IsNeighbour(entityA, entityB)) SwapTiles();
                     }
                 }
             }
+        }
+        
+        private bool IsNeighbour(Entity a, Entity b)
+        {
+            var posA = EntityManager.GetComponentData<TilePosition>(a);
+            var posB = EntityManager.GetComponentData<TilePosition>(b);
+            return Mathf.Abs(posA.X - posB.X) <= 1 && Mathf.Abs(posA.Y - posB.Y) <= 1;
         }
 
         private void SwapTiles()

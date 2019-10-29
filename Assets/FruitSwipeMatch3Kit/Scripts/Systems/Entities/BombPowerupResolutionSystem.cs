@@ -62,7 +62,7 @@ namespace FruitSwipeMatch3Kit
                    
                     var go = Object.Instantiate(particlePools.Bomb, goe.transform.position, Quaternion.identity);
                     var seg = DOTween.Sequence();
-                    seg.AppendInterval(GameplayConstants.UseItemDelay);
+                    seg.AppendInterval(GameplayConstants.UseItemBombDelay);
                     seg.AppendCallback(() =>
                     {
                         isResolving = false;

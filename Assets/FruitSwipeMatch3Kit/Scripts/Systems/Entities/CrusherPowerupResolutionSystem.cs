@@ -42,7 +42,7 @@ namespace FruitSwipeMatch3Kit
                     var idx = tilePos.X + tilePos.Y * levelCreationSystem.Width;
                     var go = Object.Instantiate(particlePools.Crusher, goe.transform.position, Quaternion.identity);
                     var seg = DOTween.Sequence();
-                    seg.AppendInterval(GameplayConstants.UseItemDelay);
+                    seg.AppendInterval(GameplayConstants.UseItemCrushDelay);
                     seg.AppendCallback(() =>
                     {
                         isResolving = false;
@@ -69,7 +69,7 @@ namespace FruitSwipeMatch3Kit
                     var particlePools = Object.FindObjectOfType<ParticlePools>();
                     var go = Object.Instantiate(particlePools.Crusher, slot.transform.position, Quaternion.identity);
                     var seg = DOTween.Sequence();
-                    seg.AppendInterval(GameplayConstants.UseItemDelay);
+                    seg.AppendInterval(GameplayConstants.UseItemCrushDelay);
                     seg.AppendCallback(() =>
                     {
                         isResolving = false;
@@ -99,7 +99,7 @@ namespace FruitSwipeMatch3Kit
                     var idx = tilePos.X + tilePos.Y * levelCreationSystem.Width;
                     var go = Object.Instantiate(particlePools.Crusher, goe.transform.position, Quaternion.identity);
                     var seg = DOTween.Sequence();
-                    seg.AppendInterval(GameplayConstants.UseItemDelay);
+                    seg.AppendInterval(GameplayConstants.UseItemCrushDelay);
                     seg.AppendCallback(() =>
                     {
                         isResolving = false;
