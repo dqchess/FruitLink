@@ -476,6 +476,17 @@ namespace FruitSwipeMatch3Kit
                     var idx = i + (j * Width);
                 
                     var slot = CreateSlot(levelData.Tiles[idx]);
+                    if (slot && slot.GetComponent<GameObjectEntity>())
+                    {
+                        var pEntity = slot.GetComponent<GameObjectEntity>().Entity;
+                        if (EntityManager.HasComponent<BlockSlotData>(pEntity))
+                        {
+                            var block  = EntityManager.GetComponentData<BlockSlotData>(pEntity);
+                            block.tilePosition = idx;
+                            EntityManager.SetComponentData<BlockSlotData>(pEntity,block);
+                        }
+                  
+                    }
                     Slots.Add(slot);
 
                     if (slot != null)
@@ -534,10 +545,9 @@ namespace FruitSwipeMatch3Kit
                 for (var j = Height - 1; j >= 0; j--)
                 {
                     var idx = i + j * Width;
-                    var tile = TileEntities[idx];
-                    if (tile == Entity.Null || EntityManager.HasComponent<HoleSlotData>(tile))
+                    if (levelData.Tiles[idx].TileType == TileType.Hole)
                         continue;
-                    float3 pos = EntityManager.GetComponentData<Translation>(tile).Value;
+                    float3 pos = TilePositions[idx];
                     pos.y -= spriteHeight / 1.5f;
                     Object.Instantiate(tilePools.ArrowDown, new Vector3(pos.x, pos.y), Quaternion.identity);
                     break;

@@ -37,6 +37,7 @@ namespace FruitSwipeMatch3Kit
         private Vector3 lastSegmentPos;
 
         private readonly List<GameObject> selectSegments = new List<GameObject>(8);
+        private readonly List<Animator> suggestionAnim = new List<Animator>(8);
 
         private readonly List<SpriteRenderer> darkTiles = new List<SpriteRenderer>();
 
@@ -320,9 +321,12 @@ namespace FruitSwipeMatch3Kit
                         continue;
 
                     var tile = tileGos[idx];
-                    var tileRender = tile.GetComponent<SpriteRenderer>();
-                    tileRender.color = Color.gray;
-                    darkTiles.Add(tileRender);
+                    if (tile != null)
+                    {
+                        var tileRender = tile.GetComponent<SpriteRenderer>();
+                        tileRender.color = Color.gray;
+                        darkTiles.Add(tileRender);
+                    }
                 }
             }
 
@@ -493,12 +497,13 @@ namespace FruitSwipeMatch3Kit
             var tileEntities = levelCreation.TileEntities;
             var tilePos = levelCreation.TilePositions;
             var tileGos = levelCreation.TileGos;
-            
+            suggestionAnim.Clear();
             for (int i = 0; i < indexList.Count; i++)
             {
                 var type = EntityManager.GetComponentData<TileData>(tileEntities[indexList[i]]).Type;
                 CreateSelectSegment(tilePos[indexList[i]], type);
-                tileGos[indexList[i]].GetComponent<Animator>().SetTrigger(Pressed);
+                suggestionAnim.Add(tileGos[indexList[i]].GetComponent<Animator>());
+                suggestionAnim[i].SetTrigger(Pressed);
             }
         }
 
@@ -510,13 +515,10 @@ namespace FruitSwipeMatch3Kit
                 return;
             }
             isSuggestShowing = false;
-            var levelCreation = World.GetExistingSystem<LevelCreationSystem>();
-            var tileGos = levelCreation.TileGos;
-            for (int i = 0; i < GameState.SuggestIndexes.Count; i++)
+            for (int i = 0; i < suggestionAnim.Count; i++)
             {
-                tileGos[GameState.SuggestIndexes[i]].GetComponent<Animator>()?.SetTrigger(Idle);
+                if(suggestionAnim[i] != null) suggestionAnim[i].SetTrigger(Idle);
             }
-
             DestroySelectionEffect();
         }
 

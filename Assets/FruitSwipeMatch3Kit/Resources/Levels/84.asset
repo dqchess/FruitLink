@@ -23,6 +23,7 @@ MonoBehaviour:
   IsSwapAvailable: 1
   IsColorBombAvailable: 1
   EndGameAward: 1
+  IsArrowDown: 0
   Tiles:
   - TileType: 3
     ColorTileType: 0

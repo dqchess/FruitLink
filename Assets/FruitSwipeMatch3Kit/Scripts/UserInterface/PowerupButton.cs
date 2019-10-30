@@ -131,7 +131,7 @@ namespace FruitSwipeMatch3Kit
 		{
 			var world = World.Active;
 			var entityMgr = world.EntityManager;
-
+			world.GetExistingSystem<PlayerInputSystem>().DestroySuggetion();
 			switch (type)
 			{
 				case PowerupType.Crusher:
