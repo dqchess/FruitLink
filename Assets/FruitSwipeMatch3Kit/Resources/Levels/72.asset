@@ -23,6 +23,7 @@ MonoBehaviour:
   IsSwapAvailable: 1
   IsColorBombAvailable: 1
   EndGameAward: 1
+  IsArrowDown: 0
   Tiles:
   - TileType: 4
     ColorTileType: 0
@@ -517,5 +518,5 @@ MonoBehaviour:
     SlotType: 2
     BlockerType: 0
     CollectibleType: 0
-    Amount: 26
+    Amount: 29
   AvailableColors: 02000000000000000100000003000000
