@@ -89,7 +89,7 @@ namespace FruitSwipeMatch3Kit
                     priceText.text = product.metadata.localizedPriceString;
             }
             #else
-            priceText.text = "$5,99";
+            priceText.text = "$0,99";
             #endif
         }
 

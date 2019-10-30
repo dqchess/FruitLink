@@ -45,32 +45,32 @@ MonoBehaviour:
     CanvasScalingMatch: 0
   RewardedAdCoins: 200
   IapItems:
-  - StoreId: com.gamevanilla.fruitswipematch3.coinspack5
-    NumCoins: 3600
-    Discount: 40
+  - StoreId: goldpack5
+    NumCoins: 32000
+    Discount: 60
     MostPopular: 0
     BestValue: 1
     CoinIcon: 5
-  - StoreId: com.gamevanilla.fruitswipematch3.coinspack4
-    NumCoins: 1200
-    Discount: 20
+  - StoreId: goldpack4
+    NumCoins: 15000
+    Discount: 50
     MostPopular: 0
     BestValue: 0
     CoinIcon: 4
-  - StoreId: com.gamevanilla.fruitswipematch3.coinspack3
-    NumCoins: 950
-    Discount: 15
+  - StoreId: goldpack3
+    NumCoins: 6000
+    Discount: 20
     MostPopular: 1
     BestValue: 0
     CoinIcon: 3
-  - StoreId: com.gamevanilla.fruitswipematch3.coinspack2
-    NumCoins: 400
-    Discount: 5
+  - StoreId: goldpack2
+    NumCoins: 2200
+    Discount: 10
     MostPopular: 0
     BestValue: 0
     CoinIcon: 2
-  - StoreId: com.gamevanilla.fruitswipematch3.coinspack1
-    NumCoins: 150
+  - StoreId: goldpack1
+    NumCoins: 1000
     Discount: 0
     MostPopular: 0
     BestValue: 0

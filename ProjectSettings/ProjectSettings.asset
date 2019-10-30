@@ -167,7 +167,7 @@ PlayerSettings:
     Android: com.doublex2.fruitlink
     Standalone: com.Company.ProductName
   buildNumber: {}
-  AndroidBundleVersionCode: 2
+  AndroidBundleVersionCode: 3
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
@@ -620,7 +620,7 @@ PlayerSettings:
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
     1: ODIN_INSPECTOR
-    7: ODIN_INSPECTOR
+    7: ODIN_INSPECTOR;FRUIT_SWIPE_ENABLE_IAP
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
