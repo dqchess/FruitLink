@@ -509,15 +509,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameConfig: {fileID: 11400000, guid: 6b47954202b9549b6a59ab55ca91f82a, type: 2}
-  enabledLifeSprite: {fileID: 21300000, guid: 5cfa91e893d7d43768b6bdcea50e62ac, type: 3}
-  disabledLifeSprite: {fileID: 21300000, guid: a8f14ad1d10e740c588b77f16322a460, type: 3}
   numLivesText: {fileID: 3133344925040975403}
   timeToNextLifeText: {fileID: 3133344924313447174}
   buttonImage: {fileID: 3133344926354247242}
-  enabledButtonSprite: {fileID: 21300000, guid: c427fa2c2c74b4b79a70844c0ca25804,
-    type: 3}
-  disabledButtonSprite: {fileID: 21300000, guid: 0e4a505db376a4b2b8fd64bde7f2731b,
-    type: 3}
 --- !u!1 &3133344926354247236
 GameObject:
   m_ObjectHideFlags: 0

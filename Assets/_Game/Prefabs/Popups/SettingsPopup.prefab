@@ -110,8 +110,6 @@ MonoBehaviour:
   musicSlider: {fileID: 1776532752967213330}
   resetProgressButton: {fileID: 7640233321485477491}
   resetProgressImage: {fileID: 2222316423954766981}
-  resetProgressDisabledSprite: {fileID: 21300000, guid: 3c9027d56c1a241a38e2e07745df383d,
-    type: 3}
 --- !u!114 &1241561521091491876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,13 +255,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2222316423164494552}
-    characterCount: 0
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
-    wordCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -486,13 +484,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 83.19909}
   m_textInfo:
     textComponent: {fileID: 2222316423378940927}
-    characterCount: 0
+    characterCount: 14
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -786,13 +784,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2222316423926003608}
-    characterCount: 0
+    characterCount: 8
     spriteCount: 0
     spaceCount: 0
-    wordCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

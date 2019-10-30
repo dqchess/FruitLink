@@ -18,12 +18,6 @@ namespace FruitSwipeMatch3Kit
 #pragma warning disable 649
         [SerializeField]
         private GameConfiguration gameConfig;
-        
-        [SerializeField]
-        private Sprite enabledLifeSprite;
-
-        [SerializeField]
-        private Sprite disabledLifeSprite;
 
         [SerializeField]
         private TextMeshProUGUI numLivesText;
@@ -34,11 +28,6 @@ namespace FruitSwipeMatch3Kit
         [SerializeField]
         private Image buttonImage;
 
-        [SerializeField]
-        private Sprite enabledButtonSprite;
-
-        [SerializeField]
-        private Sprite disabledButtonSprite;
 #pragma warning restore 649
 
         private CheckForFreeLives freeLivesChecker;
@@ -46,13 +35,9 @@ namespace FruitSwipeMatch3Kit
         private void Awake()
         {
             Assert.IsNotNull(gameConfig);
-            Assert.IsNotNull(enabledLifeSprite);
-            Assert.IsNotNull(disabledLifeSprite);
             Assert.IsNotNull(numLivesText);
             Assert.IsNotNull(timeToNextLifeText);
             Assert.IsNotNull(buttonImage);
-            Assert.IsNotNull(enabledButtonSprite);
-            Assert.IsNotNull(disabledButtonSprite);
         }
 
         private void Start()

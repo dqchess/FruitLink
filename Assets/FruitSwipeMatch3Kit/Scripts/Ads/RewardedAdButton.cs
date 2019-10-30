@@ -2,6 +2,8 @@
 // This code can only be used under the standard Unity Asset Store End User License Agreement,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
+using System;
+using TMPro;
 using UnityEngine;
 
 #if UNITY_ADS
@@ -21,9 +23,16 @@ namespace FruitSwipeMatch3Kit
         [SerializeField] private CoinsSystem coinsSystem;
 
         [SerializeField] private LevelScreen levelScreen;
+
+        [SerializeField] private TextMeshProUGUI _earn;
 #pragma warning restore 649
 
-        public void ShowRewardedAd()
+	    private void Awake()
+	    {
+		    _earn.text = "+" + gameConfig.RewardedAdCoins;
+	    }
+
+	    public void ShowRewardedAd()
         {
 #if !UNITY_EDITOR
 	        bool isRewarded = false;

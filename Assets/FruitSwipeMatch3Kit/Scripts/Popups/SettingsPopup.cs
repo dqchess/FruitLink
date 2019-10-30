@@ -2,6 +2,7 @@
 // This code can only be used under the standard Unity Asset Store End User License Agreement,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -27,8 +28,6 @@ namespace FruitSwipeMatch3Kit
         [SerializeField]
         private Image resetProgressImage;
 
-        [SerializeField]
-        private Sprite resetProgressDisabledSprite;
 #pragma warning restore 649
 
         private int currentSound;
@@ -41,7 +40,6 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(musicSlider);
             Assert.IsNotNull(resetProgressButton);
             Assert.IsNotNull(resetProgressImage);
-            Assert.IsNotNull(resetProgressDisabledSprite);
         }
 
         protected override void Start()
@@ -59,8 +57,10 @@ namespace FruitSwipeMatch3Kit
             {
                 PlayerPrefs.DeleteKey($"level_stars_{i}");
             }
-            resetProgressImage.sprite = resetProgressDisabledSprite;
+
+            resetProgressImage.color = Color.gray;
             resetProgressButton.Interactable = false;
+            resetProgressImage.GetComponentInChildren<TextMeshProUGUI>().color = Color.gray;
         }
 
         public void OnSoundSliderValueChanged()
