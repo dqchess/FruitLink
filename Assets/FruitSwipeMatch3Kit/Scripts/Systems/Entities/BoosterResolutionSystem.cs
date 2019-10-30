@@ -157,6 +157,8 @@ namespace FruitSwipeMatch3Kit
                     }
                     else
                     {
+                        int indexFind = inputSystem.PendingBoosterTiles.FindIndex(x => x.Index == tileEntity.Index);
+                        inputSystem.PendingBoosterTiles.RemoveAt(indexFind);
                         inputSystem.PendingBoosterTiles.Insert(0, tileEntity);
                     }
                     continue;
