@@ -46,30 +46,35 @@ MonoBehaviour:
   RewardedAdCoins: 200
   IapItems:
   - StoreId: goldpack5
+    DefaultPrices: $19,99
     NumCoins: 32000
     Discount: 60
     MostPopular: 0
     BestValue: 1
     CoinIcon: 5
   - StoreId: goldpack4
+    DefaultPrices: $9,99
     NumCoins: 15000
     Discount: 50
     MostPopular: 0
     BestValue: 0
     CoinIcon: 4
   - StoreId: goldpack3
+    DefaultPrices: $4,99
     NumCoins: 6000
     Discount: 20
     MostPopular: 1
     BestValue: 0
     CoinIcon: 3
   - StoreId: goldpack2
+    DefaultPrices: $1,99
     NumCoins: 2200
     Discount: 10
     MostPopular: 0
     BestValue: 0
     CoinIcon: 2
   - StoreId: goldpack1
+    DefaultPrices: $0,99
     NumCoins: 1000
     Discount: 0
     MostPopular: 0

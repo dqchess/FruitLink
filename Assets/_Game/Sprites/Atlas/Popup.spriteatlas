@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: de2abdff9bf11c84289369e8a2a86cd6, type: 3}
-    totalSpriteSurfaceArea: 3769490
+    totalSpriteSurfaceArea: 3800904
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -74,6 +74,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a676f42e13be533418acc27075f84443, type: 3}
   - {fileID: 21300000, guid: 005980fef323bdb48b8d759b9bd151f8, type: 3}
   - {fileID: 21300000, guid: 4e5c4afe956b9a1418dfea638f408e74, type: 3}
+  - {fileID: 21300000, guid: 8363c74fe2449fa44b71865d25e1b61e, type: 3}
   m_PackedSpriteNamesToIndex:
   - item_star_3_off
   - btn_close
@@ -114,5 +115,6 @@ SpriteAtlas:
   - item_star_2
   - dialog_big
   - item_heart_fill
+  - tag_removeads
   m_Tag: Popup
   m_IsVariant: 0

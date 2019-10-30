@@ -88,6 +88,10 @@ namespace FruitSwipeMatch3Kit
                 if (product != null)
                     priceText.text = product.metadata.localizedPriceString;
             }
+            else
+            {
+                priceText.text = item.DefaultPrices;
+            }
             #else
             priceText.text = "$0,99";
             #endif

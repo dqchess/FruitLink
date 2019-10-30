@@ -70,6 +70,7 @@ namespace FruitSwipeMatch3Kit
                 GameConfig.IapItems.Find(x => x.StoreId == purchasedProductId);
             if (catalogProduct != null)
             {
+                PlayerPrefs.SetInt(GameplayConstants.NoAdsPrefKey, 1);
                 CoinsSystem.BuyCoins(catalogProduct.NumCoins);
 			    var shopPopup = FindObjectOfType<BuyCoinsPopup>();
                 if (shopPopup != null)

@@ -30,6 +30,7 @@ namespace FruitSwipeMatch3Kit
     public class IapItem
     {
         public string StoreId;
+        public string DefaultPrices;
         public int NumCoins;
         public int Discount;
         public bool MostPopular;
@@ -72,6 +73,11 @@ namespace FruitSwipeMatch3Kit
             GUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel("Coin icon");
             CoinIcon = (CoinIcon)EditorGUILayout.EnumPopup(CoinIcon, GUILayout.Width(100));
+            GUILayout.EndHorizontal();
+            
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.PrefixLabel("Default prices");
+            DefaultPrices = EditorGUILayout.TextField(DefaultPrices, GUILayout.Width(300));
             GUILayout.EndHorizontal();
 
             GUILayout.EndVertical();

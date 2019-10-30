@@ -29,6 +29,7 @@ namespace FruitSwipeMatch3Kit
         public const float EndGameSequenceExplosionFrequency = 1f;
 
         public const string LastSelectedLevelPrefKey = "last_selected_level";
+        public const string NoAdsPrefKey = "no_ads";
         public const string NextLevelPrefKey = "next_level";
         public const string UnlockedNextLevelPrefKey = "unlocked_next_level";
     }

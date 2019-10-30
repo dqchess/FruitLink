@@ -1,5 +1,6 @@
 ﻿﻿using System;
-using GoogleMobileAds.Api;
+ using FruitSwipeMatch3Kit;
+ using GoogleMobileAds.Api;
  using UnityEngine;
 
 public class Admob : MonoBehaviour
@@ -32,6 +33,7 @@ public class Admob : MonoBehaviour
 
     private void Start()
     {
+        IsNoAds = PlayerPrefs.GetInt(GameplayConstants.NoAdsPrefKey) > 0;
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(appId);
         _rewardBasedVideo = RewardBasedVideoAd.Instance;
