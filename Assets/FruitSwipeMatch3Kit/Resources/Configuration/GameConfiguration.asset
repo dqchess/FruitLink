@@ -15,21 +15,21 @@ MonoBehaviour:
   DefaultTileScore: 10
   MaxLives: 5
   TimeToNextLife: 300
-  LivesRefillCost: 100
+  LivesRefillCost: 900
   InitialCoins: 1500
   NumTilesNeededForRegularBooster: 5
   NumTilesNeededForCrossBooster: 7
   NumTilesNeededForStarBooster: 9
   CrusherPowerupAmount: 5
-  CrusherPowerupPrice: 100
+  CrusherPowerupPrice: 500
   BombPowerupAmount: 5
-  BombPowerupPrice: 100
+  BombPowerupPrice: 1500
   SwapPowerupAmount: 5
-  SwapPowerupPrice: 100
+  SwapPowerupPrice: 800
   ColorBombPowerupAmount: 5
-  ColorBombPowerupPrice: 100
+  ColorBombPowerupPrice: 2800
   NumExtraMoves: 5
-  ExtraMovesCost: 100
+  ExtraMovesCost: 900
   DefaultZoomLevel: 1.2
   DefaultCanvasScalingMatch: 1
   ResolutionOverrides:
@@ -43,7 +43,7 @@ MonoBehaviour:
     Height: 2960
     ZoomLevel: 1.2
     CanvasScalingMatch: 0
-  RewardedAdCoins: 50
+  RewardedAdCoins: 200
   IapItems:
   - StoreId: com.gamevanilla.fruitswipematch3.coinspack5
     NumCoins: 3600

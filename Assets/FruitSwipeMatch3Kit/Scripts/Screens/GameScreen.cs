@@ -404,17 +404,17 @@ namespace FruitSwipeMatch3Kit
         private int GetMaxLevelAds()
         {
             var lastSelectedLevel = PlayerPrefs.GetInt(GameplayConstants.LastSelectedLevelPrefKey);
-            if (lastSelectedLevel < 30) return 5;
-            if (lastSelectedLevel < 120) return 3;
-            return 2;
+            if (lastSelectedLevel < 16) return 5;
+            if (lastSelectedLevel < 56) return 3;
+            if (lastSelectedLevel < 106) return 2;
+            return 1;
         }
 
         private int GetRewardCoin()
         {
             var lastSelectedLevel = PlayerPrefs.GetInt(GameplayConstants.LastSelectedLevelPrefKey);
-            if (lastSelectedLevel < 80) return 5;
-            if (lastSelectedLevel < 120) return 15;
-            return 20;
+            if (lastSelectedLevel < 106) return 50;
+            return 100;
         }
 
         public void OnGameRestarted()
