@@ -476,7 +476,7 @@ namespace FruitSwipeMatch3Kit
                     var idx = i + (j * Width);
                 
                     var slot = CreateSlot(levelData.Tiles[idx]);
-                    if (slot)
+                    if (slot && slot.GetComponent<GameObjectEntity>())
                     {
                         var pEntity = slot.GetComponent<GameObjectEntity>().Entity;
                         if (EntityManager.HasComponent<BlockSlotData>(pEntity))
