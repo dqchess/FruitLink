@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 1577423167330409555}
   - component: {fileID: 1660543836934476800}
   - component: {fileID: 5484053766046768120}
-  - component: {fileID: 719502731566688090}
+  - component: {fileID: 7172856719288913158}
   m_Layer: 5
   m_Name: BuyCoinsPopup
   m_TagString: Untagged
@@ -251,6 +251,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   gameConfig: {fileID: 11400000, guid: 6b47954202b9549b6a59ab55ca91f82a, type: 2}
+  purchaseManager: {fileID: 7172856719288913158}
   coinsSystem: {fileID: 11400000, guid: 41c76809fc5664e68a9d954197c9e9d6, type: 2}
   purchasableItems: {fileID: 7943388265342196528}
   purchasableItemPrefab: {fileID: 5785941355106918264, guid: 64652d4b681d74a9fbfa78ae7cd9bffc,
@@ -267,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1939221ccca432f8bdb20053a8cb1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &719502731566688090
+--- !u!114 &7172856719288913158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

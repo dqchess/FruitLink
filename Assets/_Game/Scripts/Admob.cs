@@ -1,4 +1,5 @@
 ﻿﻿using System;
+ using DG.Tweening;
  using FruitSwipeMatch3Kit;
  using GoogleMobileAds.Api;
  using UnityEngine;
@@ -115,7 +116,9 @@ public class Admob : MonoBehaviour
         if (_requestCount < 3)
         {
             _requestCount++;
-            RequestRewardVideo();
+            var seg = DOTween.Sequence();
+            seg.AppendInterval(3);
+            seg.AppendCallback(RequestRewardVideo);
         }
     }
 
@@ -164,7 +167,7 @@ public class Admob : MonoBehaviour
         else
         {
             if(onClose != null) onClose.Invoke();
-            if(_requestInter > 0) RequestInterstitial();
+            if(_requestInter >= 3) RequestInterstitial();
         }
     }
     
@@ -209,7 +212,9 @@ public class Admob : MonoBehaviour
         if (_requestInter < 3)
         {
             _requestInter++;
-            RequestInterstitial();    
+            var seg = DOTween.Sequence();
+            seg.AppendInterval(3);
+            seg.AppendCallback(RequestInterstitial);
         }
     }
 

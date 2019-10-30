@@ -16,6 +16,8 @@ namespace FruitSwipeMatch3Kit
         [SerializeField]
         private GameConfiguration gameConfig;
 
+        [SerializeField] private PurchaseManager purchaseManager;
+
         [SerializeField]
         private CoinsSystem coinsSystem;
         
@@ -42,11 +44,11 @@ namespace FruitSwipeMatch3Kit
         {
             base.Start();
             CoinsSystem.Subscribe(OnCoinsChanged);
-
+            
             foreach (var item in gameConfig.IapItems)
             {
                 var row = Instantiate(purchasableItemPrefab, purchasableItems.transform, false);
-                row.GetComponent<PurchasableItem>().Fill(item);
+                row.GetComponent<PurchasableItem>().Fill(purchaseManager, item);
                 row.GetComponent<PurchasableItem>().BuyCoinsPopup = this;
             }
         }
