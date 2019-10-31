@@ -126,6 +126,12 @@ namespace FruitSwipeMatch3Kit
                 var tile = result.collider.gameObject.GetComponent<Tile>();
                 if (tile != null)
                 {
+                    if (GameState.IsTutorial)
+                    {
+                        GameState.IsTutorial = false;
+                        World.GetExistingSystem<TutorialSystem>().Destroy();
+                    }
+
                     var goe = result.collider.GetComponent<GameObjectEntity>();
                     var entityManager = goe.EntityManager;
                     var entity = goe.Entity;
@@ -301,7 +307,7 @@ namespace FruitSwipeMatch3Kit
             }
         }
 
-        private void CreatePathHighlight(Entity selectEntity, ColorTileType colorTileType)
+        public void CreatePathHighlight(Entity selectEntity, ColorTileType colorTileType)
         {
             var levelCreationSystem = World.GetExistingSystem<LevelCreationSystem>();
             var tileEntities = levelCreationSystem.TileEntities;
