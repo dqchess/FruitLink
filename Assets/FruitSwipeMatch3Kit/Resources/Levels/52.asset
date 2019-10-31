@@ -15,14 +15,15 @@ MonoBehaviour:
   Width: 11
   Height: 9
   Moves: 21
-  Star1Score: 600
-  Star2Score: 900
-  Star3Score: 1800
+  Star1Score: 800
+  Star2Score: 1300
+  Star3Score: 2100
   IsCrusherAvailable: 1
   IsBombAvailable: 1
   IsSwapAvailable: 1
   IsColorBombAvailable: 1
   EndGameAward: 1
+  IsArrowDown: 0
   Tiles:
   - TileType: 4
     ColorTileType: 0
@@ -102,7 +103,7 @@ MonoBehaviour:
     BlockerType: 2
     CollectibleType: 0
     SlotType: 0
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
@@ -120,7 +121,7 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
@@ -138,7 +139,7 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
