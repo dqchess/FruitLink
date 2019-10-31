@@ -34,6 +34,7 @@ namespace FruitSwipeMatch3Kit
             {
                 if (GameState.SwapCount >= GameplayConstants.GameOverSwapCount)
                 {
+                    GameState.SwapCount = GameplayConstants.GameOverSwapCount + 1;
                     EntityManager.CreateEntity(ComponentType.ReadOnly<GravityFinishedEvent>());
                 }
                 else

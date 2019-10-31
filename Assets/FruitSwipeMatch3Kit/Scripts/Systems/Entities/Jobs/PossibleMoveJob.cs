@@ -31,6 +31,7 @@ namespace FruitSwipeMatch3Kit
                         continue;
                     if (CheckTile(idx, ref possibleMove) >= GameplayConstants.NumTilesNeededForMatch)
                     {
+                        if(GameState.IsTutorial) return;
                         GameState.SwapCount = 0;
                         GameState.SuggestIndexes = possibleMove;
                         GameState.SuggestSequence = DOTween.Sequence();
@@ -43,7 +44,9 @@ namespace FruitSwipeMatch3Kit
                     }
                 }
             }
-            Ecb.AddComponent(Ecb.CreateEntity(), new SwapTileEvent());
+            
+            if (GameState.SwapCount <= GameplayConstants.GameOverSwapCount) 
+                Ecb.AddComponent(Ecb.CreateEntity(), new SwapTileEvent());
         }
 
         private int CheckTile(int startIdx, ref List<int> possibleMove)

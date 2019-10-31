@@ -70,7 +70,7 @@ namespace FruitSwipeMatch3Kit
                 SoundPlayer.PlaySoundFx("TileFalling");
 
                 var seq = DOTween.Sequence();
-                seq.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
+                seq.AppendInterval(GameplayConstants.FallingExistingTilesSpeed+0.05f);
                 seq.AppendCallback(OnGravityCompleted);
                 Entities.WithAll<CheckGravityTag>().ForEach(entity =>
                 {

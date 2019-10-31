@@ -497,13 +497,21 @@ namespace FruitSwipeMatch3Kit
 
         public void SpawnRandomJelly()
         {
+            // index of all jelly
             List<int> indexList = new List<int>();
             for (int i = 0; i < Slots.Count; i++)
             {
-                if(Slots[i] != null) indexList.Add(i);
+                if (Slots[i] != null)
+                {
+                    SlotType type = Slots[i].GetComponent<Slot>().Type;
+                    if(type == SlotType.Jelly || type == SlotType.Jelly2 || type == SlotType.Jelly3)
+                        indexList.Add(i);
+                }
             }
-            for (int i = 0; i < Slots.Count; i++)
+            
+            for (int i = 0; i < indexList.Count; i++)
             {
+                // get random jelly slot
                 int randomIdx = Random.Range(0, indexList.Count);
                 randomIdx = indexList[randomIdx];
                 int idx = GetNormalSlotNeighbour(randomIdx);
@@ -520,6 +528,8 @@ namespace FruitSwipeMatch3Kit
                     });
                     return;
                 }
+
+                i--;
             }
         }
 

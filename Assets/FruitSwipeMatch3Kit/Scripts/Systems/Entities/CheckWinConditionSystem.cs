@@ -36,30 +36,30 @@ namespace FruitSwipeMatch3Kit
             Entities.With(query).ForEach(entity =>
             {
                 PostUpdateCommands.DestroyEntity(entity);
-                
-                if (GameState.IsPlayingEndGameSequence)
+            });
+            
+            if (GameState.IsPlayingEndGameSequence)
+            {
+                playingEndGameSequence = true;
+            }
+            else
+            {
+                var widgets = Object.FindObjectOfType<GoalsWidget>();
+                if (widgets.HasPlayerWon())
                 {
-                    playingEndGameSequence = true;
+                    gameScreen.OnPlayerWon();
+                }
+                else if (GameState.SwapCount >= GameplayConstants.GameOverSwapCount)
+                {
+                    gameScreen.OpenLosePopup();
                 }
                 else
                 {
-                    var widgets = Object.FindObjectOfType<GoalsWidget>();
-                    if (widgets.HasPlayerWon())
-                    {
-                        gameScreen.OnPlayerWon();
-                    }
-                    else if (GameState.SwapCount >= GameplayConstants.GameOverSwapCount)
-                    {
-                        gameScreen.OpenLosePopup();
-                    }
-                    else
-                    {
-                        var updateMovesSystem = World.GetExistingSystem<UpdateRemainingMovesUiSystem>();
-                        if (updateMovesSystem.NumRemainingMoves == 0)
-                            gameScreen.OnPlayerLost();
-                    }
+                    var updateMovesSystem = World.GetExistingSystem<UpdateRemainingMovesUiSystem>();
+                    if (updateMovesSystem.NumRemainingMoves == 0)
+                        gameScreen.OnPlayerLost();
                 }
-            });
+            }
 
             if (playingEndGameSequence)
                 gameScreen.AdvanceEndGameSequence();
