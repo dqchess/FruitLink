@@ -17,25 +17,26 @@ MonoBehaviour:
   Moves: 24
   Star1Score: 1100
   Star2Score: 1600
-  Star3Score: 2600
+  Star3Score: 2300
   IsCrusherAvailable: 1
   IsBombAvailable: 1
   IsSwapAvailable: 1
   IsColorBombAvailable: 1
   EndGameAward: 1
+  IsArrowDown: 0
   Tiles:
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 1
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 2
@@ -71,19 +72,19 @@ MonoBehaviour:
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 1
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 1
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 2
@@ -131,7 +132,7 @@ MonoBehaviour:
     RandomColorTileType: 0
     BlockerType: 1
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 1
@@ -365,31 +366,31 @@ MonoBehaviour:
     RandomColorTileType: 1
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 1
@@ -407,7 +408,7 @@ MonoBehaviour:
     RandomColorTileType: 3
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 3
@@ -425,19 +426,19 @@ MonoBehaviour:
     RandomColorTileType: 0
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 1
@@ -455,19 +456,19 @@ MonoBehaviour:
     RandomColorTileType: 3
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 1
@@ -479,19 +480,19 @@ MonoBehaviour:
     RandomColorTileType: 0
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 4
+    SlotType: 3
   - TileType: 4
     ColorTileType: 0
     RandomColorTileType: 0
@@ -503,18 +504,18 @@ MonoBehaviour:
     RandomColorTileType: 2
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 2
+    SlotType: 1
   Goals:
   - Type: 2
     ColorTileType: 0
     RandomColorTileType: 0
-    SlotType: 2
+    SlotType: 1
     BlockerType: 0
     CollectibleType: 0
     Amount: 23
