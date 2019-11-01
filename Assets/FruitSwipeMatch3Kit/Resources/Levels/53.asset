@@ -15,14 +15,15 @@ MonoBehaviour:
   Width: 11
   Height: 9
   Moves: 23
-  Star1Score: 600
-  Star2Score: 900
-  Star3Score: 1700
+  Star1Score: 900
+  Star2Score: 1400
+  Star3Score: 2400
   IsCrusherAvailable: 1
   IsBombAvailable: 1
   IsSwapAvailable: 1
   IsColorBombAvailable: 1
   EndGameAward: 1
+  IsArrowDown: 0
   Tiles:
   - TileType: 1
     ColorTileType: 0
