@@ -75,7 +75,7 @@ namespace FruitSwipeMatch3Kit
         protected override void Start()
         {
             base.Start();
-            
+            GameState.Reset();
             InitializeLevel();
             OpenPopup<LevelGoalsPopup>("Popups/LevelGoalsPopup", popup =>
             {
@@ -439,11 +439,11 @@ namespace FruitSwipeMatch3Kit
             freeLivesChecker.RemoveLife();
         }
 
-        public void ExitGame()
+        public void ExitGame(bool loadScene = true)
         {
             CloseTopCanvas();
             PenalizePlayer();
-            GetComponent<ScreenTransition>().PerformTransition();
+            if(loadScene) GetComponent<ScreenTransition>().PerformTransition();
             ShowAds();
 #if !UNITY_EDITOR
             Analytics.Instance.QuitLevel();

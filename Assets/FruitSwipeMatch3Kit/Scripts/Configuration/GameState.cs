@@ -20,12 +20,17 @@ namespace FruitSwipeMatch3Kit
         public static bool IsSwapping = false;
         public static bool IsTutorial = false;
         public static bool IsPlayerWon = false;
-        public static List<int> SuggestIndexes;
-        public static Sequence SuggestSequence;
-        public static Sequence TutorialSequence;
+        public static List<int> SuggestIndexes = new List<int>();
+        public static Sequence SuggestSequence = DOTween.Sequence();
+        public static Sequence TutorialSequence = DOTween.Sequence();
         public void OnGameRestarted()
         {
             Score = 0;
+            Reset();
+        }
+
+        public static void Reset()
+        {
             SwapCount = 0;
             IsBoosting = false;
             IsPlayingEndGameSequence = false;
