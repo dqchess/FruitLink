@@ -29,9 +29,6 @@ namespace FruitSwipeMatch3Kit
 		
 		[SerializeField]
 		private TextMeshProUGUI priceText;
-		
-		[SerializeField]
-		private TextMeshProUGUI priceBorderText;
 #pragma warning restore 649
 
 		private GameScreen gameScreen;
@@ -42,7 +39,6 @@ namespace FruitSwipeMatch3Kit
 			Assert.IsNotNull(numMovesText);
 			Assert.IsNotNull(questionText);
 			Assert.IsNotNull(priceText);
-			Assert.IsNotNull(priceBorderText);
 		}
 
 		protected override void Start()
@@ -52,7 +48,6 @@ namespace FruitSwipeMatch3Kit
 			numMovesText.text = $"+ {gameConfig.NumExtraMoves}";
 			questionText.text = $"Add {gameConfig.NumExtraMoves} moves to continue?";
 			priceText.text = gameConfig.ExtraMovesCost.ToString();
-			priceBorderText.text = priceText.text;
 		}
 		
 		public void OnQuitButtonPressed()
