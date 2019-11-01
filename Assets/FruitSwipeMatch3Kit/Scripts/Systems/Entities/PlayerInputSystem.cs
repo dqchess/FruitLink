@@ -82,8 +82,8 @@ namespace FruitSwipeMatch3Kit
             selectPool = particlePools.SelectionParticlePool;
 
             gameScreen = Object.FindObjectOfType<GameScreen>();
-
-            inputLocked = false;
+            GameState.IsPlayerWon = false;
+            UnlockInput();
             isDraggingInput = false;
         }
 
@@ -129,6 +129,7 @@ namespace FruitSwipeMatch3Kit
                     if (GameState.IsTutorial)
                     {
                         GameState.IsTutorial = false;
+                        GameState.TutorialSequence.Kill();
                         World.GetExistingSystem<TutorialSystem>().Destroy();
                     }
 

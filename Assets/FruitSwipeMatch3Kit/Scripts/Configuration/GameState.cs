@@ -26,6 +26,16 @@ namespace FruitSwipeMatch3Kit
         public void OnGameRestarted()
         {
             Score = 0;
+            SwapCount = 0;
+            IsBoosting = false;
+            IsPlayingEndGameSequence = false;
+            HasJelly = false;
+            IsSwapping = false;
+            IsTutorial = false;
+            IsPlayerWon = false;
+            SuggestIndexes.Clear();
+            SuggestSequence.Kill();
+            TutorialSequence.Kill();
         }
     }
 }
