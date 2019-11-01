@@ -41,7 +41,7 @@ namespace FruitSwipeMatch3Kit
     	        GetComponent<AudioSource>().Play();
 	    }*/
 
-	    public void OnCloseButtonPressed()
+	    public virtual void OnCloseButtonPressed()
 	    {
             var gameScreen = ParentScreen as GameScreen;
             if (gameScreen != null)
