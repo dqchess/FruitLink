@@ -21,6 +21,13 @@ namespace FruitSwipeMatch3Kit
                 numLives = gameConfig.MaxLives;
             PlayerPrefs.SetInt("num_lives", numLives);
         }
+        
+        public void AddLife()
+        {
+            var numLives = PlayerPrefs.GetInt("num_lives");
+            numLives += 1;
+            PlayerPrefs.SetInt("num_lives", numLives);
+        }
 
         public void RemoveLife(GameConfiguration gameConfig)
         {

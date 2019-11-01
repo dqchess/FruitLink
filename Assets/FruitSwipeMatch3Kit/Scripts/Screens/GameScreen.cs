@@ -21,6 +21,7 @@ namespace FruitSwipeMatch3Kit
     {
         public GameConfiguration GameConfig;
         public CoinsSystem CoinsSystem;
+        public LivesSystem LivesSystem;
         public int LevelNumber;
         
 #pragma warning disable 649
@@ -229,7 +230,7 @@ namespace FruitSwipeMatch3Kit
             {
                 PlayerPrefs.SetInt(GameplayConstants.UnlockedNextLevelPrefKey, 0);
             }
-
+            LivesSystem.AddLife();
             var updateMovesSystem = World.Active.GetExistingSystem<UpdateRemainingMovesUiSystem>();
             if (levelData.EndGameAward && updateMovesSystem.NumRemainingMoves > 0)
                 StartCoroutine(OpenEndGameAwardPopupAsync());
