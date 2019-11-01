@@ -4,9 +4,7 @@
 
 using System;
 using UnityEngine;
-#if FRUIT_SWIPE_ENABLE_IAP
 using UnityEngine.Purchasing;
-#endif
 
 namespace FruitSwipeMatch3Kit
 {
@@ -14,17 +12,13 @@ namespace FruitSwipeMatch3Kit
     /// This class manages the in-app purchases of the game. It is based on the official Unity IAP
     /// documentation available here: https://docs.unity3d.com/Manual/UnityIAPInitialization.html
     /// </summary>
-    #if FRUIT_SWIPE_ENABLE_IAP
+    
     public class PurchaseManager : MonoBehaviour, IStoreListener
     {
-    #else 
-    public class PurchaseManager : MonoBehaviour
-    {
-    #endif
         public GameConfiguration GameConfig;
         public CoinsSystem CoinsSystem;
         public Action OnInitDone = null;
-    #if FRUIT_SWIPE_ENABLE_IAP    
+ 
         public IStoreController Controller { get; private set; }
 
         private void Start()
@@ -144,6 +138,5 @@ namespace FruitSwipeMatch3Kit
 
             return "Unknown error.";
         }
-        #endif    
     }
 }

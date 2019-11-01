@@ -93,17 +93,12 @@ namespace FruitSwipeMatch3Kit
 
         public void OnPurchaseButtonPressed()
         {
-            #if FRUIT_SWIPE_ENABLE_IAP
             if (purchaseManager != null)
             {
                 purchaseManager.Controller.InitiatePurchase(cachedItem.StoreId);
                 BuyCoinsPopup.SetCurrentPurchasableItem(this);
                 BuyCoinsPopup.OpenLoadingPopup();
             }
-            #else 
-            BuyCoinsPopup.SetCurrentPurchasableItem(this);
-            BuyCoinsPopup.CoinsSystem.BuyCoins(cachedItem.NumCoins);
-            #endif
         }
 
 //        public void PlayCoinParticles()
