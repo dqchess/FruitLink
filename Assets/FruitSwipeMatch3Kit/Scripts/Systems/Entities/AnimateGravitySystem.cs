@@ -111,7 +111,7 @@ namespace FruitSwipeMatch3Kit
                 }
                 else
                 {
-                    inputSystem.UnlockInput();
+                    if(!GameState.IsPlayerWon) inputSystem.UnlockInput();
                     EntityManager.CreateEntity(gravityFinishedArchetype);   
                 }
             }

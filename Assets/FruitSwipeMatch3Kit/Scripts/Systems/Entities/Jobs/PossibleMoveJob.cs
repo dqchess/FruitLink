@@ -31,7 +31,7 @@ namespace FruitSwipeMatch3Kit
                         continue;
                     if (CheckTile(idx, ref possibleMove) >= GameplayConstants.NumTilesNeededForMatch)
                     {
-                        if(GameState.IsTutorial) return;
+                        if(GameState.IsTutorial || GameState.IsPlayerWon) return;
                         GameState.SwapCount = 0;
                         GameState.SuggestIndexes = possibleMove;
                         GameState.SuggestSequence = DOTween.Sequence();

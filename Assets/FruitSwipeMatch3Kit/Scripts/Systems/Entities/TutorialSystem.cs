@@ -54,8 +54,11 @@ namespace FruitSwipeMatch3Kit
 
         public void Destroy()
         {
-            hand.DOKill();
-            Object.Destroy(hand.gameObject);
+            if (hand != null)
+            {
+                hand.DOKill();
+                Object.Destroy(hand.gameObject);                
+            }
         }
     }
 }

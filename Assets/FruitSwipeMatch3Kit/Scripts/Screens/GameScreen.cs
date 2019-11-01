@@ -55,7 +55,6 @@ namespace FruitSwipeMatch3Kit
         private LevelData levelData;
         private GameState gameState;
 
-        private bool playerWon;
         private bool playerLost;
         #if !UNITY_EDITOR
         private int continueLevel = 0;
@@ -211,10 +210,11 @@ namespace FruitSwipeMatch3Kit
 
         public void OnPlayerWon()
         {
-            if (playerWon)
+            if (GameState.IsPlayerWon)
                 return;
 
-            playerWon = true;
+            GameState.IsPlayerWon = true;
+            GameState.SuggestSequence.Kill();
             World.Active.GetExistingSystem<PlayerInputSystem>().LockInput();
             var nextLevel = PlayerPrefs.GetInt(GameplayConstants.NextLevelPrefKey);
             if (nextLevel == 0)
@@ -363,7 +363,7 @@ namespace FruitSwipeMatch3Kit
             var world = World.Active;
             world.GetExistingSystem<UpdateRemainingMovesUiSystem>().Initialize(numExtraMoves);
             world.GetExistingSystem<PlayerInputSystem>().OnGameRestarted();
-            playerWon = false;
+            GameState.IsPlayerWon = false;
             playerLost = false;
 #if !UNITY_EDITOR
             Analytics.Instance.ContinueLevel(continueLevel++);
@@ -378,7 +378,7 @@ namespace FruitSwipeMatch3Kit
             world.GetExistingSystem<UpdateRemainingMovesUiSystem>().Initialize(levelData.Moves);
             world.GetExistingSystem<PlayerInputSystem>().OnGameRestarted();
             
-            playerWon = false;
+            GameState.IsPlayerWon = false;
             playerLost = false;
             #if !UNITY_EDITOR
             continueLevel = 0;

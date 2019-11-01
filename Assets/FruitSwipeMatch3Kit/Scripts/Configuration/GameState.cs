@@ -19,6 +19,7 @@ namespace FruitSwipeMatch3Kit
         public static bool HasJelly = false;
         public static bool IsSwapping = false;
         public static bool IsTutorial = false;
+        public static bool IsPlayerWon = false;
         public static List<int> SuggestIndexes;
         public static Sequence SuggestSequence;
         public static Sequence TutorialSequence;
