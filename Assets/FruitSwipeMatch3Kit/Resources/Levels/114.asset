@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 9
   Height: 9
-  Moves: 22
-  Star1Score: 1100
-  Star2Score: 1600
-  Star3Score: 2400
+  Moves: 28
+  Star1Score: 700
+  Star2Score: 1000
+  Star3Score: 1500
   IsCrusherAvailable: 1
   IsBombAvailable: 1
   IsSwapAvailable: 1
   IsColorBombAvailable: 1
   EndGameAward: 1
+  IsArrowDown: 0
   Tiles:
   - TileType: 4
     ColorTileType: 0
@@ -108,13 +109,13 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 3
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
@@ -168,7 +169,7 @@ MonoBehaviour:
     BlockerType: 5
     CollectibleType: 0
     SlotType: 3
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 0
@@ -222,7 +223,7 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 0
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
@@ -276,7 +277,7 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 3
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
@@ -330,7 +331,7 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     SlotType: 3
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
@@ -384,7 +385,7 @@ MonoBehaviour:
     BlockerType: 6
     CollectibleType: 0
     SlotType: 0
-  - TileType: 4
+  - TileType: 7
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 6
@@ -518,4 +519,4 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     Amount: 17
-  AvailableColors: 01000000030000000000000002000000
+  AvailableColors: 010000000300000002000000
