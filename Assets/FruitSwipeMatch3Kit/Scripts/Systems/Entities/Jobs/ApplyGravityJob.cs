@@ -107,6 +107,10 @@ namespace FruitSwipeMatch3Kit
                 int pSide = 1;
                 for (int row = posY ; row <= posY || pSide == 1; row-=pSide)
                 {
+                    if(pSide == 0)
+                    {
+                        pSide = -1;
+                    }
                     if (row < 0)
                     {
                         return new int2(-1, currentLength);
@@ -119,7 +123,7 @@ namespace FruitSwipeMatch3Kit
                     var tile = Tiles[idx];
                     if (tile == Entity.Null && pSide == 1)
                         continue;
-                    if (HoleSlotData.Exists(tile))
+                    if (HoleSlotData.Exists(tile) && pSide == 1)
                     {
                         continue;
                     }
@@ -141,7 +145,7 @@ namespace FruitSwipeMatch3Kit
 
                         if (pSide == 1)
                         {
-                            pSide = -1;
+                            pSide = 0;
                             continue;
                         }else if (pSide == -1 )
                         {
