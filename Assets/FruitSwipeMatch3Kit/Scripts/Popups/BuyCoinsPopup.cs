@@ -44,13 +44,15 @@ namespace FruitSwipeMatch3Kit
         {
             base.Start();
             CoinsSystem.Subscribe(OnCoinsChanged);
-            
-            foreach (var item in gameConfig.IapItems)
+            purchaseManager.OnInitDone += () =>
             {
-                var row = Instantiate(purchasableItemPrefab, purchasableItems.transform, false);
-                row.GetComponent<PurchasableItem>().Fill(purchaseManager, item);
-                row.GetComponent<PurchasableItem>().BuyCoinsPopup = this;
-            }
+                foreach (var item in gameConfig.IapItems)
+                {
+                    var row = Instantiate(purchasableItemPrefab, purchasableItems.transform, false);
+                    row.GetComponent<PurchasableItem>().Fill(purchaseManager, item);
+                    row.GetComponent<PurchasableItem>().BuyCoinsPopup = this;
+                }
+            };
         }
 
         private void OnDestroy()

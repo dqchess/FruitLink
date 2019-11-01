@@ -2,12 +2,10 @@
 // This code can only be used under the standard Unity Asset Store End User License Agreement,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Purchasing;
 using UnityEngine.UI;
 
 namespace FruitSwipeMatch3Kit
@@ -37,10 +35,8 @@ namespace FruitSwipeMatch3Kit
         private Image coinsImage;
         [SerializeField]
         private List<Sprite> coinIcons;
-//        [SerializeField]
-//        private ParticleSystem coinsParticles;
 #pragma warning restore 649
-        private IStoreController storeController;
+        private PurchaseManager purchaseManager;
         private IapItem cachedItem;
 
         private void Awake()
@@ -52,13 +48,12 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(numCoinsText);
             Assert.IsNotNull(priceText);
             Assert.IsNotNull(coinsImage);
-//            Assert.IsNotNull(coinsParticles);
         }
 
-        public void Fill(PurchaseManager purchaseManager, IapItem item)
+        public void Fill(PurchaseManager purchase, IapItem item)
         {
             cachedItem = item;
-            storeController = purchaseManager.Controller;
+            purchaseManager = purchase;
             numCoinsText.text = item.NumCoins.ToString("n0");
             if (item.Discount > 0)
                 discountText.text = $"{item.Discount}%";
@@ -82,26 +77,33 @@ namespace FruitSwipeMatch3Kit
             coinsImage.sprite = coinIcons[(int)item.CoinIcon];
             coinsImage.SetNativeSize();
             
-            if (storeController != null)
-            {
-                var product = storeController.products.WithID(item.StoreId);
-                if (product != null)
-                    priceText.text = product.metadata.localizedPriceString;
-            }
-            else
-            {
-                priceText.text = item.DefaultPrices;
-            }
+            priceText.text = item.DefaultPrices;
+//            
+//            if (purchaseManager != null)
+//            {
+//                var product = purchaseManager.Controller.products.WithID(item.StoreId);
+//                if (product != null)
+//                    priceText.text = product.metadata.localizedPriceString;
+//            }
+//            else
+//            {
+//                priceText.text = item.DefaultPrices;
+//            }
         }
 
         public void OnPurchaseButtonPressed()
         {
-            if (storeController != null)
+            #if FRUIT_SWIPE_ENABLE_IAP
+            if (purchaseManager != null)
             {
-                storeController.InitiatePurchase(cachedItem.StoreId);
+                purchaseManager.Controller.InitiatePurchase(cachedItem.StoreId);
                 BuyCoinsPopup.SetCurrentPurchasableItem(this);
                 BuyCoinsPopup.OpenLoadingPopup();
             }
+            #else 
+            BuyCoinsPopup.SetCurrentPurchasableItem(this);
+            BuyCoinsPopup.CoinsSystem.BuyCoins(cachedItem.NumCoins);
+            #endif
         }
 
 //        public void PlayCoinParticles()
