@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 9
   Height: 9
-  Moves: 24
+  Moves: 20
   Star1Score: 600
   Star2Score: 900
-  Star3Score: 1700
+  Star3Score: 2200
   IsCrusherAvailable: 1
   IsBombAvailable: 1
   IsSwapAvailable: 1

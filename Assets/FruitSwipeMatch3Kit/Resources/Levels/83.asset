@@ -16,8 +16,8 @@ MonoBehaviour:
   Height: 11
   Moves: 22
   Star1Score: 900
-  Star2Score: 1300
-  Star3Score: 1800
+  Star2Score: 1200
+  Star3Score: 1600
   IsCrusherAvailable: 1
   IsBombAvailable: 1
   IsSwapAvailable: 1

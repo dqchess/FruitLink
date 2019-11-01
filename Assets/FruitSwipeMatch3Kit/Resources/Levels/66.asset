@@ -17,7 +17,7 @@ MonoBehaviour:
   Moves: 23
   Star1Score: 800
   Star2Score: 1100
-  Star3Score: 1800
+  Star3Score: 1600
   IsCrusherAvailable: 1
   IsBombAvailable: 1
   IsSwapAvailable: 1

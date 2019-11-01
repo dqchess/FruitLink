@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 11
   Height: 9
-  Moves: 23
+  Moves: 20
   Star1Score: 500
   Star2Score: 800
   Star3Score: 1500
@@ -23,6 +23,7 @@ MonoBehaviour:
   IsSwapAvailable: 1
   IsColorBombAvailable: 1
   EndGameAward: 1
+  IsArrowDown: 0
   Tiles:
   - TileType: 3
     ColorTileType: 0
