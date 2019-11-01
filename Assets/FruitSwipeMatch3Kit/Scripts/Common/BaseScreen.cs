@@ -7,7 +7,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
@@ -49,21 +48,22 @@ namespace FruitSwipeMatch3Kit
             var topmostPopup = CurrentPopups.Pop();
             if (topmostPopup == null)
                 return;
-            Addressables.ReleaseInstance(topmostPopup);
+
             var topmostPanel = currentPanels.Pop();
             if (topmostPanel != null)
             {
                 var seq = DOTween.Sequence();
                 seq.Append(topmostPanel.GetComponent<Image>().DOFade(0.0f, 0.2f));
-                seq.AppendCallback(() =>
-                {
-                    Destroy(topmostPanel);
-                });
+                seq.AppendCallback(() => Destroy(topmostPanel));
             }
         }
 
-	    private IEnumerator OpenPopupAsync<T>(string popupName, Action<T> onOpened) where T : Popup
+        private IEnumerator OpenPopupAsync<T>(string popupName, Action<T> onOpened) where T : Popup
         {
+            var request = Resources.LoadAsync<GameObject>(popupName);
+            while (!request.isDone)
+                yield return null;
+
             var panel = new GameObject("Panel");
             var panelImage = panel.AddComponent<Image>();
             var color = Color.black;
@@ -77,17 +77,13 @@ namespace FruitSwipeMatch3Kit
             currentPanels.Push(panel);
             var seq = DOTween.Sequence();
             seq.Append(panel.GetComponent<Image>().DOFade(220.0f/256.0f, 0.2f));
-            var request = Addressables.InstantiateAsync(popupName, Canvas.transform);
-            request.Completed += operation =>
-            {
-                var popup = request.Result;
-                Assert.IsNotNull(popup);
-                popup.GetComponent<Popup>().ParentScreen = this;
 
-                onOpened?.Invoke(popup.GetComponent<T>());
-                CurrentPopups.Push(popup);  
-            };
-            yield return null;
+            var popup = Instantiate(request.asset, Canvas.transform, false) as GameObject;
+            Assert.IsNotNull((popup));
+            popup.GetComponent<Popup>().ParentScreen = this;
+
+            onOpened?.Invoke(popup.GetComponent<T>());
+            CurrentPopups.Push(popup);
         }
 	}
 }
