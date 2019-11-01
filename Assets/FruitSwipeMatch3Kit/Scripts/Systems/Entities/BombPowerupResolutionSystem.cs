@@ -59,14 +59,40 @@ namespace FruitSwipeMatch3Kit
                     AddTileToDestroyIfValid(x - 1, y + 1, tilesToDestroy, width, height);
                     AddTileToDestroyIfValid(x, y + 1, tilesToDestroy, width, height);
                     AddTileToDestroyIfValid(x + 1, y + 1, tilesToDestroy, width, height);
-                   
+ 
                     var go = Object.Instantiate(particlePools.Bomb, goe.transform.position, Quaternion.identity);
+                    bool isBoosterExploding = false;
+                    var selectedBooster = Entity.Null;
+                    
+                    for (int i = 0; i < tilesToDestroy.Count; i++)
+                    {
+                        int idx = tilesToDestroy[i];
+                        entity = levelCreationSystem.TileEntities[idx];
+
+                        if (EntityManager.HasComponent<BoosterData>(entity))
+                        {
+                            if (selectedBooster == Entity.Null)
+                            {
+                                selectedBooster = entity;
+                                isBoosterExploding = true;
+                                EntityManager.AddComponentData(entity, new PendingBoosterData());
+                                tilesToDestroy.RemoveAt(i);
+                                i--;
+                            }
+                            else
+                            {
+                                inputSystem.PendingBoosterTiles.Add(entity);
+                                tilesToDestroy.RemoveAt(i);
+                                i--;
+                            }
+                        }
+                    }
+                    
                     var seg = DOTween.Sequence();
                     seg.AppendInterval(GameplayConstants.UseItemBombDelay);
                     seg.AppendCallback(() =>
                     {
                         isResolving = false;
-                        Object.Destroy(go);
                         TileUtils.DestroyTiles(
                             tilesToDestroy,
                             levelCreationSystem.TileEntities,
@@ -75,7 +101,18 @@ namespace FruitSwipeMatch3Kit
                             particlePools,
                             width,
                             height);
+                        if(isBoosterExploding)
+                        {
+                            seg = DOTween.Sequence();
+                            seg.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
+                            seg.AppendCallback(() =>
+                            {
+                                var e = EntityManager.CreateEntity();
+                                EntityManager.AddComponentData(e, new ResolveBoostersData());
+                            });
+                        }
 
+                        Object.Destroy(go);
                         OnResolvedPowerup();
                     });
                 }
