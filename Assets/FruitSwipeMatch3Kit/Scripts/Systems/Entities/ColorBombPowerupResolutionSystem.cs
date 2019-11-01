@@ -3,6 +3,7 @@
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Entities;
 using UnityEngine;
 
@@ -56,17 +57,59 @@ namespace FruitSwipeMatch3Kit
                             }
                         }
                     }
-                   
-                    TileUtils.DestroyTiles(
-                        tilesToDestroy,
-                        levelCreationSystem.TileEntities,
-                        levelCreationSystem.TileGos,
-                        levelCreationSystem.Slots,
-                        particlePools,
-                        width,
-                        height);
+                    
+                    bool isBoosterExploding = false;
+                    var selectedBooster = Entity.Null;
+                    
+                    for (int i = 0; i < tilesToDestroy.Count; i++)
+                    {
+                        int idx = tilesToDestroy[i];
+                        entity = levelCreationSystem.TileEntities[idx];
 
-                    OnResolvedPowerup();
+                        if (EntityManager.HasComponent<BoosterData>(entity))
+                        {
+                            if (selectedBooster == Entity.Null)
+                            {
+                                selectedBooster = entity;
+                                isBoosterExploding = true;
+                                EntityManager.AddComponentData(entity, new PendingBoosterData());
+                                tilesToDestroy.RemoveAt(i);
+                                i--;
+                            }
+                            else
+                            {
+                                inputSystem.PendingBoosterTiles.Add(entity);
+                                tilesToDestroy.RemoveAt(i);
+                                i--;
+                            }
+                        }
+                    }
+                    
+                    var seg = DOTween.Sequence();
+                    seg.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
+                    seg.AppendCallback(() =>
+                    {
+                        TileUtils.DestroyTiles(
+                            tilesToDestroy,
+                            levelCreationSystem.TileEntities,
+                            levelCreationSystem.TileGos,
+                            levelCreationSystem.Slots,
+                            particlePools,
+                            width,
+                            height);
+                        if(isBoosterExploding)
+                        {
+                            seg = DOTween.Sequence();
+                            seg.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
+                            seg.AppendCallback(() =>
+                            {
+                                var e = EntityManager.CreateEntity();
+                                EntityManager.AddComponentData(e, new ResolveBoostersData());
+                            });
+                        }
+
+                        OnResolvedPowerup();
+                    });
                 }
             }
         }

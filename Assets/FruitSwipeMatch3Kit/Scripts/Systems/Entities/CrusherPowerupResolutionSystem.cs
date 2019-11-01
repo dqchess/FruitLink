@@ -35,25 +35,39 @@ namespace FruitSwipeMatch3Kit
                 if (tile != null)
                 {
                     isResolving = true;
+                    bool isBooster = false;
                     var goe = result.collider.GetComponent<GameObjectEntity>();
                     var entity = goe.Entity;
                     var tilePos = goe.EntityManager.GetComponentData<TilePosition>(entity);
                     var particlePools = Object.FindObjectOfType<ParticlePools>();
                     var idx = tilePos.X + tilePos.Y * levelCreationSystem.Width;
+                    if (EntityManager.HasComponent<BoosterData>(entity))
+                    {
+                        isBooster = true;
+                        EntityManager.AddComponentData(entity, new PendingBoosterData());
+                    }
                     var go = Object.Instantiate(particlePools.Crusher, goe.transform.position, Quaternion.identity);
                     var seg = DOTween.Sequence();
                     seg.AppendInterval(GameplayConstants.UseItemCrushDelay);
                     seg.AppendCallback(() =>
                     {
                         isResolving = false;
+                        if (isBooster)
+                        {
+                            var e = EntityManager.CreateEntity();
+                            EntityManager.AddComponentData(e, new ResolveBoostersData());
+                        }
+                        else
+                        {
+                            TileUtils.DestroyTile(
+                                idx,
+                                levelCreationSystem.TileEntities,
+                                levelCreationSystem.TileGos,
+                                levelCreationSystem.Slots,
+                                particlePools,
+                                true);
+                        }
                         Object.Destroy(go);
-                        TileUtils.DestroyTile(
-                            idx,
-                            levelCreationSystem.TileEntities,
-                            levelCreationSystem.TileGos,
-                            levelCreationSystem.Slots,
-                            particlePools,
-                            true);
                         OnResolvedPowerup();
                     });
                 }
