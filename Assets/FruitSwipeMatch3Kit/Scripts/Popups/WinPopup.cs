@@ -2,7 +2,6 @@
 // This code can only be used under the standard Unity Asset Store End User License Agreement,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
-using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -55,32 +54,6 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(disabledStar1Sprite);
             Assert.IsNotNull(disabledStar2Sprite);
             Assert.IsNotNull(disabledStar3Sprite);
-        }
-
-        public override void OnCloseButtonPressed()
-        {
-            var gameScreen = ParentScreen as GameScreen;
-            if (gameScreen != null)
-            {
-                int numLevel = PlayerPrefs.GetInt(GameplayConstants.LastSelectedLevelPrefKey);
-                if (numLevel == 0 || !FileUtils.FileExists("Levels/" + numLevel))
-                {
-                    gameScreen.ExitGame();
-                }
-                else
-                {
-                    gameScreen.ExitGame(false);
-                    PlayerPrefs.SetInt(GameplayConstants.LastSelectedLevelPrefKey, numLevel + 1);
-                    World.Active.GetExistingSystem<GameProgressionSystem>().IsPlayerComingFromLevelScreen = true;
-                    ScreenTransition transition = GetComponent<ScreenTransition>();
-                    transition.Scene = "Game";
-                    transition.PerformTransition();
-                }
-            }
-            else
-            {
-                GetComponent<ScreenTransition>().PerformTransition();
-            }
         }
 
         public void SetStars(int stars)
