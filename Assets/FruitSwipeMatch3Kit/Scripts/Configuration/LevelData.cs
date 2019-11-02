@@ -54,6 +54,8 @@ namespace FruitSwipeMatch3Kit
                         goal.Amount = Tiles.FindAll(x => x.SlotType == SlotType.Jelly || 
                                                          x.SlotType == SlotType.Jelly2 || 
                                                          x.SlotType == SlotType.Jelly3).Count;
+                    if(goal.SlotType == SlotType.Vines)
+                        goal.Amount = Tiles.FindAll(x => x.SlotType == SlotType.Vines).Count;
                 }
                 else if (goal.Type == GoalType.CollectBlockers)
                 {
