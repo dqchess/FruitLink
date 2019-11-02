@@ -22,6 +22,7 @@ namespace FruitSwipeMatch3Kit
     {
         private EntityQuery resolveBoostersQuery;
         private EntityQuery pendingBoosterQuery;
+        private EntityQuery gravityFillQuery;
 
         private LevelCreationSystem levelCreationSystem;
         private PlayerInputSystem inputSystem;
@@ -43,6 +44,14 @@ namespace FruitSwipeMatch3Kit
             pendingBoosterQuery = GetEntityQuery(
                 ComponentType.ReadOnly<BoosterData>(),
                 ComponentType.ReadOnly<PendingBoosterData>());
+            gravityFillQuery = GetEntityQuery(new EntityQueryDesc
+            {
+                Any = new []
+                {
+                    ComponentType.ReadOnly<ApplyGravityData>(), 
+                    ComponentType.ReadOnly<FillEmptySlotsData>()
+                }
+            });
         }
 
         public void Initialize()
@@ -54,13 +63,9 @@ namespace FruitSwipeMatch3Kit
 
         protected override void OnUpdate()
         {
-            bool pending = false;
-            var pQuery = Entities.WithAny<ApplyGravityData>().WithAny<FillEmptySlotsData>();
-            pQuery.ForEach((Entity entity) => { pending = true; });
-            if (pending)
-            {
+            if(gravityFillQuery.CalculateLength() > 0)
                 return;
-            }
+
             if (chainingBoosters)
             {
                 chainingBoosters = false;
@@ -141,7 +146,6 @@ namespace FruitSwipeMatch3Kit
             }
 
             var tilesToExplode = new List<int>(indexes.Count);
-            bool isPendingBooster = false;
             for (var i = 0; i < indexes.Count; ++i)
             {
                 var idx = indexes[i];
@@ -149,17 +153,11 @@ namespace FruitSwipeMatch3Kit
 
                 if (inputSystem.PendingBoosterTiles.Contains(tileEntity))
                 {
-                    if (!isPendingBooster)
+                    if (selectedBooster == Entity.Null)
                     {
-                        isPendingBooster = true;
                         inputSystem.PendingBoosterTiles.Remove(tileEntity);
-                        EntityManager.AddComponentData(tileEntity, new PendingBoosterData());
-                    }
-                    else
-                    {
-                        int indexFind = inputSystem.PendingBoosterTiles.FindIndex(x => x.Index == tileEntity.Index);
-                        inputSystem.PendingBoosterTiles.RemoveAt(indexFind);
-                        inputSystem.PendingBoosterTiles.Insert(0, tileEntity);
+                        selectedBooster = tileEntity;
+                        chainingBoosters = true;
                     }
                     continue;
                 }
