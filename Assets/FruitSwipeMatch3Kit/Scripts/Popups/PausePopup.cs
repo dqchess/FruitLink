@@ -58,13 +58,13 @@ namespace FruitSwipeMatch3Kit
 			{
 				popup.SetInfo("Restart game", "Do you really want to restart the game? (You will lose a life)", () =>
 				{
-					var gameScreen = ParentScreen as GameScreen;
-					if (gameScreen != null)
-					{
-						gameScreen.RestartGame();
-						gameScreen.PenalizePlayer();
-					}
-					
+//					var gameScreen = ParentScreen as GameScreen;
+//					if (gameScreen != null)
+//					{
+//						gameScreen.RestartGame();
+//						gameScreen.PenalizePlayer();
+//					}
+//					
 					inputSystem.UnlockInput();
 					
 					popup.Close();
@@ -79,11 +79,14 @@ namespace FruitSwipeMatch3Kit
 			{
 				popup.SetInfo("Quit game", "Do you really want to quit the game? (You will lose a life)", () =>
 				{
-					var gameScreen = ParentScreen as GameScreen;
-					if (gameScreen != null)
-						gameScreen.PenalizePlayer();
-					
+//					var gameScreen = ParentScreen as GameScreen;
+//					if (gameScreen != null)
+//						gameScreen.PenalizePlayer();
+//					
 					GetComponent<ScreenTransition>().PerformTransition();
+#if !UNITY_EDITOR
+            Analytics.Instance.QuitLevel();
+#endif
 				});
 			});
 		}

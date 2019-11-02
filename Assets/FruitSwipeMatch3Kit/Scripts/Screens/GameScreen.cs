@@ -76,6 +76,7 @@ namespace FruitSwipeMatch3Kit
         {
             base.Start();
             GameState.Reset();
+            PenalizePlayer();
             InitializeLevel();
             OpenPopup<LevelGoalsPopup>("Popups/LevelGoalsPopup", popup =>
             {
@@ -230,7 +231,7 @@ namespace FruitSwipeMatch3Kit
             {
                 PlayerPrefs.SetInt(GameplayConstants.UnlockedNextLevelPrefKey, 0);
             }
-            LivesSystem.AddLife();
+            LivesSystem.AddLife(GameConfig);
             var updateMovesSystem = World.Active.GetExistingSystem<UpdateRemainingMovesUiSystem>();
             if (levelData.EndGameAward && updateMovesSystem.NumRemainingMoves > 0)
                 StartCoroutine(OpenEndGameAwardPopupAsync());
@@ -427,6 +428,7 @@ namespace FruitSwipeMatch3Kit
         {
             CloseTopCanvas();
             RestartGame();
+            PenalizePlayer();
         }
 
         public void OnSettingsButtonPressed()
@@ -439,15 +441,11 @@ namespace FruitSwipeMatch3Kit
             freeLivesChecker.RemoveLife();
         }
 
-        public void ExitGame(bool loadScene = true)
+        public void ExitGame()
         {
             CloseTopCanvas();
-            PenalizePlayer();
-            if(loadScene) GetComponent<ScreenTransition>().PerformTransition();
+            GetComponent<ScreenTransition>().PerformTransition();
             ShowAds();
-#if !UNITY_EDITOR
-            Analytics.Instance.QuitLevel();
-#endif
         }
 
         public void EnablePowerupOverlay()
