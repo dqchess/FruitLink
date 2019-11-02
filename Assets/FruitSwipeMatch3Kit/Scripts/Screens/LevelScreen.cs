@@ -98,12 +98,37 @@ namespace FruitSwipeMatch3Kit
                 sequence.Append(avatar.transform.DOMove(targetPos, 0.8f));
                 sequence.AppendCallback(() => avatar.GetComponent<LevelAvatar>().StartFloatingAnimation());
                 sequence.AppendCallback(() => scrollRect.vertical = true);
+                sequence.AppendCallback(() => SelectLevel(currentButton.NumLevel));
             }
             else
             {
                 avatar.transform.position = targetPos;
                 avatar.GetComponent<LevelAvatar>().StartFloatingAnimation();
                 scrollRect.vertical = true;
+            }
+        }
+
+        public void SelectLevel(int level)
+        {
+            var numLives = PlayerPrefs.GetInt("num_lives");
+            if (numLives > 0)
+            {
+                if (!FileUtils.FileExists("Levels/" + level))
+                {
+                    OpenPopup<AlertPopup>("Popups/AlertPopup",
+                        popup => popup.SetText("This level does not exist."));
+                }
+                else
+                {
+                    OpenPopup<StartGamePopup>("Popups/StartGamePopup", popup =>
+                    {
+                        popup.LoadLevelData(level);
+                    });
+                }
+            }
+            else
+            {
+                OpenPopup<BuyLivesPopup>("Popups/BuyLivesPopup");
             }
         }
     }

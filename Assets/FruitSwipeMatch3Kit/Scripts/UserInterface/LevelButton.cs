@@ -137,26 +137,7 @@ namespace FruitSwipeMatch3Kit
             var screen = GameObject.Find("LevelScreen").GetComponent<LevelScreen>();
             if (screen != null)
             {
-                var numLives = PlayerPrefs.GetInt("num_lives");
-                if (numLives > 0)
-                {
-                    if (!FileUtils.FileExists("Levels/" + NumLevel))
-                    {
-                        screen.OpenPopup<AlertPopup>("Popups/AlertPopup",
-                            popup => popup.SetText("This level does not exist."));
-                    }
-                    else
-                    {
-                        screen.OpenPopup<StartGamePopup>("Popups/StartGamePopup", popup =>
-                        {
-                            popup.LoadLevelData(NumLevel);
-                        });
-                    }
-                }
-                else
-                {
-                    screen.OpenPopup<BuyLivesPopup>("Popups/BuyLivesPopup");
-                }
+                screen.SelectLevel(NumLevel);
             }
         }
     }
