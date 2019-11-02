@@ -36,19 +36,19 @@ MonoBehaviour:
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
@@ -96,13 +96,13 @@ MonoBehaviour:
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 3
@@ -138,7 +138,7 @@ MonoBehaviour:
     RandomColorTileType: 1
     BlockerType: 1
     CollectibleType: 0
-    SlotType: 3
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 3
@@ -156,7 +156,7 @@ MonoBehaviour:
     RandomColorTileType: 1
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 2
@@ -192,13 +192,13 @@ MonoBehaviour:
     RandomColorTileType: 2
     BlockerType: 1
     CollectibleType: 0
-    SlotType: 3
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 3
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
@@ -246,19 +246,19 @@ MonoBehaviour:
     RandomColorTileType: 0
     BlockerType: 1
     CollectibleType: 0
-    SlotType: 3
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 2
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 3
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 3
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
@@ -336,19 +336,19 @@ MonoBehaviour:
     RandomColorTileType: 3
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 0
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 0
     BlockerType: 1
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 2
@@ -396,13 +396,13 @@ MonoBehaviour:
     RandomColorTileType: 1
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 1
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 3
@@ -456,7 +456,7 @@ MonoBehaviour:
     RandomColorTileType: 3
     BlockerType: 6
     CollectibleType: 0
-    SlotType: 0
+    SlotType: 5
   - TileType: 6
     ColorTileType: 0
     RandomColorTileType: 2
@@ -518,5 +518,5 @@ MonoBehaviour:
     SlotType: 1
     BlockerType: 0
     CollectibleType: 0
-    Amount: 24
+    Amount: 36
   AvailableColors: 01000000030000000000000002000000
