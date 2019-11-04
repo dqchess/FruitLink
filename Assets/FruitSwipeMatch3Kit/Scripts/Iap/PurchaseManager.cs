@@ -23,12 +23,20 @@ namespace FruitSwipeMatch3Kit
     #endif
         public GameConfiguration GameConfig;
         public CoinsSystem CoinsSystem;
-        public Action OnInitDone = null;
-    #if FRUIT_SWIPE_ENABLE_IAP    
+#if FRUIT_SWIPE_ENABLE_IAP    
+        private static PurchaseManager _instance;
+        public static PurchaseManager Instance => _instance;
         public IStoreController Controller { get; private set; }
+
+        private void Awake()
+        {
+            if (_instance != null) Destroy(gameObject);
+            else _instance = this;
+        }
 
         private void Start()
         {
+            DontDestroyOnLoad(gameObject);
             var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
             foreach (var item in GameConfig.IapItems)
                 builder.AddProduct(item.StoreId, ProductType.Consumable);
@@ -43,7 +51,6 @@ namespace FruitSwipeMatch3Kit
         public void OnInitialized(IStoreController storeController, IExtensionProvider extensionProvider)
         {
             Controller = storeController;
-            OnInitDone?.Invoke();
         }
 
         /// <summary>

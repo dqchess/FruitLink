@@ -36,7 +36,6 @@ namespace FruitSwipeMatch3Kit
         [SerializeField]
         private List<Sprite> coinIcons;
 #pragma warning restore 649
-        private PurchaseManager purchaseManager;
         private IapItem cachedItem;
 
         private void Awake()
@@ -50,10 +49,9 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(coinsImage);
         }
 
-        public void Fill(PurchaseManager purchase, IapItem item)
+        public void Fill(IapItem item)
         {
             cachedItem = item;
-            purchaseManager = purchase;
             numCoinsText.text = item.NumCoins.ToString("n0");
             if (item.Discount > 0)
                 discountText.text = $"{item.Discount}%";
@@ -94,9 +92,9 @@ namespace FruitSwipeMatch3Kit
         public void OnPurchaseButtonPressed()
         {
             #if FRUIT_SWIPE_ENABLE_IAP
-            if (purchaseManager != null)
+            if (PurchaseManager.Instance != null)
             {
-                purchaseManager.Controller.InitiatePurchase(cachedItem.StoreId);
+                PurchaseManager.Instance.Controller.InitiatePurchase(cachedItem.StoreId);
                 BuyCoinsPopup.SetCurrentPurchasableItem(this);
                 BuyCoinsPopup.OpenLoadingPopup();
             }
