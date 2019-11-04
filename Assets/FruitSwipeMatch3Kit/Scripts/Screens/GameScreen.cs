@@ -2,6 +2,7 @@
 // This code can only be used under the standard Unity Asset Store EULA,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
+using System;
 using DG.Tweening;
 using System.Collections;
 using TMPro;
@@ -382,30 +383,26 @@ namespace FruitSwipeMatch3Kit
             
             GameState.IsPlayerWon = false;
             playerLost = false;
-            #if !UNITY_EDITOR
-            continueLevel = 0;
-            #endif
             
             goalsWidget.OnGameRestarted();
-            ShowAds();
 #if !UNITY_EDITOR
+            continueLevel = 0;
             Analytics.Instance.RestartLevel();
 #endif
         }
 
-        private void ShowAds()
+        private bool ShowAds(Action onClosePopup = null)
         {
-#if !UNITY_EDITOR
-            Admob.Instance.ShowInterstitial(() =>
+            return Admob.Instance.ShowInterstitial(() =>
             {
                 var rewardCoins = GetRewardCoin();
                 CoinsSystem.BuyCoins(rewardCoins);
                 OpenPopup<AlertPopup>("Popups/AlertPopup", popup =>
 			    {
+                    popup.OnClose = onClosePopup;
 				    popup.SetText($"You earned {rewardCoins} coins!");
-			    });
+                });
             }, GetMaxLevelAds());
-#endif
         }
 
         private int GetMaxLevelAds()
@@ -426,9 +423,23 @@ namespace FruitSwipeMatch3Kit
 
         public void OnGameRestarted()
         {
+            #if !UNITY_EDITOR
+            if (ShowAds(() =>
+            {
+                CloseTopCanvas();
+                RestartGame();
+                PenalizePlayer();
+            }))
+            {
+                CloseTopCanvas();
+                RestartGame();
+                PenalizePlayer();
+            }
+            #else
             CloseTopCanvas();
             RestartGame();
             PenalizePlayer();
+            #endif
         }
 
         public void OnSettingsButtonPressed()
@@ -443,9 +454,20 @@ namespace FruitSwipeMatch3Kit
 
         public void ExitGame()
         {
-            CloseTopCanvas();
-            GetComponent<ScreenTransition>().PerformTransition();
-            ShowAds();
+            #if !UNITY_EDITOR
+            if (ShowAds(() =>
+            {
+                CloseTopCanvas();
+                GetComponent<ScreenTransition>().PerformTransition();
+            }))
+            {
+                CloseTopCanvas();
+                GetComponent<ScreenTransition>().PerformTransition();
+            }
+            #else
+                CloseTopCanvas();
+                GetComponent<ScreenTransition>().PerformTransition();
+            #endif
         }
 
         public void EnablePowerupOverlay()

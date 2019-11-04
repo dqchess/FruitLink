@@ -2,6 +2,7 @@
 // This code can only be used under the standard Unity Asset Store End User License Agreement,
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -17,6 +18,7 @@ namespace FruitSwipeMatch3Kit
         [SerializeField]
         private TextMeshProUGUI textLabel;
 #pragma warning restore 649
+        public Action OnClose;
 
         protected override void Awake()
         {
@@ -31,6 +33,7 @@ namespace FruitSwipeMatch3Kit
 
         public void OnCloseButtonPressed()
         {
+            OnClose?.Invoke();
             Close();
         }
 

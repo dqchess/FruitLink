@@ -102,7 +102,7 @@ namespace FruitSwipeMatch3Kit
                     popup =>
                     {
                         popup.SetText(
-                            $"There was an error when purchasing {product.metadata.localizedTitle}: {GetPurchaseFailureReasonString(reason)}");
+                            $"There was an error when purchasing:\n{GetPurchaseFailureReasonString(reason)}");
                     });
             }
         }
