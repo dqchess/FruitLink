@@ -171,12 +171,12 @@ public class Admob : MonoBehaviour
         }
     }
     
-    public void ShowInterstitial(Action onClose, int maxCount = 2)
+    public bool ShowInterstitial(Action onClose, int maxCount = 2)
     {
         if (IsNoAds)
         {
             if(_interstitial != null) _interstitial.Destroy();
-            return;
+            return false;
         }
         _gameOverCount++;
         if (IsInterstitialLoaded() && _gameOverCount > maxCount)
@@ -184,12 +184,11 @@ public class Admob : MonoBehaviour
             _gameOverCount = 0;
             _onInterstitialClose = onClose;
             _interstitial.Show();
+            return true;
         }
-        else
-        {
-//            if(onClose != null) onClose.Invoke();
-            if(_requestInter >= 3) RequestInterstitial();
-        }
+
+        if(_requestInter >= 3) RequestInterstitial();
+        return false;
     }
 
     private void RequestInterstitial()
