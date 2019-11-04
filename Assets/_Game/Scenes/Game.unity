@@ -1589,7 +1589,7 @@ MonoBehaviour:
   GameConfig: {fileID: 11400000, guid: 6b47954202b9549b6a59ab55ca91f82a, type: 2}
   CoinsSystem: {fileID: 11400000, guid: 41c76809fc5664e68a9d954197c9e9d6, type: 2}
   LivesSystem: {fileID: 11400000, guid: 6c6efccaac0f847908622b6a6d4e4bca, type: 2}
-  LevelNumber: 0
+  LevelNumber: 122
   goalsWidget: {fileID: 1906350947}
   scoreWidget: {fileID: 675131494}
   topCanvas: {fileID: 1328661497}
@@ -4411,23 +4411,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: powerupType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3870509477460797961, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6bff2e967df30e1468c0178b4bfe35fd,
-        type: 3}
-    - target: {fileID: 3870509477782896314, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c4756e916509eef458a5f865dd16b580,
-        type: 3}
     - target: {fileID: 3870509477624507739, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -4468,6 +4451,23 @@ PrefabInstance:
       propertyPath: m_useMaxVisibleDescender
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: powerupType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870509477460797961, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6bff2e967df30e1468c0178b4bfe35fd,
+        type: 3}
+    - target: {fileID: 3870509477782896314, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c4756e916509eef458a5f865dd16b580,
+        type: 3}
     - target: {fileID: 3870509477460797962, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -10166,11 +10166,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: powerupType
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3870509477624507739, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}
       propertyPath: m_isRichText
@@ -10190,6 +10185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_useMaxVisibleDescender
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: powerupType
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7, type: 3}
@@ -20890,23 +20890,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: powerupType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3870509477460797961, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6bff2e967df30e1468c0178b4bfe35fd,
-        type: 3}
-    - target: {fileID: 3870509477782896314, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7f8d4fe723d3ed64bbf8093012e20564,
-        type: 3}
     - target: {fileID: 3870509477624507739, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -20947,6 +20930,23 @@ PrefabInstance:
       propertyPath: m_useMaxVisibleDescender
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 827884076873979544, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: powerupType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870509477460797961, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6bff2e967df30e1468c0178b4bfe35fd,
+        type: 3}
+    - target: {fileID: 3870509477782896314, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f8d4fe723d3ed64bbf8093012e20564,
+        type: 3}
     - target: {fileID: 3870509477460797962, guid: adf19ee47bc4f4aa8af55a4dc1c10ed7,
         type: 3}
       propertyPath: m_SizeDelta.x
