@@ -435,6 +435,12 @@ namespace FruitSwipeMatch3Kit
                 RestartGame();
                 PenalizePlayer();
             }
+            else
+            {
+                CloseTopCanvas();
+                RestartGame();
+                PenalizePlayer();
+            }
             #else
             CloseTopCanvas();
             RestartGame();
@@ -460,6 +466,11 @@ namespace FruitSwipeMatch3Kit
                 CloseTopCanvas();
                 GetComponent<ScreenTransition>().PerformTransition();
             }))
+            {
+                CloseTopCanvas();
+                GetComponent<ScreenTransition>().PerformTransition();
+            }
+            else
             {
                 CloseTopCanvas();
                 GetComponent<ScreenTransition>().PerformTransition();
