@@ -3,8 +3,10 @@
 // a copy of which is available at http://unity3d.com/company/legal/as_terms.
 
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -33,7 +35,7 @@ namespace FruitSwipeMatch3Kit
 
         private bool chainingBoosters;
         private Entity selectedBooster = Entity.Null;
-
+        private ObjectPool boosterPool;
         private float gravityAccTime;
 
         protected override void OnCreate()
@@ -59,6 +61,7 @@ namespace FruitSwipeMatch3Kit
             levelCreationSystem = World.GetExistingSystem<LevelCreationSystem>();
             inputSystem = World.GetExistingSystem<PlayerInputSystem>();
             particlePools = Object.FindObjectOfType<ParticlePools>();
+            boosterPool = particlePools.BoosterEffectPool;
         }
 
         protected override void OnUpdate()
@@ -144,64 +147,70 @@ namespace FruitSwipeMatch3Kit
                     ResolveStarBooster(entity);
                     break;
             }
-
-            var tilesToExplode = new List<int>(indexes.Count);
-            for (var i = 0; i < indexes.Count; ++i)
+    
+            GameState.IsBoosting = true; 
+            SoundPlayer.PlaySoundFx("Booster");
+            var seg = DOTween.Sequence();
+            seg.AppendInterval(GameplayConstants.BoosterEffectDelay);
+            seg.AppendCallback(() =>
             {
-                var idx = indexes[i];
-                var tileEntity = levelCreationSystem.TileEntities[idx];
+                var tilesToExplode = new List<int>(indexes.Count);
+                for (var i = 0; i < indexes.Count; ++i)
+                {
+                    var idx = indexes[i];
+                    var tileEntity = levelCreationSystem.TileEntities[idx];
 
-                if (inputSystem.PendingBoosterTiles.Contains(tileEntity))
-                {
-                    if (selectedBooster == Entity.Null)
+                    if (inputSystem.PendingBoosterTiles.Contains(tileEntity))
                     {
-                        inputSystem.PendingBoosterTiles.Remove(tileEntity);
-                        selectedBooster = tileEntity;
-                        chainingBoosters = true;
+                        if (selectedBooster == Entity.Null)
+                        {
+                            inputSystem.PendingBoosterTiles.Remove(tileEntity);
+                            selectedBooster = tileEntity;
+                            chainingBoosters = true;
+                        }
+                        continue;
                     }
-                    continue;
-                }
                 
-                if (EntityManager.HasComponent<BoosterData>(tileEntity) &&
-                    !EntityManager.HasComponent<PendingBoosterData>(tileEntity))
-                {
-                    if (selectedBooster == Entity.Null)
+                    if (EntityManager.HasComponent<BoosterData>(tileEntity) &&
+                        !EntityManager.HasComponent<PendingBoosterData>(tileEntity))
                     {
-                        selectedBooster = tileEntity;
-                        chainingBoosters = true;
+                        if (selectedBooster == Entity.Null)
+                        {
+                            selectedBooster = tileEntity;
+                            chainingBoosters = true;
+                        }
+                        else
+                        {
+                            inputSystem.PendingBoosterTiles.Insert(0, tileEntity);
+                        }
                     }
                     else
                     {
-                        inputSystem.PendingBoosterTiles.Insert(0, tileEntity);
+                        tilesToExplode.Add(idx);
                     }
                 }
-                else
-                {
-                    tilesToExplode.Add(idx);
-                }
-            }
 
-            var entities = levelCreationSystem.TileEntities;
-            var gos = levelCreationSystem.TileGos;
-            var slots = levelCreationSystem.Slots;
-            var width = levelCreationSystem.Width;
-            var height = levelCreationSystem.Height;
-            TileUtils.DestroyTiles(tilesToExplode, entities, gos, slots, particlePools, width, height, true);
+                var entities = levelCreationSystem.TileEntities;
+                var gos = levelCreationSystem.TileGos;
+                var slots = levelCreationSystem.Slots;
+                var width = levelCreationSystem.Width;
+                var height = levelCreationSystem.Height;
+                TileUtils.DestroyTiles(tilesToExplode, entities, gos, slots, particlePools, width, height, true);
 
-            SoundPlayer.PlaySoundFx("Booster");
-
-            if (selectedBooster == Entity.Null)
-                inputSystem.SetBoosterExploding(false);
-            inputSystem.SetBoosterChainResolving(chainingBoosters);
-    
-            GameState.IsBoosting = true;
+                if (selectedBooster == Entity.Null)
+                    inputSystem.SetBoosterExploding(false);
+                inputSystem.SetBoosterChainResolving(chainingBoosters);
+                boosterPool.Reset();
+            });
         }
 
         private void ResolveHorizontalBooster(Entity entity)
         {
             Assert.IsTrue(EntityManager.HasComponent<TileData>(entity));
             var tilePos = EntityManager.GetComponentData<TilePosition>(entity);
-
+            var boosterGO = boosterPool.GetObject();
+            boosterGO.transform.position = EntityManager.GetComponentData<Translation>(entity).Value;
+            boosterGO.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.right);
             var y = tilePos.Y;
             var width = levelCreationSystem.Width;
             for (var i = 0; i < width; i++)
@@ -216,7 +225,9 @@ namespace FruitSwipeMatch3Kit
         {
             Assert.IsTrue(EntityManager.HasComponent<TileData>(entity));
             var tilePos = EntityManager.GetComponentData<TilePosition>(entity);
-
+            var boosterGO = boosterPool.GetObject();
+            boosterGO.transform.position = EntityManager.GetComponentData<Translation>(entity).Value;
+            boosterGO.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
             var x = tilePos.X;
             var width = levelCreationSystem.Width;
             var height = levelCreationSystem.Height;
@@ -232,7 +243,9 @@ namespace FruitSwipeMatch3Kit
         {
             Assert.IsTrue(EntityManager.HasComponent<TileData>(entity));
             var tilePos = EntityManager.GetComponentData<TilePosition>(entity);
-
+            var boosterGO = boosterPool.GetObject();
+            boosterGO.transform.position = EntityManager.GetComponentData<Translation>(entity).Value;
+            boosterGO.transform.rotation = Quaternion.LookRotation(Vector3.forward, new Vector3(-1, 1, 0));
             var x = tilePos.X;
             var y = tilePos.Y;
             var width = levelCreationSystem.Width;
@@ -268,7 +281,9 @@ namespace FruitSwipeMatch3Kit
         {
             Assert.IsTrue(EntityManager.HasComponent<TileData>(entity));
             var tilePos = EntityManager.GetComponentData<TilePosition>(entity);
-
+            var boosterGO = boosterPool.GetObject();
+            boosterGO.transform.position = EntityManager.GetComponentData<Translation>(entity).Value;
+            boosterGO.transform.rotation = Quaternion.LookRotation(Vector3.forward, new Vector3(1, 1, 0));
             var x = tilePos.X;
             var y = tilePos.Y;
             var width = levelCreationSystem.Width;

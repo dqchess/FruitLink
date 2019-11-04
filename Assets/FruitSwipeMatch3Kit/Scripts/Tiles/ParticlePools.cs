@@ -20,12 +20,14 @@ namespace FruitSwipeMatch3Kit
         private List<ObjectPool> collectiblePools;
 
         [SerializeField] private Color[] colors;
+        [SerializeField] private ObjectPool boosterEffectPool;
         [SerializeField] private ObjectPool selectionLinePool;
         [SerializeField] private ObjectPool selectionParticlePool;
         [SerializeField] private GameObject crusher;
         [SerializeField] private GameObject bomb;
 
 #pragma warning restore 649
+        public ObjectPool BoosterEffectPool => boosterEffectPool;
         public ObjectPool SelectionLinePool => selectionLinePool;
         public ObjectPool SelectionParticlePool => selectionParticlePool;
         public GameObject Crusher => crusher;
