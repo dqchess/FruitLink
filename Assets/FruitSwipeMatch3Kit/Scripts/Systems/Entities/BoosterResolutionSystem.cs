@@ -66,7 +66,7 @@ namespace FruitSwipeMatch3Kit
 
         protected override void OnUpdate()
         {
-            if(gravityFillQuery.CalculateLength() > 0)
+            if(gravityFillQuery.CalculateEntityCount() > 0)
                 return;
 
             if (chainingBoosters)
