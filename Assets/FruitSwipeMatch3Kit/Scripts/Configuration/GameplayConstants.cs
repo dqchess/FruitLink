@@ -15,6 +15,7 @@ namespace FruitSwipeMatch3Kit
             
         public const float FallingExistingTilesSpeed = 0.3f;
         public const float GravityAfterBoosterDelay = 0.5f;
+        public const float BoosterEffectDelay = 0.2f;
         public const float UseItemCrushDelay = 0.5f;
         public const float UseItemBombDelay = 0.75f;
 

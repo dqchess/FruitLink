@@ -95,7 +95,7 @@ namespace FruitSwipeMatch3Kit
         private void OnGravityCompleted()
         {
             var pendingBoosterGroup = GetEntityQuery(typeof(PendingBoosterData));
-            var levelHasPendingBoosters = pendingBoosterGroup.CalculateLength() > 0;
+            var levelHasPendingBoosters = pendingBoosterGroup.CalculateEntityCount() > 0;
             var inputSystem = World.GetExistingSystem<PlayerInputSystem>();
             
             if (!inputSystem.IsBoosterExploding() &&

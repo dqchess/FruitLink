@@ -15,9 +15,7 @@ namespace FruitSwipeMatch3Kit
 #pragma warning disable 649
         [SerializeField]
         private GameConfiguration gameConfig;
-
-        [SerializeField] private PurchaseManager purchaseManager;
-
+        
         [SerializeField]
         private CoinsSystem coinsSystem;
         
@@ -27,9 +25,7 @@ namespace FruitSwipeMatch3Kit
         [SerializeField]
         private GameObject purchasableItemPrefab;
 #pragma warning restore 649
-
         public CoinsSystem CoinsSystem => coinsSystem;
-
         private PurchasableItem currentPurchasableItem;
         private Popup loadingPopup;
 
@@ -44,15 +40,12 @@ namespace FruitSwipeMatch3Kit
         {
             base.Start();
             CoinsSystem.Subscribe(OnCoinsChanged);
-            purchaseManager.OnInitDone += () =>
+            foreach (var item in gameConfig.IapItems)
             {
-                foreach (var item in gameConfig.IapItems)
-                {
-                    var row = Instantiate(purchasableItemPrefab, purchasableItems.transform, false);
-                    row.GetComponent<PurchasableItem>().Fill(purchaseManager, item);
-                    row.GetComponent<PurchasableItem>().BuyCoinsPopup = this;
-                }
-            };
+                var row = Instantiate(purchasableItemPrefab, purchasableItems.transform, false);
+                row.GetComponent<PurchasableItem>().Fill(item);
+                row.GetComponent<PurchasableItem>().BuyCoinsPopup = this;
+            }
         }
 
         private void OnDestroy()
