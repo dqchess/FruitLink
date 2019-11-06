@@ -27,9 +27,6 @@ namespace FruitSwipeMatch3Kit
 
         [SerializeField]
         private Image refillButtonImage;
-
-        [SerializeField]
-        private Sprite refillButtonDisabledSprite;
 #pragma warning restore 649
 
         protected override void Awake()
@@ -38,7 +35,6 @@ namespace FruitSwipeMatch3Kit
             Assert.IsNotNull(refillCostText);
             Assert.IsNotNull(refillButton);
             Assert.IsNotNull(refillButtonImage);
-            Assert.IsNotNull(refillButtonDisabledSprite);
         }
 
         protected override void Start()
@@ -87,7 +83,6 @@ namespace FruitSwipeMatch3Kit
 
         private void DisableRefillButton()
         {
-            refillButtonImage.sprite = refillButtonDisabledSprite;
             refillButton.Interactable = false;
         }
     }
