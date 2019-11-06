@@ -620,7 +620,7 @@ PlayerSettings:
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
     1: ODIN_INSPECTOR
-    7: ODIN_INSPECTOR
+    7: FRUIT_SWIPE_ENABLE_IAP;ODIN_INSPECTOR
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
