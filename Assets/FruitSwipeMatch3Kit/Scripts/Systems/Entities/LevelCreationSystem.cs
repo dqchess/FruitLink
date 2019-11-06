@@ -573,7 +573,7 @@ namespace FruitSwipeMatch3Kit
                 zoomLevel *= 1.5f;
             float total = totalHeight > totalWidth ? totalHeight : totalWidth;
             mainCamera.orthographicSize = total * zoomLevel * (Screen.height / (float) Screen.width) * 0.5f;
-            float sizeY = Screen.height - Screen.height * 0.4375f;
+            float sizeY = Screen.height - Screen.height * 0.435f;
             Debug.Log("X: " + Screen.width + " " + "Y: " + sizeY);
             if (Screen.width > sizeY)
             {
