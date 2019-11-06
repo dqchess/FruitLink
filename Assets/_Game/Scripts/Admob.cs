@@ -6,10 +6,10 @@
 
 public class Admob : MonoBehaviour
 {
-    private string appId = "ca-app-pub-4337728929525466~6370811938";
+    private string appId = "ca-app-pub-4337728929525466~3822541770";
     private string bannerId = "ca-app-pub-6115070480367583/4670041120";
-    private string interstitialId = "ca-app-pub-4337728929525466/3553076909";
-    private string rewardVideoId = "ca-app-pub-4337728929525466/3826756680";
+    private string interstitialId = "ca-app-pub-4337728929525466/7159151557";
+    private string rewardVideoId = "ca-app-pub-4337728929525466/7378643405";
 //    private string interstitialId = "ca-app-pub-3940256099942544/1033173712";
 //    private string rewardVideoId = "ca-app-pub-3940256099942544/5224354917";
     
