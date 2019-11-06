@@ -24,7 +24,7 @@ public class Admob : MonoBehaviour
     private int _gameOverCount = 0;
     private static Admob _instance;
     public static Admob Instance => _instance;
-    public bool IsNoAds { get; set; } = false;
+    public bool IsNoAds => PlayerPrefs.GetInt(GameplayConstants.NoAdsPrefKey) > 0;
 
     private void Awake()
     {
@@ -34,7 +34,6 @@ public class Admob : MonoBehaviour
 
     private void Start()
     {
-        IsNoAds = PlayerPrefs.GetInt(GameplayConstants.NoAdsPrefKey) > 0;
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(appId);
         _rewardBasedVideo = RewardBasedVideoAd.Instance;
