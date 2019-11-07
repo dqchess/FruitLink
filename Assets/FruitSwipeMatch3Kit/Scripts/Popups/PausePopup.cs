@@ -58,13 +58,13 @@ namespace FruitSwipeMatch3Kit
 			{
 				popup.SetInfo("Restart game", "Do you really want to restart the game? (You will lose a life)", () =>
 				{
-//					var gameScreen = ParentScreen as GameScreen;
-//					if (gameScreen != null)
-//					{
-//						gameScreen.RestartGame();
+					var gameScreen = ParentScreen as GameScreen;
+					if (gameScreen != null)
+					{
+						gameScreen.RestartGame();
 //						gameScreen.PenalizePlayer();
-//					}
-//					
+					}
+					
 					inputSystem.UnlockInput();
 					
 					popup.Close();
