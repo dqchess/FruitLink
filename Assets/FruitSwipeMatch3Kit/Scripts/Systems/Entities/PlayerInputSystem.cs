@@ -465,7 +465,13 @@ namespace FruitSwipeMatch3Kit
 
             if (selectedTiles.Count >= gameConfig.NumTilesNeededForCrossBooster)
             {
-                return BoosterType.Cross;
+                switch (lastMoveDirection)
+                {
+                    case MoveDirection.Horizontal: case MoveDirection.Vertical:
+                        return BoosterType.Cross;
+                    case MoveDirection.DiagonalLeft: case MoveDirection.DiagonalRight:
+                        return BoosterType.X;
+                }
             }
 
             if (selectedTiles.Count >= gameConfig.NumTilesNeededForRegularBooster)

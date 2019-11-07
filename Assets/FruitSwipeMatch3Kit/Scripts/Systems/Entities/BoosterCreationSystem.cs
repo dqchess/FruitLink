@@ -43,7 +43,16 @@ namespace FruitSwipeMatch3Kit
                 }
                 else if (boosterData.MatchSize >= gameConfig.NumTilesNeededForCrossBooster)
                 {
-                    TileUtils.AddBoosterToTile(go, BoosterType.Cross, EntityManager, PostUpdateCommands);
+                    switch (boosterData.MatchDirection)
+                    {
+                        case MoveDirection.Horizontal: case MoveDirection.Vertical:
+                            TileUtils.AddBoosterToTile(go, BoosterType.Cross, EntityManager, PostUpdateCommands);
+                            break;
+                        
+                        case MoveDirection.DiagonalLeft: case MoveDirection.DiagonalRight:
+                            TileUtils.AddBoosterToTile(go, BoosterType.X, EntityManager, PostUpdateCommands);
+                            break;
+                    }
                 }
                 else if (boosterData.MatchSize >= gameConfig.NumTilesNeededForRegularBooster)
                 {

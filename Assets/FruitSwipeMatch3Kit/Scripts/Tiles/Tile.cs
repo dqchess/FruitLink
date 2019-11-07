@@ -129,6 +129,11 @@ namespace FruitSwipeMatch3Kit
                     verticalArrows.SetActive(true);
                     break;
                 
+                case BoosterType.X:
+                    diagonalLeftArrows.SetActive(true);
+                    diagonalRightArrows.SetActive(true);
+                    break;
+                
                 case BoosterType.Star:
                     horizontalArrows.SetActive(true);
                     verticalArrows.SetActive(true);
