@@ -130,7 +130,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   _animationName: start
   loop: 0
-  timeScale: 1
+  timeScale: 0.25
 --- !u!114 &9080798741130455610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5040316483493695915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dc99a464a19d434fae1bfa91c6f3ace, type: 3}
   m_Name: 
