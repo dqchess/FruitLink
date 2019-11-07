@@ -381,6 +381,35 @@ namespace FruitSwipeMatch3Kit
                     tile.AddBooster(type);
                 }
             }
+            else
+            {
+                BoosterType old = entityManager.GetComponentData<BoosterData>(entity).Type;
+                int oldPoint = BoosterPoint(old);
+                int newPoint = BoosterPoint(type);
+                if (oldPoint > newPoint) return;
+                var tile = go.GetComponent<Tile>();
+                if (tile != null)
+                {
+                    puc.SetComponent(entity, new BoosterData
+                    {
+                        Type = type
+                    });
+
+                    tile.AddBooster(type);
+                }
+            }
+        }
+
+        private static int BoosterPoint(BoosterType type)
+        {
+            if (type == BoosterType.Horizontal || type == BoosterType.Vertical || 
+                type == BoosterType.DiagonalLeft || type == BoosterType.DiagonalRight)
+                return 1;
+            if (type == BoosterType.Cross || type == BoosterType.X)
+                return 2;
+            if (type == BoosterType.Star)
+                return 3;
+            return 1;
         }
     }
 }

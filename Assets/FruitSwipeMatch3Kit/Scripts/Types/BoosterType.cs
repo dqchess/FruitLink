@@ -12,6 +12,7 @@ namespace FruitSwipeMatch3Kit
         DiagonalRight,
         Cross,
         Star,
-        Normal
+        Normal,
+        X
     }
 }

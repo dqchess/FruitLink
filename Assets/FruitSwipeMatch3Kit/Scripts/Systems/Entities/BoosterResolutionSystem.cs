@@ -142,6 +142,10 @@ namespace FruitSwipeMatch3Kit
                 case BoosterType.Cross:
                     ResolveCrossBooster(entity);
                     break;
+                
+                case BoosterType.X:
+                    ResolveXBooster(entity);
+                    break;
 
                 case BoosterType.Star:
                     ResolveStarBooster(entity);
@@ -320,6 +324,12 @@ namespace FruitSwipeMatch3Kit
         {
             ResolveHorizontalBooster(entity);
             ResolveVerticalBooster(entity);
+        }
+        
+        private void ResolveXBooster(Entity entity)
+        {
+            ResolveDiagonalLeftBooster(entity);
+            ResolveDiagonalRightBooster(entity);
         }
 
         private void ResolveStarBooster(Entity entity)
