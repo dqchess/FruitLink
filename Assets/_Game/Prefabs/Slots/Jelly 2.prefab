@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 186232833352184860}
   - component: {fileID: 2616741927340667581}
   - component: {fileID: 8631947982689059889}
-  - component: {fileID: 7774086453404601003}
+  - component: {fileID: 6977844696480659876}
+  - component: {fileID: 1975679204808539897}
   m_Layer: 9
   m_Name: Top
   m_TagString: Untagged
@@ -79,7 +80,26 @@ MeshRenderer:
   m_SortingLayerID: -2066708741
   m_SortingLayer: 2
   m_SortingOrder: 3
---- !u!114 &7774086453404601003
+--- !u!95 &6977844696480659876
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544266958369119449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88398dcb0b4477a459f4e06d3357db66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1975679204808539897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,7 +108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2544266958369119449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: efc1f53bf40201345a59266aab9b21d5, type: 2}
@@ -111,9 +131,10 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: start
-  loop: 0
-  timeScale: 1
+  translator:
+    autoReset: 1
+    layerMixModes: 00000000
+    layerBlendModes: 02000000
 --- !u!1 &5040316483493695915
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,9 +147,9 @@ GameObject:
   - component: {fileID: 2226794190559233130}
   - component: {fileID: 4761609638196977229}
   - component: {fileID: 1052461856306399240}
-  - component: {fileID: 805236613914762673}
-  - component: {fileID: 3354180265312571668}
   - component: {fileID: 7445659523221004339}
+  - component: {fileID: 1020929008}
+  - component: {fileID: 1020929007}
   m_Layer: 9
   m_Name: Jelly 2
   m_TagString: Untagged
@@ -210,60 +231,6 @@ MeshRenderer:
   m_SortingLayerID: -2066708741
   m_SortingLayer: 2
   m_SortingOrder: 0
---- !u!114 &805236613914762673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5040316483493695915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: efc1f53bf40201345a59266aab9b21d5, type: 2}
-  initialSkinName: jelly1
-  initialFlipX: 0
-  initialFlipY: 0
-  separatorSlotNames: []
-  zSpacing: 0
-  useClipping: 1
-  immutableTriangles: 0
-  pmaVertexColors: 1
-  clearStateOnDisable: 0
-  tintBlack: 0
-  singleSubmesh: 0
-  addNormals: 0
-  calculateTangents: 0
-  maskInteraction: 0
-  maskMaterials:
-    materialsMaskDisabled: []
-    materialsInsideMask: []
-    materialsOutsideMask: []
-  disableRenderingOnOverride: 1
-  _animationName: start
-  loop: 0
-  timeScale: 0.25
---- !u!114 &3354180265312571668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5040316483493695915}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc99a464a19d434fae1bfa91c6f3ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _skeletons:
-  - {fileID: 7774086453404601003}
-  - {fileID: 805236613914762673}
-  _skeleton: {fileID: 0}
-  _winkAnimName: idle
-  _min: 10
-  _max: 20
 --- !u!61 &7445659523221004339
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -290,3 +257,58 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &1020929008
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040316483493695915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88398dcb0b4477a459f4e06d3357db66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1020929007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040316483493695915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: efc1f53bf40201345a59266aab9b21d5, type: 2}
+  initialSkinName: jelly1
+  initialFlipX: 0
+  initialFlipY: 0
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  translator:
+    autoReset: 1
+    layerMixModes: 00000000
+    layerBlendModes: 02000000

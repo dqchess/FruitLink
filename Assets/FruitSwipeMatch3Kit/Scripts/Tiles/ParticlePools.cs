@@ -56,6 +56,7 @@ namespace FruitSwipeMatch3Kit
             
             selectionLinePool.Initialize();
             selectionParticlePool.Initialize();
+            boosterEffectPool.Initialize();
         }
 
         public GameObject GetColorTileParticles(ColorTileType type)
