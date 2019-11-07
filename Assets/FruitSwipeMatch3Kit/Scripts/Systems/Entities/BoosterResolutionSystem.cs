@@ -147,59 +147,62 @@ namespace FruitSwipeMatch3Kit
                     ResolveStarBooster(entity);
                     break;
             }
-    
-            GameState.IsBoosting = true; 
+            
+            GameState.IsBoosting = true;
+            
+            var tilesToExplode = new List<int>(indexes.Count);
+            for (var i = 0; i < indexes.Count; ++i)
+            {
+                var idx = indexes[i];
+                var tileEntity = levelCreationSystem.TileEntities[idx];
+
+                if (inputSystem.PendingBoosterTiles.Contains(tileEntity))
+                {
+                    if (selectedBooster == Entity.Null)
+                    {
+                        inputSystem.PendingBoosterTiles.Remove(tileEntity);
+                        selectedBooster = tileEntity;
+                        chainingBoosters = true;
+                    }
+                    continue;
+                }
+            
+                if (EntityManager.HasComponent<BoosterData>(tileEntity) &&
+                    !EntityManager.HasComponent<PendingBoosterData>(tileEntity))
+                {
+                    if (selectedBooster == Entity.Null)
+                    {
+                        selectedBooster = tileEntity;
+                        chainingBoosters = true;
+                    }
+                    else
+                    {
+                        inputSystem.PendingBoosterTiles.Insert(0, tileEntity);
+                    }
+                }
+                else
+                {
+                    tilesToExplode.Add(idx);
+                }
+            }
+
+            var entities = levelCreationSystem.TileEntities;
+            var gos = levelCreationSystem.TileGos;
+            var slots = levelCreationSystem.Slots;
+            var width = levelCreationSystem.Width;
+            var height = levelCreationSystem.Height;
+            TileUtils.DestroyTiles(tilesToExplode, entities, gos, slots, particlePools, width, height, true);
+
+            if (selectedBooster == Entity.Null)
+                inputSystem.SetBoosterExploding(false);
+            inputSystem.SetBoosterChainResolving(chainingBoosters);
+
             SoundPlayer.PlaySoundFx("Booster");
+            
             var seg = DOTween.Sequence();
             seg.AppendInterval(GameplayConstants.BoosterEffectDelay);
             seg.AppendCallback(() =>
             {
-                var tilesToExplode = new List<int>(indexes.Count);
-                for (var i = 0; i < indexes.Count; ++i)
-                {
-                    var idx = indexes[i];
-                    var tileEntity = levelCreationSystem.TileEntities[idx];
-
-                    if (inputSystem.PendingBoosterTiles.Contains(tileEntity))
-                    {
-                        if (selectedBooster == Entity.Null)
-                        {
-                            inputSystem.PendingBoosterTiles.Remove(tileEntity);
-                            selectedBooster = tileEntity;
-                            chainingBoosters = true;
-                        }
-                        continue;
-                    }
-                
-                    if (EntityManager.HasComponent<BoosterData>(tileEntity) &&
-                        !EntityManager.HasComponent<PendingBoosterData>(tileEntity))
-                    {
-                        if (selectedBooster == Entity.Null)
-                        {
-                            selectedBooster = tileEntity;
-                            chainingBoosters = true;
-                        }
-                        else
-                        {
-                            inputSystem.PendingBoosterTiles.Insert(0, tileEntity);
-                        }
-                    }
-                    else
-                    {
-                        tilesToExplode.Add(idx);
-                    }
-                }
-
-                var entities = levelCreationSystem.TileEntities;
-                var gos = levelCreationSystem.TileGos;
-                var slots = levelCreationSystem.Slots;
-                var width = levelCreationSystem.Width;
-                var height = levelCreationSystem.Height;
-                TileUtils.DestroyTiles(tilesToExplode, entities, gos, slots, particlePools, width, height, true);
-
-                if (selectedBooster == Entity.Null)
-                    inputSystem.SetBoosterExploding(false);
-                inputSystem.SetBoosterChainResolving(chainingBoosters);
                 boosterPool.Reset();
             });
         }
