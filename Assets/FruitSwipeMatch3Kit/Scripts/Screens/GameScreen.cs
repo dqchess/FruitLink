@@ -399,8 +399,8 @@ namespace FruitSwipeMatch3Kit
                 CoinsSystem.BuyCoins(rewardCoins);
                 OpenPopup<AlertPopup>("Popups/AlertPopup", popup =>
 			    {
-                    popup.OnClose = onClosePopup;
 				    popup.SetText($"You earned {rewardCoins} coins!");
+                    popup.OnClose = onClosePopup;
                 });
             }, GetMaxLevelAds());
         }
@@ -408,9 +408,9 @@ namespace FruitSwipeMatch3Kit
         private int GetMaxLevelAds()
         {
             var lastSelectedLevel = PlayerPrefs.GetInt(GameplayConstants.LastSelectedLevelPrefKey);
-            if (lastSelectedLevel < 16) return 5;
-            if (lastSelectedLevel < 56) return 3;
-            if (lastSelectedLevel < 106) return 2;
+            if (lastSelectedLevel < 16) return 3;
+            if (lastSelectedLevel < 56) return 2;
+            if (lastSelectedLevel < 106) return 1;
             return 1;
         }
 
@@ -424,18 +424,12 @@ namespace FruitSwipeMatch3Kit
         public void OnGameRestarted()
         {
             #if !UNITY_EDITOR
-            if (ShowAds(() =>
+            if (!ShowAds(() =>
             {
                 CloseTopCanvas();
                 RestartGame();
                 PenalizePlayer();
             }))
-            {
-                CloseTopCanvas();
-                RestartGame();
-                PenalizePlayer();
-            }
-            else
             {
                 CloseTopCanvas();
                 RestartGame();
@@ -461,16 +455,11 @@ namespace FruitSwipeMatch3Kit
         public void ExitGame()
         {
             #if !UNITY_EDITOR
-            if (ShowAds(() =>
+            if (!ShowAds(() =>
             {
                 CloseTopCanvas();
                 GetComponent<ScreenTransition>().PerformTransition();
             }))
-            {
-                CloseTopCanvas();
-                GetComponent<ScreenTransition>().PerformTransition();
-            }
-            else
             {
                 CloseTopCanvas();
                 GetComponent<ScreenTransition>().PerformTransition();
