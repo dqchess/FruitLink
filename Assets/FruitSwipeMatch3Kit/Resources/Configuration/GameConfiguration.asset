@@ -20,13 +20,13 @@ MonoBehaviour:
   NumTilesNeededForRegularBooster: 5
   NumTilesNeededForCrossBooster: 7
   NumTilesNeededForStarBooster: 9
-  CrusherPowerupAmount: 3
+  CrusherPowerupAmount: 5
   CrusherPowerupPrice: 500
-  BombPowerupAmount: 3
+  BombPowerupAmount: 5
   BombPowerupPrice: 1500
-  SwapPowerupAmount: 3
+  SwapPowerupAmount: 5
   SwapPowerupPrice: 800
-  ColorBombPowerupAmount: 3
+  ColorBombPowerupAmount: 5
   ColorBombPowerupPrice: 2800
   NumExtraMoves: 5
   ExtraMovesCost: 900

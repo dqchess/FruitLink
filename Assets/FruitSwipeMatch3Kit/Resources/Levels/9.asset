@@ -20,7 +20,7 @@ MonoBehaviour:
   Star3Score: 900
   IsCrusherAvailable: 1
   IsBombAvailable: 1
-  IsSwapAvailable: 1
+  IsSwapAvailable: 0
   IsColorBombAvailable: 0
   EndGameAward: 1
   IsArrowDown: 0
@@ -169,9 +169,9 @@ MonoBehaviour:
     BlockerType: 1
     CollectibleType: 0
     SlotType: 0
-  - TileType: 2
+  - TileType: 1
     ColorTileType: 0
-    RandomColorTileType: 3
+    RandomColorTileType: 0
     BlockerType: 1
     CollectibleType: 0
     SlotType: 0
@@ -327,4 +327,11 @@ MonoBehaviour:
     BlockerType: 0
     CollectibleType: 0
     Amount: 16
-  AvailableColors: 0400000001000000030000000200000000000000
+  - Type: 3
+    ColorTileType: 0
+    RandomColorTileType: 0
+    SlotType: 0
+    BlockerType: 1
+    CollectibleType: 0
+    Amount: 9
+  AvailableColors: 0400000001000000000000000200000003000000

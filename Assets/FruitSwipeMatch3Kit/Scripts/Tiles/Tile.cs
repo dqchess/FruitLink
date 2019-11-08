@@ -101,6 +101,12 @@ namespace FruitSwipeMatch3Kit
         {
             if (type == BoosterType.Normal) return false;
             if(booster.activeSelf) return false;
+            ReplaceBooster(type);
+            return true;
+        }
+
+        public void ReplaceBooster(BoosterType type)
+        {
             booster.SetActive(true);
             horizontalArrows.SetActive(false);
             verticalArrows.SetActive(false);
@@ -141,8 +147,6 @@ namespace FruitSwipeMatch3Kit
                     diagonalRightArrows.SetActive(true);
                     break;
             }
-
-            return true;
         }
 
         public void RemoveBooster()

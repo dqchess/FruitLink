@@ -161,7 +161,6 @@ namespace FruitSwipeMatch3Kit
         private void OnMouseUp()
         {
             isDraggingInput = false;
-            RemoveDarkFruits();
             if (selectedTiles.Count >= GameplayConstants.NumTilesNeededForMatch)
             {
                 LockInput();
@@ -224,13 +223,28 @@ namespace FruitSwipeMatch3Kit
                 EntityManager.CreateEntity(checkMoveArcheType);
                 EntityManager.CreateEntity(matchHappenedArchetype);
             }
-
-            foreach (var tile in selectedTiles)
-                tile.GetComponent<Animator>()?.SetTrigger(Idle);
-            selectedTiles.Clear();
-            RemoveBoosterLines();
-            DestroySelectionLine();
-            DestroySelectionEffect();
+            else
+            {
+                if(!GameState.IsTutorial)
+                {
+                    GameState.SuggestSequence = DOTween.Sequence();
+                    GameState.SuggestSequence.AppendInterval(GameplayConstants.SuggetionDelay);
+                    GameState.SuggestSequence.AppendCallback(() =>
+                    {
+                        DisplaySuggetion(GameState.SuggestIndexes);
+                    });
+                }
+            }
+            if(!GameState.IsTutorial)
+            {
+                foreach (var tile in selectedTiles)
+                    tile.GetComponent<Animator>()?.SetTrigger(Idle);
+                selectedTiles.Clear();
+                RemoveDarkFruits();
+                RemoveBoosterLines();
+                DestroySelectionLine();
+                DestroySelectionEffect();
+            }
         }
 
         private void OnMouseDrag()
@@ -370,7 +384,7 @@ namespace FruitSwipeMatch3Kit
             }
         }
 
-        private void RemoveDarkFruits()
+        public void RemoveDarkFruits()
         {
             for (int i = 0; i < darkTiles.Count; i++)
             {
