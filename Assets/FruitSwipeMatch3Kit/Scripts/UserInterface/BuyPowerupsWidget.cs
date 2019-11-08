@@ -25,10 +25,10 @@ namespace FruitSwipeMatch3Kit
 
         public void Initialize(LevelData levelData)
         {
-            buttons[0].Initialize(gameScreen, boosterSprites[0], PlayerPrefs.GetInt("num_boosters_0"), levelData.IsCrusherAvailable);
-            buttons[1].Initialize(gameScreen, boosterSprites[1], PlayerPrefs.GetInt("num_boosters_1"), levelData.IsBombAvailable);
-            buttons[2].Initialize(gameScreen, boosterSprites[2], PlayerPrefs.GetInt("num_boosters_2"), levelData.IsSwapAvailable);
-            buttons[3].Initialize(gameScreen, boosterSprites[3], PlayerPrefs.GetInt("num_boosters_3"), levelData.IsColorBombAvailable);
+            buttons[0].Initialize(gameScreen, boosterSprites[0], PlayerPrefs.GetInt("num_boosters_0", 5), levelData.IsCrusherAvailable);
+            buttons[1].Initialize(gameScreen, boosterSprites[1], PlayerPrefs.GetInt("num_boosters_1", 5), levelData.IsBombAvailable);
+            buttons[2].Initialize(gameScreen, boosterSprites[2], PlayerPrefs.GetInt("num_boosters_2", 5), levelData.IsSwapAvailable);
+            buttons[3].Initialize(gameScreen, boosterSprites[3], PlayerPrefs.GetInt("num_boosters_3", 5), levelData.IsColorBombAvailable);
         }
 
         public void PressButton(int index)

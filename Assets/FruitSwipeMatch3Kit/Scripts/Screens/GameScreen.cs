@@ -390,16 +390,19 @@ namespace FruitSwipeMatch3Kit
 
         private bool ShowAds(Action onClosePopup = null)
         {
-            return Admob.Instance.ShowInterstitial(() =>
-            {
-                var rewardCoins = GetRewardCoin();
-                CoinsSystem.BuyCoins(rewardCoins);
-                OpenPopup<AlertPopup>("Popups/AlertPopup", popup =>
-			    {
-				    popup.SetText($"You earned {rewardCoins} coins!");
-                    popup.OnClose = onClosePopup;
-                });
-            }, GetMaxLevelAds());
+            return Admob.Instance.ShowInterstitial(
+//            () =>
+//            {
+//                var rewardCoins = GetRewardCoin();
+//                CoinsSystem.BuyCoins(rewardCoins);
+//                OpenPopup<AlertPopup>("Popups/AlertPopup", popup =>
+//			    {
+//				    popup.SetText($"You earned {rewardCoins} coins!");
+//                    popup.OnClose = onClosePopup;
+//                });
+//            }, 
+    null,
+            GetMaxLevelAds());
         }
 
         private int GetMaxLevelAds()
@@ -420,22 +423,11 @@ namespace FruitSwipeMatch3Kit
 
         public void OnGameRestarted()
         {
-            #if !UNITY_EDITOR
-            if (!ShowAds(() =>
-            {
-                CloseTopCanvas();
-                RestartGame();
-                PenalizePlayer();
-            }))
-            {
-                CloseTopCanvas();
-                RestartGame();
-                PenalizePlayer();
-            }
-            #else
             CloseTopCanvas();
             RestartGame();
             PenalizePlayer();
+            #if !UNITY_EDITOR
+            ShowAds();
             #endif
         }
 
@@ -451,20 +443,11 @@ namespace FruitSwipeMatch3Kit
 
         public void ExitGame()
         {
+            CloseTopCanvas();
+            GetComponent<ScreenTransition>().PerformTransition();
             #if !UNITY_EDITOR
-            if (!ShowAds(() =>
-            {
-                CloseTopCanvas();
-                GetComponent<ScreenTransition>().PerformTransition();
-            }))
-            {
-                CloseTopCanvas();
-                GetComponent<ScreenTransition>().PerformTransition();
-            }
-            #else
-                CloseTopCanvas();
-                GetComponent<ScreenTransition>().PerformTransition();
             #endif
+            ShowAds();
         }
 
         public void EnablePowerupOverlay()
