@@ -33,5 +33,9 @@ namespace FruitSwipeMatch3Kit
         public const string NoAdsPrefKey = "no_ads";
         public const string NextLevelPrefKey = "next_level";
         public const string UnlockedNextLevelPrefKey = "unlocked_next_level";
+        public const string CrusherTutorialPrefKey = "crusher_tutorial";
+        public const string BombTutorialPrefKey = "bomb_tutorial";
+        public const string SwapTutorialPrefKey = "swap_tutorial";
+        public const string ColorBombTutorialPrefKey = "color_bomb_tutorial";
     }
 }

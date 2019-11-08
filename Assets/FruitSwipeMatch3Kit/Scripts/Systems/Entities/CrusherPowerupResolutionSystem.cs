@@ -70,6 +70,15 @@ namespace FruitSwipeMatch3Kit
                         Object.Destroy(go);
                         OnResolvedPowerup();
                     });
+                    if (GameState.IsTutorial)
+                    {
+                        seg = DOTween.Sequence();
+                        seg.AppendInterval(GameplayConstants.UseItemCrushDelay + GameplayConstants.FallingExistingTilesSpeed);
+                        seg.AppendCallback(() =>
+                        {
+                            World.GetExistingSystem<TutorialSystem>().ShowPath(2);
+                        });
+                    }
                 }
             }
             else if (Physics2D.RaycastNonAlloc(mousePos, Vector3.forward, raycastResults, Mathf.Infinity,

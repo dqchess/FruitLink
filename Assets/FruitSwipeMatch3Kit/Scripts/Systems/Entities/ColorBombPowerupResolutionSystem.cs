@@ -110,6 +110,17 @@ namespace FruitSwipeMatch3Kit
 
                         OnResolvedPowerup();
                     });
+                    if (GameState.IsTutorial)
+                    {
+                        seg = DOTween.Sequence();
+                        seg.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
+                        seg.AppendCallback(() =>
+                        {
+                            var tutorial = World.GetExistingSystem<TutorialSystem>();
+                            tutorial.Destroy();
+                            tutorial.ClearDarkTile();
+                        });
+                    }
                 }
             }
         }

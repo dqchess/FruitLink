@@ -19,7 +19,7 @@ MonoBehaviour:
   Star2Score: 500
   Star3Score: 750
   IsCrusherAvailable: 1
-  IsBombAvailable: 1
+  IsBombAvailable: 0
   IsSwapAvailable: 0
   IsColorBombAvailable: 0
   EndGameAward: 1

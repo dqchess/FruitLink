@@ -118,11 +118,7 @@ namespace FruitSwipeMatch3Kit
             var entityManager = World.Active.EntityManager;
             var e = entityManager.CreateEntity(typeof(CreateLevelEvent));
             entityManager.SetComponentData(e, new CreateLevelEvent { Number = levelData.Number });
-            if (levelToLoad == 1 || levelToLoad == 2 || levelToLoad == 3)
-            {
-                World.Active.GetExistingSystem<TutorialSystem>().Enabled = true;
-            }
-            
+
             goalsWidget.Initialize(levelData.Goals, tilePools);
             scoreWidget.Initialize(levelData);
             buyPowerupsWidget.Initialize(levelData);
@@ -179,6 +175,7 @@ namespace FruitSwipeMatch3Kit
             world.GetExistingSystem<MatchEndSystem>().Enabled = true;
             world.GetExistingSystem<PossibleMoveSystem>().Enabled = true;
             world.GetExistingSystem<SwapAllTileSystem>().Enabled = true;
+            world.GetExistingSystem<TutorialSystem>().Enabled = true;
         }
         
         private void DisableGameSystems()

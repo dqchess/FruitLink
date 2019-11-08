@@ -366,7 +366,6 @@ namespace FruitSwipeMatch3Kit
             GameObject go, BoosterType type, EntityManager entityManager, EntityCommandBuffer puc)
         {
             var goe = go.GetComponent<GameObjectEntity>();
-            Assert.IsNotNull(goe);
             var entity = goe.Entity;
             if (!entityManager.HasComponent<BoosterData>(entity))
             {
@@ -395,7 +394,7 @@ namespace FruitSwipeMatch3Kit
                         Type = type
                     });
 
-                    tile.AddBooster(type);
+                    tile.ReplaceBooster(type);
                 }
             }
         }

@@ -29,7 +29,7 @@ namespace FruitSwipeMatch3Kit
 
 		private GameScreen gameScreen;
 
-		private bool isAvailable;
+		private bool isAvailable = true;
 
 		public void Initialize(GameScreen screen, Sprite boosterSprite, int amount, bool available)
 		{
@@ -41,7 +41,7 @@ namespace FruitSwipeMatch3Kit
 			{
 				bgImage.sprite = bgSprite;
 				powerupImage.gameObject.SetActive(true);
-				powerupImage.sprite = boosterSprite;
+				if(boosterSprite != null) powerupImage.sprite = boosterSprite;
 				powerupImage.SetNativeSize();
 				if (amount > 0)
 				{

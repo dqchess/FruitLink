@@ -124,6 +124,16 @@ namespace FruitSwipeMatch3Kit
             tileA = null;
             tileB = null;
             isDragging = false;
+            
+            if (GameState.IsTutorial)
+            {
+                var seg = DOTween.Sequence();
+                seg.AppendInterval(GameplayConstants.FallingExistingTilesSpeed);
+                seg.AppendCallback(() =>
+                {
+                    World.GetExistingSystem<TutorialSystem>().ShowPath(2);
+                });
+            }
         }
     }
 }
