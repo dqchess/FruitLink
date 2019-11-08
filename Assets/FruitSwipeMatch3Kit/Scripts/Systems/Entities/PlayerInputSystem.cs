@@ -224,6 +224,15 @@ namespace FruitSwipeMatch3Kit
                 EntityManager.CreateEntity(checkMoveArcheType);
                 EntityManager.CreateEntity(matchHappenedArchetype);
             }
+            else
+            {
+                GameState.SuggestSequence = DOTween.Sequence();
+                GameState.SuggestSequence.AppendInterval(GameplayConstants.SuggetionDelay);
+                GameState.SuggestSequence.AppendCallback(() =>
+                {
+                    DisplaySuggetion(GameState.SuggestIndexes);
+                });
+            }
 
             foreach (var tile in selectedTiles)
                 tile.GetComponent<Animator>()?.SetTrigger(Idle);
