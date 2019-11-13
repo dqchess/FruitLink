@@ -158,7 +158,7 @@ namespace FruitSwipeMatch3Kit
             }
         }
 
-        private void OnMouseUp()
+        public void OnMouseUp()
         {
             isDraggingInput = false;
             if (selectedTiles.Count >= GameplayConstants.NumTilesNeededForMatch)

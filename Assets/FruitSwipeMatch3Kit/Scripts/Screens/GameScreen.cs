@@ -446,8 +446,8 @@ namespace FruitSwipeMatch3Kit
             CloseTopCanvas();
             GetComponent<ScreenTransition>().PerformTransition();
             #if !UNITY_EDITOR
-            #endif
             ShowAds();
+            #endif
         }
 
         public void EnablePowerupOverlay()
