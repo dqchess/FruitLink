@@ -333,5 +333,5 @@ MonoBehaviour:
     SlotType: 0
     BlockerType: 1
     CollectibleType: 0
-    Amount: 9
+    Amount: 8
   AvailableColors: 0400000001000000000000000200000003000000

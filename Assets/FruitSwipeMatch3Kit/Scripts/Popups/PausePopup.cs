@@ -49,6 +49,7 @@ namespace FruitSwipeMatch3Kit
 		public void OnContinueButtonPressed()
 		{
 			inputSystem.UnlockInput();
+			inputSystem.OnMouseUp();
 			Close();
 		}
 
